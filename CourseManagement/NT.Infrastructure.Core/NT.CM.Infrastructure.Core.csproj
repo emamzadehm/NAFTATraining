@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\NT.Infrastructure.Query\NT.Infrastructure.Query.csproj" />
+    <ProjectReference Include="..\NT.Application.Contracts\NT.CM.Application.Contracts.csproj" />
+    <ProjectReference Include="..\NT.Application\NT.CM.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NT.Infrastructure.EFCore\NT.CM.Infrastructure.EFCore.csproj" />
+  </ItemGroup>
+
+</Project>

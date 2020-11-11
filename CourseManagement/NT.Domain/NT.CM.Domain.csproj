@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+        <LangVersion>8.0</LangVersion>
+        <Nullable>annotations</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\01.Framework\01.Framework.csproj" />
+    <ProjectReference Include="..\..\UsersManagement\NT.UM.Domain\NT.UM.Domain.csproj" />
+    <ProjectReference Include="..\NT.Application.Contracts\NT.CM.Application.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

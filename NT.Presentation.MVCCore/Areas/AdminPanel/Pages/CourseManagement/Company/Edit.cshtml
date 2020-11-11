@@ -1,0 +1,58 @@
+﻿@model NT.CM.Application.Contracts.ViewModels.CompanyViewModel
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 class="modal-title">ویرایش شرکت</h4>
+</div>
+
+<form asp-page="./Index" asp-page-handler="Edit"
+      method="post"
+      data-ajax="true"
+      data-callback=""
+      data-action="Refresh"
+      enctype="multipart/form-data">
+    <div class="modal-body">
+        <input type="hidden" asp-for="ID" value="@Model.ID">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="CompanyName" class="control-label">نام شرکت</label>
+                    <input type="text" class="form-control" asp-for="CompanyName">
+                    <span asp-validation-for="CompanyName" class="error"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Logo" class="control-label">لوگو</label>
+                    <input type="text" class="form-control" asp-for="Logo">
+                    <span asp-validation-for="Logo" class="error"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="TypeID" class="control-label">نوع شرکت</label>
+                    <select class="form-control" asp-for="TypeID"
+                            asp-items='new SelectList(Model.CompanyType, "ID", "Title")'>
+                        <option value="0">نوع شرکت</option>
+                    </select>
+                    <span asp-validation-for="TypeID" class="error"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Website" class="control-label">وب سایت</label>
+                    <input type="email" class="form-control" asp-for="Website">
+                    <span asp-validation-for="Website" class="error"></span>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
+        <button type="submit" class="btn btn-info waves-effect waves-light">ویرایش</button>
+    </div>
+</form>

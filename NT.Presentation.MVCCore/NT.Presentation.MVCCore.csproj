@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <LangVersion>8.0</LangVersion>
+    <Nullable>annotations</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CourseManagement\NT.Infrastructure.Core\NT.CM.Infrastructure.Core.csproj" />
+    <ProjectReference Include="..\SiteManagement\NT.SM.Infrastructure.Core\NT.SM.Infrastructure.Core.csproj" />
+    <ProjectReference Include="..\UsersManagement\NT.UM.Infrastructure.Core\NT.UM.Infrastructure.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\AdminPanel\Pages\SiteManagement\" />
+  </ItemGroup>
+
+</Project>

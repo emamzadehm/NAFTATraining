@@ -1,0 +1,110 @@
+﻿@model NT.CM.Application.Contracts.CourseViewModel
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 class="modal-title">ثبت دوره</h4>
+</div>
+
+<form asp-page="./Index" asp-page-handler="Create"
+      method="post"
+      data-ajax="true"
+      data-callback=""
+      data-action="Refresh"
+      enctype="multipart/form-data">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="CName" class="control-label">عنوان دوره</label>
+                    <input type="text" class="form-control" asp-for="CName">
+                    <span asp-validation-for="CName" class="error"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Cost" class="control-label">هزینه به دلار</label>
+                    <input type="text" class="form-control" asp-for="Cost">
+                    <span asp-validation-for="Cost" class="error"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Duration" class="control-label">طول دوره</label>
+                    <input type="text" class="form-control" asp-for="Duration">
+                    <span asp-validation-for="Duration" class="error"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="CategoryID" class="control-label">گروه دوره</label>
+                    <input type="email" class="form-control" asp-for="CategoryID">
+                    <span asp-validation-for="CategoryID" class="error"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="CourseLevel" class="control-label">سطح دوره</label>
+                    <input type="tel" class="form-control" asp-for="CourseLevel">
+                    <span asp-validation-for="CourseLevel" class="error"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="CourseCatalog" class="control-label">کاتالوگ دوره</label>
+                    <input type="text" class="form-control" asp-for="CourseCatalog">
+                    <span asp-validation-for="CourseCatalog" class="error"></span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label">شرح</label>
+                    <textarea class="form-control" asp-for="Description" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 104px;"></textarea>
+                    <span asp-validation-for="Description" class="error"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="Audience" class="control-label">مخاطبین</label>
+                    <textarea class="form-control" asp-for="Audience" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 104px;"></textarea>
+                    <span asp-validation-for="Audience" class="error"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="DailyPlan" class="control-label">برنامه روزانه</label>
+                    <textarea class="form-control" asp-for="DailyPlan" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 104px;"></textarea>
+                    <span asp-validation-for="DailyPlan" class="error"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="IsPrivate" class="control-label">خصوصی</label>
+                    <input type="text" class="form-control" asp-for="IsPrivate">
+                    <span asp-validation-for="IsPrivate" class="error"></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
+        <button type="submit" class="btn btn-info waves-effect waves-light">ثبت</button>
+    </div>
+</form>

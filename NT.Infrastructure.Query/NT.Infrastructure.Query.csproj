@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CourseManagement\NT.Infrastructure.EFCore\NT.CM.Infrastructure.EFCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Interface\" />
+    <Folder Include="Query\" />
+    <Folder Include="ViewModel\" />
+  </ItemGroup>
+
+</Project>

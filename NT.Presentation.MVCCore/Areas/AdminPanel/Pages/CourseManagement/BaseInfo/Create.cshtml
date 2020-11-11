@@ -1,0 +1,55 @@
+﻿@model NT.CM.Application.Contracts.ViewModels.BaseInfoViewModel
+@{
+}
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 class="modal-title"> ثبت اطلاعات پایه </h4>
+</div>
+
+<form asp-page="./Index" asp-page-handler="Create"
+      method="post"
+      data-ajax="true"
+      data-callback=""
+      data-action="Refresh"
+      enctype="multipart/form-data">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label">عنوان</label>
+                    <input type="text" class="form-control" asp-for="Title">
+                    <span asp-validation-for="Title" class="error"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="ParentID" class="control-label">زیرمجموعه ی</label>
+                    <select class="form-control" asp-for="ParentID"
+                            asp-items='new SelectList(Model.Parent, "ID", "Title")'>
+                        <option value="Null">زیرمجموعه ی</option>
+                    </select>
+                    <span asp-validation-for="ParentID" class="error"></span>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="TypeID" class="control-label">نوع</label>
+                    <select class="form-control" asp-for="TypeID"
+                            asp-items='new SelectList(Model.Type, "ID", "Title")'>
+                        <option value="Null">نوع</option>
+                    </select>
+                    <span asp-validation-for="TypeID" class="error"></span>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
+        <button type="submit" class="btn btn-info waves-effect waves-light">ایجاد</button>
+    </div>
+</form>

@@ -1,0 +1,37 @@
+﻿@page
+@model NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Candidates.EditModel
+<div class="card-header">
+    <h3>Edit Course Candidates</h3>
+</div>
+<div class="card-body">
+    <div class="row">
+        <div class="col-md-12">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="form-group">
+                        @*<input type="hidden" asp-for="CourseCandidateViewModel.Id" />
+                        <input type="hidden" asp-for="CourseCandidateViewModel.CandidateId" />
+                        <label asp-for="CourseCandidateViewModel.Fullname" class="control-label">Full Name:</label>
+                        <input asp-for="CourseCandidateViewModel.Fullname" class="form-control" />
+                        <label asp-for="CourseCandidateViewModel.Email" class="control-label">Email:</label>
+                        <input asp-for="CourseCandidateViewModel.Email" class="form-control" />
+                        <label asp-for="CourseCandidateViewModel.Tel" class="control-label">Tel:</label>
+                        <input asp-for="CourseCandidateViewModel.Tel" class="form-control" />
+                        <label asp-for="CourseCandidateViewModel.Organization" class="control-label">Organization:</label>
+                        <input asp-for="CourseCandidateViewModel.Organization" class="form-control" />
+                        <label asp-for="CourseCandidateViewModel.CourseId" class="control-label">Course Name:</label>
+
+                        <select asp-items="Model.Courseviewmodel" asp-for="CourseCandidateViewModel.CourseId" class="selectpicker form-control" title="Please choose the course">
+                            //<option value="@Model.CourseCandidateViewModel.CourseId" selected>@Model.CourseCandidateViewModel.CourseName</option>
+                        </select>*@
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Update" class="btn btn-success" />
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

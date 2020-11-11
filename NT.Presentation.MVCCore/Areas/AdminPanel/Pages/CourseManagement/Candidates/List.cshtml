@@ -1,0 +1,47 @@
+﻿@page
+@model NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Candidates.ListModel
+@{
+}
+<div class="card-header">
+    <h3 class="float-left">Courses</h3>
+</div>
+<div class="float-right">
+    <a class="btn btn-success float-right" asp-page="Create">Craete New</a>
+</div>
+<div class="card-body">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>FullName</th>
+                <th>Email</th>
+                <th>Tel</th>
+                <th>Organization</th>
+                <th>Registered Course</th>
+                <th>Operations</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @*@foreach (var candidate in Model.CourseCandidateList)
+            {
+                <tr>
+                    <td>@candidate.Id</td>
+                    <td>@candidate.Fullname</td>
+                    <td>@candidate.Email</td>
+                    <td>@candidate.Tel</td>
+                    <td>@candidate.Organization</td>
+                    <td>@candidate.CourseName</td>
+                    <td>
+                        <a class="btn btn-info float-left" asp-page="./Edit" asp-route-id="@candidate.Id"><i class="fa fa-info fa-2x text-info"></i></a>
+
+                        <form method="post" asp-page-handler="Remove" asp-route-id="@candidate.Id">
+                            <button class="btn btn-danger float-left"><i class="fa fa-close fa-2x text-danger"></i></button>
+                        </form>
+                    </td>
+                </tr>
+            }*@
+
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,39 @@
+﻿@page 
+@model NT.Presentation.MVCCore.Pages.RegisterModel
+@{
+    ViewData["Title"] = "Pre-Registeration Form";
+    Layout = "~/Pages/Shared/_SubPagesLayout.cshtml";
+}
+
+<div class="card-header">
+    <h3>Pre-Registration in Nafta Courses</h3>
+</div>
+<div class="card-body">
+    <div class="row">
+        <div class="col-md-12">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="form-group">
+                        <label for="Fullname" class="control-label">Fullname:</label>
+                        <input name="Fullname" id="Fullname" class="form-control" />
+                        <label for="Email" class="control-label">Email:</label>
+                        <input type="email" name="Email" id="Email" class="form-control" />
+                        <label for="Tel" class="control-label">Tel:</label>
+                        <input type="tel" name="Tel" id="Tel" class="form-control" />
+                        <label for="Organization" class="control-label">Organization:</label>
+                        <input name="Organization" id="Organization" class="form-control" />
+                        <label for="CName" class="control-label">Course Name:</label>
+                        <select asp-items="Model.CourseList" id="ID" name="CourseId" class="selectpicker form-control" title="Please choose the course">
+                                
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Pre-Register" class="btn btn-success" />
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

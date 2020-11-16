@@ -1,4 +1,4 @@
-﻿@model NT.CM.Application.Contracts.ViewModels.CompanyViewModel
+﻿@model NT.CM.Application.Contracts.ViewModels.Companies.CompanyViewModel
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h4 class="modal-title">ثبت شرکت</h4>
@@ -31,19 +31,26 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label asp-for="TypeID" class="control-label">نوع شرکت</label>
-                    <select class="form-control" asp-for="TypeID"
-                            asp-items='new SelectList(Model.CompanyType, "ID", "Title")'>
-                        <option value="0">نوع شرکت</option>
-                    </select>
-                    <span asp-validation-for="TypeID" class="error"></span>
-
+                    <label asp-for="IsPartner" class="control-label">همکاران</label>
+                    <input type="text" class="form-control" asp-for="IsPartner">
+                    <span asp-validation-for="IsPartner" class="error"></span>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
+                    <label asp-for="IsClient" class="control-label">مشتریان</label>
+                    <input type="text" class="form-control" asp-for="IsClient">
+                    <span asp-validation-for="IsClient" class="error"></span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
                     <label asp-for="Website" class="control-label">وب سایت</label>
-                    <input type="email" class="form-control" asp-for="Website">
+                    <input type="text" class="form-control" asp-for="Website">
                     <span asp-validation-for="Website" class="error"></span>
                 </div>
             </div>
@@ -51,8 +58,8 @@
 
 
     </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
-        <button type="submit" class="btn btn-info waves-effect waves-light">ثبت</button>
-    </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
+            <button type="submit" class="btn btn-info waves-effect waves-light">ثبت</button>
+        </div>
 </form>

@@ -1,4 +1,5 @@
 ﻿using _01.Framework.Application;
+using NT.UM.Application.Contracts.ViewModels;
 using System.Collections.Generic;
 
 namespace NT.UM.Application.Contracts.Interfaces

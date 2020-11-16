@@ -1,10 +1,8 @@
 using System.Collections.Generic;
-using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using NT.CM.Application.Contracts.Interfaces;
-using NT.CM.Application.Contracts.ViewModels;
+using NT.CM.Application.Contracts.ViewModels.Companies;
 
 namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Company
 {
@@ -13,13 +11,12 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Compan
         //public List<SelectListItem> TypeIDModel { get; set; }
 
         private readonly ICompanyApplication _icompanyapplication;
-        private readonly IBaseInfoApplication _ibaseinfoapplication;
         public List<CompanyViewModel> companyVM { get; set; }
         public CompanyViewModel SearchModel { get; set; }
-        public IndexModel(ICompanyApplication icompanyapplication, IBaseInfoApplication ibaseinfoapplication)
+
+        public IndexModel(ICompanyApplication icompanyapplication)
         {
             _icompanyapplication = icompanyapplication;
-            _ibaseinfoapplication = ibaseinfoapplication;
         }
 
         public void OnGet(CompanyViewModel searchmodel)
@@ -28,10 +25,7 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Compan
         }
         public IActionResult OnGetCreate()
         {
-            var companyvm = new CompanyViewModel {
-                CompanyType = _ibaseinfoapplication.GetAll()
-            };
-            return Partial("./Create", companyvm);
+            return Partial("./Create", new CompanyViewModel());
         }
         public JsonResult OnPostCreate(CompanyViewModel companyvm)
         {
@@ -41,7 +35,6 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Compan
         public IActionResult OnGetEdit(int id)
         {
             var selecteditem = _icompanyapplication.GetBy(id);
-            selecteditem.CompanyType = _ibaseinfoapplication.GetAll();
             return Partial("./Edit", selecteditem);
         }
         public JsonResult OnPostEdit(CompanyViewModel companyvm)
@@ -49,10 +42,10 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Compan
             var result = _icompanyapplication.Edit(companyvm);
             return new JsonResult(result);
         }
-        public JsonResult OnPostRemove(CompanyViewModel companyvm)
+        public IActionResult OnGetRemove(CompanyViewModel companyvm)
         {
-            var result = _icompanyapplication.Remove(companyvm.ID);
-            return new JsonResult(result);
+            _icompanyapplication.Remove(companyvm.ID);
+            return RedirectToPage("Index");
         }
     }
 }

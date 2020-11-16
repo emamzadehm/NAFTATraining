@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using _01.Framework.Application;
 using NT.CM.Application.Contracts;
+using NT.CM.Application.Contracts.ViewModels.Courses;
 using NT.CM.Domain;
 using NT.CM.Domain.CourseAgg;
 
@@ -50,51 +51,33 @@ namespace NT.CM.Application
 
         public CourseViewModel GetBy(long id)
         {
+            return _courserepository.GetDetails(id);
 
-            var SelectedItem = _courserepository.GetBy(id);
-            var result = new CourseViewModel
-            {
-                ID = SelectedItem.ID,
-                CName = SelectedItem.CName,
-                Description = SelectedItem.Description,
-                Audience = SelectedItem.Audience,
-                DailyPlan = SelectedItem.DailyPlan,
-                Cost = SelectedItem.Cost,
-                CourseCatalog = SelectedItem.CourseCatalog,
-                CourseLevel = SelectedItem.CourseLevel,
-                Duration = SelectedItem.Duration,
-                CategoryID = SelectedItem.CategoryID
-            };
+            //var SelectedItem = _courserepository.GetBy(id);
+            //var result = new CourseViewModel
+            //{
+            //    ID = SelectedItem.ID,
+            //    CName = SelectedItem.CName,
+            //    Description = SelectedItem.Description,
+            //    Audience = SelectedItem.Audience,
+            //    DailyPlan = SelectedItem.DailyPlan,
+            //    Cost = SelectedItem.Cost,
+            //    CourseCatalog = SelectedItem.CourseCatalog,
+            //    CourseLevel = SelectedItem.CourseLevel,
+            //    Duration = SelectedItem.Duration,
+            //    CategoryID = SelectedItem.CategoryID,
+            //    IsPrivate=SelectedItem.IsPrivate,
+            //    CategoryIDTitle=SelectedItem.BaseInfoCategory.Title,
+            //    CourseLevelTitle=SelectedItem.BaseInfoCourseLevel.Title
+            //};
 
-            return result;
+            //return result;
         }
 
         public List<CourseViewModel> Search(CourseViewModel searchmodel)
         {
             return _courserepository.Search(searchmodel);
         }
-        //public List<CourseViewModel> List()
-        //{
-        //    var courses = _courserepository.GetAll();
-        //    var result = new List<CourseViewModel>();
-        //    foreach (var course in courses)
-        //    {
-        //        result.Add(new CourseViewModel
-        //        {
-        //            ID = course.ID,
-        //            CName = course.CName,
-        //            Description = course.Description,
-        //            Audience = course.Audience,
-        //            DailyPlan = course.DailyPlan,
-        //            Cost = course.Cost,
-        //            CourseCatalog = course.CourseCatalog,
-        //            CourseLevelTitle = course.BaseInfoCourseLevel?.Title,
-        //            Duration = course.Duration,
-        //            CategoryIDTitle = course.BaseInfoCategory?.Title
-        //        });
-        //    }
-        //    return result;
-        //}
 
     }
 }

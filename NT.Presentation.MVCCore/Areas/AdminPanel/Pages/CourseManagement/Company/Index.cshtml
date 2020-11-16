@@ -49,7 +49,8 @@
                                 <tr>
                                     <th>نام شرکت</th>
                                     <th>لوگو</th>
-                                    <th>نوع شرکت</th>
+                                    <th>مشتریان</th>
+                                    <th>همکاران</th>
                                     <th>وب سایت</th>
                                     <th>عملیات</th>
                                 </tr>
@@ -57,22 +58,40 @@
                             <tbody>
                                 @foreach (var item in Model.companyVM)
                                 {
-                                    <tr>
-                                        <td>@item.CompanyName</td>
-                                        <td>@item.Logo</td>
-                                        <td>@item.TypeName</td>
-                                        <td>@item.Website</td>
-                                        <td>
-                                            <a class="btn btn-warning pull-right m-rl-5"
-                                               href="#showmodal=@Url.Page("./Index", "Edit", new { id = item.ID})">
-                                                <i class="fa fa-edit"></i> ویرایش
-                                            </a>
-                                            <a class="btn btn-danger pull-right m-rl-5"
-                                               href="#showmodal=@Url.Page("./Index", "Remove", new { id = item.ID})">
-                                                <i class="fa fa-edit"></i> حذف
-                                            </a>
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td>@item.CompanyName</td>
+                                    <td>@item.Logo</td>
+                                    <td class="text-center">
+                                        @if (item.IsClient == true)
+                                        {
+                                            <i class="fa fa-check fa-2x text-success"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="fa fa-remove fa-2x text-danger"></i>
+                                        }
+                                    </td>
+                                    <td class="text-center">
+                                        @if (item.IsPartner == true)
+                                        {
+                                            <i class="fa fa-check fa-2x text-success"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="fa fa-remove fa-2x text-danger"></i>
+                                        }
+                                    </td>
+                                    <td>@item.Website</td>
+                                    <td>
+                                        <a class="btn btn-warning pull-right m-rl-5"
+                                           href="#showmodal=@Url.Page("./Index", "Edit", new { id = item.ID})">
+                                            <i class="fa fa-edit"></i> ویرایش
+                                        </a>
+                                        <a class="btn btn-danger pull-right m-rl-5" asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.ID">
+                                            <i class="fa fa-edit"></i> حذف
+                                        </a>
+                                    </td>
+                                </tr>
                                 }
                             </tbody>
                         </table>

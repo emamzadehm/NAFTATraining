@@ -15,6 +15,21 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
             _ntcontext = ntcontext;
         }
 
+        public GalleryViewModel GetDetails(long id)
+        {
+            var result = _ntcontext.Tbl_Gallery.Where(x => x.Status == true).Select(listitem => new GalleryViewModel
+            {
+                ID = listitem.ID,
+                Title = listitem.Title,
+                TypeID = listitem.TypeID,
+                TypeName = listitem.BaseInfo.Title,
+                PhotoAddress = listitem.PhotoAddress,
+                ParentID = listitem.ParentID,
+                ParentName = listitem.gallery.Title
+            }).FirstOrDefault(x=>x.ID==id);
+            return result;
+        }
+
         public List<GalleryViewModel> Search(GalleryViewModel command)
         {
             var Query = _ntcontext.Tbl_Gallery.Where(x => x.Status == true).Select(listitem => new GalleryViewModel
@@ -22,10 +37,16 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                 ID = listitem.ID,
                 Title = listitem.Title,
                 TypeID = listitem.TypeID,
-                BaseInfoName=listitem.BaseInfo.Title,
+                TypeName=listitem.BaseInfo.Title,
                 PhotoAddress=listitem.PhotoAddress,
-                ParentID=listitem.ParentID
+                ParentID=listitem.ParentID,
+                ParentName=listitem.gallery.Title
+               
             });
+            if (command.ParentID == null)
+                Query = Query.Where(x => x.ParentID == null);
+            if (command.ID>0)
+                Query = Query.Where(x => x.ID==command.ID ||  x.ParentID == command.ID );
             if (!string.IsNullOrWhiteSpace(command.Title))
                 Query = Query.Where(x => x.Title.Contains(command.Title));
             return Query.OrderBy(x => x.ID).ToList();

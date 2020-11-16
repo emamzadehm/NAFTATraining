@@ -1,4 +1,4 @@
-﻿@model NT.CM.Application.Contracts.ViewModels.BaseInfoViewModel
+﻿@model NT.CM.Application.Contracts.ViewModels.BaseInfo.BaseInfoViewModel
 @{
 }
 <div class="modal-header">
@@ -38,7 +38,7 @@
                 <div class="form-group">
                     <label asp-for="TypeID" class="control-label">نوع</label>
                     <select class="form-control" asp-for="TypeID"
-                            asp-items='new SelectList(Model.Type, "ID", "Title")'>
+                            asp-items='new SelectList(Model.Types, "ID", "Title")'>
                         <option value="Null">نوع</option>
                     </select>
                     <span asp-validation-for="TypeID" class="error"></span>

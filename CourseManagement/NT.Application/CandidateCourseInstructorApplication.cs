@@ -3,7 +3,6 @@ using NT.CM.Application.Contracts;
 using NT.CM.Application.Contracts.ViewModels.CandidateCourseInstructor;
 using NT.CM.Domain;
 using NT.CM.Domain.CandidateCourseInstructorAgg;
-using System;
 using System.Collections.Generic;
 
 namespace NT.CM.Application

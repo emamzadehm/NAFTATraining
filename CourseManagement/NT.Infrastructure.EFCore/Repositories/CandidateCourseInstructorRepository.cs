@@ -1,5 +1,4 @@
 ﻿using _01.Framework.Infrastructure.EFCore;
-using Microsoft.EntityFrameworkCore;
 using NT.CM.Application.Contracts.ViewModels.CandidateCourseInstructor;
 using NT.CM.Domain;
 using NT.CM.Domain.CandidateCourseInstructorAgg;

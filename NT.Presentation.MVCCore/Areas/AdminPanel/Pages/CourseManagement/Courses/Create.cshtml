@@ -1,4 +1,4 @@
-﻿@model NT.CM.Application.Contracts.CourseViewModel
+﻿@model NT.CM.Application.Contracts.ViewModels.Courses.CourseViewModel
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h4 class="modal-title">ثبت دوره</h4>
@@ -32,15 +32,19 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label asp-for="Duration" class="control-label">طول دوره</label>
-                    <input type="text" class="form-control" asp-for="Duration">
+                    <input type="text" class="form-control" asp-for="Duration" placeholder="روز">
                     <span asp-validation-for="Duration" class="error"></span>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label asp-for="CategoryID" class="control-label">گروه دوره</label>
-                    <input type="email" class="form-control" asp-for="CategoryID">
+                    <label asp-for="CategoryID" class="control-label">گروه</label>
+                    <select class="form-control" asp-for="CategoryID"
+                            asp-items='new SelectList(Model.Category, "ID", "Title")'>
+                        <option value="Null">گروه دوره</option>
+                    </select>
                     <span asp-validation-for="CategoryID" class="error"></span>
+
                 </div>
             </div>
         </div>
@@ -48,9 +52,13 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label asp-for="CourseLevel" class="control-label">سطح دوره</label>
-                    <input type="tel" class="form-control" asp-for="CourseLevel">
+                    <label asp-for="CourseLevel" class="control-label">سطح</label>
+                    <select class="form-control" asp-for="CourseLevel"
+                            asp-items='new SelectList(Model.Level, "ID", "Title")'>
+                        <option value="Null">سطح دوره</option>
+                    </select>
                     <span asp-validation-for="CourseLevel" class="error"></span>
+
                 </div>
             </div>
             <div class="col-md-6">
@@ -95,8 +103,10 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label asp-for="IsPrivate" class="control-label">خصوصی</label>
-                    <input type="text" class="form-control" asp-for="IsPrivate">
+                    <div class="form-check form-check-inline">
+                        <input asp-for="IsPrivate" class="form-check-input" type="checkbox">
+                        <label class="form-check-label" asp-for="IsPrivate">خصوصی</label>
+                    </div>
                     <span asp-validation-for="IsPrivate" class="error"></span>
                 </div>
             </div>

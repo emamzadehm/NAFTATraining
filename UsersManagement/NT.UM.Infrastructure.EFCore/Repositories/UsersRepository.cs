@@ -1,8 +1,7 @@
 ﻿using _01.Framework.Infrastructure.EFCore;
-using NT.UM.Application.Contracts;
+using NT.UM.Application.Contracts.ViewModels;
 using NT.UM.Domain;
 using NT.UM.Domain.UsersAgg;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 

@@ -1,5 +1,5 @@
 ﻿using _01.Framework.Application;
-using NT.CM.Application.Contracts.ViewModels;
+using NT.CM.Application.Contracts.ViewModels.Companies;
 using System.Collections.Generic;
 
 namespace NT.CM.Application.Contracts.Interfaces

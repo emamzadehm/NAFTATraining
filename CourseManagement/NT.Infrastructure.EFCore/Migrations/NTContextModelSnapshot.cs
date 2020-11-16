@@ -37,7 +37,8 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
 
                     b.Property<long?>("TypeID")
                         .HasColumnType("bigint");
@@ -49,6 +50,46 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     b.HasIndex("TypeID");
 
                     b.ToTable("Tbl_Base_Info");
+                });
+
+            modelBuilder.Entity("NT.CM.Domain.CandidateAgg.Candidate", b =>
+                {
+                    b.Property<long>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CityOfBirth")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long?>("CompanyID")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DOB")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("NationalityID")
+                        .HasColumnType("bigint");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("CompanyID");
+
+                    b.HasIndex("NationalityID");
+
+                    b.ToTable("Tbl_Candidate");
                 });
 
             modelBuilder.Entity("NT.CM.Domain.CandidateCourseInstructorAgg.CandidateCourseInstructor", b =>
@@ -90,6 +131,9 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<long?>("BaseInfoID")
+                        .HasColumnType("bigint");
+
                     b.Property<string>("CompanyName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -97,21 +141,24 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("IsClient")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsPartner")
+                        .HasColumnType("bit");
+
                     b.Property<byte[]>("Logo")
                         .HasColumnType("varbinary(max)");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
-                    b.Property<long>("TypeID")
-                        .HasColumnType("bigint");
-
                     b.Property<string>("Website")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
-                    b.HasIndex("TypeID");
+                    b.HasIndex("BaseInfoID");
 
                     b.ToTable("Tbl_Companies");
                 });
@@ -263,7 +310,7 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("ParentID")
+                    b.Property<long?>("ParentID")
                         .HasColumnType("bigint");
 
                     b.Property<string>("PhotoAddress")
@@ -289,7 +336,7 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     b.ToTable("Tbl_Gallery");
                 });
 
-            modelBuilder.Entity("NT.UM.Domain.UsersAgg.Permissions", b =>
+            modelBuilder.Entity("NT.CM.Domain.InstructorAgg.Instructor", b =>
                 {
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
@@ -299,194 +346,20 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Permissions");
-                });
-
-            modelBuilder.Entity("NT.UM.Domain.UsersAgg.RolePermission", b =>
-                {
-                    b.Property<long>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("PermissionID")
-                        .HasColumnType("int");
-
-                    b.Property<long?>("PermissionsID")
-                        .HasColumnType("bigint");
-
-                    b.Property<int>("RoleID")
-                        .HasColumnType("int");
-
-                    b.Property<long?>("RolesID")
-                        .HasColumnType("bigint");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("PermissionsID");
-
-                    b.HasIndex("RolesID");
-
-                    b.ToTable("RolePermission");
-                });
-
-            modelBuilder.Entity("NT.UM.Domain.UsersAgg.Roles", b =>
-                {
-                    b.Property<long>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RoleName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Roles");
-                });
-
-            modelBuilder.Entity("NT.UM.Domain.UsersAgg.Users", b =>
-                {
-                    b.Property<long>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Discriminator")
+                    b.Property<string>("EducationLevel")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<byte[]>("IDCardIMG")
-                        .HasColumnType("varbinary(max)");
-
-                    b.Property<byte[]>("IMG")
-                        .HasColumnType("varbinary(max)");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Sex")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Tel")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Users");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Users");
-                });
-
-            modelBuilder.Entity("NT.UM.Domain.UsersAgg.UsersRoles", b =>
-                {
-                    b.Property<long>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long>("RoleID")
-                        .HasColumnType("bigint");
-
-                    b.Property<long?>("RolesID")
-                        .HasColumnType("bigint");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.Property<long>("UserID")
-                        .HasColumnType("bigint");
-
-                    b.Property<long?>("UsersID")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("RolesID");
-
-                    b.HasIndex("UsersID");
-
-                    b.ToTable("UsersRoles");
-                });
-
-            modelBuilder.Entity("NT.CM.Domain.CandidateAgg.Candidate", b =>
-                {
-                    b.HasBaseType("NT.UM.Domain.UsersAgg.Users");
-
-                    b.Property<string>("CityOfBirth")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<long?>("CompanyID")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("DOB")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NID")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<long?>("NationalityID")
-                        .HasColumnType("bigint");
-
-                    b.HasIndex("CompanyID");
-
-                    b.HasIndex("NationalityID");
-
-                    b.HasDiscriminator().HasValue("Candidate");
-                });
-
-            modelBuilder.Entity("NT.CM.Domain.InstructorAgg.Instructor", b =>
-                {
-                    b.HasBaseType("NT.UM.Domain.UsersAgg.Users");
-
-                    b.Property<string>("EducationLevel")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Resume")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasDiscriminator().HasValue("Instructor");
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Tbl_Instructor");
                 });
 
             modelBuilder.Entity("Domain.BaseInfoAgg.BaseInfo", b =>
@@ -498,6 +371,19 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     b.HasOne("Domain.BaseInfoAgg.BaseInfo", "Type")
                         .WithMany("TypeChilds")
                         .HasForeignKey("TypeID");
+                });
+
+            modelBuilder.Entity("NT.CM.Domain.CandidateAgg.Candidate", b =>
+                {
+                    b.HasOne("NT.CM.Domain.CompanyAgg.Company", "Company")
+                        .WithMany("Candidates")
+                        .HasForeignKey("CompanyID");
+
+                    b.HasOne("Domain.BaseInfoAgg.BaseInfo", "BaseInfo")
+                        .WithMany("Candidates")
+                        .HasForeignKey("NationalityID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("NT.CM.Domain.CandidateCourseInstructorAgg.CandidateCourseInstructor", b =>
@@ -517,11 +403,9 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
 
             modelBuilder.Entity("NT.CM.Domain.CompanyAgg.Company", b =>
                 {
-                    b.HasOne("Domain.BaseInfoAgg.BaseInfo", "BaseInfo")
+                    b.HasOne("Domain.BaseInfoAgg.BaseInfo", null)
                         .WithMany("Companies")
-                        .HasForeignKey("TypeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BaseInfoID");
                 });
 
             modelBuilder.Entity("NT.CM.Domain.CourseAgg.Course", b =>
@@ -577,48 +461,13 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                 {
                     b.HasOne("NT.CM.Domain.GalleryAgg.Gallery", "gallery")
                         .WithMany("Galleries")
-                        .HasForeignKey("ParentID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ParentID");
 
                     b.HasOne("Domain.BaseInfoAgg.BaseInfo", "BaseInfo")
                         .WithMany("Galleries")
                         .HasForeignKey("TypeID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("NT.UM.Domain.UsersAgg.RolePermission", b =>
-                {
-                    b.HasOne("NT.UM.Domain.UsersAgg.Permissions", "Permissions")
-                        .WithMany("RolePermissions")
-                        .HasForeignKey("PermissionsID");
-
-                    b.HasOne("NT.UM.Domain.UsersAgg.Roles", "Roles")
-                        .WithMany("RolePermissions")
-                        .HasForeignKey("RolesID");
-                });
-
-            modelBuilder.Entity("NT.UM.Domain.UsersAgg.UsersRoles", b =>
-                {
-                    b.HasOne("NT.UM.Domain.UsersAgg.Roles", "Roles")
-                        .WithMany("UsersRoless")
-                        .HasForeignKey("RolesID");
-
-                    b.HasOne("NT.UM.Domain.UsersAgg.Users", "Users")
-                        .WithMany("UsersRoless")
-                        .HasForeignKey("UsersID");
-                });
-
-            modelBuilder.Entity("NT.CM.Domain.CandidateAgg.Candidate", b =>
-                {
-                    b.HasOne("NT.CM.Domain.CompanyAgg.Company", "Company")
-                        .WithMany("Candidates")
-                        .HasForeignKey("CompanyID");
-
-                    b.HasOne("Domain.BaseInfoAgg.BaseInfo", "BaseInfo")
-                        .WithMany("Candidates")
-                        .HasForeignKey("NationalityID");
                 });
 #pragma warning restore 612, 618
         }

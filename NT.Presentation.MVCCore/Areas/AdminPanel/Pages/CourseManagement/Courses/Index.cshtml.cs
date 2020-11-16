@@ -1,21 +1,23 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using NT.CM.Application.Contracts;
+using NT.CM.Application.Contracts.Interfaces;
+using NT.CM.Application.Contracts.ViewModels.Courses;
 
 namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Courses
 {
     public class IndexModel : PageModel
     {
-        public ICourseApplication _icourseapplication;
+        private readonly ICourseApplication _icourseapplication;
+        private readonly IBaseInfoApplication _ibaseinfoapplication;
         public List<CourseViewModel> courseVM { get; set; }
         public CourseViewModel SearchModel { get; set; }
-        public IndexModel(ICourseApplication icoursepplication)
+
+        public IndexModel(ICourseApplication icourseapplication, IBaseInfoApplication ibaseinfoapplication)
         {
-            _icourseapplication = icoursepplication;
+            _icourseapplication = icourseapplication;
+            _ibaseinfoapplication = ibaseinfoapplication;
         }
 
         public void OnGet(CourseViewModel searchmodel)
@@ -24,7 +26,12 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Course
         }
         public IActionResult OnGetCreate()
         {
-            return Partial("./Create", new CourseViewModel());
+            var command = new CourseViewModel
+            {
+                Level = _ibaseinfoapplication.GetAll(),
+                Category = _ibaseinfoapplication.GetAll()
+            };
+            return Partial("./Create", command);
         }
         public JsonResult OnPostCreate(CourseViewModel coursevm)
         {
@@ -34,6 +41,8 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Course
         public IActionResult OnGetEdit(int id)
         {
             var selecteditem = _icourseapplication.GetBy(id);
+            selecteditem.Category = _ibaseinfoapplication.GetAll();
+            selecteditem.Level = _ibaseinfoapplication.GetAll();
             return Partial("./Edit", selecteditem);
         }
         public JsonResult OnPostEdit(CourseViewModel coursevm)
@@ -41,10 +50,10 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Course
             var result = _icourseapplication.Edit(coursevm);
             return new JsonResult(result);
         }
-        public JsonResult OnPostRemove(CourseViewModel coursevm)
+        public IActionResult OnGetRemove(CourseViewModel coursevm)
         {
-            var result = _icourseapplication.Remove(coursevm.ID);
-            return new JsonResult(result);
+            _icourseapplication.Remove(coursevm.ID);
+            return RedirectToPage("Index");
         }
     }
 }

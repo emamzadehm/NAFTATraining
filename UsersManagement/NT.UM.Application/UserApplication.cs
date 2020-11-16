@@ -1,6 +1,6 @@
 ﻿using _01.Framework.Application;
-using NT.UM.Application.Contracts;
 using NT.UM.Application.Contracts.Interfaces;
+using NT.UM.Application.Contracts.ViewModels;
 using NT.UM.Domain;
 using NT.UM.Domain.UsersAgg;
 using System.Collections.Generic;

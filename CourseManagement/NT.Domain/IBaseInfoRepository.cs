@@ -1,6 +1,6 @@
 ﻿using _01.Framework.Domain;
 using Domain.BaseInfoAgg;
-using NT.CM.Application.Contracts.ViewModels;
+using NT.CM.Application.Contracts.ViewModels.BaseInfo;
 using System.Collections.Generic;
 
 namespace NT.CM.Domain
@@ -9,5 +9,7 @@ namespace NT.CM.Domain
     {
         List<BaseInfoViewModel> Search(BaseInfoViewModel command);
         List<BaseInfoViewModel> GetAll();
+        List<BaseInfoViewModel> GetAllTypes();
+        List<BaseInfoViewModel> GetByTypeId(long typeid);
     }
 }

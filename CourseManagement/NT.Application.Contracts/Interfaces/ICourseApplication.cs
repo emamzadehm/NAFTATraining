@@ -1,7 +1,6 @@
 ﻿using _01.Framework.Application;
-using System;
+using NT.CM.Application.Contracts.ViewModels.Courses;
 using System.Collections.Generic;
-using System.Text;
 
 namespace NT.CM.Application.Contracts
 {

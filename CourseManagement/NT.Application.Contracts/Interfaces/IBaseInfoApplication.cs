@@ -1,8 +1,6 @@
 ﻿using _01.Framework.Application;
-using NT.CM.Application.Contracts.ViewModels;
-using System;
+using NT.CM.Application.Contracts.ViewModels.BaseInfo;
 using System.Collections.Generic;
-using System.Text;
 
 namespace NT.CM.Application.Contracts.Interfaces
 {
@@ -14,5 +12,8 @@ namespace NT.CM.Application.Contracts.Interfaces
         BaseInfoViewModel GetBy(long id);
         List<BaseInfoViewModel> Search(BaseInfoViewModel searchmodel);
         List<BaseInfoViewModel> GetAll();
+        List<BaseInfoViewModel> GetAllTypes();
+
+        List<BaseInfoViewModel> GetByTypeId(long typeid);
     }
 }

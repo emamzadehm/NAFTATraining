@@ -9,7 +9,6 @@ using NT.CM.Domain.CourseInstructorAgg;
 
 namespace Domain.BaseInfoAgg
 {
-    //public class BaseInfo : DomainBase<int, bool>
     public class BaseInfo : DomainBase
     {
         public string Title { get; private set; }

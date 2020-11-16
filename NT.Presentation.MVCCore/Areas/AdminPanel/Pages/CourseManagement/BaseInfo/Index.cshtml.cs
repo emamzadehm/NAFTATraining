@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using NT.CM.Application.Contracts.Interfaces;
-using NT.CM.Application.Contracts.ViewModels;
+using NT.CM.Application.Contracts.ViewModels.BaseInfo;
 
 namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.BaseInfo
 {
@@ -11,6 +12,8 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.BaseIn
         public IBaseInfoApplication _ibaseinfoapplication;
         public List<BaseInfoViewModel> baseinfoVM { get; set; }
         public BaseInfoViewModel SearchModel { get; set; }
+        public SelectList BaseInfoTypes;
+
         public IndexModel(IBaseInfoApplication ibaseinfoapplication)
         {
             _ibaseinfoapplication = ibaseinfoapplication;
@@ -18,13 +21,15 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.BaseIn
 
         public void OnGet(BaseInfoViewModel searchmodel)
         {
+            BaseInfoTypes = new SelectList(_ibaseinfoapplication.GetAllTypes(),"ID","Title");
+                
             baseinfoVM = _ibaseinfoapplication.Search(searchmodel);
         }
         public IActionResult OnGetCreate()
         {
             var command = new BaseInfoViewModel
             {
-                Type = _ibaseinfoapplication.GetAll(),
+                Types = _ibaseinfoapplication.GetAll(),
                 Parent=_ibaseinfoapplication.GetAll()
             };
             return Partial("./Create", command);
@@ -38,7 +43,7 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.BaseIn
         {
             var selecteditem = _ibaseinfoapplication.GetBy(id);
             selecteditem.Parent = _ibaseinfoapplication.GetAll();
-            selecteditem.Type = _ibaseinfoapplication.GetAll();
+            selecteditem.Types = _ibaseinfoapplication.GetAll();
             return Partial("./Edit", selecteditem);
         }
         public JsonResult OnPostEdit(BaseInfoViewModel baseinfovm)
@@ -46,10 +51,10 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.BaseIn
             var result = _ibaseinfoapplication.Edit(baseinfovm);
             return new JsonResult(result);
         }
-        public JsonResult OnPostRemove(BaseInfoViewModel baseinfovm)
+        public IActionResult OnGetRemove(BaseInfoViewModel baseinfovm)
         {
-            var result = _ibaseinfoapplication.Remove(baseinfovm.ID);
-            return new JsonResult(result);
+            _ibaseinfoapplication.Remove(baseinfovm.ID);
+            return RedirectToPage("Index");
         }
 
     }

@@ -18,7 +18,7 @@
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">جستجو در اطلاعات پایه</h3>
+                <h3 class="panel-title">جستجو در دوره ها</h3>
             </div>
             <div class="panel-body">
                 <form class="form-inline" role="form" method="get">
@@ -38,7 +38,7 @@
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">کاربران</h3>
+                <h3 class="panel-title">دوره ها</h3>
             </div>
             <div class="panel-body">
                 <div class="row">
@@ -48,6 +48,7 @@
                                 <tr>
                                     <th>نام دوره</th>
                                     <th>هزینه</th>
+                                    <th>کاتالوگ دوره</th>
                                     <th>تعداد روز</th>
                                     <th>گروه دوره</th>
                                     <th>خصوصی</th>
@@ -57,19 +58,28 @@
                             <tbody>
                                 @foreach (var item in Model.courseVM)
                                 {
-                                    <tr>
-                                        <td>@item.CName</td>
-                                        <td>@item.CourseCatalog</td>
-                                        <td>@item.Duration</td>
-                                        <td>@item.CategoryIDTitle</td>
-                                        <td>@item.IsPrivate</td>
+                                <tr>
+                                    <td>@item.CName</td>
+                                    <td>@item.Cost</td>
+                                    <td>@item.CourseCatalog</td>
+                                    <td>@item.Duration</td>
+                                    <td>@item.CategoryIDTitle</td>
+                                    <td class="text-center">
+                                        @if (item.IsPrivate == true)
+                                        {
+                                            <i class="fa fa-check fa-2x text-success"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="fa fa-remove fa-2x text-danger"></i>
+                                        }
+                                    </td>
                                         <td>
                                             <a class="btn btn-warning pull-right m-rl-5"
                                                href="#showmodal=@Url.Page("./Index", "Edit", new { id = item.ID})">
                                                 <i class="fa fa-edit"></i> ویرایش
                                             </a>
-                                            <a class="btn btn-danger pull-right m-rl-5"
-                                               href="#showmodal=@Url.Page("./Index", "Remove", new { id = item.ID})">
+                                            <a class="btn btn-danger pull-right m-rl-5" asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.ID">
                                                 <i class="fa fa-edit"></i> حذف
                                             </a>
                                         </td>

@@ -27,7 +27,7 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                 SDate=listitem.SDate,
                 EDate=listitem.EDate,
                 InstructorID=listitem.InstructorID,
-                InstructorName=listitem.Instructor.FirstName + " " + listitem.Instructor.LastName,
+                //InstructorName=listitem.Instructor.FirstName + " " + listitem.Instructor.LastName,
                 Location=listitem.Location,
                 LocationName=listitem.BaseInfo.Title,
                 Venue=listitem.Venue

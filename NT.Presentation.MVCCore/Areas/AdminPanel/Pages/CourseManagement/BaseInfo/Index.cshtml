@@ -24,8 +24,14 @@
             <div class="panel-body">
                 <form class="form-inline" role="form" method="get">
                     <div class="form-group">
-                        <label class="sr-only" asp-for="SearchModel.Title"></label>
-                        <input class="form-control" asp-for="SearchModel.Title" placeholder="عنوان">
+                        <label class="sr-only" asp-for="SearchModel.ID"></label>
+                        <input class="form-control" asp-for="SearchModel.ID" placeholder="عنوان">
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" asp-for="SearchModel.TypeID"></label>
+                        <select class="form-control" asp-for="SearchModel.TypeID" asp-items="Model.BaseInfoTypes">
+                            <option value="Null">گروه ها</option>
+                        </select>
                     </div>
                     <button type="submit" class="btn btn-success waves-effect waves-light m-l-10">جستجو</button>
                     <a class="btn btn-primary waves-effect waves-light m-l-10" asp-page="./Index">مشاهده همه</a>
@@ -65,8 +71,7 @@
                                            href="#showmodal=@Url.Page("./Index", "Edit", new { id = item.ID})">
                                             <i class="fa fa-edit"></i> ویرایش
                                         </a>
-                                        <a class="btn btn-danger pull-right m-rl-5"
-                                           href="#showmodal=@Url.Page("./Index", "Remove", new { id = item.ID})">
+                                        <a class="btn btn-danger pull-right m-rl-5" asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.ID">
                                             <i class="fa fa-edit"></i> حذف
                                         </a>
                                     </td>

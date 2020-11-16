@@ -1,8 +1,6 @@
 ﻿using _01.Framework.Application;
 using NT.CM.Application.Contracts.ViewModels.CandidateCourseInstructor;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace NT.CM.Application.Contracts
 {

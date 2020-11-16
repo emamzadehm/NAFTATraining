@@ -3,9 +3,7 @@ using NT.CM.Application.Contracts.Interfaces;
 using NT.CM.Application.Contracts.ViewModels.CourseInstructor;
 using NT.CM.Domain;
 using NT.CM.Domain.CourseInstructorAgg;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace NT.CM.Application
 {
@@ -59,7 +57,7 @@ namespace NT.CM.Application
                 CourseID=SelectedItem.CourseID,
                 CourseName=SelectedItem.Course.CName,
                 InstructorID=SelectedItem.InstructorID,
-                InstructorName=SelectedItem.Instructor.FirstName + " " + SelectedItem.Instructor.LastName,
+                //InstructorName=SelectedItem.Instructor.FirstName + " " + SelectedItem.Instructor.LastName,
                 SDate=SelectedItem.SDate,
                 EDate=SelectedItem.EDate,
                 Capacity=SelectedItem.Capacity,

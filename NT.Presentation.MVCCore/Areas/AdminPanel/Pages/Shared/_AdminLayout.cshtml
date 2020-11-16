@@ -34,6 +34,8 @@
     <!-- Custom Files -->
     <link href="~/AdminTheme/assets/css/helper.css" rel="stylesheet" type="text/css" />
     <link href="~/AdminTheme/assets/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="~/AdminTheme/assets/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+
 
 
     <script src="~/AdminTheme/assets/js/modernizr.min.js"></script>
@@ -384,6 +386,7 @@
     </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/AdminTheme/assets/js/popper.min.js"></script>
     <script src="~/AdminTheme/assets/js/bootstrap.min.js"></script>
     <script src="~/AdminTheme/assets/js/waves.js"></script>
     <script src="~/AdminTheme/assets/js/wow.min.js"></script>
@@ -418,6 +421,8 @@
     @RenderSection("Scripts", false)
     <!-- Site -->
     <script src="~/AdminTheme/assets/js/site.js"></script>
+    <script src="~/AdminTheme/assets/js/bootstrap-datepicker.js"></script>
+
 
 
     <!-- CUSTOM JS -->
@@ -436,20 +441,11 @@
 
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-
-
-
-    <!-- <script type="text/javascript"> -->
-    <!-- /* ============================================== -->
-    <!-- Counter Up -->
-    <!-- =============================================== */ -->
-    <!-- jQuery(document).ready(function($) { -->
-    <!-- $('.counter').counterUp({ -->
-    <!-- delay: 100, -->
-    <!-- time: 1200 -->
-    <!-- }); -->
-    <!-- }); -->
-    <!-- </script> -->
+    <script>
+        $('.datepicker').datepicker({
+            autoclose: true
+        });
+    </script>
 
 </body>
 </html>

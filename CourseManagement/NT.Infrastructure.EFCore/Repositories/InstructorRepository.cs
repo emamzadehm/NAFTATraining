@@ -2,7 +2,6 @@
 using NT.CM.Application.Contracts.ViewModels.Instructors;
 using NT.CM.Domain;
 using NT.CM.Domain.InstructorAgg;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -21,14 +20,14 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
             var Query = _ntcontext.Tbl_Instructor.Where(x => x.Status == true).Select(listitem => new InstructorsViewModel
             {
                 ID=listitem.ID,
-                FirstName= listitem.FirstName,
-                LastName=listitem.LastName,
-                Sex=listitem.Sex,
-                Email=listitem.Email,
-                IDCardIMG=listitem.IDCardIMG,
-                IMG=listitem.IMG,
-                Tel=listitem.Tel,
-                Password=listitem.Password,
+                //FirstName= listitem.FirstName,
+                //LastName=listitem.LastName,
+                //Sex=listitem.Sex,
+                //Email=listitem.Email,
+                //IDCardIMG=listitem.IDCardIMG,
+                //IMG=listitem.IMG,
+                //Tel=listitem.Tel,
+                //Password=listitem.Password,
                 EducationLevel = listitem.EducationLevel,
                 Resume=listitem.Resume
             });

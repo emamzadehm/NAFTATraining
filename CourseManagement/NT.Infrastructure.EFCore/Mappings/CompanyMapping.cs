@@ -17,10 +17,10 @@ namespace NT.CM.Infrastructure.EFCore.Mappings
             builder.Property(x => x.CompanyName);
             builder.Property(x => x.Website);
             builder.Property(x => x.Logo);
-            builder.Property(x => x.TypeID);
+            builder.Property(x => x.IsPartner);
+            builder.Property(x => x.IsClient);
             builder.Property(x => x.Status);
             builder.HasMany(x => x.Candidates).WithOne(x => x.Company).HasForeignKey(x => x.CompanyID);
-            builder.HasOne(x => x.BaseInfo).WithMany(x => x.Companies).HasForeignKey(x => x.TypeID);
         }
     }
 }

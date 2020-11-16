@@ -1,9 +1,7 @@
 ﻿using _01.Framework.Domain;
-using NT.CM.Application.Contracts.ViewModels;
+using NT.CM.Application.Contracts.ViewModels.Companies;
 using NT.CM.Domain.CompanyAgg;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace NT.CM.Domain
 {

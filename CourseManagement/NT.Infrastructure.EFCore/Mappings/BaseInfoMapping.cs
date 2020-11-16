@@ -10,7 +10,7 @@ namespace NT.CM.Infrastructure.EFCore.Mappings
         {
             builder.ToTable("Tbl_Base_Info");
             builder.HasKey(x => x.ID);
-            builder.Property(x => x.Title);
+            builder.Property(x => x.Title).HasMaxLength(1000).IsRequired();
             builder.Property(x => x.TypeID);
             builder.Property(x => x.ParentID);
             builder.Property(x => x.Status);
@@ -23,8 +23,6 @@ namespace NT.CM.Infrastructure.EFCore.Mappings
             //BaseInfo-Course implimentation
             builder.HasMany(x => x.CourseLevels).WithOne(x => x.BaseInfoCourseLevel).HasForeignKey(x => x.CourseLevel);
             builder.HasMany(x => x.CourseCategoriers).WithOne(x => x.BaseInfoCategory).HasForeignKey(x => x.CategoryID);
-
-            builder.HasMany(x => x.Companies).WithOne(x => x.BaseInfo).HasForeignKey(x => x.TypeID);
 
             builder.HasMany(x => x.CourseCandidateInstructorDetails).WithOne(x => x.BaseInfo).HasForeignKey(x => x.TypeID);
 

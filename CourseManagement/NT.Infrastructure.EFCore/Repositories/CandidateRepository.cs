@@ -1,9 +1,10 @@
 ﻿using _01.Framework.Infrastructure.EFCore;
-using NT.CM.Application.Contracts;
+using Microsoft.EntityFrameworkCore;
+using NT.CM.Application.Contracts.ViewModels.Candidates;
 using NT.CM.Domain;
 using NT.CM.Domain.CandidateAgg;
-using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NT.CM.Infrastructure.EFCore.Repositories
 {
@@ -18,20 +19,23 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
 
         public List<CandidateViewModel> Search(CandidateViewModel command)
         {
-            throw new NotImplementedException();
+
+            var Query = _ntcontext.Tbl_Candidate.Include(x => x.BaseInfo).Include(x => x.Company)
+                .Where(x => x.Status == true).Select(x => new CandidateViewModel
+                {
+                    ID = x.ID,
+                    CityOfBirth = x.CityOfBirth,
+                    CompanyID = x.CompanyID,
+                    DOB = x.DOB,
+                    NationalityID = x.NationalityID,
+                    NationalityName = x.BaseInfo.Title,
+                    CompanyName = x.Company.CompanyName,
+                    NID = x.NID
+                });
+                
+                if (!string.IsNullOrWhiteSpace(command.NID))
+                    Query = Query.Where(x=>x.NID.Contains(command.NID));
+            return Query.ToList();
         }
-
-
-        //public void Create(Candidate command)
-        //{
-
-        //    _ntcontext.Tbl_Candidate.Add(command);
-        //    Save();
-        //}
-
-        //public void Save()
-        //{
-        //    _ntcontext.SaveChanges();
-        //}
     }
 }

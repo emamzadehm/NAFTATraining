@@ -1,0 +1,75 @@
+﻿@model NT.CM.Application.Contracts.ViewModels.Candidates.CandidateViewModel
+@{
+}
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 class="modal-title"> ثبت فراگیران </h4>
+</div>
+
+<form asp-page="./Index" asp-page-handler="Create"
+      method="post"
+      data-ajax="true"
+      data-callback=""
+      data-action="Refresh"
+      enctype="multipart/form-data">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="CityOfBirth" class="control-label">شهر محل تولد</label>
+                    <input type="text" class="form-control" asp-for="CityOfBirth">
+                    <span asp-validation-for="CityOfBirth" class="error"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="DOB" class="control-label">تاریخ تولد</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control datepicker" asp-for="DOB">
+                        <span class="input-group-addon datepicker"><i class="glyphicon glyphicon-calendar"></i></span>
+                    </div>
+                        <span asp-validation-for="DOB" class="error"></span>
+                    </div>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="CompanyID" class="control-label">نام شرکت</label>
+                    <select class="form-control" asp-for="CompanyID"
+                            asp-items='new SelectList(Model.CompanyList, "ID", "CompanyName")'>
+                        <option value="Null">نام شرکت</option>
+                    </select>
+                    <span asp-validation-for="CompanyID" class="error"></span>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="NationalityID" class="control-label">ملیت</label>
+                    <select class="form-control" asp-for="NationalityID"
+                            asp-items='new SelectList(Model.Nationality, "ID", "Title")'>
+                        <option value="Null">ملیت</option>
+                    </select>
+                    <span asp-validation-for="CompanyID" class="error"></span>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="NID" class="control-label">شماره کارت شناسایی</label>
+                    <input type="text" class="form-control" asp-for="NID">
+                    <span asp-validation-for="NID" class="error"></span>
+                </div>
+            </div>
+        </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
+            <button type="submit" class="btn btn-info waves-effect waves-light">ایجاد</button>
+        </div>
+</form>

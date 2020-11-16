@@ -30,6 +30,9 @@ namespace NT.CM.Infrastructure.Core
             services.AddTransient<ICompanyApplication, CompanyApplication>();
             services.AddTransient<ICompanyRepository, CompanyRepository>();
 
+            services.AddTransient<IGalleryApplication, GalleryApplication>();
+            services.AddTransient<IGalleryRepository, GalleryRepository>();
+
             services.AddTransient<IInstructorRepository, InstructorRepository>();
 
             services.AddTransient<ICandidateRepository, CandidateRepository>();

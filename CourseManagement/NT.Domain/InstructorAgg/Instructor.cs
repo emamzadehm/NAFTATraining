@@ -1,27 +1,27 @@
-﻿using NT.CM.Domain.CourseInstructorAgg;
-using NT.UM.Domain.UsersAgg;
+﻿using _01.Framework.Domain;
+using NT.CM.Domain.CourseInstructorAgg;
 using System.Collections.Generic;
 
 namespace NT.CM.Domain.InstructorAgg
 {
-    public class Instructor : Users
+    public class Instructor : DomainBase
     {
-        public string? EducationLevel { get; private set; }
-        public string? Resume { get; private set; }
+        public string EducationLevel { get; private set; }
+        public string Resume { get; private set; }
         public ICollection<CourseInstructor> CourseInstructors { get; private set; }
 
         protected Instructor()
         {
             //Users = new Users();
         }
-        public Instructor(string? educationlevel, string? resume)
+        public Instructor(string educationlevel, string resume)
         {
             EducationLevel = educationlevel;
             Resume = resume;
             CourseInstructors = new List<CourseInstructor>();
         }
 
-        public void Edit(string? educationLevel, string? resume)
+        public void Edit(string educationLevel, string resume)
         {
             //Users.Edit(firstname, lastname, sex, tel, img, password, idcardimg);
             EducationLevel = educationLevel;

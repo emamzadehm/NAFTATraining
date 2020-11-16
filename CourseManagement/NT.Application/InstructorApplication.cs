@@ -3,9 +3,7 @@ using NT.CM.Application.Contracts.Interfaces;
 using NT.CM.Application.Contracts.ViewModels.Instructors;
 using NT.CM.Domain;
 using NT.CM.Domain.InstructorAgg;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace NT.CM.Application
 {

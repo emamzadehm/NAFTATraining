@@ -1,5 +1,6 @@
 ﻿using _01.Framework.Application;
 using NT.CM.Application.Contracts;
+using NT.CM.Application.Contracts.ViewModels.Candidates;
 using NT.CM.Domain;
 using NT.CM.Domain.CandidateAgg;
 using System.Collections.Generic;
@@ -57,7 +58,7 @@ namespace NT.CM.Application
             var operationresult = new OperationResult();
             _IUnitOfWorkNT.BeginTran();
             var selecteditem = _icandidaterepository.GetBy(id);
-            _icandidaterepository.Create(selecteditem);
+            selecteditem.Remove();
             _IUnitOfWorkNT.CommitTran();
             return operationresult.Successful();
         }

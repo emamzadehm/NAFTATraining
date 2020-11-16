@@ -1,5 +1,5 @@
 ﻿using _01.Framework.Domain;
-using NT.UM.Application.Contracts;
+using NT.UM.Application.Contracts.ViewModels;
 using NT.UM.Domain.UsersAgg;
 using System.Collections.Generic;
 

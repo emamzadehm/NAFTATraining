@@ -1,7 +1,7 @@
-﻿using System.Collections;
+﻿using NT.CM.Application.Contracts.ViewModels.BaseInfo;
 using System.Collections.Generic;
 
-namespace NT.CM.Application.Contracts.ViewModels
+namespace NT.CM.Application.Contracts.ViewModels.Companies
 {
     public class CompanyViewModel
     {
@@ -9,8 +9,7 @@ namespace NT.CM.Application.Contracts.ViewModels
         public string CompanyName { get; set; }
         public string? Website { get; set; }
         public byte[]? Logo { get; set; }
-        public long TypeID { get; set; }
-        public string TypeName { get; set; }
-        public List<BaseInfoViewModel> CompanyType { get; set; }
+        public bool IsPartner { get;  set; }
+        public bool IsClient { get;  set; }
     }
 }

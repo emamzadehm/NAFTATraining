@@ -1,8 +1,7 @@
-﻿using System;
+﻿using NT.CM.Application.Contracts.ViewModels.BaseInfo;
 using System.Collections.Generic;
-using System.Text;
 
-namespace NT.CM.Application.Contracts
+namespace NT.CM.Application.Contracts.ViewModels.Courses
 {
     public class CourseViewModel
     {
@@ -20,6 +19,8 @@ namespace NT.CM.Application.Contracts
         public string CategoryIDTitle { get; set; }
         public bool Status { get; set; }
         public bool IsPrivate { get; set; }
+        public List<BaseInfoViewModel> Category { get; set; }
+        public List<BaseInfoViewModel> Level { get; set; }
 
     }
 }

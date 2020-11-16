@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using NT.UM.Application.Contracts;
 using NT.UM.Application.Contracts.Interfaces;
+using NT.UM.Application.Contracts.ViewModels;
 
 namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.UsersManagement.Users
 {
@@ -39,10 +39,10 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.UsersManagement.Users
             var result = _iuserapplication.Edit(uservm);
             return new JsonResult(result);
         }
-        public JsonResult OnPostRemove(UsersViewModel uservm)
+        public IActionResult OnGetRemove(UsersViewModel uservm)
         {
-            var result = _iuserapplication.Remove(uservm.ID);
-            return new JsonResult(result);
+            _iuserapplication.Remove(uservm.ID);
+            return RedirectToPage("Index");
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using _01.Framework.Infrastructure.EFCore;
-using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
-using NT.CM.Application.Contracts.ViewModels;
+using NT.CM.Application.Contracts.ViewModels.Companies;
 using NT.CM.Domain;
 using NT.CM.Domain.CompanyAgg;
 using System.Collections.Generic;
@@ -23,9 +22,9 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                 ID = listitem.ID,
                 CompanyName=listitem.CompanyName,
                 Logo=listitem.Logo,
-                TypeID=listitem.TypeID,
-                TypeName=listitem.BaseInfo.Title,
-                Website=listitem.Website
+                Website=listitem.Website,
+                IsPartner=listitem.IsPartner,
+                IsClient=listitem.IsClient
             });
             if (!string.IsNullOrWhiteSpace(command.CompanyName))
                 Query = Query.Where(x => x.CompanyName.Contains(command.CompanyName));

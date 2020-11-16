@@ -1,7 +1,7 @@
 ﻿using _01.Framework.Application;
 using Domain.BaseInfoAgg;
 using NT.CM.Application.Contracts.Interfaces;
-using NT.CM.Application.Contracts.ViewModels;
+using NT.CM.Application.Contracts.ViewModels.BaseInfo;
 using NT.CM.Domain;
 using System.Collections.Generic;
 
@@ -67,6 +67,16 @@ namespace NT.CM.Application
         public List<BaseInfoViewModel> GetAll()
         {
             return _baseinforepository.GetAll();
+        }
+
+        public List<BaseInfoViewModel> GetByTypeId(long typeid)
+        {
+            return _baseinforepository.GetByTypeId(typeid);
+        }
+
+        public List<BaseInfoViewModel> GetAllTypes()
+        {
+            return _baseinforepository.GetAllTypes();
         }
     }
 }

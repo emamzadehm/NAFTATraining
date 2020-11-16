@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NT.UM.Application.Contracts
+namespace NT.UM.Application.Contracts.ViewModels
 {
     public class UsersViewModel
     {

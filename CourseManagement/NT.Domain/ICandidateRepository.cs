@@ -1,7 +1,6 @@
 ﻿using _01.Framework.Domain;
-using NT.CM.Application.Contracts;
+using NT.CM.Application.Contracts.ViewModels.Candidates;
 using NT.CM.Domain.CandidateAgg;
-using System;
 using System.Collections.Generic;
 
 namespace NT.CM.Domain

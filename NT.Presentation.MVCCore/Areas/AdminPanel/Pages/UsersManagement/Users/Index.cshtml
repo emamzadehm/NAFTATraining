@@ -19,7 +19,7 @@
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">جستجو در اطلاعات پایه</h3>
+                <h3 class="panel-title">جستجو در کاربران</h3>
             </div>
             <div class="panel-body">
                 <form class="form-inline" role="form" method="get">
@@ -69,8 +69,7 @@
                                            href="#showmodal=@Url.Page("./Index", "Edit", new { id = item.ID})">
                                             <i class="fa fa-edit"></i> ویرایش
                                         </a>
-                                        <a class="btn btn-danger pull-right m-rl-5"
-                                           href="#showmodal=@Url.Page("./Index", "Remove", new { id = item.ID})">
+                                        <a class="btn btn-danger pull-right m-rl-5" asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.ID">
                                             <i class="fa fa-edit"></i> حذف
                                         </a>
                                     </td>

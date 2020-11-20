@@ -11,7 +11,7 @@ namespace NT.CM.Domain.CourseCandidateInstructorDetailsAgg
     {
         public long TypeID { get; private set; }
         public string Value { get; private set; }
-        public byte DocumentIMG { get; private set; }
+        public string DocumentIMG { get; private set; }
         public long CCI_ID { get; private set; }
         public BaseInfo BaseInfo { get; private set; }
         public CandidateCourseInstructor CandidateCourseInstructor { get; private set; }
@@ -20,14 +20,14 @@ namespace NT.CM.Domain.CourseCandidateInstructorDetailsAgg
         {
 
         }
-        public CourseCandidateInstructorDetails(long typeid, string value, byte documentimg, long cci_id)
+        public CourseCandidateInstructorDetails(long typeid, string value, string documentimg, long cci_id)
         {
             TypeID = typeid;
             Value = value;
             DocumentIMG = documentimg;
             CCI_ID = cci_id;
         }
-        public void Edit(long typeid, string value, byte documentimg, long cci_id)
+        public void Edit(long typeid, string value, string documentimg, long cci_id)
         {
             TypeID = typeid;
             Value = value;

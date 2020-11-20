@@ -270,13 +270,13 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                 type: "nvarchar(max)",
                 nullable: true);
 
-            migrationBuilder.AddColumn<byte[]>(
+            migrationBuilder.AddColumn<string>(
                 name: "IDCardIMG",
                 table: "Users",
                 type: "varbinary(max)",
                 nullable: true);
 
-            migrationBuilder.AddColumn<byte[]>(
+            migrationBuilder.AddColumn<string>(
                 name: "IMG",
                 table: "Users",
                 type: "varbinary(max)",

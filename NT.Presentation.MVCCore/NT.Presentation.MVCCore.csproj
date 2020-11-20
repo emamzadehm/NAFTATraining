@@ -21,7 +21,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\AdminPanel\Pages\SiteManagement\" />
+    <Folder Include="Areas\AdminPanel\Pages\SiteManagement\CertifiedProgram\" />
+    <Folder Include="Areas\AdminPanel\Pages\SiteManagement\Course\" />
+    <Folder Include="Areas\AdminPanel\Pages\SiteManagement\EvaluationResult\" />
+    <Folder Include="Areas\AdminPanel\Pages\SiteManagement\Facility\" />
+    <Folder Include="Areas\AdminPanel\Pages\SiteManagement\FAQ\" />
+    <Folder Include="Areas\AdminPanel\Pages\SiteManagement\FunFact\" />
+    <Folder Include="Areas\AdminPanel\Pages\SiteManagement\WhyNafta\" />
   </ItemGroup>
 
 </Project>

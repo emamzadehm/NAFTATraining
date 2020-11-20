@@ -61,3 +61,5 @@ C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.EFCore\obj\Debug\n
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.EFCore\obj\Debug\netcoreapp3.1\NT.CM.Infrastructure.EFCore.dll
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.EFCore\obj\Debug\netcoreapp3.1\NT.CM.Infrastructure.EFCore.pdb
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.EFCore\obj\Debug\netcoreapp3.1\NT.CM.Infrastructure.EFCore.genruntimeconfig.cache
+C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.EFCore\bin\Debug\netcoreapp3.1\NT.UM.Infrastructure.EFCore.dll
+C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.EFCore\bin\Debug\netcoreapp3.1\NT.UM.Infrastructure.EFCore.pdb

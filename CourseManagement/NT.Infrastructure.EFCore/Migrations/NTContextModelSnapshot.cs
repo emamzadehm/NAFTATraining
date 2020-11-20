@@ -69,9 +69,8 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("DOB")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("DOB")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("NID")
                         .IsRequired()
@@ -82,6 +81,9 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
+
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
 
                     b.HasKey("ID");
 
@@ -147,8 +149,8 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     b.Property<bool>("IsPartner")
                         .HasColumnType("bit");
 
-                    b.Property<byte[]>("Logo")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("Logo")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
@@ -171,6 +173,7 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Audience")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CName")
@@ -180,19 +183,21 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     b.Property<long>("CategoryID")
                         .HasColumnType("bigint");
 
-                    b.Property<long?>("Cost")
+                    b.Property<long>("Cost")
                         .HasColumnType("bigint");
 
-                    b.Property<byte?>("CourseCatalog")
-                        .HasColumnType("tinyint");
+                    b.Property<string>("CourseCatalog")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<long?>("CourseLevel")
+                    b.Property<long>("CourseLevel")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DailyPlan")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
@@ -230,8 +235,9 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<byte>("DocumentIMG")
-                        .HasColumnType("tinyint");
+                    b.Property<string>("DocumentIMG")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
@@ -268,9 +274,8 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("EDate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("EDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<long>("InstructorID")
                         .HasColumnType("bigint");
@@ -278,9 +283,8 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     b.Property<long>("Location")
                         .HasColumnType("bigint");
 
-                    b.Property<string>("SDate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("SDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
@@ -357,6 +361,9 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
+
                     b.HasKey("ID");
 
                     b.ToTable("Tbl_Instructor");
@@ -418,7 +425,9 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
 
                     b.HasOne("Domain.BaseInfoAgg.BaseInfo", "BaseInfoCourseLevel")
                         .WithMany("CourseLevels")
-                        .HasForeignKey("CourseLevel");
+                        .HasForeignKey("CourseLevel")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("NT.CM.Domain.CourseCandidateInstructorDetailsAgg.CourseCandidateInstructorDetails", b =>

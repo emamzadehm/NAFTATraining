@@ -1045,7 +1045,8 @@
         "dependencies": {
           "01.Framework": "1.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.9",
-          "NT.CM.Domain": "1.0.0"
+          "NT.CM.Domain": "1.0.0",
+          "NT.UM.Infrastructure.EFCore": "1.0.0"
         },
         "runtime": {
           "NT.CM.Infrastructure.EFCore.dll": {}
@@ -1066,6 +1067,16 @@
         },
         "runtime": {
           "NT.UM.Domain.dll": {}
+        }
+      },
+      "NT.UM.Infrastructure.EFCore/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "3.1.9",
+          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.9",
+          "NT.UM.Domain": "1.0.0"
+        },
+        "runtime": {
+          "NT.UM.Infrastructure.EFCore.dll": {}
         }
       }
     }
@@ -1788,6 +1799,11 @@
       "sha512": ""
     },
     "NT.UM.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NT.UM.Infrastructure.EFCore/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

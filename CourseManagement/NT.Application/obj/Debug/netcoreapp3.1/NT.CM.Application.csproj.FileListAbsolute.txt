@@ -58,3 +58,5 @@ C:\Projects\NAFTA\Training\CourseManagement\NT.Application\bin\Debug\netcoreapp3
 C:\Projects\NAFTA\Training\CourseManagement\NT.Application\bin\Debug\netcoreapp3.1\NT.UM.Application.Contracts.pdb
 C:\Projects\NAFTA\Training\CourseManagement\NT.Application\bin\Debug\netcoreapp3.1\NT.UM.Domain.pdb
 C:\Projects\NAFTA\Training\CourseManagement\NT.Application\obj\Debug\netcoreapp3.1\NT.CM.Application.csproj.CopyComplete
+C:\Projects\NAFTA\Training\CourseManagement\NT.Application\bin\Debug\netcoreapp3.1\NT.UM.Infrastructure.EFCore.dll
+C:\Projects\NAFTA\Training\CourseManagement\NT.Application\bin\Debug\netcoreapp3.1\NT.UM.Infrastructure.EFCore.pdb

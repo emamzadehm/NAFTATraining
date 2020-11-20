@@ -1564,6 +1564,21 @@
         "runtime": {
           "bin/placeholder/NT.UM.Domain.dll": {}
         }
+      },
+      "NT.UM.Infrastructure.EFCore/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "3.1.9",
+          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.9",
+          "NT.UM.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/NT.UM.Infrastructure.EFCore.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/NT.UM.Infrastructure.EFCore.dll": {}
+        }
       }
     }
   },
@@ -5760,6 +5775,11 @@
       "type": "project",
       "path": "../../UsersManagement/NT.UM.Domain/NT.UM.Domain.csproj",
       "msbuildProject": "../../UsersManagement/NT.UM.Domain/NT.UM.Domain.csproj"
+    },
+    "NT.UM.Infrastructure.EFCore/1.0.0": {
+      "type": "project",
+      "path": "../../UsersManagement/NT.UM.Infrastructure.EFCore/NT.UM.Infrastructure.EFCore.csproj",
+      "msbuildProject": "../../UsersManagement/NT.UM.Infrastructure.EFCore/NT.UM.Infrastructure.EFCore.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -5768,7 +5788,8 @@
       "Microsoft.EntityFrameworkCore.Design >= 3.1.9",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.9",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.9",
-      "NT.CM.Domain >= 1.0.0"
+      "NT.CM.Domain >= 1.0.0",
+      "NT.UM.Infrastructure.EFCore >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -5806,6 +5827,9 @@
             },
             "C:\\Projects\\NAFTA\\Training\\CourseManagement\\NT.Domain\\NT.CM.Domain.csproj": {
               "projectPath": "C:\\Projects\\NAFTA\\Training\\CourseManagement\\NT.Domain\\NT.CM.Domain.csproj"
+            },
+            "C:\\Projects\\NAFTA\\Training\\UsersManagement\\NT.UM.Infrastructure.EFCore\\NT.UM.Infrastructure.EFCore.csproj": {
+              "projectPath": "C:\\Projects\\NAFTA\\Training\\UsersManagement\\NT.UM.Infrastructure.EFCore\\NT.UM.Infrastructure.EFCore.csproj"
             }
           }
         }

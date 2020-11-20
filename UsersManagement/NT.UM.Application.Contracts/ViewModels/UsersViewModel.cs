@@ -10,11 +10,11 @@ namespace NT.UM.Application.Contracts.ViewModels
         public string Fullname { get; set; }
         public string Email { get; set; }
         public bool Sex { get; set; }
-        public byte[]? IMG { get; set; }
+        public string? IMG { get; set; }
         public string? Tel { get; set; }
         public string? Password { get; set; }
         public bool UserStatus { get; set; }
-        public byte[]? IDCardIMG { get; set; }
+        public string? IDCardIMG { get; set; }
 
 
         //public List<UsersRoles> UsersRoless { get; set; }

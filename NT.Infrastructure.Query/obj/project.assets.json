@@ -1516,7 +1516,8 @@
         "dependencies": {
           "01.Framework": "1.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.9",
-          "NT.CM.Domain": "1.0.0"
+          "NT.CM.Domain": "1.0.0",
+          "NT.UM.Infrastructure.EFCore": "1.0.0"
         },
         "compile": {
           "bin/placeholder/NT.CM.Infrastructure.EFCore.dll": {}
@@ -1550,6 +1551,21 @@
         },
         "runtime": {
           "bin/placeholder/NT.UM.Domain.dll": {}
+        }
+      },
+      "NT.UM.Infrastructure.EFCore/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "3.1.9",
+          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.9",
+          "NT.UM.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/NT.UM.Infrastructure.EFCore.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/NT.UM.Infrastructure.EFCore.dll": {}
         }
       }
     }
@@ -5703,6 +5719,11 @@
       "type": "project",
       "path": "../UsersManagement/NT.UM.Domain/NT.UM.Domain.csproj",
       "msbuildProject": "../UsersManagement/NT.UM.Domain/NT.UM.Domain.csproj"
+    },
+    "NT.UM.Infrastructure.EFCore/1.0.0": {
+      "type": "project",
+      "path": "../UsersManagement/NT.UM.Infrastructure.EFCore/NT.UM.Infrastructure.EFCore.csproj",
+      "msbuildProject": "../UsersManagement/NT.UM.Infrastructure.EFCore/NT.UM.Infrastructure.EFCore.csproj"
     }
   },
   "projectFileDependencyGroups": {

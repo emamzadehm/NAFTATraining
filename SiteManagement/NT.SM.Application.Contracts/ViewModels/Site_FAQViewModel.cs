@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace NT.SM.Application.Contracts.ViewModels
+﻿namespace NT.SM.Application.Contracts.ViewModels
 {
     public class Site_FAQViewModel
     {

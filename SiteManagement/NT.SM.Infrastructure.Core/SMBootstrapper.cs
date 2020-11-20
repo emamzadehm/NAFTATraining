@@ -20,8 +20,6 @@ namespace NT.SM.Infrastructure.Core
             services.AddTransient<ISite_BaseRepository, Site_BaseRepository>();
             services.AddTransient<ISite_CertifiedProgramApplication, Site_CertifiedProgramApplication>();
             services.AddTransient<ISite_CertifiedProgramRepository, Site_CertifiedProgramRepository>();
-            services.AddTransient<ISite_ClientAllianceApplication, Site_ClientAllianceApplication>();
-            services.AddTransient<ISite_ClientAllianceRepository, Site_ClientAllianceRepository>();
             services.AddTransient<ISite_CourseApplication, Site_CourseApplication>();
             services.AddTransient<ISite_CourseRepository, Site_CourseRepository>();
             services.AddTransient<ISite_EvaluationResultApplication, Site_EvaluationResultApplication>();

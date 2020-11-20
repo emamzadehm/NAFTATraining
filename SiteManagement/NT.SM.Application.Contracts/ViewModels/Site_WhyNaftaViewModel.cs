@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace NT.SM.Application.Contracts.ViewModels
 {
@@ -9,5 +7,7 @@ namespace NT.SM.Application.Contracts.ViewModels
         public long Id { get; set; }
         public string Description { get; set; }
         public long Site_Base_Id { get; set; }
+        public List<Site_BaseViewModel> Site_BaseList { get; set; }
+
     }
 }

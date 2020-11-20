@@ -49,10 +49,7 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Candid
         }
         public IActionResult OnGetEdit(int id)
         {
-            //if 
-            //var searchmodelcompany = _icompanyapplication.GetBy(selecteditem.CompanyID);
-            //var searchmodelbaseinfo = _ibaseinfoapplication.GetBy(selecteditem.NationalityID);
-            var selecteditem = _icandidateapplication.GetBy(id);
+            var selecteditem = _icandidateapplication.GetDetails(id);
             searchmodelcompany = new CompanyViewModel();
             searchmodelbaseinfo = new BaseInfoViewModel();
             selecteditem.CompanyList = _icompanyapplication.Search(searchmodelcompany);

@@ -8,5 +8,6 @@ namespace NT.UM.Domain
     public interface IUsersRepository : IRepository<long, Users>
     {
         List<UsersViewModel> Search(UsersViewModel command);
+        void Save();
     }
 }

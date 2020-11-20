@@ -107,7 +107,7 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     CreationDate = table.Column<DateTime>(nullable: false),
                     CompanyName = table.Column<string>(nullable: false),
                     Website = table.Column<string>(nullable: true),
-                    Logo = table.Column<byte[]>(nullable: true),
+                    Logo = table.Column<string>(nullable: true),
                     TypeID = table.Column<long>(nullable: false)
                 },
                 constraints: table =>
@@ -200,9 +200,9 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     Sex = table.Column<bool>(nullable: false),
                     Email = table.Column<string>(nullable: true),
                     Tel = table.Column<string>(nullable: true),
-                    IMG = table.Column<byte[]>(nullable: true),
+                    IMG = table.Column<string>(nullable: true),
                     Password = table.Column<string>(nullable: true),
-                    IDCardIMG = table.Column<byte[]>(nullable: true),
+                    IDCardIMG = table.Column<string>(nullable: true),
                     Discriminator = table.Column<string>(nullable: false),
                     CompanyID = table.Column<long>(nullable: true),
                     NID = table.Column<string>(nullable: true),

@@ -362,6 +362,9 @@
               },
               "C:\\Projects\\NAFTA\\Training\\CourseManagement\\NT.Domain\\NT.CM.Domain.csproj": {
                 "projectPath": "C:\\Projects\\NAFTA\\Training\\CourseManagement\\NT.Domain\\NT.CM.Domain.csproj"
+              },
+              "C:\\Projects\\NAFTA\\Training\\UsersManagement\\NT.UM.Infrastructure.EFCore\\NT.UM.Infrastructure.EFCore.csproj": {
+                "projectPath": "C:\\Projects\\NAFTA\\Training\\UsersManagement\\NT.UM.Infrastructure.EFCore\\NT.UM.Infrastructure.EFCore.csproj"
               }
             }
           }

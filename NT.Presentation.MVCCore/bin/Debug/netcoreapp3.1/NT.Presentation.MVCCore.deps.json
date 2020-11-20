@@ -1464,7 +1464,8 @@
         "dependencies": {
           "01.Framework": "1.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.9",
-          "NT.CM.Domain": "1.0.0"
+          "NT.CM.Domain": "1.0.0",
+          "NT.UM.Infrastructure.EFCore": "1.0.0"
         },
         "runtime": {
           "NT.CM.Infrastructure.EFCore.dll": {}

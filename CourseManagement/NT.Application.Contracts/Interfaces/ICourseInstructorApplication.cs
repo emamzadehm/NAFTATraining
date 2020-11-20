@@ -9,7 +9,7 @@ namespace NT.CM.Application.Contracts.Interfaces
         OperationResult Create(CourseInstructorViewModel command);
         OperationResult Edit(CourseInstructorViewModel command);
         OperationResult Remove(long id);
-        CourseInstructorViewModel GetBy(long id);
+        CourseInstructorViewModel GetDetails(long id);
         List<CourseInstructorViewModel> Search(CourseInstructorViewModel searchmodel);
     }
 }

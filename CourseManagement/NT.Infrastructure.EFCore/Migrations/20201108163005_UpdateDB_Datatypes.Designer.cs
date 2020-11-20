@@ -99,7 +99,7 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<byte[]>("Logo")
+                    b.Property<string>("Logo")
                         .HasColumnType("varbinary(max)");
 
                     b.Property<bool>("Status")
@@ -390,10 +390,10 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<byte[]>("IDCardIMG")
+                    b.Property<string>("IDCardIMG")
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<byte[]>("IMG")
+                    b.Property<string>("IMG")
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("LastName")

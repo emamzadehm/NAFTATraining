@@ -8,5 +8,6 @@ namespace NT.CM.Domain
     public interface ICandidateRepository : IRepository<long, Candidate>
     {
         List<CandidateViewModel> Search(CandidateViewModel command);
+        CandidateViewModel GetDetails(long id);
     }
 }

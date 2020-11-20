@@ -10,8 +10,8 @@ namespace NT.SM.Application.Contracts.Interfaces
     {
         OperationResult Create(Site_FacilityViewModel command);
         OperationResult Edit(Site_FacilityViewModel command);
-        OperationResult Remove(Site_FacilityViewModel command);
-        Site_FacilityViewModel GetBy(int id);
+        OperationResult Remove(long id);
+        Site_FacilityViewModel GetBy(long id);
         List<Site_FacilityViewModel> Search(Site_FacilityViewModel command);
     }
 }

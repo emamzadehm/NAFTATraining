@@ -10,8 +10,8 @@ using NT.SM.Infrastructure.EFCore;
 namespace NT.SM.Infrastructure.EFCore.Migrations
 {
     [DbContext(typeof(NTSMContext))]
-    [Migration("20201108164253_UpdateDB_Datatypes01")]
-    partial class UpdateDB_Datatypes01
+    [Migration("20201116171057_RemoveClientAllianceEntity")]
+    partial class RemoveClientAllianceEntity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -107,38 +107,6 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
                     b.HasIndex("Site_Base_Id");
 
                     b.ToTable("Site_CertifiedProgram");
-                });
-
-            modelBuilder.Entity("NT.SM.Domain.Models.Site_ClientAlliance", b =>
-                {
-                    b.Property<long>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Logo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<long>("Site_Base_Id")
-                        .HasColumnType("bigint");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Type")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("Site_Base_Id");
-
-                    b.ToTable("Site_ClientAlliance");
                 });
 
             modelBuilder.Entity("NT.SM.Domain.Models.Site_Course", b =>
@@ -319,15 +287,6 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
                 {
                     b.HasOne("NT.SM.Domain.Models.Site_Base", "Sitebases")
                         .WithMany("Site_CertifiedPrograms")
-                        .HasForeignKey("Site_Base_Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("NT.SM.Domain.Models.Site_ClientAlliance", b =>
-                {
-                    b.HasOne("NT.SM.Domain.Models.Site_Base", "Sitebases")
-                        .WithMany("Site_ClientAlliances")
                         .HasForeignKey("Site_Base_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

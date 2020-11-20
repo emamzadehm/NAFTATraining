@@ -11,7 +11,7 @@ namespace NT.CM.Domain.CompanyAgg
     {
         public string CompanyName { get; private set; }
         public string? Website { get; private set; }
-        public byte[]? Logo { get; private set; }
+        public string? Logo { get; private set; }
         public bool IsPartner { get; private set; }
         public bool IsClient { get; private set; }
 
@@ -22,7 +22,7 @@ namespace NT.CM.Domain.CompanyAgg
         {
 
         }
-        public Company(string companyname, string? website, byte[]? logo, bool ispartner, bool isclient)
+        public Company(string companyname, string? website, string? logo, bool ispartner, bool isclient)
         {
             CompanyName = companyname;
             Website = website;
@@ -31,7 +31,7 @@ namespace NT.CM.Domain.CompanyAgg
             IsPartner = ispartner;
             //Candidates = new List<Candidate>();
         }
-        public void Edit(string companyname, string? website, byte[]? logo, bool ispartner, bool isclient)
+        public void Edit(string companyname, string? website, string? logo, bool ispartner, bool isclient)
         {
             CompanyName = companyname;
             Website = website;

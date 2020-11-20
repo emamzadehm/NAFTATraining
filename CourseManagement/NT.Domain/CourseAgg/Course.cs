@@ -9,12 +9,12 @@ namespace NT.CM.Domain.CourseAgg
     {
         public string CName { get; protected set; }
         public string Description { get; protected set; }
-        public string? Audience { get; protected set; }
-        public string? DailyPlan { get; protected set; }
-        public long? Cost { get; protected set; }
-        public byte? CourseCatalog { get; protected set; }
-        public long? CourseLevel { get; protected set; }
-        public BaseInfo? BaseInfoCourseLevel { get; private set; }
+        public string Audience { get; protected set; }
+        public string DailyPlan { get; protected set; }
+        public long Cost { get; protected set; }
+        public string CourseCatalog { get; protected set; }
+        public long CourseLevel { get; protected set; }
+        public BaseInfo BaseInfoCourseLevel { get; private set; }
         public int Duration { get; protected set; }
         public bool IsPrivate { get; private set; }
         public long CategoryID { get; protected set; }
@@ -25,7 +25,7 @@ namespace NT.CM.Domain.CourseAgg
         {
 
         }
-        public Course(string cname, string description,string? audience, string? dailyplan, long? cost, byte? coursecatalog, long? courselevel, int duration, long categoryid, bool isprivate)
+        public Course(string cname, string description,string audience, string dailyplan, long cost, string coursecatalog, long courselevel, int duration, long categoryid, bool isprivate)
         {
             //courseValidator.CourseExist(cname);
             //courseValidator.Validation(cname,);
@@ -42,7 +42,7 @@ namespace NT.CM.Domain.CourseAgg
             IsPrivate = isprivate;
         }
 
-        public void Edit(string cname, string description, string? audience, string? dailyplan, long? cost, byte? coursecatalog, long? courselevel, int duration, long categoryid, bool isprivate)
+        public void Edit(string cname, string description, string audience, string dailyplan, long cost, string coursecatalog, long courselevel, int duration, long categoryid, bool isprivate)
         {
             CName = cname;
             Description = description;

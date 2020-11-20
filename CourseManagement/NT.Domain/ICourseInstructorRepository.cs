@@ -8,5 +8,6 @@ namespace NT.CM.Domain
     public interface ICourseInstructorRepository : IRepository<long, CourseInstructor>
     {
         List<CourseInstructorViewModel> Search(CourseInstructorViewModel command);
+        CourseInstructorViewModel GetDetails(long id);
     }
 }

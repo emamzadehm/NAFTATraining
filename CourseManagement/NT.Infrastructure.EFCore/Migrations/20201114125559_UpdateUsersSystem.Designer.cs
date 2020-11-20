@@ -139,7 +139,7 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<byte[]>("Logo")
+                    b.Property<string>("Logo")
                         .HasColumnType("varbinary(max)");
 
                     b.Property<bool>("Status")

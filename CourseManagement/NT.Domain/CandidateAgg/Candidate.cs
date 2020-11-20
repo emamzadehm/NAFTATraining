@@ -2,6 +2,7 @@
 using Domain.BaseInfoAgg;
 using NT.CM.Domain.CandidateCourseInstructorAgg;
 using NT.CM.Domain.CompanyAgg;
+using System;
 using System.Collections.Generic;
 
 namespace NT.CM.Domain.CandidateAgg
@@ -11,17 +12,18 @@ namespace NT.CM.Domain.CandidateAgg
         public long? CompanyID { get; private set; }
         public Company Company { get; private set; }
         public string NID { get; private set; }
-        public string DOB { get; private set; }
+        public DateTime DOB { get; private set; }
         public long NationalityID { get; private set; }
         public BaseInfo BaseInfo { get; private set; }
         public string CityOfBirth { get; private set; }
+        public long UserId { get; private set; }
         public ICollection<CandidateCourseInstructor> CandidateCourseInstructors { get; private set; }
 
         protected Candidate()
         {
 
         }
-        public Candidate(long? companyid, string nid, string dob, long nationalityid, string cityofbirth)
+        public Candidate(long? companyid, string nid, DateTime dob, long nationalityid, string cityofbirth, long userid)
         {
             CompanyID = companyid;
             NID = nid;
@@ -29,6 +31,7 @@ namespace NT.CM.Domain.CandidateAgg
             NationalityID = nationalityid;
             CityOfBirth = cityofbirth;
             CandidateCourseInstructors = new List<CandidateCourseInstructor>();
+            UserId = userid;
         }
         //public Candidate(long companyid, string nid, string dob, long nationalityid, string cityofbirth, int courseinstructorid)
         //{
@@ -42,7 +45,7 @@ namespace NT.CM.Domain.CandidateAgg
         //            new CandidateCourseInstructor(courseinstructorid, ID)
         //        };
         //}
-        public void Edit(long? companyid, string nid, string dob, long nationalityid, string cityofbirth)
+        public void Edit(long? companyid, string nid, DateTime dob, long nationalityid, string cityofbirth)
         {
             //Users.Edit(firstname, lastname, sex, tel, img, password, idcardimg);
             CompanyID = companyid;

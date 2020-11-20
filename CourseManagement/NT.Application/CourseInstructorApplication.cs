@@ -48,24 +48,10 @@ namespace NT.CM.Application
             return operationresult.Successful();
         }
 
-        public CourseInstructorViewModel GetBy(long id)
+        public CourseInstructorViewModel GetDetails(long id)
         {
-            var SelectedItem = _icourseInstructorRepository.GetBy(id);
-            var result = new CourseInstructorViewModel
-            {
-                ID = SelectedItem.ID,
-                CourseID=SelectedItem.CourseID,
-                CourseName=SelectedItem.Course.CName,
-                InstructorID=SelectedItem.InstructorID,
-                //InstructorName=SelectedItem.Instructor.FirstName + " " + SelectedItem.Instructor.LastName,
-                SDate=SelectedItem.SDate,
-                EDate=SelectedItem.EDate,
-                Capacity=SelectedItem.Capacity,
-                Venue=SelectedItem.Venue,
-                Location = SelectedItem.Location,
-                LocationName = SelectedItem.BaseInfo.Title
-            };
-            return result;
+            return _icourseInstructorRepository.GetDetails(id);
+
         }
 
         public List<CourseInstructorViewModel> Search(CourseInstructorViewModel searchmodel)

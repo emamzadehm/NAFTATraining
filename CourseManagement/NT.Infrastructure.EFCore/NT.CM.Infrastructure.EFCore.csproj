@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\01.Framework\01.Framework.csproj" />
+    <ProjectReference Include="..\..\UsersManagement\NT.UM.Infrastructure.EFCore\NT.UM.Infrastructure.EFCore.csproj" />
     <ProjectReference Include="..\NT.Domain\NT.CM.Domain.csproj" />
   </ItemGroup>
 

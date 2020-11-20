@@ -10,7 +10,6 @@ namespace NT.SM.Domain.Models
         public string MainDescription { get; private set; }
         public List<Site_About> Site_Abouts { get; private set; }
         public List<Site_CertifiedProgram> Site_CertifiedPrograms { get; private set; }
-        public List<Site_ClientAlliance> Site_ClientAlliances { get; private set; }
         public List<Site_Course> Site_Courses { get; private set; }
         public List<Site_Facility> Site_Facilities { get; private set; }
         public List<Site_WhyNafta> Site_WhyNaftas { get; private set; }
@@ -25,7 +24,6 @@ namespace NT.SM.Domain.Models
             MainDescription = mainDescription;
             Site_Abouts = new List<Site_About>();
             Site_CertifiedPrograms = new List<Site_CertifiedProgram>();
-            Site_ClientAlliances = new List<Site_ClientAlliance>();
             Site_Courses = new List<Site_Course>();
             Site_Facilities = new List<Site_Facility>();
             Site_WhyNaftas = new List<Site_WhyNafta>();

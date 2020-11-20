@@ -149,7 +149,7 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     b.Property<bool>("IsPartner")
                         .HasColumnType("bit");
 
-                    b.Property<byte[]>("Logo")
+                    b.Property<string>("Logo")
                         .HasColumnType("varbinary(max)");
 
                     b.Property<bool>("Status")

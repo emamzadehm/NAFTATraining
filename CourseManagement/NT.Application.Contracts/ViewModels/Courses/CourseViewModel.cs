@@ -1,20 +1,39 @@
-﻿using NT.CM.Application.Contracts.ViewModels.BaseInfo;
+﻿using _01.Framework.Application;
+using NT.CM.Application.Contracts.ViewModels.BaseInfo;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace NT.CM.Application.Contracts.ViewModels.Courses
 {
     public class CourseViewModel
     {
         public long ID { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
         public string CName { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
         public string Description { get; set; }
-        public string? Audience { get; set; }
-        public string? DailyPlan { get; set; }
-        public long? Cost { get; set; }
-        public byte? CourseCatalog { get; set; }
-        public long? CourseLevel { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
+        public string Audience { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
+        public string DailyPlan { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
+        public long Cost { get; set; }
+
+        public string CourseCatalog { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
+        public long CourseLevel { get; set; }
         public string? CourseLevelTitle { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
         public int Duration { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
         public long CategoryID { get; set; }
         public string CategoryIDTitle { get; set; }
         public bool Status { get; set; }

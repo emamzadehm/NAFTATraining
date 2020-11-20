@@ -13,8 +13,8 @@ namespace NT.CM.Domain.CourseInstructorAgg
     {
         public long CourseID { get; private set; }
         public long InstructorID { get; private set; }
-        public string SDate { get; private set; }
-        public string EDate { get; private set; }
+        public DateTime SDate { get; private set; }
+        public DateTime EDate { get; private set; }
         public int Capacity { get; private set; }
         public string Venue { get; private set; }
         public long Location { get; protected set; }
@@ -28,7 +28,7 @@ namespace NT.CM.Domain.CourseInstructorAgg
         {
 
         }
-        public CourseInstructor(long courseid, long instructorid, string sdate, string edate, int capacity, string venue, long location)
+        public CourseInstructor(long courseid, long instructorid, DateTime sdate, DateTime edate, int capacity, string venue, long location)
         {
             CourseID = courseid;
             InstructorID = instructorid;
@@ -39,7 +39,7 @@ namespace NT.CM.Domain.CourseInstructorAgg
             Location = location;
             CandidateCourseInstructors = new List<CandidateCourseInstructor>();
         }
-        public void Edit(long courseid, long instructorid, string sdate, string edate, int capacity, string venue, long location)
+        public void Edit(long courseid, long instructorid, DateTime sdate, DateTime edate, int capacity, string venue, long location)
         {
             CourseID = courseid;
             InstructorID = instructorid;

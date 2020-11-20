@@ -9,7 +9,7 @@ namespace NT.CM.Application.Contracts
         OperationResult Create(CandidateViewModel command);
         OperationResult Edit(CandidateViewModel command);
         OperationResult Remove(long id);
-        CandidateViewModel GetBy(long id);
+        CandidateViewModel GetDetails(long id);
         List<CandidateViewModel> Search(CandidateViewModel searchmodel);
     }
 }

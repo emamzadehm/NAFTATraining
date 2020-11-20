@@ -6,10 +6,8 @@ using NT.CM.Infrastructure.EFCore.Repositories;
 using NT.CM.Application.Contracts;
 using NT.CM.Application;
 using NT.CM.Application.Contracts.Interfaces;
-using _01.Framework.Domain;
 using NT.Infrastructure.Query.Interface;
 using NT.Infrastructure.Query.Query;
-using _01.Framework.Infrastructure.EFCore;
 
 namespace NT.CM.Infrastructure.Core
 {
@@ -33,17 +31,23 @@ namespace NT.CM.Infrastructure.Core
             services.AddTransient<IGalleryApplication, GalleryApplication>();
             services.AddTransient<IGalleryRepository, GalleryRepository>();
 
+            services.AddTransient<ICourseInstructorApplication, CourseInstructorApplication>();
+            services.AddTransient<ICourseInstructorRepository, CourseInstructorRepository>();
+
+            services.AddTransient<IInstructorApplication, InstructorApplication>();
             services.AddTransient<IInstructorRepository, InstructorRepository>();
 
-            services.AddTransient<ICandidateRepository, CandidateRepository>();
+            services.AddTransient<ICandidateCourseInstructorApplication, CandidateCourseInstructorApplication>();
+            services.AddTransient<ICandidateCourseInstructorRepository, CandidateCourseInstructorRepository>();
+
+            services.AddTransient<ICourseCandidateInstructorDetailsApplication, CourseCandidateInstructorDetailsApplication>();
+            services.AddTransient<ICourseCandidateInstructorDetailsRepository, CourseCandidateInstructorDetailsRepository>();
 
             services.AddTransient<ICourseQuery, CourseQuery>();
-            //services.AddTransient<IUnitOfWorkNT, UnitOfWorkNT>();
+
             services.AddTransient<IUnitOfWorkNT, UnitOfWorkNT>();
 
-
             services.AddDbContext<NTContext>(x => x.UseSqlServer(connectionstring));
-            //(options => options.UseSqlServer(connectionstring));
         }
     }
 }

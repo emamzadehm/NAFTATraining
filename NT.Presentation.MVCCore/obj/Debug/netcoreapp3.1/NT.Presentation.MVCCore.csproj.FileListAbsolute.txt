@@ -274,3 +274,15 @@ C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\Gallery\Create.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\Gallery\Edit.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\Gallery\Index.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\CourseInstructor\Create.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\CourseInstructor\Edit.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\CourseInstructor\Index.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\Instructors\Create.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\Instructors\Edit.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\Instructors\Index.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\SiteManagement\About\Create.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\SiteManagement\About\Edit.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\SiteManagement\About\Index.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\SiteManagement\Base\Create.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\SiteManagement\Base\Edit.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\SiteManagement\Base\Index.cshtml.g.cs

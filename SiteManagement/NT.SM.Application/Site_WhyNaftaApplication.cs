@@ -38,7 +38,7 @@ namespace NT.SM.Application
             return operationresult.Successful();
         }
 
-        public Site_WhyNaftaViewModel GetBy(int id)
+        public Site_WhyNaftaViewModel GetBy(long id)
         {
             var selecteditem = _irepository.GetBy(id);
             return new Site_WhyNaftaViewModel
@@ -49,11 +49,11 @@ namespace NT.SM.Application
             };
         }
 
-        public OperationResult Remove(Site_WhyNaftaViewModel command)
+        public OperationResult Remove(long id)
         {
             _iunitofwork.BeginTran();
             var operationresult = new OperationResult();
-            var selecteditem = _irepository.GetBy(command.Id);
+            var selecteditem = _irepository.GetBy(id);
             selecteditem.Remove();
             _iunitofwork.CommitTran();
             return operationresult.Successful();

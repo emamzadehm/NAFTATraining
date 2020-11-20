@@ -15,6 +15,11 @@ namespace NT.UM.Infrastructure.EFCore.Repositories
             _ntumcontext = ntumcontext;
         }
 
+        public void Save()
+        {
+            _ntumcontext.SaveChanges();
+        }
+
         public List<UsersViewModel> Search(UsersViewModel command)
         {
             var Query = _ntumcontext.Tbl_Users.Where(x => x.Status == true).Select(x => new UsersViewModel

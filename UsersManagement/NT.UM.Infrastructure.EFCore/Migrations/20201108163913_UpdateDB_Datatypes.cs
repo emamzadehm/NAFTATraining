@@ -51,9 +51,9 @@ namespace NT.UM.Infrastructure.EFCore.Migrations
                     Sex = table.Column<bool>(nullable: false),
                     Email = table.Column<string>(nullable: true),
                     Tel = table.Column<string>(nullable: true),
-                    IMG = table.Column<byte[]>(nullable: true),
+                    IMG = table.Column<string>(nullable: true),
                     Password = table.Column<string>(nullable: true),
-                    IDCardIMG = table.Column<byte[]>(nullable: true)
+                    IDCardIMG = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

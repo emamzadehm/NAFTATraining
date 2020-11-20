@@ -10,8 +10,8 @@ namespace NT.SM.Application.Contracts.Interfaces
     {
         OperationResult Create(Site_WhyNaftaViewModel command);
         OperationResult Edit(Site_WhyNaftaViewModel command);
-        OperationResult Remove(Site_WhyNaftaViewModel command);
-        Site_WhyNaftaViewModel GetBy(int id);
+        OperationResult Remove(long id);
+        Site_WhyNaftaViewModel GetBy(long id);
         List<Site_WhyNaftaViewModel> Search(Site_WhyNaftaViewModel command);
     }
 }

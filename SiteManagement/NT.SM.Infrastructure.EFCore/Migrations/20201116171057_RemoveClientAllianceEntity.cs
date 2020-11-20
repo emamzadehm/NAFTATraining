@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NT.SM.Infrastructure.EFCore.Migrations
 {
-    public partial class DBSite_990815 : Migration
+    public partial class RemoveClientAllianceEntity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,7 +11,7 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
                 name: "Site_Base",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
+                    ID = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Status = table.Column<bool>(nullable: false),
                     CreationDate = table.Column<DateTime>(nullable: false),
@@ -27,7 +27,7 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
                 name: "Site_EvaluationResult",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
+                    ID = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Status = table.Column<bool>(nullable: false),
                     CreationDate = table.Column<DateTime>(nullable: false),
@@ -43,7 +43,7 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
                 name: "Site_FAQ",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
+                    ID = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Status = table.Column<bool>(nullable: false),
                     CreationDate = table.Column<DateTime>(nullable: false),
@@ -59,7 +59,7 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
                 name: "Site_FunFact",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
+                    ID = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Status = table.Column<bool>(nullable: false),
                     CreationDate = table.Column<DateTime>(nullable: false),
@@ -75,13 +75,13 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
                 name: "Site_About",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
+                    ID = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Status = table.Column<bool>(nullable: false),
                     CreationDate = table.Column<DateTime>(nullable: false),
                     Title = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
-                    Site_Base_Id = table.Column<int>(nullable: false)
+                    Site_Base_Id = table.Column<long>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -98,7 +98,7 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
                 name: "Site_CertifiedProgram",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
+                    ID = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Status = table.Column<bool>(nullable: false),
                     CreationDate = table.Column<DateTime>(nullable: false),
@@ -106,7 +106,7 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
                     Title = table.Column<string>(nullable: true),
                     ShortDescription = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
-                    Site_Base_Id = table.Column<int>(nullable: false)
+                    Site_Base_Id = table.Column<long>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -120,41 +120,17 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Site_ClientAlliance",
-                columns: table => new
-                {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Status = table.Column<bool>(nullable: false),
-                    CreationDate = table.Column<DateTime>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    Logo = table.Column<string>(nullable: true),
-                    Type = table.Column<string>(nullable: true),
-                    Site_Base_Id = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Site_ClientAlliance", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_Site_ClientAlliance_Site_Base_Site_Base_Id",
-                        column: x => x.Site_Base_Id,
-                        principalTable: "Site_Base",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Site_Course",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
+                    ID = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Status = table.Column<bool>(nullable: false),
                     CreationDate = table.Column<DateTime>(nullable: false),
                     Icon = table.Column<string>(nullable: true),
                     Title = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
-                    Site_Base_Id = table.Column<int>(nullable: false)
+                    Site_Base_Id = table.Column<long>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -171,7 +147,7 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
                 name: "Site_Facility",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
+                    ID = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Status = table.Column<bool>(nullable: false),
                     CreationDate = table.Column<DateTime>(nullable: false),
@@ -179,7 +155,7 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
                     Description = table.Column<string>(nullable: true),
                     HasBullet = table.Column<bool>(nullable: false),
                     Img = table.Column<string>(nullable: true),
-                    Site_Base_Id = table.Column<int>(nullable: false)
+                    Site_Base_Id = table.Column<long>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -196,12 +172,12 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
                 name: "Site_WhyNafta",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
+                    ID = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Status = table.Column<bool>(nullable: false),
                     CreationDate = table.Column<DateTime>(nullable: false),
                     Description = table.Column<string>(nullable: true),
-                    Site_Base_Id = table.Column<int>(nullable: false)
+                    Site_Base_Id = table.Column<long>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -222,11 +198,6 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Site_CertifiedProgram_Site_Base_Id",
                 table: "Site_CertifiedProgram",
-                column: "Site_Base_Id");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Site_ClientAlliance_Site_Base_Id",
-                table: "Site_ClientAlliance",
                 column: "Site_Base_Id");
 
             migrationBuilder.CreateIndex(
@@ -252,9 +223,6 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
 
             migrationBuilder.DropTable(
                 name: "Site_CertifiedProgram");
-
-            migrationBuilder.DropTable(
-                name: "Site_ClientAlliance");
 
             migrationBuilder.DropTable(
                 name: "Site_Course");

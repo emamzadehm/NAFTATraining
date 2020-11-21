@@ -9,6 +9,6 @@ namespace NT.SM.Domain.Interfaces
 {
     public interface ISite_EvaluationResultRepository : IRepository<long, Site_EvaluationResult>
     {
-        List<Site_EvaluationResultViewModel> Search(Site_EvaluationResultViewModel command);
+        List<Site_EvaluationResultViewModel> Search(Site_EvaluationResultViewModel command = null);
     }
 }

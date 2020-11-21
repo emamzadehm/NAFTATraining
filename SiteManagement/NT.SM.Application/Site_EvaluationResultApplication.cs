@@ -59,7 +59,7 @@ namespace NT.SM.Application
             return operationresult.Successful();
         }
 
-        public List<Site_EvaluationResultViewModel> Search(Site_EvaluationResultViewModel command)
+        public List<Site_EvaluationResultViewModel> Search(Site_EvaluationResultViewModel command = null)
         {
             return _irepository.Search(command);
         }

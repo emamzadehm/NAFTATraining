@@ -38,5 +38,7 @@ namespace NT.CM.Application.Contracts.ViewModels.CourseInstructor
         public List<BaseInfoViewModel> LocationList { get; set; }
         public List<InstructorsViewModel> InstructorList { get; set; }
         public List<CourseViewModel> CourseList { get; set; }
+
+        public string CourseInfo { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace NT.SM.Infrastructure.EFCore.Repository
             _smcontext = smcontext;
         }
 
-        public List<Site_FunFactViewModel> Search(Site_FunFactViewModel command)
+        public List<Site_FunFactViewModel> Search(Site_FunFactViewModel command=null)
         {
             var Query = _smcontext.Tbl_Site_FunFact.Where(x => x.Status == true).Select(x => new Site_FunFactViewModel
             {

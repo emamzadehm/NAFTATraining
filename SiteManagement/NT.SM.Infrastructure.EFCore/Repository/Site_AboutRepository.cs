@@ -15,7 +15,7 @@ namespace NT.SM.Infrastructure.EFCore.Repository
             _smcontext = smcontext;
         }
 
-        public List<Site_AboutViewModel> Search(Site_AboutViewModel command)
+        public List<Site_AboutViewModel> Search(Site_AboutViewModel command=null)
         {
             var Query = _smcontext.Tbl_Site_About.Where(x => x.Status == true).Select(x => new Site_AboutViewModel
             {
@@ -25,8 +25,12 @@ namespace NT.SM.Infrastructure.EFCore.Repository
                 Site_Base_Id = x.Site_Base_Id
 
             });
-            if (!string.IsNullOrWhiteSpace(command.Description))
-                Query = Query.Where(x => x.Description.Contains(command.Description));
+            if (command != null)
+            {
+                if (!string.IsNullOrWhiteSpace(command.Description))
+                    Query = Query.Where(x => x.Description.Contains(command.Description));
+            }
+            
             return Query.ToList();
         }
     }

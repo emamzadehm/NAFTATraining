@@ -10,6 +10,6 @@ namespace NT.CM.Application.Contracts
         OperationResult Edit(CandidateViewModel command);
         OperationResult Remove(long id);
         CandidateViewModel GetDetails(long id);
-        List<CandidateViewModel> Search(CandidateViewModel searchmodel);
+        List<CandidateViewModel> Search(CandidateViewModel searchmodel = null);
     }
 }

@@ -7,6 +7,6 @@ namespace NT.UM.Domain
 {
     public interface IUsersRolesRepository : IRepository<long, UsersRoles>
     {
-        List<UsersRolesViewModel> Search(UsersRolesViewModel command);
+        List<UsersRolesViewModel> Search(UsersRolesViewModel command = null);
     }
 }

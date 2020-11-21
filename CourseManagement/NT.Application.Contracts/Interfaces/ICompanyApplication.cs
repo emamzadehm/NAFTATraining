@@ -10,6 +10,6 @@ namespace NT.CM.Application.Contracts.Interfaces
         OperationResult Edit(CompanyViewModel command);
         OperationResult Remove(long id);
         CompanyViewModel GetBy(long id);
-        List<CompanyViewModel> Search(CompanyViewModel searchmodel);
+        List<CompanyViewModel> Search(CompanyViewModel searchmodel = null);
     }
 }

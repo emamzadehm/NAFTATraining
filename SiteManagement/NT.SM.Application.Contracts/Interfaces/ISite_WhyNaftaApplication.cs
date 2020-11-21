@@ -12,6 +12,6 @@ namespace NT.SM.Application.Contracts.Interfaces
         OperationResult Edit(Site_WhyNaftaViewModel command);
         OperationResult Remove(long id);
         Site_WhyNaftaViewModel GetBy(long id);
-        List<Site_WhyNaftaViewModel> Search(Site_WhyNaftaViewModel command);
+        List<Site_WhyNaftaViewModel> Search(Site_WhyNaftaViewModel command = null);
     }
 }

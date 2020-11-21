@@ -1,0 +1,40 @@
+﻿@model List<NT.CM.Application.Contracts.ViewModels.CandidateCourseInstructor.CandidateCourseInstructorViewModel>
+@{
+}
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 class="modal-title">لیست ثبت نام شدگان دوره </h4>
+</div>
+
+<div class="modal-body">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>نام فراگیر</th>
+                <th>نام دوره</th>
+                <th>نام استاد</th>
+                <th>نام شرکت</th>
+                <th>تاریخ ثبت نام</th>
+                <th>تاریخ برگزاری</th>
+                <th>تاریخ پایان</th>
+</thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.Fullname</td>
+                <td>@item.CourseName</td>
+                <td>@item.InstructorName</td>
+                <td>@item.CompanyName</td>
+                <td>@item.RegistrationDate</td>
+                <td>@item.SDate</td>
+                <td>@item.EDate</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
+</div>

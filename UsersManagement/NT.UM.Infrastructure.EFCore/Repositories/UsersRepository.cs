@@ -20,7 +20,7 @@ namespace NT.UM.Infrastructure.EFCore.Repositories
             _ntumcontext.SaveChanges();
         }
 
-        public List<UsersViewModel> Search(UsersViewModel command)
+        public List<UsersViewModel> Search(UsersViewModel command = null)
         {
             var Query = _ntumcontext.Tbl_Users.Where(x => x.Status == true).Select(x => new UsersViewModel
             {
@@ -35,8 +35,12 @@ namespace NT.UM.Infrastructure.EFCore.Repositories
                 Fullname=x.FirstName + " " + x.LastName,
                 UserStatus = x.Status
             });
-            if (!string.IsNullOrWhiteSpace(command.Fullname))
-                Query = Query.Where(x => x.Fullname.Contains(command.Fullname));
+            if (command != null)
+            {
+                if (!string.IsNullOrWhiteSpace(command.Fullname))
+                    Query = Query.Where(x => x.Fullname.Contains(command.Fullname));
+            }
+           
 
             return Query.ToList();
         }

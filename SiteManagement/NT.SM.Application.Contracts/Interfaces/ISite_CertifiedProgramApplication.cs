@@ -12,6 +12,6 @@ namespace NT.SM.Application.Contracts.Interfaces
         OperationResult Edit(Site_CertifiedProgramViewModel command);
         OperationResult Remove(long id);
         Site_CertifiedProgramViewModel GetBy(long id);
-        List<Site_CertifiedProgramViewModel> Search(Site_CertifiedProgramViewModel command);
+        List<Site_CertifiedProgramViewModel> Search(Site_CertifiedProgramViewModel command = null);
     }
 }

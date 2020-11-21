@@ -59,14 +59,9 @@ namespace NT.CM.Application
             };
         }
 
-        public List<BaseInfoViewModel> Search(BaseInfoViewModel searchmodel)
+        public List<BaseInfoViewModel> Search(BaseInfoViewModel searchmodel = null)
         {
             return _baseinforepository.Search(searchmodel);
-        }
-
-        public List<BaseInfoViewModel> GetAll()
-        {
-            return _baseinforepository.GetAll();
         }
 
         public List<BaseInfoViewModel> GetByTypeId(long typeid)

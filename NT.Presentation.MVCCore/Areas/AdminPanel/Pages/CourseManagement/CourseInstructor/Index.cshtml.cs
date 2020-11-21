@@ -16,6 +16,7 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Course
         private readonly ICourseApplication _icourseapplication;
         private readonly ICourseInstructorApplication _icourseinstructorapplication;
         private readonly IBaseInfoApplication _ibaseinfoapplication;
+        private readonly ICandidateCourseInstructorApplication _icandidatecourseinstructorapplication;
 
         public List<CourseInstructorViewModel> courseinstructorVM { get; set; }
         public CourseInstructorViewModel SearchModel { get; set; }
@@ -26,13 +27,17 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Course
         public SelectList courselist;
         public SelectList locationlist;
 
-        public IndexModel(IInstructorApplication iinstructorapplication, ICourseApplication icourseapplication,
-            ICourseInstructorApplication icourseinstructorapplication, IBaseInfoApplication ibaseinfoapplication)
+        public IndexModel(IInstructorApplication iinstructorapplication, 
+            ICourseApplication icourseapplication,
+            ICourseInstructorApplication icourseinstructorapplication,
+            IBaseInfoApplication ibaseinfoapplication,
+            ICandidateCourseInstructorApplication icandidatecourseinstructorapplication)
         {
             _iinstructorapplication = iinstructorapplication;
             _icourseapplication = icourseapplication;
             _icourseinstructorapplication = icourseinstructorapplication;
             _ibaseinfoapplication = ibaseinfoapplication;
+            _icandidatecourseinstructorapplication = icandidatecourseinstructorapplication;
         }
 
         public void OnGet(CourseInstructorViewModel searchmodel)
@@ -41,7 +46,7 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Course
             searchmodelcourse = new CourseViewModel();
             instructorlist = new SelectList(_iinstructorapplication.Search(searchmodelinstructor), "ID", "ID");
             courselist = new SelectList(_icourseapplication.Search(searchmodelcourse), "ID", "CName");
-            locationlist = new SelectList(_ibaseinfoapplication.GetAll(), "ID", "Title");
+            locationlist = new SelectList(_ibaseinfoapplication.Search(), "ID", "Title");
             courseinstructorVM = _icourseinstructorapplication.Search(searchmodel);
         }
         public IActionResult OnGetCreate()
@@ -52,7 +57,7 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Course
             {
                 InstructorList = _iinstructorapplication.Search(searchmodelinstructor),
                 CourseList = _icourseapplication.Search(searchmodelcourse),
-                LocationList = _ibaseinfoapplication.GetAll()
+                LocationList = _ibaseinfoapplication.Search()
             };
             return Partial("./Create", command);
         }
@@ -66,7 +71,7 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Course
             var selecteditem = _icourseinstructorapplication.GetDetails(id);
             searchmodelinstructor = new InstructorsViewModel();
             searchmodelcourse = new CourseViewModel();
-            selecteditem.LocationList = _ibaseinfoapplication.GetAll();
+            selecteditem.LocationList = _ibaseinfoapplication.Search();
             selecteditem.CourseList = _icourseapplication.Search(searchmodelcourse);
             selecteditem.InstructorList = _iinstructorapplication.Search(searchmodelinstructor);
             return Partial("./Edit", selecteditem);
@@ -75,6 +80,11 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Course
         {
             var result = _icourseinstructorapplication.Edit(courseinstructorvm);
             return new JsonResult(result);
+        }
+        public IActionResult OnGetRegisteredCandidates(int id)
+        {
+            var selecteditem = _icandidatecourseinstructorapplication.GetDetails(id);
+            return Partial("./Edit", selecteditem);
         }
         public IActionResult OnGetRemove(CourseInstructorViewModel courseinstructorvm)
         {

@@ -15,7 +15,7 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
             _ntcontext = ntcontext;
         }
 
-        public List<CourseViewModel> Search(CourseViewModel command)
+        public List<CourseViewModel> Search(CourseViewModel command = null)
         {
             var Query = _ntcontext.Tbl_Course.Where(x => x.Status == true).Select(listitem => new CourseViewModel
             {
@@ -34,10 +34,14 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                 IsPrivate=listitem.IsPrivate,
                 Status = listitem.Status
             });
-            if (!string.IsNullOrWhiteSpace(command.Description))
-                Query = Query.Where(x => x.Description.Contains(command.Description));
-            if (command.ID>0)
-                Query = Query.Where(x => x.ID == command.ID);
+            if (command != null)
+            {
+                if (!string.IsNullOrWhiteSpace(command.Description))
+                    Query = Query.Where(x => x.Description.Contains(command.Description));
+                if (command.ID > 0)
+                    Query = Query.Where(x => x.ID == command.ID);
+            }
+            
             return Query.OrderBy(x => x.ID).ToList();
         }
 

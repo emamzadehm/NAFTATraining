@@ -7,6 +7,6 @@ namespace NT.CM.Domain
 {
     public interface ICompanyRepository : IRepository<long, Company>
     {
-        List<CompanyViewModel> Search(CompanyViewModel command);
+        List<CompanyViewModel> Search(CompanyViewModel command = null);
     }
 }

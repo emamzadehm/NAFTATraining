@@ -99,7 +99,7 @@ namespace NT.UM.Application
             };
         }
 
-        public List<UsersViewModel> Search(UsersViewModel searchmodel)
+        public List<UsersViewModel> Search(UsersViewModel searchmodel = null)
         {
             return _userRepository.Search(searchmodel);
         }

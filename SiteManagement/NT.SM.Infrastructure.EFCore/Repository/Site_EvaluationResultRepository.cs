@@ -15,7 +15,7 @@ namespace NT.SM.Infrastructure.EFCore.Repository
             _smcontext = smcontext;
         }
 
-        public List<Site_EvaluationResultViewModel> Search(Site_EvaluationResultViewModel command)
+        public List<Site_EvaluationResultViewModel> Search(Site_EvaluationResultViewModel command=null)
         {
             var Query = _smcontext.Tbl_Site_EvaluationResult.Where(x => x.Status == true).Select(x => new Site_EvaluationResultViewModel
             {

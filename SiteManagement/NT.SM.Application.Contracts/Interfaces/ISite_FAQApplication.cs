@@ -12,6 +12,6 @@ namespace NT.SM.Application.Contracts.Interfaces
         OperationResult Edit(Site_FAQViewModel command);
         OperationResult Remove(long id);
         Site_FAQViewModel GetBy(long id);
-        List<Site_FAQViewModel> Search(Site_FAQViewModel command);
+        List<Site_FAQViewModel> Search(Site_FAQViewModel command = null);
     }
 }

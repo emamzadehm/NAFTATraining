@@ -59,7 +59,7 @@ namespace NT.UM.Application
             return operationresult.Successful();
         }
 
-        public List<PermissionsViewModel> Search(PermissionsViewModel searchmodel)
+        public List<PermissionsViewModel> Search(PermissionsViewModel searchmodel = null)
         {
             return _ipermissionsrepository.Search(searchmodel);
         }

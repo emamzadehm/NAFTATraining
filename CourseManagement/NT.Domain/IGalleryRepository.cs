@@ -7,7 +7,7 @@ namespace NT.CM.Domain
 {
     public interface IGalleryRepository : IRepository<long, Gallery>
     {
-        List<GalleryViewModel> Search(GalleryViewModel command);
+        List<GalleryViewModel> Search(GalleryViewModel command = null);
         GalleryViewModel GetDetails(long id);
     }
 }

@@ -54,7 +54,7 @@ namespace NT.CM.Application
 
         }
 
-        public List<CourseInstructorViewModel> Search(CourseInstructorViewModel searchmodel)
+        public List<CourseInstructorViewModel> Search(CourseInstructorViewModel searchmodel = null)
         {
             return _icourseInstructorRepository.Search(searchmodel);
         }

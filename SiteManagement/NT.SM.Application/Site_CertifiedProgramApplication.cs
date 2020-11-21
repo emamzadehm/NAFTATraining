@@ -62,7 +62,7 @@ namespace NT.SM.Application
             return operationresult.Successful();
         }
 
-        public List<Site_CertifiedProgramViewModel> Search(Site_CertifiedProgramViewModel command)
+        public List<Site_CertifiedProgramViewModel> Search(Site_CertifiedProgramViewModel command = null)
         {
             return _irepository.Search(command);
         }

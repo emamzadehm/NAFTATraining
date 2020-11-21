@@ -77,7 +77,7 @@ namespace NT.CM.Application
             return _iinstructorRepository.GetDetails(id);
         }
 
-        public List<InstructorsViewModel> Search(InstructorsViewModel searchmodel)
+        public List<InstructorsViewModel> Search(InstructorsViewModel searchmodel = null)
         {
             return _iinstructorRepository.Search(searchmodel);
         }

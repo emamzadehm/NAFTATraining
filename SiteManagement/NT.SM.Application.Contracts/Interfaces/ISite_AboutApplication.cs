@@ -12,6 +12,6 @@ namespace NT.SM.Application.Contracts.Interfaces
         OperationResult Edit(Site_AboutViewModel command);
         OperationResult Remove(long id);
         Site_AboutViewModel GetBy(long id);
-        List<Site_AboutViewModel> Search(Site_AboutViewModel command);
+        List<Site_AboutViewModel> Search(Site_AboutViewModel command = null);
     }
 }

@@ -61,7 +61,7 @@ namespace NT.SM.Application
             return operationresult.Successful();
         }
 
-        public List<Site_CourseViewModel> Search(Site_CourseViewModel command)
+        public List<Site_CourseViewModel> Search(Site_CourseViewModel command = null)
         {
             return _irepository.Search(command);
         }

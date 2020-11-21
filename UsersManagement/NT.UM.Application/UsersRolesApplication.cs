@@ -54,7 +54,7 @@ namespace NT.UM.Application
             return operationresult.Successful();
         }
 
-        public List<UsersRolesViewModel> Search(UsersRolesViewModel searchmodel)
+        public List<UsersRolesViewModel> Search(UsersRolesViewModel searchmodel = null)
         {
             return _iusersrolesrepository.Search(searchmodel);
         }

@@ -9,7 +9,7 @@ namespace NT.SM.Domain.Interfaces
 {
     public interface ISite_CourseRepository : IRepository<long, Site_Course>
     {
-        List<Site_CourseViewModel> Search(Site_CourseViewModel command);
+        List<Site_CourseViewModel> Search(Site_CourseViewModel command = null);
 
     }
 }

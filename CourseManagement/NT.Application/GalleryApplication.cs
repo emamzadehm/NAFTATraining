@@ -53,7 +53,7 @@ namespace NT.CM.Application
             return _igalleryRepository.GetDetails(id);
         }
 
-        public List<GalleryViewModel> Search(GalleryViewModel searchmodel)
+        public List<GalleryViewModel> Search(GalleryViewModel searchmodel = null)
         {
             return _igalleryRepository.Search(searchmodel);
         }

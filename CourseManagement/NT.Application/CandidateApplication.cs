@@ -77,7 +77,7 @@ namespace NT.CM.Application
             return operationresult.Successful();
         }
 
-        public List<CandidateViewModel> Search(CandidateViewModel searchmodel)
+        public List<CandidateViewModel> Search(CandidateViewModel searchmodel = null)
         {
             return _icandidaterepository.Search(searchmodel);
         }

@@ -9,6 +9,6 @@ namespace NT.SM.Domain.Interfaces
 {
     public interface ISite_FAQRepository : IRepository<long, Site_FAQ>
     {
-        List<Site_FAQViewModel> Search(Site_FAQViewModel command);
+        List<Site_FAQViewModel> Search(Site_FAQViewModel command = null);
     }
 }

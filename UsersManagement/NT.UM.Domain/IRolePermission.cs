@@ -7,6 +7,6 @@ namespace NT.UM.Domain
 {
     public interface IRolePermission : IRepository<long, RolePermission>
     {
-        List<RolePermissionViewModel> Search(RolePermissionViewModel command);
+        List<RolePermissionViewModel> Search(RolePermissionViewModel command = null);
     }
 }

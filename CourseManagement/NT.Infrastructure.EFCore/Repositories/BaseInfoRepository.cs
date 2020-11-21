@@ -52,7 +52,7 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
             return Query.ToList();
         }
 
-        public List<BaseInfoViewModel> Search(BaseInfoViewModel command)
+        public List<BaseInfoViewModel> Search(BaseInfoViewModel command = null)
         {
             var Query = _ntcontext.Tbl_Base_Info.Where(x => x.Status == true).Select(listitem => new BaseInfoViewModel
             {
@@ -63,26 +63,14 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                 ParentName = listitem.Parent.Title,
                 ParentID = listitem.ParentID
             });
-            if (command.TypeID>0)
-                Query = Query.Where(x => x.TypeID == command.TypeID);
-            if (!string.IsNullOrWhiteSpace(command.Title))
-                Query = Query.Where(x => x.Title.Contains(command.Title));
+            if (command!=null)
+            {
+                if (command.TypeID > 0)
+                    Query = Query.Where(x => x.TypeID == command.TypeID);
+                if (!string.IsNullOrWhiteSpace(command.Title))
+                    Query = Query.Where(x => x.Title.Contains(command.Title));
+            }
             return Query.OrderBy(x=>x.ID).ToList();
-        }
-
-        List<BaseInfoViewModel> IBaseInfoRepository.GetAll()
-        {
-            var Query = _ntcontext.Tbl_Base_Info.Where(x => x.Status == true).Select(listitem => new BaseInfoViewModel
-            {
-                ID = listitem.ID,
-                Title = listitem.Title,
-                TypeID = listitem.TypeID,
-                TypeName = listitem.Type.Title,
-                ParentName = listitem.Parent.Title,
-                ParentID = listitem.ParentID
-            });
-
-            return Query.ToList();
         }
     }
 }

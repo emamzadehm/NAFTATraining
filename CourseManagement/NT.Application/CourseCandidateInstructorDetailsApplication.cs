@@ -63,7 +63,7 @@ namespace NT.CM.Application
             return result;
         }
 
-        public List<CourseCandidateInstructorDetailsViewModel> Search(CourseCandidateInstructorDetailsViewModel searchmodel)
+        public List<CourseCandidateInstructorDetailsViewModel> Search(CourseCandidateInstructorDetailsViewModel searchmodel = null)
         {
             return _icourseCandidateInstructorDetailsRepository.Search(searchmodel);
         }

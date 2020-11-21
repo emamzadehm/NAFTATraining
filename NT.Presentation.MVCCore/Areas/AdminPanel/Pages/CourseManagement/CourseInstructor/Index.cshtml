@@ -95,7 +95,10 @@
                                             <i class="fa fa-edit"></i> ویرایش
                                         </a>
                                         <a class="btn btn-danger pull-right m-rl-5" asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.ID">
-                                            <i class="fa fa-edit"></i> حذف
+                                            <i class="fa fa-edit"></i> لغو دوره
+                                        </a>
+                                        <a class="btn btn-info pull-right m-rl-5" asp-page="./Index" asp-page-handler="RegisteredCandidates" asp-route-id="@item.ID">
+                                            <i class="fa fa-edit"></i> مشاهده لیست فراگیران
                                         </a>
                                     </td>
                                 </tr>

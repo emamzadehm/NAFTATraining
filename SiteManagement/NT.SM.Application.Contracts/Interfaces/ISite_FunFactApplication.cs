@@ -12,6 +12,6 @@ namespace NT.SM.Application.Contracts.Interfaces
         OperationResult Edit(Site_FunFactViewModel command);
         OperationResult Remove(long id);
         Site_FunFactViewModel GetBy(long id);
-        List<Site_FunFactViewModel> Search(Site_FunFactViewModel command);
+        List<Site_FunFactViewModel> Search(Site_FunFactViewModel command = null);
     }
 }

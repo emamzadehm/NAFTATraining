@@ -12,6 +12,6 @@ namespace NT.SM.Application.Contracts.Interfaces
         OperationResult Edit(Site_FacilityViewModel command);
         OperationResult Remove(long id);
         Site_FacilityViewModel GetBy(long id);
-        List<Site_FacilityViewModel> Search(Site_FacilityViewModel command);
+        List<Site_FacilityViewModel> Search(Site_FacilityViewModel command = null);
     }
 }

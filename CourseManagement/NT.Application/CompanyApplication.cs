@@ -65,7 +65,7 @@ namespace NT.CM.Application
             return operationresult.Successful();
         }
 
-        public List<CompanyViewModel> Search(CompanyViewModel searchmodel)
+        public List<CompanyViewModel> Search(CompanyViewModel searchmodel = null)
         {
             return _companyrepository.Search(searchmodel);
         }

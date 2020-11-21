@@ -53,7 +53,7 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
             return instructors.FirstOrDefault(x => x.ID == id);
         }
 
-        public List<InstructorsViewModel> Search(InstructorsViewModel command)
+        public List<InstructorsViewModel> Search(InstructorsViewModel command = null)
         {
 
             var users = _ntumcontext.Tbl_Users.Where(x => x.Status == true).Select(x => new { x.ID, x.FirstName, x.LastName, x.Sex, x.Email, x.Tel, x.IMG, x.IDCardIMG, x.Password }).ToList();
@@ -81,9 +81,12 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                     instructor.Password = userInstructor.Password;
                 }
             };
-
-            if (!string.IsNullOrWhiteSpace(command.Resume))
-                instructors = instructors.Where(x => x.Resume.Contains(command.Resume)).ToList();
+            if (command != null)
+            {
+                if (!string.IsNullOrWhiteSpace(command.Resume))
+                    instructors = instructors.Where(x => x.Resume.Contains(command.Resume)).ToList();
+            }
+            
             return instructors.OrderBy(x => x.ID).ToList();
         }
     }

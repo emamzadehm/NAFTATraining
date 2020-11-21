@@ -16,7 +16,7 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
         public CandidateRepository(NTContext context, NTUMContext ntumcontext) : base(context)
         {
             _ntcontext = context;
-            _ntcontext = ntumcontext;
+            _ntumcontext = ntumcontext;
         }
         public CandidateViewModel GetDetails(long id)
         {
@@ -55,7 +55,7 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
             return candidates.FirstOrDefault(x => x.ID == id);
         }
 
-        public List<CandidateViewModel> Search(CandidateViewModel command)
+        public List<CandidateViewModel> Search(CandidateViewModel command = null)
         {
 
             var users = _ntumcontext.Tbl_Users.Where(x => x.Status == true).Select(x => new { x.ID, x.FirstName, x.LastName, x.Sex, x.Email, x.Tel, x.IMG, x.IDCardIMG, x.Password }).ToList();
@@ -89,9 +89,12 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                     candidate.Password = userCandidate.Password;
                 }
             };
+            if (command != null)
+            {
+                if (!string.IsNullOrWhiteSpace(command.NID))
+                    candidates = candidates.Where(x => x.NID.Contains(command.NID)).ToList();
+            }
 
-            if (!string.IsNullOrWhiteSpace(command.NID))
-                candidates = candidates.Where(x => x.NID.Contains(command.NID)).ToList();
             return candidates.OrderBy(x => x.ID).ToList();
         }
     }

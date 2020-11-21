@@ -59,7 +59,7 @@ namespace NT.SM.Application
             return operationresult.Successful();
         }
 
-        public List<Site_WhyNaftaViewModel> Search(Site_WhyNaftaViewModel command)
+        public List<Site_WhyNaftaViewModel> Search(Site_WhyNaftaViewModel command = null)
         {
             return _irepository.Search(command);
         }

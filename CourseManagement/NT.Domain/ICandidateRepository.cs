@@ -7,7 +7,7 @@ namespace NT.CM.Domain
 {
     public interface ICandidateRepository : IRepository<long, Candidate>
     {
-        List<CandidateViewModel> Search(CandidateViewModel command);
+        List<CandidateViewModel> Search(CandidateViewModel command = null);
         CandidateViewModel GetDetails(long id);
     }
 }

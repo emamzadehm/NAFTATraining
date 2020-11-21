@@ -15,7 +15,7 @@ namespace NT.UM.Infrastructure.EFCore.Repositories
             _ntumcontext = ntumcontext;
         }
 
-        public List<UsersRolesViewModel> Search(UsersRolesViewModel command)
+        public List<UsersRolesViewModel> Search(UsersRolesViewModel command = null)
         {
             var Query = _ntumcontext.Tbl_Users_Roles.Where(x => x.Status == true).Select(x => new UsersRolesViewModel
             {
@@ -24,8 +24,6 @@ namespace NT.UM.Infrastructure.EFCore.Repositories
                 RoleID=x.RoleID,
                 Status=x.Status
             });
-            //if (!string.IsNullOrWhiteSpace(command.Description))
-            //    Query = Query.Where(x => x.Description.Contains(command.Description));
 
             return Query.ToList();
         }

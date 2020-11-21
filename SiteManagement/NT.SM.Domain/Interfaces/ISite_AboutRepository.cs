@@ -9,7 +9,7 @@ namespace NT.SM.Domain.Interfaces
 {
     public interface ISite_AboutRepository : IRepository<long, Site_About>
     {
-        List<Site_AboutViewModel> Search(Site_AboutViewModel command);
+        List<Site_AboutViewModel> Search(Site_AboutViewModel command=null);
 
     }
 }

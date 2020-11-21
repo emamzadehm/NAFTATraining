@@ -15,7 +15,7 @@ namespace NT.SM.Infrastructure.EFCore.Repository
             _smcontext = smcontext;
         }
 
-        public List<Site_FAQViewModel> Search(Site_FAQViewModel command)
+        public List<Site_FAQViewModel> Search(Site_FAQViewModel command=null)
         {
             var Query = _smcontext.Tbl_Site_FAQ.Where(x => x.Status == true).Select(x => new Site_FAQViewModel
             {

@@ -7,6 +7,6 @@ namespace NT.SM.Domain.Interfaces
 {
     public interface ISite_WhyNaftaRepository : IRepository<long, Site_WhyNafta>
     {
-        List<Site_WhyNaftaViewModel> Search(Site_WhyNaftaViewModel command);
+        List<Site_WhyNaftaViewModel> Search(Site_WhyNaftaViewModel command = null);
     }
 }

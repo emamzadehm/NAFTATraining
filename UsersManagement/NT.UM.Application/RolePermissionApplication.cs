@@ -63,7 +63,7 @@ namespace NT.UM.Application
             return operationresult.Successful();
         }
 
-        public List<RolePermissionViewModel> Search(RolePermissionViewModel searchmodel)
+        public List<RolePermissionViewModel> Search(RolePermissionViewModel searchmodel = null)
         {
             return _irolepermissionrepository.Search(searchmodel);
         }

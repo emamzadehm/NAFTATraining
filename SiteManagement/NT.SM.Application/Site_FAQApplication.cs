@@ -59,7 +59,7 @@ namespace NT.SM.Application
             return operationresult.Successful();
         }
 
-        public List<Site_FAQViewModel> Search(Site_FAQViewModel command)
+        public List<Site_FAQViewModel> Search(Site_FAQViewModel command = null)
         {
             return _irepository.Search(command);
         }

@@ -62,7 +62,7 @@ namespace NT.SM.Application
             return operationresult.Successful();
         }
 
-        public List<Site_FacilityViewModel> Search(Site_FacilityViewModel command)
+        public List<Site_FacilityViewModel> Search(Site_FacilityViewModel command = null)
         {
             return _irepository.Search(command);
         }

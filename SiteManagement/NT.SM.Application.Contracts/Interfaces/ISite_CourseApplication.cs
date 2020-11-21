@@ -12,6 +12,6 @@ namespace NT.SM.Application.Contracts.Interfaces
         OperationResult Edit(Site_CourseViewModel command);
         OperationResult Remove(long id);
         Site_CourseViewModel GetBy(long id);
-        List<Site_CourseViewModel> Search(Site_CourseViewModel command);
+        List<Site_CourseViewModel> Search(Site_CourseViewModel command = null);
     }
 }

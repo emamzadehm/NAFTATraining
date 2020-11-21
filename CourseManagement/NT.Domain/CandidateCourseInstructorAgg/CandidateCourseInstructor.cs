@@ -11,7 +11,7 @@ namespace NT.CM.Domain.CandidateCourseInstructorAgg
     {
         public long Course_InstructorID { get; private set; }
         public long CandidateID { get; private set; }
-        public string RegistrationDate { get; private set; }
+        public DateTime RegistrationDate { get; private set; }
         public Candidate Candidates { get; private set; }
         public CourseInstructor CourseInstructors { get; private set; }
         public ICollection<CourseCandidateInstructorDetails> CourseCandidateInstructorDetailss { get; private set; }
@@ -24,7 +24,7 @@ namespace NT.CM.Domain.CandidateCourseInstructorAgg
         {
             Course_InstructorID = course_instructorid;
             CandidateID = candidateid;
-            RegistrationDate = DateTime.Now.ToString();
+            RegistrationDate = DateTime.Now;
             CourseCandidateInstructorDetailss = new List<CourseCandidateInstructorDetails>();
         }
         public void Edit(long course_instructorid, long candidateid)

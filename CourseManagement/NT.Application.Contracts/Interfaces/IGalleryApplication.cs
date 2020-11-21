@@ -10,6 +10,6 @@ namespace NT.CM.Application.Contracts.Interfaces
         OperationResult Edit(GalleryViewModel command);
         OperationResult Remove(long id);
         GalleryViewModel GetBy(long id);
-        List<GalleryViewModel> Search(GalleryViewModel searchmodel);
+        List<GalleryViewModel> Search(GalleryViewModel searchmodel = null);
     }
 }

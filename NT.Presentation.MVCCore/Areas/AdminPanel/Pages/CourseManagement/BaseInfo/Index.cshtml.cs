@@ -29,8 +29,8 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.BaseIn
         {
             var command = new BaseInfoViewModel
             {
-                Types = _ibaseinfoapplication.GetAll(),
-                Parent=_ibaseinfoapplication.GetAll()
+                Types = _ibaseinfoapplication.Search(),
+                Parent=_ibaseinfoapplication.Search()
             };
             return Partial("./Create", command);
         }
@@ -42,8 +42,8 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.BaseIn
         public IActionResult OnGetEdit(int id)
         {
             var selecteditem = _ibaseinfoapplication.GetBy(id);
-            selecteditem.Parent = _ibaseinfoapplication.GetAll();
-            selecteditem.Types = _ibaseinfoapplication.GetAll();
+            selecteditem.Parent = _ibaseinfoapplication.Search();
+            selecteditem.Types = _ibaseinfoapplication.Search();
             return Partial("./Edit", selecteditem);
         }
         public JsonResult OnPostEdit(BaseInfoViewModel baseinfovm)

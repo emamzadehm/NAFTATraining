@@ -60,7 +60,7 @@ namespace NT.SM.Application
             return operationresult.Successful();
         }
 
-        public List<Site_AboutViewModel> Search(Site_AboutViewModel command)
+        public List<Site_AboutViewModel> Search(Site_AboutViewModel command = null)
         {
             return _irepository.Search(command);
         }

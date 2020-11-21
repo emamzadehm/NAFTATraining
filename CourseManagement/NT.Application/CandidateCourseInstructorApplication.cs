@@ -18,7 +18,7 @@ namespace NT.CM.Application
             _IUnitOfWorkNT = IUnitOfWorkNT;
         }
 
-        public OperationResult Create(CandidateCourseInstructorViewModel command)
+        public OperationResult Create(CreateEditCandidateCourseInstructorViewModel command)
         {
             var operationresult = new OperationResult();
             _IUnitOfWorkNT.BeginTran();
@@ -28,7 +28,7 @@ namespace NT.CM.Application
             return operationresult.Successful();
         }
 
-        public OperationResult Edit(CandidateCourseInstructorViewModel command)
+        public OperationResult Edit(CreateEditCandidateCourseInstructorViewModel command)
         {
             var operationresult = new OperationResult();
             _IUnitOfWorkNT.BeginTran();
@@ -38,16 +38,9 @@ namespace NT.CM.Application
             return operationresult.Successful();
         }
 
-        public CandidateCourseInstructorViewModel GetBy(long id)
+        public CandidateCourseInstructorViewModel GetDetails(long id)
         {
-            var SelectedItem = _icandidatecourseinstructorRepository.GetBy(id);
-            return new CandidateCourseInstructorViewModel
-            {
-                ID = SelectedItem.ID,
-                CandidateID=SelectedItem.CandidateID,
-                Course_InstructorID=SelectedItem.Course_InstructorID,
-                RegistrationDate=SelectedItem.RegistrationDate
-            };
+            return _icandidatecourseinstructorRepository.GetDetails(id);
         }
 
         public OperationResult Remove(long id)
@@ -60,7 +53,7 @@ namespace NT.CM.Application
             return operationresult.Successful();
         }
 
-        public List<CandidateCourseInstructorViewModel> Search(CandidateCourseInstructorViewModel searchmodel)
+        public List<CandidateCourseInstructorViewModel> Search(CandidateCourseInstructorViewModel searchmodel = null)
         {
             return _icandidatecourseinstructorRepository.Search(searchmodel);
         }

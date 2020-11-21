@@ -74,7 +74,7 @@ namespace NT.CM.Application
             //return result;
         }
 
-        public List<CourseViewModel> Search(CourseViewModel searchmodel)
+        public List<CourseViewModel> Search(CourseViewModel searchmodel = null)
         {
             return _courserepository.Search(searchmodel);
         }

@@ -10,6 +10,6 @@ namespace NT.UM.Application.Contracts.Interfaces
         OperationResult Edit(RolesViewModel command);
         OperationResult Remove(long id);
         RolesViewModel GetBy(long id);
-        List<RolesViewModel> Search(RolesViewModel searchmodel);
+        List<RolesViewModel> Search(RolesViewModel searchmodel = null);
     }
 }

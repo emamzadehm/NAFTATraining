@@ -10,8 +10,8 @@ namespace NT.CM.Application.Contracts.Interfaces
         OperationResult Edit(BaseInfoViewModel command);
         OperationResult Remove(long id);
         BaseInfoViewModel GetBy(long id);
-        List<BaseInfoViewModel> Search(BaseInfoViewModel searchmodel);
-        List<BaseInfoViewModel> GetAll();
+        List<BaseInfoViewModel> Search(BaseInfoViewModel searchmodel = null);
+        //List<BaseInfoViewModel> GetAll();
         List<BaseInfoViewModel> GetAllTypes();
 
         List<BaseInfoViewModel> GetByTypeId(long typeid);

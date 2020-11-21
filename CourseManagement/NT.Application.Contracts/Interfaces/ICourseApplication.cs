@@ -10,6 +10,6 @@ namespace NT.CM.Application.Contracts
         OperationResult Edit(CourseViewModel command);
         OperationResult Remove(long id);
         CourseViewModel GetBy(long id);
-        List<CourseViewModel> Search(CourseViewModel searchmodel);
+        List<CourseViewModel> Search(CourseViewModel searchmodel = null);
     }
 }

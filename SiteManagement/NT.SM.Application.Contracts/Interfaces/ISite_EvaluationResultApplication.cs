@@ -12,6 +12,6 @@ namespace NT.SM.Application.Contracts.Interfaces
         OperationResult Edit(Site_EvaluationResultViewModel command);
         OperationResult Remove(long id);
         Site_EvaluationResultViewModel GetBy(long id);
-        List<Site_EvaluationResultViewModel> Search(Site_EvaluationResultViewModel command);
+        List<Site_EvaluationResultViewModel> Search(Site_EvaluationResultViewModel command = null);
     }
 }

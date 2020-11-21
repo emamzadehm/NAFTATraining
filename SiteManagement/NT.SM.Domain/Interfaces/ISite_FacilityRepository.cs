@@ -9,6 +9,6 @@ namespace NT.SM.Domain.Interfaces
 {
     public interface ISite_FacilityRepository : IRepository<long, Site_Facility>
     {
-        List<Site_FacilityViewModel> Search(Site_FacilityViewModel command);
+        List<Site_FacilityViewModel> Search(Site_FacilityViewModel command = null);
     }
 }

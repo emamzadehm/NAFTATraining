@@ -15,7 +15,7 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
             _ntcontext = ntcontext;
         }
 
-        public List<CompanyViewModel> Search(CompanyViewModel command)
+        public List<CompanyViewModel> Search(CompanyViewModel command = null)
         {
             var Query = _ntcontext.Tbl_Companies.Where(x => x.Status == true).Select(listitem => new CompanyViewModel
             {
@@ -26,8 +26,12 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                 IsPartner=listitem.IsPartner,
                 IsClient=listitem.IsClient
             });
-            if (!string.IsNullOrWhiteSpace(command.CompanyName))
-                Query = Query.Where(x => x.CompanyName.Contains(command.CompanyName));
+            if (command != null)
+            {
+                if (!string.IsNullOrWhiteSpace(command.CompanyName))
+                    Query = Query.Where(x => x.CompanyName.Contains(command.CompanyName));
+            }
+
             return Query.OrderBy(x => x.ID).ToList();
         }
     }

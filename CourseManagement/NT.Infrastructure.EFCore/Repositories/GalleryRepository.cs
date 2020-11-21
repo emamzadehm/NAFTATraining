@@ -30,7 +30,7 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
             return result;
         }
 
-        public List<GalleryViewModel> Search(GalleryViewModel command)
+        public List<GalleryViewModel> Search(GalleryViewModel command = null)
         {
             var Query = _ntcontext.Tbl_Gallery.Where(x => x.Status == true).Select(listitem => new GalleryViewModel
             {
@@ -43,12 +43,16 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                 ParentName=listitem.gallery.Title
                
             });
-            if (command.ParentID == null)
-                Query = Query.Where(x => x.ParentID == null);
-            if (command.ID>0)
-                Query = Query.Where(x => x.ID==command.ID ||  x.ParentID == command.ID );
-            if (!string.IsNullOrWhiteSpace(command.Title))
-                Query = Query.Where(x => x.Title.Contains(command.Title));
+            if (command != null)
+            {
+                if (command.ParentID == null)
+                    Query = Query.Where(x => x.ParentID == null);
+                if (command.ID > 0)
+                    Query = Query.Where(x => x.ID == command.ID || x.ParentID == command.ID);
+                if (!string.IsNullOrWhiteSpace(command.Title))
+                    Query = Query.Where(x => x.Title.Contains(command.Title));
+            }
+            
             return Query.OrderBy(x => x.ID).ToList();
         }
     }

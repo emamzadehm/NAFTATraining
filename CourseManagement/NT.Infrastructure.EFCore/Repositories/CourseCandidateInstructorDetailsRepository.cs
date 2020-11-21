@@ -15,7 +15,7 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
             _ntcontext = ntcontext;
         }
 
-        public List<CourseCandidateInstructorDetailsViewModel> Search(CourseCandidateInstructorDetailsViewModel command)
+        public List<CourseCandidateInstructorDetailsViewModel> Search(CourseCandidateInstructorDetailsViewModel command = null)
         {
             var Query = _ntcontext.Tbl_Course_Candidate_Instructor_Details.Where(x => x.Status == true).Select(listitem => new CourseCandidateInstructorDetailsViewModel
             {
@@ -26,8 +26,12 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                 DocumentIMG=listitem.DocumentIMG,
                 Value=listitem.Value
             });
-            if (!string.IsNullOrWhiteSpace(command.BaseInfoName))
-                Query = Query.Where(x => x.BaseInfoName.Contains(command.BaseInfoName));
+            if (command != null)
+            {
+                if (!string.IsNullOrWhiteSpace(command.BaseInfoName))
+                    Query = Query.Where(x => x.BaseInfoName.Contains(command.BaseInfoName));
+            }
+
             return Query.OrderBy(x => x.ID).ToList();
         }
     }

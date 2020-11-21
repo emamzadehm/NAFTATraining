@@ -6,10 +6,10 @@ namespace NT.CM.Application.Contracts
 {
     public interface ICandidateCourseInstructorApplication
     {
-        OperationResult Create(CandidateCourseInstructorViewModel command);
-        OperationResult Edit(CandidateCourseInstructorViewModel command);
+        OperationResult Create(CreateEditCandidateCourseInstructorViewModel command);
+        OperationResult Edit(CreateEditCandidateCourseInstructorViewModel command);
         OperationResult Remove(long id);
-        CandidateCourseInstructorViewModel GetBy(long id);
-        List<CandidateCourseInstructorViewModel> Search(CandidateCourseInstructorViewModel searchmodel);
+        CandidateCourseInstructorViewModel GetDetails(long id);
+        List<CandidateCourseInstructorViewModel> Search(CandidateCourseInstructorViewModel searchmodel = null);
     }
 }

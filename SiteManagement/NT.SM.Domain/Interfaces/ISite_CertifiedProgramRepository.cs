@@ -9,6 +9,6 @@ namespace NT.SM.Domain.Interfaces
 {
     public interface ISite_CertifiedProgramRepository : IRepository<long, Site_CertifiedProgram>
     {
-        List<Site_CertifiedProgramViewModel> Search(Site_CertifiedProgramViewModel command);
+        List<Site_CertifiedProgramViewModel> Search(Site_CertifiedProgramViewModel command = null);
     }
 }

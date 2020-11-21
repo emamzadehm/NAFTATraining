@@ -15,12 +15,8 @@ namespace NT.UM.Infrastructure.EFCore.Repositories
             _ntumcontext = ntumcontext;
         }
 
-        //public Permissions GetBy(long id)
-        //{
-        //    throw new System.NotImplementedException();
-        //}
 
-        public List<PermissionsViewModel> Search(PermissionsViewModel command)
+        public List<PermissionsViewModel> Search(PermissionsViewModel command = null)
         {
             var Query = _ntumcontext.Tbl_Permissions.Where(x => x.Status == true).Select(x => new PermissionsViewModel
             {
@@ -28,8 +24,12 @@ namespace NT.UM.Infrastructure.EFCore.Repositories
                 Title=x.Title,
                 Status = x.Status
             });
-            if (!string.IsNullOrWhiteSpace(command.Title))
-                Query = Query.Where(x => x.Title.Contains(command.Title));
+            if (command != null)
+            {
+                if (!string.IsNullOrWhiteSpace(command.Title))
+                    Query = Query.Where(x => x.Title.Contains(command.Title));
+            }
+            
 
             return Query.ToList();
         }

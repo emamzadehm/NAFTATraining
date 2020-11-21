@@ -28,8 +28,8 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Course
         {
             var command = new CourseViewModel
             {
-                Level = _ibaseinfoapplication.GetAll(),
-                Category = _ibaseinfoapplication.GetAll()
+                Level = _ibaseinfoapplication.Search(),
+                Category = _ibaseinfoapplication.Search()
             };
             return Partial("./Create", command);
         }
@@ -41,8 +41,8 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Course
         public IActionResult OnGetEdit(int id)
         {
             var selecteditem = _icourseapplication.GetBy(id);
-            selecteditem.Category = _ibaseinfoapplication.GetAll();
-            selecteditem.Level = _ibaseinfoapplication.GetAll();
+            selecteditem.Category = _ibaseinfoapplication.Search();
+            selecteditem.Level = _ibaseinfoapplication.Search();
             return Partial("./Edit", selecteditem);
         }
         public JsonResult OnPostEdit(CourseViewModel coursevm)

@@ -19,7 +19,7 @@ namespace NT.CM.Application.Contracts.ViewModels.CandidateCourseInstructor
         [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
         public long CandidateID { get; set; }
 
-        public DateTime RegistrationDate { get; set; }
+        public string RegistrationDate { get; set; }
         public List<CandidateViewModel> CandidateList { get; set; }
         public List<CourseInstructorViewModel> CourseInstructorList { get; set; }
         public List<CourseViewModel> CourseList { get; set; }

@@ -31,7 +31,7 @@
                 <div class="form-group">
                     <label asp-for="CandidateID" class="control-label">فراگیر</label>
                     <select class="form-control" asp-for="CandidateID"
-                            asp-items='new SelectList(Model.CandidateList, "ID", "ID")'>
+                            asp-items='new SelectList(Model.CandidateList, "ID", "Fullname")'>
                         <option value="Null">انتخاب فراگیر</option>
                     </select>
                     <span asp-validation-for="CandidateID" class="error"></span>

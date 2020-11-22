@@ -43,7 +43,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NT.UM.Infrastructure.Core",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NT.UM.Infrastructure.EFCore", "UsersManagement\NT.UM.Infrastructure.EFCore\NT.UM.Infrastructure.EFCore.csproj", "{F60754D6-3735-49CB-8072-9862FF4FF059}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NT.Infrastructure.Query", "NT.Infrastructure.Query\NT.Infrastructure.Query.csproj", "{288F7AB9-6197-4128-8E2C-34C8E67CCEAE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NT.Infrastructure.Query", "NT.Infrastructure.Query\NT.Infrastructure.Query.csproj", "{288F7AB9-6197-4128-8E2C-34C8E67CCEAE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

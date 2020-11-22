@@ -47,25 +47,27 @@
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                                 <tr>
+                                    <th>تصویر</th>
+                                    <th>نام و نام خانوادگی</th>
+                                    <th>ایمیل</th>
+                                    <th>تلفن</th>
+                                    <th>نام شرکت</th>
                                     <th>تاریخ تولد</th>
                                     <th>ملیت</th>
-                                    <th>شرکت</th>
-                                    <th>شماره شناسایی</th>
-                                    <th>شهرمحل تولد</th>
                                     <th>عملیات</th>
-
-
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach (var item in Model.candidateVM)
                                 {
                                 <tr>
+                                    <td><img src="@item.IMG" width="70px" /></td>
+                                    <td>@item.Fullname</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.Tel</td>
+                                    <td>@item.CompanyName</td>
                                     <td>@item.DOB</td>
                                     <td>@item.NationalityName</td>
-                                    <td>@item.CompanyName</td>
-                                    <td>@item.NID</td>
-                                    <td>@item.CityOfBirth</td>
 
                                     <td>
                                         <a class="btn btn-warning pull-right m-rl-5"

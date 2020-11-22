@@ -37,7 +37,10 @@ namespace NT.CM.Application
             _IUnitOfWorkNT.CommitTran();
             return operationresult.Successful();
         }
-
+        public List<CandidateCourseInstructorViewModel> GetRegisteredCandidates(long courseinstructorid)
+        {
+            return _icandidatecourseinstructorRepository.GetRegisteredCandidates(courseinstructorid);
+        }
         public CandidateCourseInstructorViewModel GetDetails(long id)
         {
             return _icandidatecourseinstructorRepository.GetDetails(id);

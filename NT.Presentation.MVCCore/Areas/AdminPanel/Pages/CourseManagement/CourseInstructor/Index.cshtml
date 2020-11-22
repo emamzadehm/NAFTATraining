@@ -97,8 +97,9 @@
                                         <a class="btn btn-danger pull-right m-rl-5" asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.ID">
                                             <i class="fa fa-edit"></i> لغو دوره
                                         </a>
-                                        <a class="btn btn-info pull-right m-rl-5" asp-page="./Index" asp-page-handler="RegisteredCandidates" asp-route-id="@item.ID">
-                                            <i class="fa fa-edit"></i> مشاهده لیست فراگیران
+                                        <a class="btn btn-info pull-right m-rl-5"
+                                           href="#showmodal=@Url.Page("./Index", "RegisteredCandidates", new { id = item.ID})">
+                                            <i class="fa fa-recycle"></i> مشاهده لیست فراگیران
                                         </a>
                                     </td>
                                 </tr>

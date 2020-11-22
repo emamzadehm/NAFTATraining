@@ -13,6 +13,8 @@ namespace NT.CM.Application.Contracts.ViewModels.CandidateCourseInstructor
         public long ID { get; set; }
         public long Course_InstructorID { get; set; }
         public long CourseID { get; set; }
+        public long InstructorUserID { get; set; }
+        public long CandidateUserID { get; set; }
         public long InstructorID { get; set; }
         public long Location { get; set; }
         public long CandidateID { get; set; }

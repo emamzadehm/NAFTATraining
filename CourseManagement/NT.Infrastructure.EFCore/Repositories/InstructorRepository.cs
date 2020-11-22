@@ -1,4 +1,5 @@
-﻿using _01.Framework.Infrastructure.EFCore;
+﻿using _01.Framework.Application;
+using _01.Framework.Infrastructure.EFCore;
 using NT.CM.Application.Contracts.ViewModels.Instructors;
 using NT.CM.Domain;
 using NT.CM.Domain.InstructorAgg;
@@ -38,7 +39,7 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                 if (userInstructor != null)
                 {
                     instructor.UserID = userInstructor.ID;
-                    instructor.Fullname = userInstructor.Sex + " " + userInstructor.FirstName + " " + userInstructor.LastName;
+                    instructor.Fullname = userInstructor.Sex.ToSexName() + " " + userInstructor.FirstName + " " + userInstructor.LastName;
                     instructor.Sex = userInstructor.Sex;
                     instructor.FirstName = userInstructor.FirstName;
                     instructor.LastName = userInstructor.LastName;
@@ -73,7 +74,7 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                 if (userInstructor != null)
                 {
                     instructor.UserID = userInstructor.ID;
-                    instructor.Fullname = userInstructor.Sex + " " + userInstructor.FirstName + " " + userInstructor.LastName;
+                    instructor.Fullname = userInstructor.Sex.ToSexName() + " " + userInstructor.FirstName + " " + userInstructor.LastName;
                     instructor.Email = userInstructor.Email;
                     instructor.Tel = userInstructor.Tel;
                     instructor.IMG = userInstructor.IMG;

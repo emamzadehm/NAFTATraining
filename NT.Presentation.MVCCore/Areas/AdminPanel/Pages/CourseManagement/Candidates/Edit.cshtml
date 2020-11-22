@@ -117,7 +117,7 @@
                 <div class="form-group">
                     <label asp-for="CompanyID" class="control-label">نام شرکت</label>
                     <select class="form-control" asp-for="CompanyID"
-                            asp-items='new SelectList(Model.CompanyList, "ID", "Title")'>
+                            asp-items='new SelectList(Model.CompanyList, "ID", "CompanyName")'>
                         <option value="Null">نام شرکت</option>
                     </select>
                     <span asp-validation-for="CompanyID" class="error"></span>

@@ -33,7 +33,7 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Candid
             _iinstructorapplication = iinstructorapplication;
         }
 
-        public List<CandidateCourseInstructorViewModel> candidatecourseinstructorVM { get; set; }
+        public IEnumerable<CandidateCourseInstructorViewModel> candidatecourseinstructorVM { get; set; }
         public CandidateCourseInstructorViewModel SearchModel { get; set; }
         public CourseInstructorViewModel searchmodelcourseinstructor;
         public CandidateViewModel searchmodelcandidate;
@@ -50,9 +50,9 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Candid
         {
             searchmodelcourseinstructor = new CourseInstructorViewModel();
 
-            courselist = new SelectList(_icourseapplication.Search(), "CourseID", "CourseName");
-            instructorlist = new SelectList(_iinstructorapplication.Search(), "InstructorID", "InstructorName");
-            companylist = new SelectList(_icompanyapplication.Search(), "CompanyID", "CompanyName");
+            courselist = new SelectList(_icourseapplication.Search(), "ID", "CName");
+            instructorlist = new SelectList(_iinstructorapplication.Search(), "ID", "Fullname");
+            companylist = new SelectList(_icompanyapplication.Search(), "ID", "CompanyName");
 
             candidatecourseinstructorVM = _icandidatecourseinstructorapplication.Search(searchmodel);
         }

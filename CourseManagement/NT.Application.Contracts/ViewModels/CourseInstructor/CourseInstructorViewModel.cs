@@ -14,6 +14,8 @@ namespace NT.CM.Application.Contracts.ViewModels.CourseInstructor
 
         [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
         public long CourseID { get; set; }
+        public long UserID { get; set; }
+
 
         [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
         public long InstructorID { get; set; }

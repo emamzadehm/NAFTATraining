@@ -9,5 +9,6 @@ namespace NT.CM.Domain
     {
         List<CandidateCourseInstructorViewModel> Search(CandidateCourseInstructorViewModel command = null);
         CandidateCourseInstructorViewModel GetDetails(long id);
+        List<CandidateCourseInstructorViewModel> GetRegisteredCandidates(long courseinstructorid);
     }
 }

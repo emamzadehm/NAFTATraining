@@ -29,7 +29,7 @@
                 <div class="form-group">
                     <label asp-for="InstructorID" class="control-label">استاد</label>
                     <select class="form-control" asp-for="InstructorID"
-                            asp-items='new SelectList(Model.InstructorList, "ID", "ID")'>
+                            asp-items='new SelectList(Model.InstructorList, "ID", "Fullname")'>
                         <option value="Null">انتخاب استاد</option>
                     </select>
                     <span asp-validation-for="InstructorID" class="error"></span>

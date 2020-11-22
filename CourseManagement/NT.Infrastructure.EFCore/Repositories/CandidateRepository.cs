@@ -1,4 +1,5 @@
-﻿using _01.Framework.Infrastructure.EFCore;
+﻿using _01.Framework.Application;
+using _01.Framework.Infrastructure.EFCore;
 using NT.CM.Application.Contracts.ViewModels.Candidates;
 using NT.CM.Domain;
 using NT.CM.Domain.CandidateAgg;
@@ -27,8 +28,9 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                                 {
                                     ID = listitem.ID,
                                     CompanyID = listitem.CompanyID,
-                                    DOB=listitem.DOB,
-                                    NID=listitem.NID,
+                                    CompanyName = listitem.Company.CompanyName,
+                                    DOB =listitem.DOB,
+                                    NID =listitem.NID,
                                     NationalityID=listitem.NationalityID,
                                     CityOfBirth=listitem.CityOfBirth,
                                     UserID = listitem.UserId
@@ -40,7 +42,7 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                 if (userCandidate != null)
                 {
                     candidate.UserID = userCandidate.ID;
-                    candidate.Fullname = userCandidate.Sex + " " + userCandidate.FirstName + " " + userCandidate.LastName;
+                    candidate.Fullname = userCandidate.Sex.ToSexName() + " " + userCandidate.FirstName + " " + userCandidate.LastName;
                     candidate.Sex = userCandidate.Sex;
                     candidate.FirstName = userCandidate.FirstName;
                     candidate.LastName = userCandidate.LastName;
@@ -65,6 +67,7 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                                 {
                                     ID = listitem.ID,
                                     CompanyID = listitem.CompanyID,
+                                    CompanyName=listitem.Company.CompanyName,
                                     DOB = listitem.DOB,
                                     NID = listitem.NID,
                                     NationalityID = listitem.NationalityID,
@@ -78,7 +81,7 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                 if (userCandidate != null)
                 {
                     candidate.UserID = userCandidate.ID;
-                    candidate.Fullname = userCandidate.Sex + " " + userCandidate.FirstName + " " + userCandidate.LastName;
+                    candidate.Fullname = userCandidate.Sex.ToSexName() + " " + userCandidate.FirstName + " " + userCandidate.LastName;
                     candidate.Sex = userCandidate.Sex;
                     candidate.FirstName = userCandidate.FirstName;
                     candidate.LastName = userCandidate.LastName;

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using NT.CM.Application.Contracts;
 using NT.CM.Application.Contracts.Interfaces;
+using NT.CM.Application.Contracts.ViewModels.CandidateCourseInstructor;
 using NT.CM.Application.Contracts.ViewModels.CourseInstructor;
 using NT.CM.Application.Contracts.ViewModels.Courses;
 using NT.CM.Application.Contracts.ViewModels.Instructors;
@@ -44,7 +45,7 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Course
         {
             searchmodelinstructor = new InstructorsViewModel();
             searchmodelcourse = new CourseViewModel();
-            instructorlist = new SelectList(_iinstructorapplication.Search(searchmodelinstructor), "ID", "ID");
+            instructorlist = new SelectList(_iinstructorapplication.Search(searchmodelinstructor), "ID", "Fullname");
             courselist = new SelectList(_icourseapplication.Search(searchmodelcourse), "ID", "CName");
             locationlist = new SelectList(_ibaseinfoapplication.Search(), "ID", "Title");
             courseinstructorVM = _icourseinstructorapplication.Search(searchmodel);
@@ -83,8 +84,8 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Course
         }
         public IActionResult OnGetRegisteredCandidates(int id)
         {
-            var selecteditem = _icandidatecourseinstructorapplication.GetDetails(id);
-            return Partial("./Edit", selecteditem);
+            var selectedcandidates = _icandidatecourseinstructorapplication.GetRegisteredCandidates(id);
+            return Partial("RegisteredCandidates", selectedcandidates);
         }
         public IActionResult OnGetRemove(CourseInstructorViewModel courseinstructorvm)
         {

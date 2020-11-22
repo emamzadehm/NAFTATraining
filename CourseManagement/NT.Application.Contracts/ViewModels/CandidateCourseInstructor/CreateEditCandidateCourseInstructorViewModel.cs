@@ -3,7 +3,6 @@ using NT.CM.Application.Contracts.ViewModels.Candidates;
 using NT.CM.Application.Contracts.ViewModels.CourseInstructor;
 using NT.CM.Application.Contracts.ViewModels.Courses;
 using NT.CM.Application.Contracts.ViewModels.Instructors;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 

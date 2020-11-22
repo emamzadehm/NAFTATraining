@@ -66,11 +66,12 @@
                             <thead>
                                 <tr>
                                     <th>نام دوره</th>
+                                    <th>نام فراگیر</th>
                                     <th>نام استاد</th>
                                     <th>محل برگزاری</th>
                                     <th>محل اجراء</th>
                                     <th>تاریخ برگزاری</th>
-                                    <th>تاریخ پایان</th>
+                                    <th>تاریخ ثبت نام</th>
                                     @*<th>وضعیت دوره</th>*@
                                     <th>عملیات</th>
                                 </tr>
@@ -79,12 +80,13 @@
                                 @foreach (var item in Model.candidatecourseinstructorVM)
                                 {
                                 <tr>
+                                    <td>@item.Fullname</td>
                                     <td>@item.CourseName</td>
                                     <td>@item.InstructorName</td>
                                     <td>@item.LocationName</td>
                                     <td>@item.Venue</td>
                                     <td>@item.SDate</td>
-                                    <td>@item.EDate</td>
+                                    <td>@item.RegistrationDate</td>
                                     @*<td>@item.Status</td>*@
 
                                     <td>

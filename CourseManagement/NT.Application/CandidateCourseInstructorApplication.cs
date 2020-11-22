@@ -28,7 +28,7 @@ namespace NT.CM.Application
             return operationresult.Successful();
         }
 
-        public OperationResult Edit(CreateEditCandidateCourseInstructorViewModel command)
+        public OperationResult Edit(CandidateCourseInstructorViewModel command)
         {
             var operationresult = new OperationResult();
             _IUnitOfWorkNT.BeginTran();

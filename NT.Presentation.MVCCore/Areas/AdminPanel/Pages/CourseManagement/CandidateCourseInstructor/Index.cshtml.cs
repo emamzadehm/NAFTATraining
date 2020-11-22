@@ -33,7 +33,7 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Candid
             _iinstructorapplication = iinstructorapplication;
         }
 
-        public IEnumerable<CandidateCourseInstructorViewModel> candidatecourseinstructorVM { get; set; }
+        public List<CandidateCourseInstructorViewModel> candidatecourseinstructorVM { get; set; }
         public CandidateCourseInstructorViewModel SearchModel { get; set; }
         public CourseInstructorViewModel searchmodelcourseinstructor;
         public CandidateViewModel searchmodelcandidate;
@@ -77,7 +77,7 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Candid
             selecteditem.CandidateList = _icandidateapplication.Search();
             return Partial("./Edit", selecteditem);
         }
-        public JsonResult OnPostEdit(CreateEditCandidateCourseInstructorViewModel candidatecourseinstructorvm)
+        public JsonResult OnPostEdit(CandidateCourseInstructorViewModel candidatecourseinstructorvm)
         {
             var result = _icandidatecourseinstructorapplication.Edit(candidatecourseinstructorvm);
             return new JsonResult(result);

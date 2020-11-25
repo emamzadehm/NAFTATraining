@@ -14,12 +14,15 @@ namespace NT.CM.Application
         private readonly ICandidateRepository _icandidaterepository;
         private readonly IUsersRepository _iuserrepository;
         private readonly IUnitOfWorkNT _IUnitOfWorkNT;
+        private readonly IFileUploader _ifileuploader;
 
-        public CandidateApplication(ICandidateRepository icandidaterepository, IUsersRepository iuserrepository, IUnitOfWorkNT iUnitOfWorkNT)
+        public CandidateApplication(ICandidateRepository icandidaterepository, IUsersRepository iuserrepository,
+            IUnitOfWorkNT iUnitOfWorkNT, IFileUploader ifileuploader)
         {
             _icandidaterepository = icandidaterepository;
             _iuserrepository = iuserrepository;
             _IUnitOfWorkNT = iUnitOfWorkNT;
+            _ifileuploader = ifileuploader;
         }
 
         public OperationResult Create(CandidateViewModel command)
@@ -51,7 +54,11 @@ namespace NT.CM.Application
 
         private long NewUser(CandidateViewModel command)
         {
-            var NewItem = new Users(command.FirstName, command.LastName, command.Sex, command.Email, command.IMG, command.Tel, command.Password, command.IDCardIMG);
+            var path = $"AdminPanel//UsersManagement//Uploads//";
+            var foldername = command.LastName + " " + command.FirstName + " " + command.CompanyName;
+            var filenameIMG = _ifileuploader.Upload(command.IMG, path + foldername.Slugify() + $"//IMG");
+            var filenameIDCardIMG = _ifileuploader.Upload(command.IDCardIMG, path + foldername.Slugify() + $"//IDCardIMG");
+            var NewItem = new Users(command.FirstName, command.LastName, command.Sex, command.Email, filenameIMG, command.Tel, command.Password, filenameIDCardIMG);
             _iuserrepository.Create(NewItem);
             _iuserrepository.Save();
             return NewItem.ID;
@@ -61,7 +68,11 @@ namespace NT.CM.Application
         private void EditUser(CandidateViewModel command)
         {
             var SelectedItem = _iuserrepository.GetBy(command.UserID);
-            SelectedItem.Edit(command.FirstName, command.LastName, command.Sex, command.Tel, command.IMG, command.Password, command.IDCardIMG);
+            var path = $"AdminPanel//UsersManagement//Uploads//";
+            var foldername = command.LastName + " " + command.FirstName + " " + command.CompanyName;
+            var filenameIMG = _ifileuploader.Upload(command.IMG, path + foldername.Slugify() + $"//IMG");
+            var filenameIDCardIMG = _ifileuploader.Upload(command.IDCardIMG, path + foldername.Slugify() + $"//IDCardIMG");
+            SelectedItem.Edit(command.FirstName, command.LastName, command.Sex, command.Tel, filenameIMG, command.Password, filenameIDCardIMG);
             _iuserrepository.Save();
         }
 

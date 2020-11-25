@@ -1,4 +1,5 @@
 ﻿using _01.Framework.Application;
+using Microsoft.AspNetCore.Http;
 using NT.CM.Application.Contracts.ViewModels.BaseInfo;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -24,11 +25,11 @@ namespace NT.CM.Application.Contracts.ViewModels.Courses
         [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
         public long Cost { get; set; }
 
-        public string CourseCatalog { get; set; }
+        public IFormFile CourseCatalog { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
         public long CourseLevel { get; set; }
-        public string? CourseLevelTitle { get; set; }
+        public string CourseLevelTitle { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
         public int Duration { get; set; }
@@ -40,6 +41,8 @@ namespace NT.CM.Application.Contracts.ViewModels.Courses
         public bool IsPrivate { get; set; }
         public List<BaseInfoViewModel> Category { get; set; }
         public List<BaseInfoViewModel> Level { get; set; }
+        public string FileAddress { get; set; }
+
 
     }
 }

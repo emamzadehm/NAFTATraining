@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
 
 namespace NT.SM.Application.Contracts.ViewModels
 {
@@ -8,9 +9,12 @@ namespace NT.SM.Application.Contracts.ViewModels
         public string Title { get; set; }
         public string Description { get; set; }
         public bool HasBullet { get; set; }
-        public string Img { get; set; }
+        public IFormFile Img { get; set; }
         public long Site_Base_Id { get; set; }
         public List<Site_BaseViewModel> Site_BaseList { get; set; }
+        public string FileAddress { get; set; }
+
+
 
     }
 }

@@ -11,18 +11,23 @@ namespace NT.CM.Application
     {
         private readonly ICourseCandidateInstructorDetailsRepository _icourseCandidateInstructorDetailsRepository;
         private readonly IUnitOfWorkNT _IUnitOfWorkNT;
+        private readonly IFileUploader _ifileuploader;
 
-        public CourseCandidateInstructorDetailsApplication(ICourseCandidateInstructorDetailsRepository icourseCandidateInstructorDetailsRepository, IUnitOfWorkNT IUnitOfWorkNT)
+        public CourseCandidateInstructorDetailsApplication(ICourseCandidateInstructorDetailsRepository icourseCandidateInstructorDetailsRepository,
+            IUnitOfWorkNT iUnitOfWorkNT, IFileUploader ifileuploader)
         {
             _icourseCandidateInstructorDetailsRepository = icourseCandidateInstructorDetailsRepository;
-            _IUnitOfWorkNT = IUnitOfWorkNT;
+            _IUnitOfWorkNT = iUnitOfWorkNT;
+            _ifileuploader = ifileuploader;
         }
 
         public OperationResult Create(CourseCandidateInstructorDetailsViewModel command)
         {
             _IUnitOfWorkNT.BeginTran();
             var operationresult = new OperationResult();
-            var NewItem = new CourseCandidateInstructorDetails(command.TypeID,command.Value,command.DocumentIMG,command.CCI_ID);
+            var path = $"AdminPanel//CourseManagement//Uploads//DocumentIMG//";
+            var filename = _ifileuploader.Upload(command.DocumentIMG, path);
+            var NewItem = new CourseCandidateInstructorDetails(command.TypeID,command.Value,filename,command.CCI_ID);
             _icourseCandidateInstructorDetailsRepository.Create(NewItem);
             _IUnitOfWorkNT.CommitTran();
             return operationresult.Successful();
@@ -33,7 +38,9 @@ namespace NT.CM.Application
             _IUnitOfWorkNT.BeginTran();
             var operationresult = new OperationResult();
             var SelectedItem = _icourseCandidateInstructorDetailsRepository.GetBy(command.ID);
-            SelectedItem.Edit(command.TypeID, command.Value, command.DocumentIMG, command.CCI_ID);
+            var path = $"AdminPanel//CourseManagement//Uploads//DocumentIMG//";
+            var filename = _ifileuploader.Upload(command.DocumentIMG, path);
+            SelectedItem.Edit(command.TypeID, command.Value, filename, command.CCI_ID);
             _IUnitOfWorkNT.CommitTran();
             return operationresult.Successful();
         }
@@ -55,7 +62,7 @@ namespace NT.CM.Application
             {
                 ID = SelectedItem.ID,
                 CCI_ID=SelectedItem.CCI_ID,
-                DocumentIMG=SelectedItem.DocumentIMG,
+                FileAddress=SelectedItem.DocumentIMG,
                 TypeID=SelectedItem.TypeID,
                 Value=SelectedItem.Value,
                 BaseInfoName=SelectedItem.BaseInfo.Title

@@ -23,7 +23,7 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                 Title = listitem.Title,
                 TypeID = listitem.TypeID,
                 TypeName = listitem.BaseInfo.Title,
-                PhotoAddress = listitem.PhotoAddress,
+                FileAddress = listitem.PhotoAddress,
                 ParentID = listitem.ParentID,
                 ParentName = listitem.gallery.Title
             }).FirstOrDefault(x=>x.ID==id);
@@ -38,7 +38,7 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                 Title = listitem.Title,
                 TypeID = listitem.TypeID,
                 TypeName=listitem.BaseInfo.Title,
-                PhotoAddress=listitem.PhotoAddress,
+                FileAddress=listitem.PhotoAddress,
                 ParentID=listitem.ParentID,
                 ParentName=listitem.gallery.Title
                

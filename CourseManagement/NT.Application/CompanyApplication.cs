@@ -11,18 +11,23 @@ namespace NT.CM.Application
     {
         private readonly IUnitOfWorkNT _IUnitOfWorkNT;
         private readonly ICompanyRepository _companyrepository;
-        
-        public CompanyApplication(ICompanyRepository companyrepository, IUnitOfWorkNT IUnitOfWorkNT)
+        private readonly IFileUploader _ifileuploader;
+
+        public CompanyApplication(IUnitOfWorkNT iUnitOfWorkNT, ICompanyRepository companyrepository, IFileUploader ifileuploader)
         {
+            _IUnitOfWorkNT = iUnitOfWorkNT;
             _companyrepository = companyrepository;
-            _IUnitOfWorkNT = IUnitOfWorkNT;
+            _ifileuploader = ifileuploader;
         }
 
         public OperationResult Create(CompanyViewModel command)
         {
             _IUnitOfWorkNT.BeginTran();
             var operationresult = new OperationResult();
-            var newcompany = new Company(command.CompanyName, command.Website, command.Logo, command.IsPartner, command.IsClient);
+            var Company = _companyrepository.GetBy(command.ID);
+            var path = $"AdminPanel//CourseManagement//Uploads//CompanyLogo//" + command.CompanyName.Slugify();
+            var filename = _ifileuploader.Upload(command.Logo, path);
+            var newcompany = new Company(command.CompanyName, command.Website, filename, command.IsPartner, command.IsClient);
             _companyrepository.Create(newcompany);
             _IUnitOfWorkNT.CommitTran();
             return operationresult.Successful();
@@ -33,7 +38,9 @@ namespace NT.CM.Application
             _IUnitOfWorkNT.BeginTran();
             var operationresult = new OperationResult();
             var Company = _companyrepository.GetBy(command.ID);
-            Company.Edit(command.CompanyName,command.Website,command.Logo, command.IsPartner, command.IsClient);
+            var path = $"AdminPanel//CourseManagement//Uploads//CompanyLogo//" + command.CompanyName.Slugify();
+            var filename = _ifileuploader.Upload(command.Logo, path);
+            Company.Edit(command.CompanyName,command.Website,filename, command.IsPartner, command.IsClient);
             _IUnitOfWorkNT.CommitTran();
             return operationresult.Successful();
 
@@ -47,7 +54,7 @@ namespace NT.CM.Application
                 ID=SelectedCompany.ID,
                 CompanyName = SelectedCompany.CompanyName,
                 Website = SelectedCompany.Website,
-                Logo = SelectedCompany.Logo,
+                FileAddress = SelectedCompany.Logo,
                 IsClient=SelectedCompany.IsClient,
                 IsPartner=SelectedCompany.IsPartner
             };

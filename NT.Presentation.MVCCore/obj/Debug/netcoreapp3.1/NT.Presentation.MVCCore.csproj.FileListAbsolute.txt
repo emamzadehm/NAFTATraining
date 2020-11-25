@@ -291,3 +291,5 @@ C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\CandidateCourseInstructor\Index.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\CourseInstructor\RegisteredCandidates.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\Index.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll

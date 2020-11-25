@@ -23,7 +23,7 @@ namespace NT.SM.Infrastructure.EFCore.Repository
                 Title = x.Title,
                 Description = x.Description,
                 HasBullet=x.HasBullet,
-                Img=x.Img,
+                FileAddress=x.Img,
                 Site_Base_Id = x.Site_Base_Id
             });
             if (command != null)

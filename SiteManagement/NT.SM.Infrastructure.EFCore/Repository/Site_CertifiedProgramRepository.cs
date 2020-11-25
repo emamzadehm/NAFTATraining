@@ -22,7 +22,7 @@ namespace NT.SM.Infrastructure.EFCore.Repository
                 Id = x.ID,
                 Title=x.Title,
                 Description=x.Description,
-                Logo=x.Logo,
+                FileAddress=x.Logo,
                 ShortDescription=x.ShortDescription,
                 Site_Base_Id=x.Site_Base_Id
             });

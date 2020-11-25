@@ -21,7 +21,7 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
             {
                 ID = listitem.ID,
                 CompanyName=listitem.CompanyName,
-                Logo=listitem.Logo,
+                FileAddress=listitem.Logo,
                 Website=listitem.Website,
                 IsPartner=listitem.IsPartner,
                 IsClient=listitem.IsClient

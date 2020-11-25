@@ -11,18 +11,22 @@ namespace NT.CM.Application
     {
         private readonly ICourseRepository _courserepository;
         private readonly IUnitOfWorkNT _IUnitOfWorkNT;
+        private readonly IFileUploader _ifileuploader;
 
-        public CourseApplication(ICourseRepository courserepository, IUnitOfWorkNT IUnitOfWorkNT)
+        public CourseApplication(ICourseRepository courserepository, IUnitOfWorkNT iUnitOfWorkNT, IFileUploader ifileuploader)
         {
             _courserepository = courserepository;
-            _IUnitOfWorkNT = IUnitOfWorkNT;
+            _IUnitOfWorkNT = iUnitOfWorkNT;
+            _ifileuploader = ifileuploader;
         }
 
         public OperationResult Create(CourseViewModel command)
         {
             _IUnitOfWorkNT.BeginTran();
             var operationresult = new OperationResult();
-            var NewItem = new Course(command.CName, command.Description, command.Audience, command.DailyPlan, command.Cost, command.CourseCatalog, command.CourseLevel, command.Duration, command.CategoryID, command.IsPrivate);
+            var path = $"AdminPanel//CourseManagement//Uploads//CourseCatalog//" + (command.CName).Slugify() + "// " + (command.CourseLevelTitle).Slugify();
+            var filename = _ifileuploader.Upload(command.CourseCatalog, path);
+            var NewItem = new Course(command.CName, command.Description, command.Audience, command.DailyPlan, command.Cost, filename, command.CourseLevel, command.Duration, command.CategoryID, command.IsPrivate);
             _courserepository.Create(NewItem);
             _IUnitOfWorkNT.CommitTran();
             return operationresult.Successful();
@@ -33,7 +37,9 @@ namespace NT.CM.Application
             _IUnitOfWorkNT.BeginTran();
             var operationresult = new OperationResult();
             var SelectedItem = _courserepository.GetBy(command.ID);
-            SelectedItem.Edit(command.CName, command.Description, command.Audience, command.DailyPlan, command.Cost, command.CourseCatalog, command.CourseLevel, command.Duration, command.CategoryID, command.IsPrivate);
+            var path = $"AdminPanel//CourseManagement//Uploads//CourseCatalog//" + (command.CName).Slugify() + "// " + (command.CourseLevelTitle).Slugify();
+            var filename = _ifileuploader.Upload(command.CourseCatalog, path);
+            SelectedItem.Edit(command.CName, command.Description, command.Audience, command.DailyPlan, command.Cost, filename, command.CourseLevel, command.Duration, command.CategoryID, command.IsPrivate);
             _IUnitOfWorkNT.CommitTran();
             return operationresult.Successful();
         }

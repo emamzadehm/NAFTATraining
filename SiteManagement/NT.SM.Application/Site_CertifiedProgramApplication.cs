@@ -11,18 +11,22 @@ namespace NT.SM.Application
     {
         private readonly ISite_CertifiedProgramRepository _irepository;
         private readonly IUnitOfWorkNTSM _iunitofwork;
+        private readonly IFileUploader _ifileuploader;
 
-        public Site_CertifiedProgramApplication(ISite_CertifiedProgramRepository irepository, IUnitOfWorkNTSM iunitofwork)
+        public Site_CertifiedProgramApplication(ISite_CertifiedProgramRepository irepository, IUnitOfWorkNTSM iunitofwork, IFileUploader ifileuploader)
         {
             _irepository = irepository;
             _iunitofwork = iunitofwork;
+            _ifileuploader = ifileuploader;
         }
 
         public OperationResult Create(Site_CertifiedProgramViewModel command)
         {
             _iunitofwork.BeginTran();
             var operationresult = new OperationResult();
-            var newitem = new Site_CertifiedProgram(command.Logo, command.Title, command.ShortDescription, command.Description, command.Site_Base_Id);
+            var path = $"Uploads//CertifiedProgram";
+            var filename = _ifileuploader.Upload(command.Logo, path);
+            var newitem = new Site_CertifiedProgram(filename, command.Title, command.ShortDescription, command.Description, command.Site_Base_Id);
             _irepository.Create(newitem);
             _iunitofwork.CommitTran();
             return operationresult.Successful();
@@ -33,7 +37,9 @@ namespace NT.SM.Application
             _iunitofwork.BeginTran();
             var operationresult = new OperationResult();
             var selecteditem = _irepository.GetBy(command.Id);
-            selecteditem.Edit(command.Logo, command.Title, command.ShortDescription, command.Description);
+            var path = $"Uploads//CertifiedProgram";
+            var filename = _ifileuploader.Upload(command.Logo, path);
+            selecteditem.Edit(filename, command.Title, command.ShortDescription, command.Description);
             _iunitofwork.CommitTran();
             return operationresult.Successful();
         }
@@ -44,7 +50,7 @@ namespace NT.SM.Application
             return new Site_CertifiedProgramViewModel
             {
                 Id=selecteditem.ID,
-                Logo = selecteditem.Logo,
+                FileAddress = selecteditem.Logo,
                 Title = selecteditem.Title,
                 ShortDescription = selecteditem.ShortDescription,
                 Description = selecteditem.Description,

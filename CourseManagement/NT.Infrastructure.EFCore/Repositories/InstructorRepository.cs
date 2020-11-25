@@ -45,8 +45,8 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                     instructor.LastName = userInstructor.LastName;
                     instructor.Email = userInstructor.Email;
                     instructor.Tel = userInstructor.Tel;
-                    instructor.IMG = userInstructor.IMG;
-                    instructor.IDCardIMG = userInstructor.IDCardIMG;
+                    instructor.IMGFileAddress = userInstructor.IMG;
+                    instructor.IDCardIMGFileAddress = userInstructor.IDCardIMG;
                     instructor.Password = userInstructor.Password;
                 }
             };
@@ -77,8 +77,8 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                     instructor.Fullname = userInstructor.Sex.ToSexName() + " " + userInstructor.FirstName + " " + userInstructor.LastName;
                     instructor.Email = userInstructor.Email;
                     instructor.Tel = userInstructor.Tel;
-                    instructor.IMG = userInstructor.IMG;
-                    instructor.IDCardIMG = userInstructor.IDCardIMG;
+                    instructor.IMGFileAddress = userInstructor.IMG;
+                    instructor.IDCardIMGFileAddress = userInstructor.IDCardIMG;
                     instructor.Password = userInstructor.Password;
                 }
             };

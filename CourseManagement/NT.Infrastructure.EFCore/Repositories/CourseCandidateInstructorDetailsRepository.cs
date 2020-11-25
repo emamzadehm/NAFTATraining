@@ -23,7 +23,7 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                 TypeID=listitem.TypeID,
                 BaseInfoName=listitem.BaseInfo.Title,
                 CCI_ID=listitem.CCI_ID,
-                DocumentIMG=listitem.DocumentIMG,
+                FileAddress=listitem.DocumentIMG,
                 Value=listitem.Value
             });
             if (command != null)

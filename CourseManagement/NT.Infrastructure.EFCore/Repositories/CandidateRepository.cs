@@ -48,8 +48,8 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                     candidate.LastName = userCandidate.LastName;
                     candidate.Email = userCandidate.Email;
                     candidate.Tel = userCandidate.Tel;
-                    candidate.IMG = userCandidate.IMG;
-                    candidate.IDCardIMG = userCandidate.IDCardIMG;
+                    candidate.IMGFileAddress = userCandidate.IMG;
+                    candidate.IDCardIMGFileAddress = userCandidate.IDCardIMG;
                     candidate.Password = userCandidate.Password;
                 }
             };
@@ -87,8 +87,8 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                     candidate.LastName = userCandidate.LastName;
                     candidate.Email = userCandidate.Email;
                     candidate.Tel = userCandidate.Tel;
-                    candidate.IMG = userCandidate.IMG;
-                    candidate.IDCardIMG = userCandidate.IDCardIMG;
+                    candidate.IMGFileAddress = userCandidate.IMG;
+                    candidate.IDCardIMGFileAddress = userCandidate.IDCardIMG;
                     candidate.Password = userCandidate.Password;
                 }
             };

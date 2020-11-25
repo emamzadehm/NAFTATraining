@@ -11,6 +11,7 @@ namespace NT.CM.Application
     {
         private readonly IGalleryRepository _igalleryRepository;
         private readonly IUnitOfWorkNT _IUnitOfWorkNT;
+        private readonly IFileUploader _ifileuploader;
 
         public GalleryApplication(IGalleryRepository igalleryRepository, IUnitOfWorkNT IUnitOfWorkNT)
         {
@@ -22,7 +23,9 @@ namespace NT.CM.Application
         {
             _IUnitOfWorkNT.BeginTran();
             var operationresult = new OperationResult();
-            var NewItem = new Gallery(command.Title,command.TypeID,command.PhotoAddress,command.ParentID);
+            var path = $"AdminPanel//CourseManagement//Uploads//Gallery//" + command.Title.Slugify();
+            var filename = _ifileuploader.Upload(command.PhotoAddress, path);
+            var NewItem = new Gallery(command.Title,command.TypeID,filename,command.ParentID);
             _igalleryRepository.Create(NewItem);
             _IUnitOfWorkNT.CommitTran();
             return operationresult.Successful();
@@ -33,7 +36,9 @@ namespace NT.CM.Application
             _IUnitOfWorkNT.BeginTran();
             var operationresult = new OperationResult();
             var SelectedItem = _igalleryRepository.GetBy(command.ID);
-            SelectedItem.Edit(command.Title, command.TypeID, command.PhotoAddress, command.ParentID);
+            var path = $"AdminPanel//CourseManagement//Uploads//Gallery//" + command.Title.Slugify();
+            var filename = _ifileuploader.Upload(command.PhotoAddress, path);
+            SelectedItem.Edit(command.Title, command.TypeID, filename, command.ParentID);
             _IUnitOfWorkNT.CommitTran();
             return operationresult.Successful();
         }

@@ -1,4 +1,5 @@
 ﻿using _01.Framework.Application;
+using Microsoft.AspNetCore.Http;
 using NT.CM.Application.Contracts.ViewModels.BaseInfo;
 using NT.CM.Application.Contracts.ViewModels.Companies;
 using System;
@@ -22,11 +23,13 @@ namespace NT.CM.Application.Contracts.ViewModels.Candidates
         [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
         public string Email { get; set; }
         public string Tel { get; set; }
-        public string IMG { get; set; }
-
+        public IFormFile IMG { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
         public string Password { get; set; }
-        public string IDCardIMG { get; set; }
+        public IFormFile IDCardIMG { get; set; }
+        public string IDCardIMGFileAddress { get; set; }
+        public string IMGFileAddress { get; set; }
+
 
 
         //Candidate's table =>

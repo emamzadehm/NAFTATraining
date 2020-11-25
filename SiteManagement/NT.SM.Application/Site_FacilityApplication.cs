@@ -11,18 +11,22 @@ namespace NT.SM.Application
     {
         private readonly ISite_FacilityRepository _irepository;
         private readonly IUnitOfWorkNTSM _iunitofwork;
+        private readonly IFileUploader _ifileuploader;
 
-        public Site_FacilityApplication(ISite_FacilityRepository irepository, IUnitOfWorkNTSM iunitofwork)
+        public Site_FacilityApplication(ISite_FacilityRepository irepository, IUnitOfWorkNTSM iunitofwork, IFileUploader ifileuploader)
         {
             _irepository = irepository;
             _iunitofwork = iunitofwork;
+            _ifileuploader = ifileuploader;
         }
 
         public OperationResult Create(Site_FacilityViewModel command)
         {
             _iunitofwork.BeginTran();
             var operationresult = new OperationResult();
-            var newitem = new Site_Facility(command.Title, command.Description, command.HasBullet, command.Img, command.Site_Base_Id);
+            var path = $"Uploads//Facility";
+            var filename = _ifileuploader.Upload(command.Img, path);
+            var newitem = new Site_Facility(command.Title, command.Description, command.HasBullet, filename, command.Site_Base_Id);
             _irepository.Create(newitem);
             _iunitofwork.CommitTran();
             return operationresult.Successful();
@@ -33,7 +37,9 @@ namespace NT.SM.Application
             _iunitofwork.BeginTran();
             var operationresult = new OperationResult();
             var selecteditem = _irepository.GetBy(command.Id);
-            selecteditem.Edit(command.Title, command.Description, command.HasBullet, command.Img);
+            var path = $"Uploads//Facility";
+            var filename = _ifileuploader.Upload(command.Img, path);
+            selecteditem.Edit(command.Title, command.Description, command.HasBullet, filename);
             _iunitofwork.CommitTran();
             return operationresult.Successful();
         }
@@ -47,7 +53,7 @@ namespace NT.SM.Application
                 Title = selecteditem.Title,
                 Description = selecteditem.Description,
                 HasBullet=selecteditem.HasBullet,
-                Img=selecteditem.Img,
+                FileAddress=selecteditem.Img,
                 Site_Base_Id=selecteditem.Site_Base_Id
             };
         }

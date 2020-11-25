@@ -22,7 +22,7 @@ namespace NT.CM.Application
         {
             _IUnitOfWorkNT.BeginTran();
             var operationresult = new OperationResult();
-            var NewItem = new CourseInstructor(command.CourseID, command.InstructorID, command.SDate, command.EDate, command.Capacity, command.Venue, command.Location);
+            var NewItem = new CourseInstructor(command.CourseID, command.InstructorID, command.SDate, command.EDate, command.Capacity, command.Venue, command.Location, command.IsPrivate);
             _icourseInstructorRepository.Create(NewItem);
             _IUnitOfWorkNT.CommitTran();
             return operationresult.Successful();
@@ -33,7 +33,7 @@ namespace NT.CM.Application
             _IUnitOfWorkNT.BeginTran();
             var operationresult = new OperationResult();
             var SelectedItem = _icourseInstructorRepository.GetBy(command.ID);
-            SelectedItem.Edit(command.CourseID, command.InstructorID, command.SDate, command.EDate, command.Capacity, command.Venue, command.Location);
+            SelectedItem.Edit(command.CourseID, command.InstructorID, command.SDate, command.EDate, command.Capacity, command.Venue, command.Location, command.IsPrivate);
             _IUnitOfWorkNT.CommitTran();
             return operationresult.Successful();
         }

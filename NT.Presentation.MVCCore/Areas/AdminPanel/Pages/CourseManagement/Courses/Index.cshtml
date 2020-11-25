@@ -48,10 +48,8 @@
                                 <tr>
                                     <th>نام دوره</th>
                                     <th>هزینه</th>
-                                    <th>کاتالوگ دوره</th>
                                     <th>تعداد روز</th>
                                     <th>گروه دوره</th>
-                                    <th>خصوصی</th>
                                     <th>عملیات</th>
                                 </tr>
                             </thead>
@@ -61,28 +59,21 @@
                                 <tr>
                                     <td>@item.CName</td>
                                     <td>@item.Cost</td>
-                                    <td>@item.CourseCatalog</td>
                                     <td>@item.Duration</td>
                                     <td>@item.CategoryIDTitle</td>
-                                    <td class="text-center">
-                                        @if (item.IsPrivate == true)
-                                        {
-                                            <i class="fa fa-check fa-2x text-success"></i>
-                                        }
-                                        else
-                                        {
-                                            <i class="fa fa-remove fa-2x text-danger"></i>
-                                        }
+                                    
+                                    <td>
+                                        <a class="btn btn-warning pull-right m-rl-5"
+                                           href="#showmodal=@Url.Page("./Index", "Edit", new { id = item.ID})">
+                                            <i class="fa fa-edit"></i> ویرایش
+                                        </a>
+                                        <a class="btn btn-danger pull-right m-rl-5" asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.ID">
+                                            <i class="fa fa-edit"></i> حذف
+                                        </a>
+                                        <a class="btn btn-info pull-right m-rl-5" href="~/@item.FileAddress">
+                                            <i class="fa fa-download"></i> دریافت کاتالوگ
+                                        </a>
                                     </td>
-                                        <td>
-                                            <a class="btn btn-warning pull-right m-rl-5"
-                                               href="#showmodal=@Url.Page("./Index", "Edit", new { id = item.ID})">
-                                                <i class="fa fa-edit"></i> ویرایش
-                                            </a>
-                                            <a class="btn btn-danger pull-right m-rl-5" asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.ID">
-                                                <i class="fa fa-edit"></i> حذف
-                                            </a>
-                                        </td>
                                     </tr>
                                 }
                             </tbody>

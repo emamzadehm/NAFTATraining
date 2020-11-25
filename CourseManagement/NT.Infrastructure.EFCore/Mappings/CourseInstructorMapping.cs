@@ -21,6 +21,7 @@ namespace NT.CM.Infrastructure.EFCore.Mappings
             builder.Property(x => x.Capacity);
             builder.Property(x => x.Venue);
             builder.Property(x => x.Location);
+            builder.Property(x => x.IsPrivate);
             builder.Property(x => x.Status);
             builder.HasOne(x => x.Instructor).WithMany(x => x.CourseInstructors).HasForeignKey(x => x.InstructorID);
             builder.HasOne(x => x.Course).WithMany(x => x.CourseInstructors).HasForeignKey(x => x.CourseID);

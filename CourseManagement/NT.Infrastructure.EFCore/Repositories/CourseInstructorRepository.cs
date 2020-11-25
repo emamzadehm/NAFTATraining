@@ -37,6 +37,7 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                 Location = listitem.Location,
                 LocationName = listitem.BaseInfo.Title,
                 Venue = listitem.Venue,
+                IsPrivate = listitem.IsPrivate,
                 UserID = listitem.Instructor.UserId
             });
 
@@ -48,7 +49,7 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                     instructoruser.InstructorName = user.Sex.ToSexName() + " " + user.FirstName + " " + user.LastName;
                 }
             };
-            return Query.FirstOrDefault(x=>x.ID==id);
+            return Query.FirstOrDefault(x => x.ID == id);
         }
 
         public List<CourseInstructorViewModel> Search(CourseInstructorViewModel command = null)
@@ -58,20 +59,21 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
 
             var Query = _ntcontext.Tbl_Course_Instructor.Where(x => x.Status == true)
                 .Select(listitem => new CourseInstructorViewModel
-            {
-                ID = listitem.ID,
-                CourseID=listitem.CourseID,
-                CourseName=listitem.Course.CName,
-                Capacity=listitem.Capacity,
-                SDate=listitem.SDate,
-                EDate=listitem.EDate,
-                InstructorID=listitem.InstructorID,
-                Location=listitem.Location,
-                LocationName=listitem.BaseInfo.Title,
-                Venue=listitem.Venue,
-                UserID=listitem.Instructor.UserId,
-                CourseInfo = listitem.Course.CName + ", " + listitem.SDate
-            }).ToList();
+                {
+                    ID = listitem.ID,
+                    CourseID = listitem.CourseID,
+                    CourseName = listitem.Course.CName,
+                    Capacity = listitem.Capacity,
+                    SDate = listitem.SDate,
+                    EDate = listitem.EDate,
+                    InstructorID = listitem.InstructorID,
+                    Location = listitem.Location,
+                    LocationName = listitem.BaseInfo.Title,
+                    Venue = listitem.Venue,
+                    IsPrivate = listitem.IsPrivate,
+                    UserID = listitem.Instructor.UserId,
+                    CourseInfo = listitem.Course.CName + ", " + listitem.SDate
+                }).ToList();
 
             foreach (var instructoruser in Query)
             {
@@ -96,7 +98,7 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                 if (command.CourseID > 0)
                     Query = Query.Where(x => x.CourseID == command.CourseID).ToList();
             }
-            
+
             return Query.OrderBy(x => x.ID).ToList();
         }
     }

@@ -16,6 +16,7 @@ namespace NT.CM.Domain.CourseInstructorAgg
         public DateTime SDate { get; private set; }
         public DateTime EDate { get; private set; }
         public int Capacity { get; private set; }
+        public bool IsPrivate { get; private set; }
         public string Venue { get; private set; }
         public long Location { get; protected set; }
         public Course Course { get; private set; }
@@ -28,7 +29,7 @@ namespace NT.CM.Domain.CourseInstructorAgg
         {
 
         }
-        public CourseInstructor(long courseid, long instructorid, DateTime sdate, DateTime edate, int capacity, string venue, long location)
+        public CourseInstructor(long courseid, long instructorid, DateTime sdate, DateTime edate, int capacity, string venue, long location, bool isprivate)
         {
             CourseID = courseid;
             InstructorID = instructorid;
@@ -37,9 +38,10 @@ namespace NT.CM.Domain.CourseInstructorAgg
             Capacity = capacity;
             Venue = venue;
             Location = location;
+            IsPrivate = isprivate;
             CandidateCourseInstructors = new List<CandidateCourseInstructor>();
         }
-        public void Edit(long courseid, long instructorid, DateTime sdate, DateTime edate, int capacity, string venue, long location)
+        public void Edit(long courseid, long instructorid, DateTime sdate, DateTime edate, int capacity, string venue, long location, bool isprivate)
         {
             CourseID = courseid;
             InstructorID = instructorid;
@@ -48,6 +50,7 @@ namespace NT.CM.Domain.CourseInstructorAgg
             Capacity = capacity;
             Venue = venue;
             Location = location;
+            IsPrivate = isprivate;
         }
     }
 }

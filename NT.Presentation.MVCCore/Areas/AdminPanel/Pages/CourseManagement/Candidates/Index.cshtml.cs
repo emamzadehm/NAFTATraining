@@ -47,7 +47,7 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Candid
             var result = _icandidateapplication.Create(candidatevm);
             return new JsonResult(result);
         }
-        public IActionResult OnGetEdit(int id)
+        public IActionResult OnGetEdit(long id)
         {
             var selecteditem = _icandidateapplication.GetDetails(id);
             searchmodelcompany = new CompanyViewModel();
@@ -67,6 +67,12 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Candid
         {
             _icandidateapplication.Remove(candidatevm.ID);
             return RedirectToPage("Index");
+        }
+        public IActionResult OnGetView(long id)
+        {
+            var selecteditem = _icandidateapplication.GetDetails(id);
+
+            return Partial("./View", selecteditem);
         }
 
     }

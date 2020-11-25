@@ -31,7 +31,7 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                 DailyPlan=listitem.DailyPlan,
                 Description=listitem.Description,
                 Duration=listitem.Duration,
-                IsPrivate=listitem.IsPrivate,
+                //IsPrivate=listitem.IsPrivate,
                 Status = listitem.Status
             });
             if (command != null)
@@ -61,7 +61,6 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                 DailyPlan = listitem.DailyPlan,
                 Description = listitem.Description,
                 Duration = listitem.Duration,
-                IsPrivate = listitem.IsPrivate,
                 Status = listitem.Status
             }).FirstOrDefault(x => x.ID == id);
         }

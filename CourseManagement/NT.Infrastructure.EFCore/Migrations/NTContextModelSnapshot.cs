@@ -206,9 +206,6 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     b.Property<int>("Duration")
                         .HasColumnType("int");
 
-                    b.Property<bool>("IsPrivate")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
@@ -278,6 +275,9 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
 
                     b.Property<long>("InstructorID")
                         .HasColumnType("bigint");
+
+                    b.Property<bool>("IsPrivate")
+                        .HasColumnType("bit");
 
                     b.Property<long>("Location")
                         .HasColumnType("bigint");

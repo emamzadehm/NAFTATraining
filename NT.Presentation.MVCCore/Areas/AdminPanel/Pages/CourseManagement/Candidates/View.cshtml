@@ -1,0 +1,136 @@
+﻿@model NT.CM.Application.Contracts.ViewModels.Candidates.CandidateViewModel
+@{
+}
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 class="modal-title"> مشاهده فراگیران </h4>
+</div>
+
+    <div class="modal-body">
+        <input type="hidden" asp-for="ID" value="@Model.ID">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="IMG" class="control-label">تصویر</label>
+                    <img src="~/@Model.IMGFileAddress" style="width:70px;height:70px" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="IDCardIMGFileAddress" class="control-label">تصویر پاسپورت</label>
+                    <img src="~/@Model.IDCardIMGFileAddress" style="width:70px;height:70px" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="Sex" class="control-label">جنسیت</label>
+                    <div class="form-check">
+                        <input asp-for="Sex" class="form-check-inline" type="radio" value="true" checked disabled>
+                        <label class="form-check-label" asp-for="Sex">
+                            آقای
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input asp-for="Sex" class="form-check-inline" type="radio" value="false" disabled>
+                        <label class="form-check-label" asp-for="Sex">
+                            خانم
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="FirstName" class="control-label">نام</label>
+                    <input type="text" class="form-control" asp-for="FirstName" disabled>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="LastName" class="control-label">نام خانوادگی</label>
+                    <input type="text" class="form-control" asp-for="LastName" disabled>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label">ایمیل(شناسه کاربری)</label>
+                    <input type="email" class="form-control" asp-for="Email" disabled>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label">رمز عبور</label>
+                    <input type="password" class="form-control" asp-for="Password" disabled>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="Tel" class="control-label">موبایل</label>
+                    <input type="tel" class="form-control" asp-for="Tel" disabled>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="CityOfBirth" class="control-label">شهر محل تولد</label>
+                    <input type="text" class="form-control" asp-for="CityOfBirth" disabled>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="DOB" class="control-label">تاریخ تولد</label>
+                    <input type="text" class="form-control datepicker" asp-for="DOB" disabled>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="CompanyID" class="control-label">نام شرکت</label>
+                    <select class="form-control" asp-for="CompanyID"
+                            asp-items='new SelectList(Model.CompanyList, "ID", "CompanyName")' disabled>
+                        <option value="Null">نام شرکت</option>
+                    </select>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="NationalityID" class="control-label">ملیت</label>
+                    <select class="form-control" asp-for="NationalityID"
+                            asp-items='new SelectList(Model.Nationality, "ID", "Title")' disabled>
+                        <option value="Null">ملیت</option>
+                    </select>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="NID" class="control-label">شماره کارت شناسایی</label>
+                    <input type="text" class="form-control" asp-for="NID" disabled>
+                </div>
+            </div>
+        </div>
+
+    </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
+        </div>

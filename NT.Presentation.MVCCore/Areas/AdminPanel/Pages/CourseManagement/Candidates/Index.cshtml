@@ -61,7 +61,7 @@
                                 @foreach (var item in Model.candidateVM)
                                 {
                                 <tr>
-                                    <td><img src="@item.IMG" width="70px" /></td>
+                                    <td><img src="~/@item.IMGFileAddress" style="width:70px;height:70px" /></td>
                                     <td>@item.Fullname</td>
                                     <td>@item.Email</td>
                                     <td>@item.Tel</td>
@@ -73,6 +73,10 @@
                                         <a class="btn btn-warning pull-right m-rl-5"
                                            href="#showmodal=@Url.Page("./Index", "Edit", new { id = item.ID})">
                                             <i class="fa fa-edit"></i> ویرایش
+                                        </a>
+                                        <a class="btn btn-info pull-right m-rl-5"
+                                           href="#showmodal=@Url.Page("./Index", "View", new { id = item.ID})">
+                                            <i class="fa fa-info"></i> مشاهده
                                         </a>
                                         <a class="btn btn-danger pull-right m-rl-5" asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.ID">
                                             <i class="fa fa-edit"></i> حذف

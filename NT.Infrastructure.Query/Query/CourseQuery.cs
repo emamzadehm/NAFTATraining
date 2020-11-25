@@ -1,4 +1,5 @@
-﻿using NT.CM.Infrastructure.EFCore;
+﻿using Microsoft.EntityFrameworkCore;
+using NT.CM.Infrastructure.EFCore;
 using NT.Infrastructure.Query.Interface;
 using NT.Infrastructure.Query.ViewModel;
 using System.Collections.Generic;
@@ -29,7 +30,7 @@ namespace NT.Infrastructure.Query.Query
             Duration=x.Duration,
             CategoryID=x.CategoryID,
             Status=x.Status,
-            IsPrivate=x.IsPrivate
+            //IsPrivate=x.IsPrivate
             })
                 .Where(x=>x.Status==true)
                 .Where(x => x.IsPrivate == false)

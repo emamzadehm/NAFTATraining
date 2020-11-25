@@ -42,5 +42,6 @@ namespace NT.CM.Application.Contracts.ViewModels.CourseInstructor
         public List<CourseViewModel> CourseList { get; set; }
 
         public string CourseInfo { get; set; }
+        public bool IsPrivate { get; set; }
     }
 }

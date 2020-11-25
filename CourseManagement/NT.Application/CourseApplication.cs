@@ -26,7 +26,7 @@ namespace NT.CM.Application
             var operationresult = new OperationResult();
             var path = $"AdminPanel//CourseManagement//Uploads//CourseCatalog//" + (command.CName).Slugify() + "// " + (command.CourseLevelTitle).Slugify();
             var filename = _ifileuploader.Upload(command.CourseCatalog, path);
-            var NewItem = new Course(command.CName, command.Description, command.Audience, command.DailyPlan, command.Cost, filename, command.CourseLevel, command.Duration, command.CategoryID, command.IsPrivate);
+            var NewItem = new Course(command.CName, command.Description, command.Audience, command.DailyPlan, command.Cost, filename, command.CourseLevel, command.Duration, command.CategoryID);
             _courserepository.Create(NewItem);
             _IUnitOfWorkNT.CommitTran();
             return operationresult.Successful();
@@ -39,7 +39,7 @@ namespace NT.CM.Application
             var SelectedItem = _courserepository.GetBy(command.ID);
             var path = $"AdminPanel//CourseManagement//Uploads//CourseCatalog//" + (command.CName).Slugify() + "// " + (command.CourseLevelTitle).Slugify();
             var filename = _ifileuploader.Upload(command.CourseCatalog, path);
-            SelectedItem.Edit(command.CName, command.Description, command.Audience, command.DailyPlan, command.Cost, filename, command.CourseLevel, command.Duration, command.CategoryID, command.IsPrivate);
+            SelectedItem.Edit(command.CName, command.Description, command.Audience, command.DailyPlan, command.Cost, filename, command.CourseLevel, command.Duration, command.CategoryID);
             _IUnitOfWorkNT.CommitTran();
             return operationresult.Successful();
         }

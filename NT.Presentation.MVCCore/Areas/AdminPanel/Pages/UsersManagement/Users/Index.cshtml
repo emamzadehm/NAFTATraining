@@ -48,7 +48,6 @@
                             <thead>
                                 <tr>
                                     <th>تصویر</th>
-                                    <th>جنسیت</th>
                                     <th>نام و نام خانوادگی</th>
                                     <th>ایمیل</th>
                                     <th>تلفن</th>
@@ -59,8 +58,7 @@
                                 @foreach (var item in Model.userVM)
                                 {
                                 <tr>
-                                    <td>@item.IMG</td>
-                                    <td>@item.Sex</td>
+                                    <td><img src="~/@item.IMGFileAddress" style="width:70px;height:70px" /></td>
                                     <td>@item.Fullname</td>
                                     <td>@item.Email</td>
                                     <td>@item.Tel</td>
@@ -71,6 +69,10 @@
                                         </a>
                                         <a class="btn btn-danger pull-right m-rl-5" asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.ID">
                                             <i class="fa fa-edit"></i> حذف
+                                        </a>
+                                        <a class="btn btn-info pull-right m-rl-5"
+                                           href="#showmodal=@Url.Page("./Index", "View", new { id = item.ID})">
+                                            <i class="fa fa-info"></i> مشاهده
                                         </a>
                                     </td>
                                 </tr>

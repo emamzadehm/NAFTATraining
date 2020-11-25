@@ -29,7 +29,7 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.UsersManagement.Users
             var result = _iuserapplication.Create(uservm);
             return new JsonResult(result);
         }
-        public IActionResult OnGetEdit(int id)
+        public IActionResult OnGetEdit(long id)
         {
             var selecteditem = _iuserapplication.GetBy(id);
             return Partial("./Edit", selecteditem);
@@ -43,6 +43,11 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.UsersManagement.Users
         {
             _iuserapplication.Remove(uservm.ID);
             return RedirectToPage("Index");
+        }
+        public IActionResult OnGetView(long id)
+        {
+            var selecteditem = _iuserapplication.GetBy(id);
+            return Partial("./View", selecteditem);
         }
     }
 }

@@ -1,3 +1,4 @@
+using _01.Framework.Application;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -26,6 +27,7 @@ namespace NT.Presentation.MVCCore
             CMBootstrapper.Configure(services, Configuration.GetConnectionString("NTCS"));
             SMBootstrapper.Configure(services, Configuration.GetConnectionString("NTCS"));
             UMBootstrapper.Configure(services, Configuration.GetConnectionString("NTCS"));
+            services.AddTransient<IFileUploader, FileUploader>();
             services.AddRazorPages();
         }
 

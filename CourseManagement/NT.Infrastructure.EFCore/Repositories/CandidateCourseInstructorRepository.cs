@@ -27,6 +27,7 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
 
             var candidateCourseInstructors = _ntcontext.Tbl_Candidate_Course_Instructor
                 .Where(x => x.Status == true)
+                .Where(x => x.CourseInstructors.Status == true)
                 .Select(listitem => new CandidateCourseInstructorViewModel
                 {
                     ID = listitem.ID,
@@ -69,6 +70,7 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
 
             var candidateCourseInstructors = _ntcontext.Tbl_Candidate_Course_Instructor
                 .Where(x => x.Status == true)
+                .Where(x => x.CourseInstructors.Status == true)
                 .Select(listitem => new CandidateCourseInstructorViewModel
                 {
                     ID = listitem.ID,
@@ -115,6 +117,7 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
             var users = _ntumcontext.Tbl_Users.Where(x => x.Status == true).Select(x => new { x.ID, x.Sex, x.FirstName, x.LastName }).ToList();
             var candidateCourseInstructors = _ntcontext.Tbl_Candidate_Course_Instructor
                 .Where(x => x.Status == true)
+                .Where(x => x.CourseInstructors.Status == true)
                 .Select(listitem => new CandidateCourseInstructorViewModel
                 {
                     ID = listitem.ID,

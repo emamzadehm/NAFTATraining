@@ -75,6 +75,7 @@
                                     <th>تاریخ آغاز</th>
                                     <th>تاریخ پایان</th>
                                     <th>ظرفیت</th>
+                                    <th>خصوصی</th>
                                     <th>عملیات</th>
                                 </tr>
                             </thead>
@@ -89,6 +90,16 @@
                                     <td>@item.SDate</td>
                                     <td>@item.EDate</td>
                                     <td>@item.Capacity</td>
+                                    <td class="text-center">
+                                        @if (item.IsPrivate == true)
+                                        {
+                                            <i class="fa fa-check fa-2x text-success"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="fa fa-remove fa-2x text-danger"></i>
+                                        }
+                                    </td>
                                     <td>
                                         <a class="btn btn-warning pull-right m-rl-5"
                                            href="#showmodal=@Url.Page("./Index", "Edit", new { id = item.ID})">

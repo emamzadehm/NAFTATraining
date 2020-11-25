@@ -1,4 +1,5 @@
-﻿using _01.Framework.Infrastructure.EFCore;
+﻿using _01.Framework.Application;
+using _01.Framework.Infrastructure.EFCore;
 using NT.UM.Application.Contracts.ViewModels;
 using NT.UM.Domain;
 using NT.UM.Domain.UsersAgg;
@@ -32,7 +33,7 @@ namespace NT.UM.Infrastructure.EFCore.Repositories
                 IMGFileAddress = x.IMG,
                 Sex=x.Sex,
                 Tel=x.Tel,
-                Fullname=x.FirstName + " " + x.LastName,
+                Fullname=x.Sex.ToSexName() + " " + x.FirstName + " " + x.LastName,
                 UserStatus = x.Status
             });
             if (command != null)

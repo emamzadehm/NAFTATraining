@@ -21,7 +21,6 @@ namespace NT.CM.Infrastructure.EFCore.Mappings
             builder.Property(x => x.Duration);
             builder.Property(x => x.CategoryID);
             builder.Property(x => x.Status);
-            builder.Property(x => x.IsPrivate);
             builder.HasOne(x => x.BaseInfoCourseLevel).WithMany(x => x.CourseLevels).HasForeignKey(x => x.CourseLevel);
             builder.HasOne(x => x.BaseInfoCategory).WithMany(x => x.CourseCategoriers).HasForeignKey(x => x.CategoryID);
             builder.HasMany(x => x.CourseInstructors).WithOne(x=>x.Course).HasForeignKey(x=>x.CourseID);

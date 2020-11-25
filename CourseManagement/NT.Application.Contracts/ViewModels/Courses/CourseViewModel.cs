@@ -38,7 +38,6 @@ namespace NT.CM.Application.Contracts.ViewModels.Courses
         public long CategoryID { get; set; }
         public string CategoryIDTitle { get; set; }
         public bool Status { get; set; }
-        public bool IsPrivate { get; set; }
         public List<BaseInfoViewModel> Category { get; set; }
         public List<BaseInfoViewModel> Level { get; set; }
         public string FileAddress { get; set; }

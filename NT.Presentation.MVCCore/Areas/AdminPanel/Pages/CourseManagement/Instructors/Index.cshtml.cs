@@ -46,6 +46,12 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Instru
             _iinstructorapplication.Remove(instructorvm.ID);
             return RedirectToPage("Index");
         }
+        public IActionResult OnGetView(long id)
+        {
+            var selecteditem = _iinstructorapplication.GetBy(id);
+
+            return Partial("./View", selecteditem);
+        }
 
     }
 }

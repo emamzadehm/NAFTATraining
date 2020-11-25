@@ -16,7 +16,6 @@ namespace NT.CM.Domain.CourseAgg
         public long CourseLevel { get; protected set; }
         public BaseInfo BaseInfoCourseLevel { get; private set; }
         public int Duration { get; protected set; }
-        public bool IsPrivate { get; private set; }
         public long CategoryID { get; protected set; }
         public BaseInfo BaseInfoCategory { get; private set; }
         public ICollection<CourseInstructor> CourseInstructors { get; set; }
@@ -25,10 +24,8 @@ namespace NT.CM.Domain.CourseAgg
         {
 
         }
-        public Course(string cname, string description,string audience, string dailyplan, long cost, string coursecatalog, long courselevel, int duration, long categoryid, bool isprivate)
+        public Course(string cname, string description,string audience, string dailyplan, long cost, string coursecatalog, long courselevel, int duration, long categoryid)
         {
-            //courseValidator.CourseExist(cname);
-            //courseValidator.Validation(cname,);
             CName = cname;
             Description = description;
             Audience = audience;
@@ -39,10 +36,9 @@ namespace NT.CM.Domain.CourseAgg
             Duration = duration;
             CategoryID = categoryid;
             CourseInstructors = new List<CourseInstructor>();
-            IsPrivate = isprivate;
         }
 
-        public void Edit(string cname, string description, string audience, string dailyplan, long cost, string coursecatalog, long courselevel, int duration, long categoryid, bool isprivate)
+        public void Edit(string cname, string description, string audience, string dailyplan, long cost, string coursecatalog, long courselevel, int duration, long categoryid)
         {
             CName = cname;
             Description = description;
@@ -53,7 +49,6 @@ namespace NT.CM.Domain.CourseAgg
             CourseLevel = courselevel;
             Duration = duration;
             CategoryID = categoryid;
-            IsPrivate = isprivate;
         }
     }
 }

@@ -71,7 +71,10 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Candid
         public IActionResult OnGetView(long id)
         {
             var selecteditem = _icandidateapplication.GetDetails(id);
-
+            searchmodelcompany = new CompanyViewModel();
+            searchmodelbaseinfo = new BaseInfoViewModel();
+            selecteditem.CompanyList = _icompanyapplication.Search(searchmodelcompany);
+            selecteditem.Nationality = _ibaseinfoapplication.Search(searchmodelbaseinfo);
             return Partial("./View", selecteditem);
         }
 

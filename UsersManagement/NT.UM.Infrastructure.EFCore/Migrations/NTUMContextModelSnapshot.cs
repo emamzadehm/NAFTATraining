@@ -109,10 +109,10 @@ namespace NT.UM.Infrastructure.EFCore.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("IDCardIMG")
-                        .HasColumnType("varbinary(max)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("IMG")
-                        .HasColumnType("varbinary(max)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");

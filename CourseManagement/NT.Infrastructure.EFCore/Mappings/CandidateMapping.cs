@@ -18,6 +18,8 @@ namespace NT.CM.Infrastructure.EFCore.Mappings
                 builder.Property(x => x.NationalityID);
                 builder.Property(x => x.CityOfBirth);
                 builder.Property(x => x.Status);
+                builder.Property(x => x.UserId);
+
                 //builder.Property(x => x.Users);
                 //builder.
                 builder.HasMany(x => x.CandidateCourseInstructors).WithOne(x=>x.Candidates).HasForeignKey(x=>x.CandidateID);

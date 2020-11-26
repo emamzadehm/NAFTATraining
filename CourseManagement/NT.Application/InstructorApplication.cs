@@ -29,26 +29,14 @@ namespace NT.CM.Application
         {
             _IUnitOfWorkNT.BeginTran();
             var operationresult = new OperationResult();
-            long uid = NewUser(command);
-            var NewItem = new Instructor(command.EducationLevel, command.Resume, uid);
+            long uId = CreateUser(command);
+            var NewItem = new Instructor(command.EducationLevel, command.Resume, uId);
             _iinstructorRepository.Create(NewItem);
             _IUnitOfWorkNT.CommitTran();
             return operationresult.Successful();
         }
 
-
-        public OperationResult Edit(InstructorsViewModel command)
-        {
-            _IUnitOfWorkNT.BeginTran();
-            var operationresult = new OperationResult();
-            var SelectedItem = _iinstructorRepository.GetBy(command.ID);
-            EditUser(command);
-            SelectedItem.Edit(command.EducationLevel, command.Resume);
-            _IUnitOfWorkNT.CommitTran();
-            return operationresult.Successful();
-        }
-
-        private long NewUser(InstructorsViewModel command)
+        private long CreateUser(InstructorsViewModel command)
         {
             var path = $"AdminPanel//UsersManagement//Uploads//";
             var foldername = command.LastName + " " + command.FirstName;
@@ -58,19 +46,30 @@ namespace NT.CM.Application
             _iuserRepository.Create(NewItem);
             _iuserRepository.Save();
             return NewItem.ID;
-            
         }
 
-        private void EditUser(InstructorsViewModel command)
+        public OperationResult Edit(InstructorsViewModel command)
         {
-            var SelectedItem = _iuserRepository.GetBy(command.UserID);
+            _IUnitOfWorkNT.BeginTran();
+            var operationresult = new OperationResult();
+            var SelectedItem = _iinstructorRepository.GetBy(command.ID);
+            EditUser(SelectedItem.UserId,command);
+            SelectedItem.Edit(command.EducationLevel, command.Resume);
+            _IUnitOfWorkNT.CommitTran();
+            return operationresult.Successful();
+        }
+
+        private void EditUser(long userId, InstructorsViewModel command)
+        {
+            var SelectedUser = _iuserRepository.GetBy(userId);
             var path = $"AdminPanel//UsersManagement//Uploads//";
             var foldername = command.LastName + " " + command.FirstName;
             var filenameIMG = _ifileuploader.Upload(command.IMG, path + foldername.Slugify() + $"//IMG");
             var filenameIDCardIMG = _ifileuploader.Upload(command.IDCardIMG, path + foldername.Slugify() + $"//IDCardIMG");
-            SelectedItem.Edit(command.FirstName, command.LastName, command.Sex, command.Tel, filenameIMG, command.Password, filenameIDCardIMG);
+            SelectedUser.Edit(command.FirstName, command.LastName, command.Sex, command.Tel, filenameIMG, command.Password, filenameIDCardIMG);
             _iuserRepository.Save();
         }
+
         public OperationResult Remove(long id)
         {
             _IUnitOfWorkNT.BeginTran();

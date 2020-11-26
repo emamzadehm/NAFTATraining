@@ -23,6 +23,7 @@ namespace NT.CM.Application.Contracts.ViewModels.Candidates
         [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
         public string Email { get; set; }
         public string Tel { get; set; }
+        [MaxFileSize(3*1024*1024 ,ErrorMessage =ValidationMessages.MaxFileSize)]
         public IFormFile IMG { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
         public string Password { get; set; }

@@ -16,6 +16,8 @@ namespace NT.CM.Infrastructure.EFCore.Mappings
                 builder.Property(x => x.EducationLevel);
                 builder.Property(x => x.Resume);
                 builder.Property(x => x.Status);
+                builder.Property(x => x.UserId);
+
                 //builder.Property(x => x.Users.FirstName);
                 //builder.Property(x => x.Users.LastName);
                 //builder.Property(x => x.Users.Sex);

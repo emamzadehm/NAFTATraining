@@ -32,7 +32,8 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                                     DOB =listitem.DOB,
                                     NID =listitem.NID,
                                     NationalityID=listitem.NationalityID,
-                                    CityOfBirth=listitem.CityOfBirth,
+                                    NationalityName = listitem.BaseInfo.Title,
+                                    CityOfBirth = listitem.CityOfBirth,
                                     UserID = listitem.UserId
                                 }).ToList();
 
@@ -71,6 +72,7 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                                     DOB = listitem.DOB,
                                     NID = listitem.NID,
                                     NationalityID = listitem.NationalityID,
+                                    NationalityName = listitem.BaseInfo.Title,
                                     CityOfBirth = listitem.CityOfBirth,
                                     UserID = listitem.UserId
                                 }).ToList();

@@ -33,21 +33,8 @@ namespace NT.CM.Domain.CandidateAgg
             CandidateCourseInstructors = new List<CandidateCourseInstructor>();
             UserId = userid;
         }
-        //public Candidate(long companyid, string nid, string dob, long nationalityid, string cityofbirth, int courseinstructorid)
-        //{
-        //    CompanyID = companyid;
-        //    NID = nid;
-        //    DOB = dob;
-        //    NationalityID = nationalityid;
-        //    CityOfBirth = cityofbirth;
-        //    CandidateCourseInstructors = new List<CandidateCourseInstructor>()
-        //        {
-        //            new CandidateCourseInstructor(courseinstructorid, ID)
-        //        };
-        //}
         public void Edit(long? companyid, string nid, DateTime dob, long nationalityid, string cityofbirth)
         {
-            //Users.Edit(firstname, lastname, sex, tel, img, password, idcardimg);
             CompanyID = companyid;
             NID = nid;
             DOB = dob;

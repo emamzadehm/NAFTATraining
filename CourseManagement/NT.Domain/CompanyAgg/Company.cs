@@ -22,7 +22,7 @@ namespace NT.CM.Domain.CompanyAgg
         {
 
         }
-        public Company(string companyname, string? website, string? logo, bool ispartner, bool isclient)
+        public Company(string companyname, string website, string logo, bool ispartner, bool isclient)
         {
             CompanyName = companyname;
             Website = website;
@@ -31,11 +31,12 @@ namespace NT.CM.Domain.CompanyAgg
             IsPartner = ispartner;
             //Candidates = new List<Candidate>();
         }
-        public void Edit(string companyname, string? website, string? logo, bool ispartner, bool isclient)
+        public void Edit(string companyname, string website, string logo, bool ispartner, bool isclient)
         {
             CompanyName = companyname;
             Website = website;
-            Logo = logo;
+            if (!string.IsNullOrWhiteSpace(logo))
+                Logo = logo;
             IsClient = isclient;
             IsPartner = ispartner;
         }

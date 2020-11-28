@@ -45,7 +45,8 @@ namespace NT.CM.Domain.CourseAgg
             Audience = audience;
             DailyPlan = dailyplan;
             Cost = cost;
-            CourseCatalog = coursecatalog;
+            if (!string.IsNullOrWhiteSpace(coursecatalog))
+                CourseCatalog = coursecatalog;
             CourseLevel = courselevel;
             Duration = duration;
             CategoryID = categoryid;

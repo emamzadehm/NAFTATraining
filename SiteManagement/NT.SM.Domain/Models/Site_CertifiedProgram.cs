@@ -28,7 +28,8 @@ namespace NT.SM.Domain.Models
         }
         public void Edit(string logo, string title, string shortDescription, string description)
         {
-            Logo = logo;
+            if (!string.IsNullOrWhiteSpace(logo))
+                Logo = logo;
             Title = title;
             ShortDescription = shortDescription;
             Description = description;        }

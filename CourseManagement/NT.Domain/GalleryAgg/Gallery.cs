@@ -30,6 +30,8 @@ namespace NT.CM.Domain.GalleryAgg
         {
             Title = title;
             TypeID = typeid;
+            if (!string.IsNullOrWhiteSpace(photoaddress))
+                PhotoAddress = photoaddress;
             PhotoAddress = photoaddress;
             ParentID = parentid;
         }

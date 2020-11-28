@@ -31,7 +31,8 @@ namespace NT.SM.Domain.Models
             Title = title;
             Description = description;
             HasBullet = hasBullet;
-            Img = img;
+            if (!string.IsNullOrWhiteSpace(img))
+                Img = img;
         }
     }
 }

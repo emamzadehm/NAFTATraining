@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="GalleryApplication.cs~RF4d5aef35.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\NT.Application.Contracts\NT.CM.Application.Contracts.csproj" />
     <ProjectReference Include="..\NT.Domain\NT.CM.Domain.csproj" />
     <ProjectReference Include="..\NT.Infrastructure.EFCore\NT.CM.Infrastructure.EFCore.csproj" />

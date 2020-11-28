@@ -9,6 +9,5 @@ namespace NT.CM.Domain
     {
         List<CourseViewModel> Search(CourseViewModel command = null);
         CourseViewModel  GetDetails(long id);
-
     }
 }

@@ -24,8 +24,7 @@ namespace NT.CM.Application
         {
             _IUnitOfWorkNT.BeginTran();
             var operationresult = new OperationResult();
-            var Company = _companyrepository.GetBy(command.ID);
-            var path = $"AdminPanel//CourseManagement//Uploads//CompanyLogo//" + command.CompanyName.Slugify();
+            var path = $"AdminPanel//Pages//CourseManagement//Uploads//CompanyLogo//" + command.CompanyName.Slugify();
             var filename = _ifileuploader.Upload(command.Logo, path);
             var newcompany = new Company(command.CompanyName, command.Website, filename, command.IsPartner, command.IsClient);
             _companyrepository.Create(newcompany);
@@ -38,7 +37,7 @@ namespace NT.CM.Application
             _IUnitOfWorkNT.BeginTran();
             var operationresult = new OperationResult();
             var Company = _companyrepository.GetBy(command.ID);
-            var path = $"AdminPanel//CourseManagement//Uploads//CompanyLogo//" + command.CompanyName.Slugify();
+            var path = $"AdminPanel//Pages//CourseManagement//Uploads//CompanyLogo//" + command.CompanyName.Slugify();
             var filename = _ifileuploader.Upload(command.Logo, path);
             Company.Edit(command.CompanyName,command.Website,filename, command.IsPartner, command.IsClient);
             _IUnitOfWorkNT.CommitTran();

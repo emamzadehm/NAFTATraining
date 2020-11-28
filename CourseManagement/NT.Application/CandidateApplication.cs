@@ -38,7 +38,7 @@ namespace NT.CM.Application
 
         private long CreateUser(CandidateViewModel command)
         {
-            var path = $"AdminPanel//UsersManagement//Uploads//";
+            var path = $"AdminPanel//Pages//UsersManagement//Uploads//";
             var foldername = command.LastName + " " + command.FirstName + " " + command.CompanyName;
             var filenameIMG = _ifileuploader.Upload(command.IMG, path + foldername.Slugify() + $"//IMG");
             var filenameIDCardIMG = _ifileuploader.Upload(command.IDCardIMG, path + foldername.Slugify() + $"//IDCardIMG");
@@ -62,7 +62,7 @@ namespace NT.CM.Application
         private void EditUser(long uId, CandidateViewModel command)
         {
             var SelectedItem = _iuserrepository.GetBy(uId);
-            var path = $"AdminPanel//UsersManagement//Uploads//";
+            var path = $"AdminPanel//Pages//UsersManagement//Uploads//";
             var foldername = command.LastName + " " + command.FirstName;
             var filenameIMG = _ifileuploader.Upload(command.IMG, path + foldername.Slugify() + $"//IMG");
             var filenameIDCardIMG = _ifileuploader.Upload(command.IDCardIMG, path + foldername.Slugify() + $"//IDCardIMG");
@@ -74,19 +74,6 @@ namespace NT.CM.Application
         public CandidateViewModel GetDetails(long id)
         {
             return _icandidaterepository.GetDetails(id);
-        }
-
-        private long NewUser(CandidateViewModel command)
-        {
-            var path = $"AdminPanel//UsersManagement//Uploads//";
-            var foldername = command.LastName + " " + command.FirstName + " " + command.CompanyName;
-            var filenameIMG = _ifileuploader.Upload(command.IMG, path + foldername.Slugify() + $"//IMG");
-            var filenameIDCardIMG = _ifileuploader.Upload(command.IDCardIMG, path + foldername.Slugify() + $"//IDCardIMG");
-            var NewItem = new Users(command.FirstName, command.LastName, command.Sex, command.Email, filenameIMG, command.Tel, command.Password, filenameIDCardIMG);
-            _iuserrepository.Create(NewItem);
-            _iuserrepository.Save();
-            return NewItem.ID;
-
         }
 
         public OperationResult Remove(long id)

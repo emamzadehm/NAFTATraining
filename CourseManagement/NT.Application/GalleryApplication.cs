@@ -13,17 +13,18 @@ namespace NT.CM.Application
         private readonly IUnitOfWorkNT _IUnitOfWorkNT;
         private readonly IFileUploader _ifileuploader;
 
-        public GalleryApplication(IGalleryRepository igalleryRepository, IUnitOfWorkNT IUnitOfWorkNT)
+        public GalleryApplication(IGalleryRepository igalleryRepository, IUnitOfWorkNT iUnitOfWorkNT, IFileUploader ifileuploader)
         {
             _igalleryRepository = igalleryRepository;
-            _IUnitOfWorkNT = IUnitOfWorkNT;
+            _IUnitOfWorkNT = iUnitOfWorkNT;
+            _ifileuploader = ifileuploader;
         }
 
         public OperationResult Create(GalleryViewModel command)
         {
             _IUnitOfWorkNT.BeginTran();
             var operationresult = new OperationResult();
-            var path = $"AdminPanel//CourseManagement//Uploads//Gallery//" + command.Title.Slugify();
+            var path = $"AdminPanel//Pages//CourseManagement//Uploads//Gallery//" + command.Title.Slugify();
             var filename = _ifileuploader.Upload(command.PhotoAddress, path);
             var NewItem = new Gallery(command.Title,command.TypeID,filename,command.ParentID);
             _igalleryRepository.Create(NewItem);
@@ -36,7 +37,7 @@ namespace NT.CM.Application
             _IUnitOfWorkNT.BeginTran();
             var operationresult = new OperationResult();
             var SelectedItem = _igalleryRepository.GetBy(command.ID);
-            var path = $"AdminPanel//CourseManagement//Uploads//Gallery//" + command.Title.Slugify();
+            var path = $"AdminPanel//Pages//CourseManagement//Uploads//Gallery//" + command.Title.Slugify();
             var filename = _ifileuploader.Upload(command.PhotoAddress, path);
             SelectedItem.Edit(command.Title, command.TypeID, filename, command.ParentID);
             _IUnitOfWorkNT.CommitTran();

@@ -1,4 +1,5 @@
 ﻿using _01.Framework.Infrastructure.EFCore;
+using Microsoft.EntityFrameworkCore;
 using NT.CM.Application.Contracts.ViewModels.Courses;
 using NT.CM.Domain;
 using NT.CM.Domain.CourseAgg;
@@ -31,7 +32,6 @@ namespace NT.CM.Infrastructure.EFCore.Repositories
                 DailyPlan=listitem.DailyPlan,
                 Description=listitem.Description,
                 Duration=listitem.Duration,
-                //IsPrivate=listitem.IsPrivate,
                 Status = listitem.Status
             });
             if (command != null)

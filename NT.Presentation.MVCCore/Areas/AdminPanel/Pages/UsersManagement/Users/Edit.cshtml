@@ -82,14 +82,14 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label asp-for="IMG" class="control-label">تصویر</label>
-                    <input type="file" class="form-control" asp-for="IMG">
+                    <input type="file" class="form-control" asp-for="IMG" accept="image/*">
                     <span asp-validation-for="IMG" class="error"></span>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label asp-for="IDCardIMG" class="control-label">تصویر پاسپورت</label>
-                    <input type="file" class="form-control" asp-for="IDCardIMG">
+                    <input type="file" class="form-control" asp-for="IDCardIMG" accept="image/*">
                     <span asp-validation-for="IDCardIMG" class="error"></span>
                 </div>
             </div>

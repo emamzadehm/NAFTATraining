@@ -296,3 +296,4 @@ C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\bin\Debug\netcoreapp3.1\Syste
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\Candidates\View.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\Instructors\View.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\UsersManagement\Users\View.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\NT.Presentation.MVCCore.MvcApplicationPartsAssemblyInfo.cs

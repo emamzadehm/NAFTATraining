@@ -29,7 +29,7 @@ namespace NT.CM.Application
             var operationresult = new OperationResult();
             var CourseCategory = _ibaseInfoRepository.GetBy(command.CategoryID);
             var CourseLevel = _ibaseInfoRepository.GetBy(command.CourseLevel);
-            var path = $"AdminPanel\\Pages\\CourseManagement\\Uploads\\CourseCatalog\\{(CourseCategory.Title).Slugify()}\\{(command.CName).Slugify()}\\{(CourseLevel.Title).Slugify()}";
+            var path = $"Areas//AdminPanel//Pages//CourseManagement//Uploads//CourseCatalog//{(CourseCategory.Title).Slugify()}//{(command.CName).Slugify()}//{(CourseLevel.Title).Slugify()}";
             var filename = _ifileuploader.Upload(command.CourseCatalog, path);
             var NewItem = new Course(command.CName, command.Description, command.Audience, command.DailyPlan, command.Cost, filename, command.CourseLevel, command.Duration, command.CategoryID);
             _courserepository.Create(NewItem);
@@ -44,7 +44,7 @@ namespace NT.CM.Application
             var SelectedItem = _courserepository.GetBy(command.ID);
             var CourseCategory = _ibaseInfoRepository.GetBy(command.CategoryID);
             var CourseLevel = _ibaseInfoRepository.GetBy(command.CourseLevel);
-            var path = $"AdminPanel\\Pages\\CourseManagement\\Uploads\\CourseCatalog\\{(CourseCategory.Title).Slugify()}\\{(command.CName).Slugify()}\\{(CourseLevel.Title).Slugify()}";
+            var path = $"Areas//AdminPanel//Pages//CourseManagement//Uploads//CourseCatalog//{(CourseCategory.Title).Slugify()}//{(command.CName).Slugify()}//{(CourseLevel.Title).Slugify()}";
             var filename = _ifileuploader.Upload(command.CourseCatalog, path);
             SelectedItem.Edit(command.CName, command.Description, command.Audience, command.DailyPlan, command.Cost, filename, command.CourseLevel, command.Duration, command.CategoryID);
             _IUnitOfWorkNT.CommitTran();

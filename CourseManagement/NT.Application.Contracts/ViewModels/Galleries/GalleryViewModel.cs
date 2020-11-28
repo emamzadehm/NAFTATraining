@@ -18,6 +18,7 @@ namespace NT.CM.Application.Contracts.ViewModels.Galleries
 
         [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
         public IFormFile PhotoAddress { get; set; }
+
         public long? ParentID { get; set; }
         public string TypeName { get; set; }
         public string ParentName { get; set; }

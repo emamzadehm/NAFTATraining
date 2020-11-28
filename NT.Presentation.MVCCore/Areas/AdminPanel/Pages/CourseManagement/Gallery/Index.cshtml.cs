@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -45,9 +46,9 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Galler
             };
             return Partial("./Create", command);
         }
-        public JsonResult OnPostCreate(GalleryViewModel candidatevm)
+        public JsonResult OnPostCreate(GalleryViewModel candidatevm, List<IFormFile> photoAddress)
         {
-            var result = _igalleryapplication.Create(candidatevm);
+            var result = _igalleryapplication.Create(candidatevm, photoAddress);
             return new JsonResult(result);
         }
         public IActionResult OnGetEdit(int id)

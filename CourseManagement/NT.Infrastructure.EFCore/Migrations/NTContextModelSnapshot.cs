@@ -15,21 +15,22 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.9")
+                .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "5.0.0");
 
-            modelBuilder.Entity("Domain.BaseInfoAgg.BaseInfo", b =>
+            modelBuilder.Entity("NT.CM.Domain.BaseInfoAgg.BaseInfo", b =>
                 {
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<long?>("ParentID")
+                        .IsRequired()
                         .HasColumnType("bigint");
 
                     b.Property<bool>("Status")
@@ -37,8 +38,8 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(1000)")
-                        .HasMaxLength(1000);
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
 
                     b.Property<long?>("TypeID")
                         .HasColumnType("bigint");
@@ -57,13 +58,14 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<string>("CityOfBirth")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<long?>("CompanyID")
+                        .IsRequired()
                         .HasColumnType("bigint");
 
                     b.Property<DateTime>("CreationDate")
@@ -99,7 +101,7 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<long>("CandidateID")
                         .HasColumnType("bigint");
@@ -130,7 +132,7 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<long?>("BaseInfoID")
                         .HasColumnType("bigint");
@@ -169,13 +171,17 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<string>("Audience")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CanonicalAddress")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -206,6 +212,18 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     b.Property<int>("Duration")
                         .HasColumnType("int");
 
+                    b.Property<string>("Keywords")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
@@ -223,7 +241,7 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<long>("CCI_ID")
                         .HasColumnType("bigint");
@@ -259,7 +277,7 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<int>("Capacity")
                         .HasColumnType("int");
@@ -303,48 +321,12 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     b.ToTable("Tbl_Course_Instructor");
                 });
 
-            modelBuilder.Entity("NT.CM.Domain.GalleryAgg.Gallery", b =>
-                {
-                    b.Property<long>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<long?>("ParentID")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("PhotoAddress")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<long>("TypeID")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("ParentID");
-
-                    b.HasIndex("TypeID");
-
-                    b.ToTable("Tbl_Gallery");
-                });
-
             modelBuilder.Entity("NT.CM.Domain.InstructorAgg.Instructor", b =>
                 {
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
@@ -368,28 +350,40 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                     b.ToTable("Tbl_Instructor");
                 });
 
-            modelBuilder.Entity("Domain.BaseInfoAgg.BaseInfo", b =>
+            modelBuilder.Entity("NT.CM.Domain.BaseInfoAgg.BaseInfo", b =>
                 {
-                    b.HasOne("Domain.BaseInfoAgg.BaseInfo", "Parent")
+                    b.HasOne("NT.CM.Domain.BaseInfoAgg.BaseInfo", "Parent")
                         .WithMany("ParentChilds")
-                        .HasForeignKey("ParentID");
+                        .HasForeignKey("ParentID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("Domain.BaseInfoAgg.BaseInfo", "Type")
+                    b.HasOne("NT.CM.Domain.BaseInfoAgg.BaseInfo", "Type")
                         .WithMany("TypeChilds")
                         .HasForeignKey("TypeID");
+
+                    b.Navigation("Parent");
+
+                    b.Navigation("Type");
                 });
 
             modelBuilder.Entity("NT.CM.Domain.CandidateAgg.Candidate", b =>
                 {
                     b.HasOne("NT.CM.Domain.CompanyAgg.Company", "Company")
                         .WithMany("Candidates")
-                        .HasForeignKey("CompanyID");
+                        .HasForeignKey("CompanyID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("Domain.BaseInfoAgg.BaseInfo", "BaseInfo")
+                    b.HasOne("NT.CM.Domain.BaseInfoAgg.BaseInfo", "BaseInfo")
                         .WithMany("Candidates")
                         .HasForeignKey("NationalityID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("BaseInfo");
+
+                    b.Navigation("Company");
                 });
 
             modelBuilder.Entity("NT.CM.Domain.CandidateCourseInstructorAgg.CandidateCourseInstructor", b =>
@@ -405,28 +399,36 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                         .HasForeignKey("Course_InstructorID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Candidates");
+
+                    b.Navigation("CourseInstructors");
                 });
 
             modelBuilder.Entity("NT.CM.Domain.CompanyAgg.Company", b =>
                 {
-                    b.HasOne("Domain.BaseInfoAgg.BaseInfo", null)
+                    b.HasOne("NT.CM.Domain.BaseInfoAgg.BaseInfo", null)
                         .WithMany("Companies")
                         .HasForeignKey("BaseInfoID");
                 });
 
             modelBuilder.Entity("NT.CM.Domain.CourseAgg.Course", b =>
                 {
-                    b.HasOne("Domain.BaseInfoAgg.BaseInfo", "BaseInfoCategory")
+                    b.HasOne("NT.CM.Domain.BaseInfoAgg.BaseInfo", "BaseInfoCategory")
                         .WithMany("CourseCategoriers")
                         .HasForeignKey("CategoryID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.BaseInfoAgg.BaseInfo", "BaseInfoCourseLevel")
+                    b.HasOne("NT.CM.Domain.BaseInfoAgg.BaseInfo", "BaseInfoCourseLevel")
                         .WithMany("CourseLevels")
                         .HasForeignKey("CourseLevel")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("BaseInfoCategory");
+
+                    b.Navigation("BaseInfoCourseLevel");
                 });
 
             modelBuilder.Entity("NT.CM.Domain.CourseCandidateInstructorDetailsAgg.CourseCandidateInstructorDetails", b =>
@@ -437,11 +439,15 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.BaseInfoAgg.BaseInfo", "BaseInfo")
+                    b.HasOne("NT.CM.Domain.BaseInfoAgg.BaseInfo", "BaseInfo")
                         .WithMany("CourseCandidateInstructorDetails")
                         .HasForeignKey("TypeID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("BaseInfo");
+
+                    b.Navigation("CandidateCourseInstructor");
                 });
 
             modelBuilder.Entity("NT.CM.Domain.CourseInstructorAgg.CourseInstructor", b =>
@@ -458,24 +464,66 @@ namespace NT.CM.Infrastructure.EFCore.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.BaseInfoAgg.BaseInfo", "BaseInfo")
+                    b.HasOne("NT.CM.Domain.BaseInfoAgg.BaseInfo", "BaseInfo")
                         .WithMany("CourseInstructors")
                         .HasForeignKey("Location")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("BaseInfo");
+
+                    b.Navigation("Course");
+
+                    b.Navigation("Instructor");
                 });
 
-            modelBuilder.Entity("NT.CM.Domain.GalleryAgg.Gallery", b =>
+            modelBuilder.Entity("NT.CM.Domain.BaseInfoAgg.BaseInfo", b =>
                 {
-                    b.HasOne("NT.CM.Domain.GalleryAgg.Gallery", "gallery")
-                        .WithMany("Galleries")
-                        .HasForeignKey("ParentID");
+                    b.Navigation("Candidates");
 
-                    b.HasOne("Domain.BaseInfoAgg.BaseInfo", "BaseInfo")
-                        .WithMany("Galleries")
-                        .HasForeignKey("TypeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Companies");
+
+                    b.Navigation("CourseCandidateInstructorDetails");
+
+                    b.Navigation("CourseCategoriers");
+
+                    b.Navigation("CourseInstructors");
+
+                    b.Navigation("CourseLevels");
+
+                    b.Navigation("ParentChilds");
+
+                    b.Navigation("TypeChilds");
+                });
+
+            modelBuilder.Entity("NT.CM.Domain.CandidateAgg.Candidate", b =>
+                {
+                    b.Navigation("CandidateCourseInstructors");
+                });
+
+            modelBuilder.Entity("NT.CM.Domain.CandidateCourseInstructorAgg.CandidateCourseInstructor", b =>
+                {
+                    b.Navigation("CourseCandidateInstructorDetailss");
+                });
+
+            modelBuilder.Entity("NT.CM.Domain.CompanyAgg.Company", b =>
+                {
+                    b.Navigation("Candidates");
+                });
+
+            modelBuilder.Entity("NT.CM.Domain.CourseAgg.Course", b =>
+                {
+                    b.Navigation("CourseInstructors");
+                });
+
+            modelBuilder.Entity("NT.CM.Domain.CourseInstructorAgg.CourseInstructor", b =>
+                {
+                    b.Navigation("CandidateCourseInstructors");
+                });
+
+            modelBuilder.Entity("NT.CM.Domain.InstructorAgg.Instructor", b =>
+                {
+                    b.Navigation("CourseInstructors");
                 });
 #pragma warning restore 612, 618
         }

@@ -15,16 +15,16 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.9")
+                .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "5.0.0");
 
             modelBuilder.Entity("NT.SM.Domain.Models.Site_About", b =>
                 {
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
@@ -53,7 +53,7 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
@@ -77,7 +77,7 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
@@ -112,7 +112,7 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
@@ -144,7 +144,7 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
@@ -168,7 +168,7 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<string>("Answer")
                         .HasColumnType("nvarchar(max)");
@@ -192,7 +192,7 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
@@ -227,7 +227,7 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
@@ -251,7 +251,7 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .UseIdentityColumn();
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
@@ -279,6 +279,8 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
                         .HasForeignKey("Site_Base_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Sitebases");
                 });
 
             modelBuilder.Entity("NT.SM.Domain.Models.Site_CertifiedProgram", b =>
@@ -288,6 +290,8 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
                         .HasForeignKey("Site_Base_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Sitebases");
                 });
 
             modelBuilder.Entity("NT.SM.Domain.Models.Site_Course", b =>
@@ -297,6 +301,8 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
                         .HasForeignKey("Site_Base_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Sitebases");
                 });
 
             modelBuilder.Entity("NT.SM.Domain.Models.Site_Facility", b =>
@@ -306,6 +312,8 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
                         .HasForeignKey("Site_Base_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Sitebases");
                 });
 
             modelBuilder.Entity("NT.SM.Domain.Models.Site_WhyNafta", b =>
@@ -315,6 +323,21 @@ namespace NT.SM.Infrastructure.EFCore.Migrations
                         .HasForeignKey("Site_Base_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Sitebases");
+                });
+
+            modelBuilder.Entity("NT.SM.Domain.Models.Site_Base", b =>
+                {
+                    b.Navigation("Site_Abouts");
+
+                    b.Navigation("Site_CertifiedPrograms");
+
+                    b.Navigation("Site_Courses");
+
+                    b.Navigation("Site_Facilities");
+
+                    b.Navigation("Site_WhyNaftas");
                 });
 #pragma warning restore 612, 618
         }

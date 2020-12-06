@@ -1,0 +1,529 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Projects\\NAFTA\\Training\\GalleryManagement\\NT.GM.Application\\NT.GM.Application.csproj": {}
+  },
+  "projects": {
+    "C:\\Projects\\NAFTA\\Training\\01.Framework\\01.Framework.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projects\\NAFTA\\Training\\01.Framework\\01.Framework.csproj",
+        "projectName": "01.Framework",
+        "projectPath": "C:\\Projects\\NAFTA\\Training\\01.Framework\\01.Framework.csproj",
+        "packagesPath": "C:\\Users\\emamz\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\NAFTA\\Training\\01.Framework\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\emamz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Projects\\NAFTA\\Training\\CourseManagement\\NT.Application.Contracts\\NT.CM.Application.Contracts.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projects\\NAFTA\\Training\\CourseManagement\\NT.Application.Contracts\\NT.CM.Application.Contracts.csproj",
+        "projectName": "NT.CM.Application.Contracts",
+        "projectPath": "C:\\Projects\\NAFTA\\Training\\CourseManagement\\NT.Application.Contracts\\NT.CM.Application.Contracts.csproj",
+        "packagesPath": "C:\\Users\\emamz\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\NAFTA\\Training\\CourseManagement\\NT.Application.Contracts\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\emamz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Projects\\NAFTA\\Training\\01.Framework\\01.Framework.csproj": {
+                "projectPath": "C:\\Projects\\NAFTA\\Training\\01.Framework\\01.Framework.csproj"
+              },
+              "C:\\Projects\\NAFTA\\Training\\UsersManagement\\NT.UM.Application.Contracts\\NT.UM.Application.Contracts.csproj": {
+                "projectPath": "C:\\Projects\\NAFTA\\Training\\UsersManagement\\NT.UM.Application.Contracts\\NT.UM.Application.Contracts.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Projects\\NAFTA\\Training\\CourseManagement\\NT.Domain\\NT.CM.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projects\\NAFTA\\Training\\CourseManagement\\NT.Domain\\NT.CM.Domain.csproj",
+        "projectName": "NT.CM.Domain",
+        "projectPath": "C:\\Projects\\NAFTA\\Training\\CourseManagement\\NT.Domain\\NT.CM.Domain.csproj",
+        "packagesPath": "C:\\Users\\emamz\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\NAFTA\\Training\\CourseManagement\\NT.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\emamz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Projects\\NAFTA\\Training\\01.Framework\\01.Framework.csproj": {
+                "projectPath": "C:\\Projects\\NAFTA\\Training\\01.Framework\\01.Framework.csproj"
+              },
+              "C:\\Projects\\NAFTA\\Training\\CourseManagement\\NT.Application.Contracts\\NT.CM.Application.Contracts.csproj": {
+                "projectPath": "C:\\Projects\\NAFTA\\Training\\CourseManagement\\NT.Application.Contracts\\NT.CM.Application.Contracts.csproj"
+              },
+              "C:\\Projects\\NAFTA\\Training\\UsersManagement\\NT.UM.Domain\\NT.UM.Domain.csproj": {
+                "projectPath": "C:\\Projects\\NAFTA\\Training\\UsersManagement\\NT.UM.Domain\\NT.UM.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Projects\\NAFTA\\Training\\GalleryManagement\\NT.GM.Application.Contracts\\NT.GM.Application.Contracts.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projects\\NAFTA\\Training\\GalleryManagement\\NT.GM.Application.Contracts\\NT.GM.Application.Contracts.csproj",
+        "projectName": "NT.GM.Application.Contracts",
+        "projectPath": "C:\\Projects\\NAFTA\\Training\\GalleryManagement\\NT.GM.Application.Contracts\\NT.GM.Application.Contracts.csproj",
+        "packagesPath": "C:\\Users\\emamz\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\NAFTA\\Training\\GalleryManagement\\NT.GM.Application.Contracts\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\emamz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Projects\\NAFTA\\Training\\01.Framework\\01.Framework.csproj": {
+                "projectPath": "C:\\Projects\\NAFTA\\Training\\01.Framework\\01.Framework.csproj"
+              },
+              "C:\\Projects\\NAFTA\\Training\\CourseManagement\\NT.Application.Contracts\\NT.CM.Application.Contracts.csproj": {
+                "projectPath": "C:\\Projects\\NAFTA\\Training\\CourseManagement\\NT.Application.Contracts\\NT.CM.Application.Contracts.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Projects\\NAFTA\\Training\\GalleryManagement\\NT.GM.Application\\NT.GM.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projects\\NAFTA\\Training\\GalleryManagement\\NT.GM.Application\\NT.GM.Application.csproj",
+        "projectName": "NT.GM.Application",
+        "projectPath": "C:\\Projects\\NAFTA\\Training\\GalleryManagement\\NT.GM.Application\\NT.GM.Application.csproj",
+        "packagesPath": "C:\\Users\\emamz\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\NAFTA\\Training\\GalleryManagement\\NT.GM.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\emamz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Projects\\NAFTA\\Training\\01.Framework\\01.Framework.csproj": {
+                "projectPath": "C:\\Projects\\NAFTA\\Training\\01.Framework\\01.Framework.csproj"
+              },
+              "C:\\Projects\\NAFTA\\Training\\GalleryManagement\\NT.GM.Application.Contracts\\NT.GM.Application.Contracts.csproj": {
+                "projectPath": "C:\\Projects\\NAFTA\\Training\\GalleryManagement\\NT.GM.Application.Contracts\\NT.GM.Application.Contracts.csproj"
+              },
+              "C:\\Projects\\NAFTA\\Training\\GalleryManagement\\NT.GM.Domain\\NT.GM.Domain.csproj": {
+                "projectPath": "C:\\Projects\\NAFTA\\Training\\GalleryManagement\\NT.GM.Domain\\NT.GM.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Projects\\NAFTA\\Training\\GalleryManagement\\NT.GM.Domain\\NT.GM.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projects\\NAFTA\\Training\\GalleryManagement\\NT.GM.Domain\\NT.GM.Domain.csproj",
+        "projectName": "NT.GM.Domain",
+        "projectPath": "C:\\Projects\\NAFTA\\Training\\GalleryManagement\\NT.GM.Domain\\NT.GM.Domain.csproj",
+        "packagesPath": "C:\\Users\\emamz\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\NAFTA\\Training\\GalleryManagement\\NT.GM.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\emamz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Projects\\NAFTA\\Training\\01.Framework\\01.Framework.csproj": {
+                "projectPath": "C:\\Projects\\NAFTA\\Training\\01.Framework\\01.Framework.csproj"
+              },
+              "C:\\Projects\\NAFTA\\Training\\CourseManagement\\NT.Domain\\NT.CM.Domain.csproj": {
+                "projectPath": "C:\\Projects\\NAFTA\\Training\\CourseManagement\\NT.Domain\\NT.CM.Domain.csproj"
+              },
+              "C:\\Projects\\NAFTA\\Training\\GalleryManagement\\NT.GM.Application.Contracts\\NT.GM.Application.Contracts.csproj": {
+                "projectPath": "C:\\Projects\\NAFTA\\Training\\GalleryManagement\\NT.GM.Application.Contracts\\NT.GM.Application.Contracts.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Projects\\NAFTA\\Training\\UsersManagement\\NT.UM.Application.Contracts\\NT.UM.Application.Contracts.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projects\\NAFTA\\Training\\UsersManagement\\NT.UM.Application.Contracts\\NT.UM.Application.Contracts.csproj",
+        "projectName": "NT.UM.Application.Contracts",
+        "projectPath": "C:\\Projects\\NAFTA\\Training\\UsersManagement\\NT.UM.Application.Contracts\\NT.UM.Application.Contracts.csproj",
+        "packagesPath": "C:\\Users\\emamz\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\NAFTA\\Training\\UsersManagement\\NT.UM.Application.Contracts\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\emamz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Projects\\NAFTA\\Training\\01.Framework\\01.Framework.csproj": {
+                "projectPath": "C:\\Projects\\NAFTA\\Training\\01.Framework\\01.Framework.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Projects\\NAFTA\\Training\\UsersManagement\\NT.UM.Domain\\NT.UM.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projects\\NAFTA\\Training\\UsersManagement\\NT.UM.Domain\\NT.UM.Domain.csproj",
+        "projectName": "NT.UM.Domain",
+        "projectPath": "C:\\Projects\\NAFTA\\Training\\UsersManagement\\NT.UM.Domain\\NT.UM.Domain.csproj",
+        "packagesPath": "C:\\Users\\emamz\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\NAFTA\\Training\\UsersManagement\\NT.UM.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\emamz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Projects\\NAFTA\\Training\\01.Framework\\01.Framework.csproj": {
+                "projectPath": "C:\\Projects\\NAFTA\\Training\\01.Framework\\01.Framework.csproj"
+              },
+              "C:\\Projects\\NAFTA\\Training\\UsersManagement\\NT.UM.Application.Contracts\\NT.UM.Application.Contracts.csproj": {
+                "projectPath": "C:\\Projects\\NAFTA\\Training\\UsersManagement\\NT.UM.Application.Contracts\\NT.UM.Application.Contracts.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

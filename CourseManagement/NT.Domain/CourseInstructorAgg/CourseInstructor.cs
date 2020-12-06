@@ -1,10 +1,9 @@
 ﻿using _01.Framework.Domain;
-using Domain.BaseInfoAgg;
+using NT.CM.Domain.BaseInfoAgg;
 using NT.CM.Domain.CandidateCourseInstructorAgg;
 using NT.CM.Domain.CourseAgg;
 using NT.CM.Domain.InstructorAgg;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace NT.CM.Domain.CourseInstructorAgg

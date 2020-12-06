@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.9">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -16,15 +16,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CourseManagement\NT.Infrastructure.Core\NT.CM.Infrastructure.Core.csproj" />
+    <ProjectReference Include="..\GalleryManagement\NT.GM.Infrastructure\NT.GM.Infrastructure.csproj" />
     <ProjectReference Include="..\SiteManagement\NT.SM.Infrastructure.Core\NT.SM.Infrastructure.Core.csproj" />
     <ProjectReference Include="..\UsersManagement\NT.UM.Infrastructure.Core\NT.UM.Infrastructure.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\AdminPanel\Pages\CourseManagement\Uploads\CompanyLogo\" />
-    <Folder Include="Areas\AdminPanel\Pages\CourseManagement\Uploads\CourseCatalog\" />
-    <Folder Include="Areas\AdminPanel\Pages\CourseManagement\Uploads\DocumentIMG\" />
-    <Folder Include="Areas\AdminPanel\Pages\CourseManagement\Uploads\Gallery\" />
     <Folder Include="Areas\AdminPanel\Pages\SiteManagement\CertifiedProgram\" />
     <Folder Include="Areas\AdminPanel\Pages\SiteManagement\Course\" />
     <Folder Include="Areas\AdminPanel\Pages\SiteManagement\EvaluationResult\" />
@@ -32,9 +29,10 @@
     <Folder Include="Areas\AdminPanel\Pages\SiteManagement\FAQ\" />
     <Folder Include="Areas\AdminPanel\Pages\SiteManagement\FunFact\" />
     <Folder Include="Areas\AdminPanel\Pages\UsersManagement\Uploads\" />
-    <Folder Include="wwwroot\Uploads\CertifiedProgram\" />
-    <Folder Include="wwwroot\Uploads\Facility\" />
+    <Folder Include="wwwroot\Uploads\SiteManagement\CertifiedProgram\" />
+    <Folder Include="wwwroot\Uploads\SiteManagement\Facility\" />
     <Folder Include="Areas\AdminPanel\Pages\SiteManagement\WhyNafta\" />
+    <Folder Include="wwwroot\Uploads\SiteManagement\" />
   </ItemGroup>
 
 </Project>

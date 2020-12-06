@@ -12,6 +12,12 @@ namespace NT.UM.Application
         private readonly IUnitOfWorkNTUM _iunitofwork;
         private readonly IUsersRolesRepository _iusersrolesrepository;
 
+        public UsersRolesApplication(IUnitOfWorkNTUM iunitofwork, IUsersRolesRepository iusersrolesrepository)
+        {
+            _iunitofwork = iunitofwork;
+            _iusersrolesrepository = iusersrolesrepository;
+        }
+
         public OperationResult Create(UsersRolesViewModel command)
         {
             _iunitofwork.BeginTran();

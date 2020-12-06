@@ -37,7 +37,8 @@ namespace NT.UM.Domain.UsersAgg
         }
 
 
-        public void Edit(string firstname, string lastname, bool sex, string tel, string img, string password, string idcardimg)
+        public void Edit(string firstname, string lastname, bool sex, string tel, string img, string password,
+            string idcardimg)
         {
             FirstName = firstname;
             LastName = lastname;

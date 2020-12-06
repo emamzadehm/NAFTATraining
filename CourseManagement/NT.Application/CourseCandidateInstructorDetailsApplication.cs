@@ -25,7 +25,7 @@ namespace NT.CM.Application
         {
             _IUnitOfWorkNT.BeginTran();
             var operationresult = new OperationResult();
-            var path = $"AdminPanel//Pages//CourseManagement//Uploads//DocumentIMG//";
+            var path = $"CourseManagement//DocumentIMG//";
             var filename = _ifileuploader.Upload(command.DocumentIMG, path);
             var NewItem = new CourseCandidateInstructorDetails(command.TypeID,command.Value,filename,command.CCI_ID);
             _icourseCandidateInstructorDetailsRepository.Create(NewItem);
@@ -38,7 +38,7 @@ namespace NT.CM.Application
             _IUnitOfWorkNT.BeginTran();
             var operationresult = new OperationResult();
             var SelectedItem = _icourseCandidateInstructorDetailsRepository.GetBy(command.ID);
-            var path = $"AdminPanel//Pages//CourseManagement//Uploads//DocumentIMG//";
+            var path = $"CourseManagement//DocumentIMG//";
             var filename = _ifileuploader.Upload(command.DocumentIMG, path);
             SelectedItem.Edit(command.TypeID, command.Value, filename, command.CCI_ID);
             _IUnitOfWorkNT.CommitTran();

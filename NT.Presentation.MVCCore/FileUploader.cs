@@ -20,7 +20,7 @@ namespace NT.Presentation.MVCCore
             if (file == null) return "";
 
             string directoryPath;
-            directoryPath = $"{_iwebhostenvironment.WebRootPath}\\{path}";
+            directoryPath = $"{_iwebhostenvironment.WebRootPath}\\Uploads\\{path}";
 
             if (!Directory.Exists(directoryPath))
                 Directory.CreateDirectory(directoryPath);

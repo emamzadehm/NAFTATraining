@@ -1,5 +1,5 @@
 ﻿using _01.Framework.Domain;
-using Domain.BaseInfoAgg;
+using NT.CM.Domain.BaseInfoAgg;
 using NT.CM.Domain.CourseInstructorAgg;
 using System.Collections.Generic;
 
@@ -14,6 +14,10 @@ namespace NT.CM.Domain.CourseAgg
         public long Cost { get; protected set; }
         public string CourseCatalog { get; protected set; }
         public long CourseLevel { get; protected set; }
+        public string MetaDescription { get; private set; }
+        public string Keywords { get; private set; }
+        public string Slug { get; private set; }
+        public string CanonicalAddress { get; private set; }
         public BaseInfo BaseInfoCourseLevel { get; private set; }
         public int Duration { get; protected set; }
         public long CategoryID { get; protected set; }
@@ -24,7 +28,9 @@ namespace NT.CM.Domain.CourseAgg
         {
 
         }
-        public Course(string cname, string description,string audience, string dailyplan, long cost, string coursecatalog, long courselevel, int duration, long categoryid)
+        public Course(string cname, string description,string audience, string dailyplan, long cost, string coursecatalog,
+            long courselevel, int duration, long categoryid, string metaDescription, string keywords, string slug,
+            string canonicalAddress)
         {
             CName = cname;
             Description = description;
@@ -36,9 +42,15 @@ namespace NT.CM.Domain.CourseAgg
             Duration = duration;
             CategoryID = categoryid;
             CourseInstructors = new List<CourseInstructor>();
+            MetaDescription = metaDescription;
+            Keywords = keywords;
+            Slug = slug;
+            CanonicalAddress = canonicalAddress;
         }
 
-        public void Edit(string cname, string description, string audience, string dailyplan, long cost, string coursecatalog, long courselevel, int duration, long categoryid)
+        public void Edit(string cname, string description, string audience, string dailyplan, long cost, string coursecatalog,
+            long courselevel, int duration, long categoryid, string metaDescription, string keywords, string slug,
+            string canonicalAddress)
         {
             CName = cname;
             Description = description;
@@ -50,6 +62,10 @@ namespace NT.CM.Domain.CourseAgg
             CourseLevel = courselevel;
             Duration = duration;
             CategoryID = categoryid;
+            MetaDescription = metaDescription;
+            Keywords = keywords;
+            Slug = slug;
+            CanonicalAddress = canonicalAddress;
         }
     }
 }

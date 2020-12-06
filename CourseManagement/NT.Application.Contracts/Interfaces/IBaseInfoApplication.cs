@@ -13,7 +13,6 @@ namespace NT.CM.Application.Contracts.Interfaces
         List<BaseInfoViewModel> Search(BaseInfoViewModel searchmodel = null);
         //List<BaseInfoViewModel> GetAll();
         List<BaseInfoViewModel> GetAllTypes();
-
         List<BaseInfoViewModel> GetByTypeId(long typeid);
     }
 }

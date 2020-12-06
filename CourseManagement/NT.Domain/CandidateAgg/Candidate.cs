@@ -1,5 +1,5 @@
 ﻿using _01.Framework.Domain;
-using Domain.BaseInfoAgg;
+using NT.CM.Domain.BaseInfoAgg;
 using NT.CM.Domain.CandidateCourseInstructorAgg;
 using NT.CM.Domain.CompanyAgg;
 using System;

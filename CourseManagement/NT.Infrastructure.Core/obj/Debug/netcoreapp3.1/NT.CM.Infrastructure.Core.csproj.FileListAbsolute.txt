@@ -57,6 +57,7 @@ C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.Core\bin\Debug\net
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.Core\bin\Debug\netcoreapp3.1\NT.Infrastructure.Query.dll
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.Core\bin\Debug\netcoreapp3.1\NT.UM.Application.Contracts.dll
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.Core\bin\Debug\netcoreapp3.1\NT.UM.Domain.dll
+C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.Core\bin\Debug\netcoreapp3.1\NT.UM.Infrastructure.EFCore.dll
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.Core\bin\Debug\netcoreapp3.1\NT.Infrastructure.Query.pdb
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.Core\bin\Debug\netcoreapp3.1\NT.CM.Application.Contracts.pdb
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.Core\bin\Debug\netcoreapp3.1\NT.CM.Application.pdb
@@ -65,6 +66,7 @@ C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.Core\bin\Debug\net
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.Core\bin\Debug\netcoreapp3.1\NT.CM.Domain.pdb
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.Core\bin\Debug\netcoreapp3.1\NT.UM.Application.Contracts.pdb
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.Core\bin\Debug\netcoreapp3.1\NT.UM.Domain.pdb
+C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.Core\bin\Debug\netcoreapp3.1\NT.UM.Infrastructure.EFCore.pdb
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.Core\obj\Debug\netcoreapp3.1\NT.CM.Infrastructure.Core.csprojAssemblyReference.cache
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.Core\obj\Debug\netcoreapp3.1\NT.CM.Infrastructure.Core.AssemblyInfoInputs.cache
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.Core\obj\Debug\netcoreapp3.1\NT.CM.Infrastructure.Core.AssemblyInfo.cs
@@ -72,5 +74,3 @@ C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.Core\obj\Debug\net
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.Core\obj\Debug\netcoreapp3.1\NT.CM.Infrastructure.Core.csproj.CopyComplete
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.Core\obj\Debug\netcoreapp3.1\NT.CM.Infrastructure.Core.dll
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.Core\obj\Debug\netcoreapp3.1\NT.CM.Infrastructure.Core.pdb
-C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.Core\bin\Debug\netcoreapp3.1\NT.UM.Infrastructure.EFCore.dll
-C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.Core\bin\Debug\netcoreapp3.1\NT.UM.Infrastructure.EFCore.pdb

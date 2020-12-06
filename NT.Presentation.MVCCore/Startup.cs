@@ -5,8 +5,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NT.CM.Infrastructure.Core;
+using NT.GM.Infrastructure;
 using NT.SM.Infrastructure.Core;
 using NT.UM.Infrastructure.Core;
+using System.Text.Encodings.Web;
+using System.Text.Unicode;
 
 namespace NT.Presentation.MVCCore
 {
@@ -27,6 +30,8 @@ namespace NT.Presentation.MVCCore
             CMBootstrapper.Configure(services, Configuration.GetConnectionString("NTCS"));
             SMBootstrapper.Configure(services, Configuration.GetConnectionString("NTCS"));
             UMBootstrapper.Configure(services, Configuration.GetConnectionString("NTCS"));
+            GMBootstrapper.Configure(services, Configuration.GetConnectionString("NTCS"));
+            services.AddSingleton(HtmlEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Arabic));
             services.AddTransient<IFileUploader, FileUploader>();
             services.AddRazorPages();
         }

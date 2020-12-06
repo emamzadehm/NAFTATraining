@@ -15,7 +15,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label asp-for="CName" class="control-label">عنوان دوره</label>
-                    <input type="text" class="form-control" asp-for="CName">
+                    <input type="text" class="form-control" asp-for="CName" onchange="makeSlug('CName','CourseLevel', 'Slug');">
                     <span asp-validation-for="CName" class="error"></span>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                 <div class="form-group">
                     <label asp-for="CourseLevel" class="control-label">سطح</label>
                     <select class="form-control" asp-for="CourseLevel"
-                            asp-items='new SelectList(Model.Level, "ID", "Title")'>
+                            asp-items='new SelectList(Model.Level, "ID", "Title")' onchange="makeSlug('CName','CourseLevel', 'Slug');">
                         <option value="Null">سطح دوره</option>
                     </select>
                     <span asp-validation-for="CourseLevel" class="error"></span>
@@ -75,7 +75,7 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label asp-for="Description" class="control-label">شرح</label>
-                    <textarea class="form-control" asp-for="Description" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 104px;"></textarea>
+                    <textarea class="form-control tinybox" asp-for="Description" onchange="fillField('Description', 'MetaDescription'); makeSlug('Title', 'Slug')" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 104px;"></textarea>
                     <span asp-validation-for="Description" class="error"></span>
                 </div>
             </div>
@@ -85,7 +85,7 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label asp-for="Audience" class="control-label">مخاطبین</label>
-                    <textarea class="form-control" asp-for="Audience" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 104px;"></textarea>
+                    <textarea class="form-control tinybox" asp-for="Audience" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 104px;"></textarea>
                     <span asp-validation-for="Audience" class="error"></span>
                 </div>
             </div>
@@ -94,8 +94,42 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label asp-for="DailyPlan" class="control-label">برنامه روزانه</label>
-                    <textarea class="form-control" asp-for="DailyPlan" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 104px;"></textarea>
+                    <textarea class="form-control tinybox" asp-for="DailyPlan" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 104px;"></textarea>
                     <span asp-validation-for="DailyPlan" class="error"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Slug" class="control-label">اسلاگ</label>
+                    <input type="text" class="form-control" asp-for="Slug">
+                    <span asp-validation-for="Slug" class="error"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Keywords" class="control-label">کلمات کلیدی</label>
+                    <input type="text" class="form-control" asp-for="Keywords">
+                    <span asp-validation-for="Keywords" class="error"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="MetaDescription" class="control-label">توضیحات</label>
+                    <input type="text" class="form-control" asp-for="MetaDescription">
+                    <span asp-validation-for="MetaDescription" class="error"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="CanonicalAddress" class="control-label">CanonicalAddress</label>
+                    <input type="text" class="form-control" asp-for="CanonicalAddress">
+                    <span asp-validation-for="CanonicalAddress" class="error"></span>
                 </div>
             </div>
         </div>

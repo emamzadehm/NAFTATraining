@@ -232,7 +232,7 @@
                             <a asp-page="/UsersManagement/Users/Index" class="waves-effect"><i class="md md-class"></i><span> کاربران </span></a>
                         </li>
                         <li>
-                            <a asp-page="/CourseManagement/Gallery/Index" class="waves-effect"><i class="md md-class"></i><span> گالری تصاویر </span></a>
+                            <a asp-page="/GalleryManagement/Gallery/Index" class="waves-effect"><i class="md md-class"></i><span> گالری تصاویر </span></a>
                         </li>
 
                     </ul>
@@ -427,6 +427,13 @@
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/AdminTheme/assets/js/site.js"></script>
 
+
+    <script src="https://cdn.tiny.cloud/1/vtah31ffpqe8pwmuqo8ioaiqspjq6z40301ucxsge6mi50xp/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '.tinybox'
+        });
+    </script>
 
     <script src="~/AdminTheme/assets/js/bootstrap-datepicker.js"></script>
 

@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using NT.CM.Domain;
 using NT.CM.Infrastructure.EFCore;
 using NT.CM.Infrastructure.EFCore.Repositories;
@@ -8,6 +7,7 @@ using NT.CM.Application;
 using NT.CM.Application.Contracts.Interfaces;
 using NT.Infrastructure.Query.Interface;
 using NT.Infrastructure.Query.Query;
+using Microsoft.EntityFrameworkCore;
 
 namespace NT.CM.Infrastructure.Core
 {
@@ -27,9 +27,6 @@ namespace NT.CM.Infrastructure.Core
 
             services.AddTransient<ICompanyApplication, CompanyApplication>();
             services.AddTransient<ICompanyRepository, CompanyRepository>();
-
-            services.AddTransient<IGalleryApplication, GalleryApplication>();
-            services.AddTransient<IGalleryRepository, GalleryRepository>();
 
             services.AddTransient<ICourseInstructorApplication, CourseInstructorApplication>();
             services.AddTransient<ICourseInstructorRepository, CourseInstructorRepository>();

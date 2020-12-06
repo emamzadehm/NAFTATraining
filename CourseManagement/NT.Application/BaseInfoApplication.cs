@@ -1,8 +1,8 @@
 ﻿using _01.Framework.Application;
-using Domain.BaseInfoAgg;
 using NT.CM.Application.Contracts.Interfaces;
 using NT.CM.Application.Contracts.ViewModels.BaseInfo;
 using NT.CM.Domain;
+using NT.CM.Domain.BaseInfoAgg;
 using System.Collections.Generic;
 
 namespace NT.CM.Application

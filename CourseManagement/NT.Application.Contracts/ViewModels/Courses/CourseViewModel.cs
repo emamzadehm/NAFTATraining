@@ -41,6 +41,10 @@ namespace NT.CM.Application.Contracts.ViewModels.Courses
         public List<BaseInfoViewModel> Category { get; set; }
         public List<BaseInfoViewModel> Level { get; set; }
         public string FileAddress { get; set; }
+        public string MetaDescription { get; set; }
+        public string Keywords { get; set; }
+        public string Slug { get; set; }
+        public string CanonicalAddress { get; set; }
 
 
     }

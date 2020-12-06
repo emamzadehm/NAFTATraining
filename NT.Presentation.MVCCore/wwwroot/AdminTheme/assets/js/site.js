@@ -119,10 +119,26 @@ function get(url, refereshDiv) {
             $("#" + refereshDiv).html(result);
         });
 }
+function SetSlug(source, dist) {
+    //$('#' + source).change(function () {
+    $('#' + dist).val('');
+    var selectedText = $('#' + source).find("option:selected").text();
+    $('#' + dist).val($('#' + dist).val() + '-' + convertToSlug(selectedText));
+};
 
-function makeSlug(source, dist) {
-    const value = $('#' + source).val();
-    $('#' + dist).val(convertToSlug(value));
+function makeSlug(source1,source2, dist) {
+
+    var selectedText = "";
+    var value = "";
+    if ($('#' + source1).val() != null) {
+        value = $('#' + source1).val();
+    };
+    if ($('#' + source2).val() > 0) {
+        selectedText = $('#' + source2).find("option:selected").text();
+    };
+    var slugtext = value + " " + selectedText;
+    $('#' + dist).val(convertToSlug(slugtext));
+
 }
 
 var convertToSlug = function (str) {
@@ -204,7 +220,7 @@ jQuery.validator.addMethod("FileExtentionLimitation",
         var extention = element.files[0].extention;
         debugger;
         var validextentions = new Array(".jpeg", ".png", ".jpg");
-        if (jQuery.inArray(extention,validextentions))
+        if (jQuery.inArray(extention, validextentions))
             return true;
         else {
             return false;

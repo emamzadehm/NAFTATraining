@@ -24,7 +24,7 @@ namespace NT.SM.Application
         {
             _iunitofwork.BeginTran();
             var operationresult = new OperationResult();
-            var path = $"Uploads//CertifiedProgram";
+            var path = $"SiteManagement//CertifiedProgram";
             var filename = _ifileuploader.Upload(command.Logo, path);
             var newitem = new Site_CertifiedProgram(filename, command.Title, command.ShortDescription, command.Description, command.Site_Base_Id);
             _irepository.Create(newitem);
@@ -37,7 +37,7 @@ namespace NT.SM.Application
             _iunitofwork.BeginTran();
             var operationresult = new OperationResult();
             var selecteditem = _irepository.GetBy(command.Id);
-            var path = $"Uploads//CertifiedProgram";
+            var path = $"SiteManagement//CertifiedProgram";
             var filename = _ifileuploader.Upload(command.Logo, path);
             selecteditem.Edit(filename, command.Title, command.ShortDescription, command.Description);
             _iunitofwork.CommitTran();

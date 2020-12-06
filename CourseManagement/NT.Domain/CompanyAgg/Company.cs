@@ -1,9 +1,6 @@
 ﻿using _01.Framework.Domain;
-using Domain.BaseInfoAgg;
 using NT.CM.Domain.CandidateAgg;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace NT.CM.Domain.CompanyAgg
 {

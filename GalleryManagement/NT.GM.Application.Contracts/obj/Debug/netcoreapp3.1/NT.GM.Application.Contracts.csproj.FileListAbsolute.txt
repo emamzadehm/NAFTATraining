@@ -1,0 +1,16 @@
+C:\Projects\NAFTA\Training\GalleryManagement\NT.GM.Application.Contracts\bin\Debug\netcoreapp3.1\NT.GM.Application.Contracts.deps.json
+C:\Projects\NAFTA\Training\GalleryManagement\NT.GM.Application.Contracts\bin\Debug\netcoreapp3.1\NT.GM.Application.Contracts.dll
+C:\Projects\NAFTA\Training\GalleryManagement\NT.GM.Application.Contracts\bin\Debug\netcoreapp3.1\NT.GM.Application.Contracts.pdb
+C:\Projects\NAFTA\Training\GalleryManagement\NT.GM.Application.Contracts\obj\Debug\netcoreapp3.1\NT.GM.Application.Contracts.AssemblyInfoInputs.cache
+C:\Projects\NAFTA\Training\GalleryManagement\NT.GM.Application.Contracts\obj\Debug\netcoreapp3.1\NT.GM.Application.Contracts.AssemblyInfo.cs
+C:\Projects\NAFTA\Training\GalleryManagement\NT.GM.Application.Contracts\obj\Debug\netcoreapp3.1\NT.GM.Application.Contracts.csproj.CoreCompileInputs.cache
+C:\Projects\NAFTA\Training\GalleryManagement\NT.GM.Application.Contracts\obj\Debug\netcoreapp3.1\NT.GM.Application.Contracts.dll
+C:\Projects\NAFTA\Training\GalleryManagement\NT.GM.Application.Contracts\obj\Debug\netcoreapp3.1\NT.GM.Application.Contracts.pdb
+C:\Projects\NAFTA\Training\GalleryManagement\NT.GM.Application.Contracts\bin\Debug\netcoreapp3.1\01.Framework.dll
+C:\Projects\NAFTA\Training\GalleryManagement\NT.GM.Application.Contracts\bin\Debug\netcoreapp3.1\NT.CM.Application.Contracts.dll
+C:\Projects\NAFTA\Training\GalleryManagement\NT.GM.Application.Contracts\bin\Debug\netcoreapp3.1\NT.UM.Application.Contracts.dll
+C:\Projects\NAFTA\Training\GalleryManagement\NT.GM.Application.Contracts\bin\Debug\netcoreapp3.1\01.Framework.pdb
+C:\Projects\NAFTA\Training\GalleryManagement\NT.GM.Application.Contracts\bin\Debug\netcoreapp3.1\NT.CM.Application.Contracts.pdb
+C:\Projects\NAFTA\Training\GalleryManagement\NT.GM.Application.Contracts\bin\Debug\netcoreapp3.1\NT.UM.Application.Contracts.pdb
+C:\Projects\NAFTA\Training\GalleryManagement\NT.GM.Application.Contracts\obj\Debug\netcoreapp3.1\NT.GM.Application.Contracts.csprojAssemblyReference.cache
+C:\Projects\NAFTA\Training\GalleryManagement\NT.GM.Application.Contracts\obj\Debug\netcoreapp3.1\NT.GM.Application.Contracts.csproj.CopyComplete

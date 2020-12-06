@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.9" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\01.Framework\01.Framework.csproj" />
     <ProjectReference Include="..\NT.SM.Application\NT.SM.Application.csproj" />
     <ProjectReference Include="..\NT.SM.Infrastructure.EFCore\NT.SM.Infrastructure.EFCore.csproj" />

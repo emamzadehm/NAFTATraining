@@ -38,7 +38,7 @@ namespace NT.CM.Application
 
         private long CreateUser(InstructorsViewModel command)
         {
-            var path = $"Areas//AdminPanel//Pages//UsersManagement//Uploads//";
+            var path = $"UsersManagement//Instructors";
             var foldername = command.LastName + " " + command.FirstName;
             var filenameIMG = _ifileuploader.Upload(command.IMG, path + foldername.Slugify() + $"//IMG");
             var filenameIDCardIMG = _ifileuploader.Upload(command.IDCardIMG, path + foldername.Slugify() + $"//IDCardIMG");
@@ -62,7 +62,7 @@ namespace NT.CM.Application
         private void EditUser(long userId, InstructorsViewModel command)
         {
             var SelectedUser = _iuserRepository.GetBy(userId);
-            var path = $"Areas//AdminPanel//Pages//UsersManagement//Uploads//";
+            var path = $"UsersManagement//Instructors";
             var foldername = command.LastName + " " + command.FirstName;
             var filenameIMG = _ifileuploader.Upload(command.IMG, path + foldername.Slugify() + $"//IMG");
             var filenameIDCardIMG = _ifileuploader.Upload(command.IDCardIMG, path + foldername.Slugify() + $"//IDCardIMG");

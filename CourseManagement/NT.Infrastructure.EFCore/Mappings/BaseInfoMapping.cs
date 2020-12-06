@@ -1,6 +1,6 @@
-﻿using Domain.BaseInfoAgg;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using NT.CM.Domain.BaseInfoAgg;
 
 namespace NT.CM.Infrastructure.EFCore.Mappings
 {
@@ -27,8 +27,6 @@ namespace NT.CM.Infrastructure.EFCore.Mappings
             builder.HasMany(x => x.CourseCandidateInstructorDetails).WithOne(x => x.BaseInfo).HasForeignKey(x => x.TypeID);
 
             builder.HasMany(x => x.CourseInstructors).WithOne(x => x.BaseInfo).HasForeignKey(x => x.Location);
-
-            builder.HasMany(x => x.Galleries).WithOne(x => x.BaseInfo).HasForeignKey(x => x.TypeID);
 
             builder.HasMany(x => x.Candidates).WithOne(x => x.BaseInfo).HasForeignKey(x => x.NationalityID);
         }

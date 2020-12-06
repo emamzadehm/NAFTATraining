@@ -24,7 +24,7 @@ namespace NT.UM.Application
         {
             _iUnitOfWork.BeginTran();
             var operationresult = new OperationResult();
-            var path = $"Areas//AdminPanel//Pages//UsersManagement//Uploads//";
+            var path = $"UsersManagement//";
             var foldername = command.LastName + " " + command.FirstName;
             var filenameIMG = _ifileuploader.Upload(command.IMG, path + foldername.Slugify() + $"//IMG");
             var filenameIDCardIMG = _ifileuploader.Upload(command.IDCardIMG, path + foldername.Slugify() + $"//IDCardIMG");
@@ -38,7 +38,7 @@ namespace NT.UM.Application
             _iUnitOfWork.BeginTran(); 
             var operationresult = new OperationResult();
             var SelectedItem = _userRepository.GetBy(command.ID);
-            var path = $"Areas//AdminPanel//Pages//UsersManagement//Uploads//";
+            var path = $"UsersManagement//";
             var foldername = command.LastName + " " + command.FirstName;
             var filenameIMG = _ifileuploader.Upload(command.IMG, path + foldername.Slugify() + $"//IMG");
             var filenameIDCardIMG = _ifileuploader.Upload(command.IDCardIMG, path + foldername.Slugify() + $"//IDCardIMG");

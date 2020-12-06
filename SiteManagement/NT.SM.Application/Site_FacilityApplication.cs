@@ -24,7 +24,7 @@ namespace NT.SM.Application
         {
             _iunitofwork.BeginTran();
             var operationresult = new OperationResult();
-            var path = $"Uploads//Facility";
+            var path = $"SiteManagement//Facility";
             var filename = _ifileuploader.Upload(command.Img, path);
             var newitem = new Site_Facility(command.Title, command.Description, command.HasBullet, filename, command.Site_Base_Id);
             _irepository.Create(newitem);
@@ -37,7 +37,7 @@ namespace NT.SM.Application
             _iunitofwork.BeginTran();
             var operationresult = new OperationResult();
             var selecteditem = _irepository.GetBy(command.Id);
-            var path = $"Uploads//Facility";
+            var path = $"SiteManagement//Facility";
             var filename = _ifileuploader.Upload(command.Img, path);
             selecteditem.Edit(command.Title, command.Description, command.HasBullet, filename);
             _iunitofwork.CommitTran();

@@ -1,45 +1,41 @@
-﻿using System.Collections.Generic;
-using _01.Framework.Domain;
-using NT.CM.Domain.CourseAgg;
-using NT.CM.Domain.CompanyAgg;
-using NT.CM.Domain.CourseCandidateInstructorDetailsAgg;
-using NT.CM.Domain.GalleryAgg;
+﻿using _01.Framework.Domain;
 using NT.CM.Domain.CandidateAgg;
+using NT.CM.Domain.CompanyAgg;
+using NT.CM.Domain.CourseAgg;
+using NT.CM.Domain.CourseCandidateInstructorDetailsAgg;
 using NT.CM.Domain.CourseInstructorAgg;
+using System.Collections.Generic;
 
-namespace Domain.BaseInfoAgg
+namespace NT.CM.Domain.BaseInfoAgg
 {
     public class BaseInfo : DomainBase
     {
         public string Title { get; private set; }
         public long? TypeID { get; private set; }
         public long? ParentID { get; private set; }
-        public BaseInfo Type { get; private set; }
-        public ICollection<BaseInfo> TypeChilds { get; private set; }
-        public BaseInfo Parent { get; private set; }
-        public ICollection<BaseInfo> ParentChilds { get; private set; }
-        
+        public BaseInfo? Type { get; private set; }
+        public ICollection<BaseInfo>? TypeChilds { get; private set; }
+        public BaseInfo? Parent { get; private set; }
+        public ICollection<BaseInfo>? ParentChilds { get; private set; }
+
         //Relation to Course
         public ICollection<Course> CourseLevels { get; private set; }
         public ICollection<Course> CourseCategoriers { get; private set; }
-        
+
         //Relation to Company
         public ICollection<Company> Companies { get; private set; }
 
         //Relation to CourseCandidateInstructorDetails
         public ICollection<CourseCandidateInstructorDetails> CourseCandidateInstructorDetails { get; private set; }
 
-        //Relation to Gallery
-        public ICollection<Gallery> Galleries { get; private set; }
-
         //Relation to Candidate
         public ICollection<Candidate> Candidates { get; private set; }
 
         //Relation to CourseInstructor
         public ICollection<CourseInstructor> CourseInstructors { get; private set; }
-        
-        
-        
+
+
+
         protected BaseInfo()
         {
 
@@ -55,7 +51,7 @@ namespace Domain.BaseInfoAgg
             CourseCategoriers = new List<Course>();
             Companies = new List<Company>();
             CourseCandidateInstructorDetails = new List<CourseCandidateInstructorDetails>();
-            Galleries = new List<Gallery>();
+            //Galleries = new List<Gallery>();
             Candidates = new List<Candidate>();
             CourseInstructors = new List<CourseInstructor>();
 

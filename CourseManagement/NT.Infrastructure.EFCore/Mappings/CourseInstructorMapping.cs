@@ -1,10 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions.Infrastructure;
 using NT.CM.Domain.CourseInstructorAgg;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace NT.CM.Infrastructure.EFCore.Mappings
 {

@@ -1,6 +1,4 @@
-﻿using _01.Framework.Domain;
-using _01.Framework.Infrastructure.EFCore;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using NT.SM.Application;
 using NT.SM.Application.Contracts.Interfaces;

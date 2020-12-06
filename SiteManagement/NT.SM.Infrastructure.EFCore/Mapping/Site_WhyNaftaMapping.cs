@@ -13,7 +13,7 @@ namespace NT.SM.Infrastructure.EFCore.Mapping
             builder.Property(x => x.Description);
 
 
-            
+
             builder.Property(x => x.Site_Base_Id);
             builder.Property(x => x.Status);
             builder.Property(x => x.CreationDate);

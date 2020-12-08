@@ -10,7 +10,7 @@
       data-callback=""
       data-action="Refresh"
       enctype="multipart/form-data">
-    <div class="modal-body">        
+    <div class="modal-body">
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
@@ -60,41 +60,48 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label asp-for="Password" class="control-label">رمز عبور</label>
-                    <input type="text" class="form-control" asp-for="Password">
-                    <span asp-validation-for="Password" class="error"></span>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
                     <label asp-for="Tel" class="control-label">موبایل</label>
                     <input type="tel" class="form-control" asp-for="Tel">
                     <span asp-validation-for="Tel" class="error"></span>
                 </div>
             </div>
-            </div>
+        </div>
 
         <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label asp-for="IMG" class="control-label">تصویر</label>
-                        <input type="file" class="form-control" asp-for="IMG" accept="image/*">
-                        <span asp-validation-for="IMG" class="error"></span>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label asp-for="IDCardIMG" class="control-label">تصویر پاسپورت</label>
-                        <input type="file" class="form-control" asp-for="IDCardIMG" accept="image/*">
-                        <span asp-validation-for="IDCardIMG" class="error"></span>
-                    </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label">رمز عبور</label>
+                    <input type="password" class="form-control" asp-for="Password">
+                    <span asp-validation-for="Password" class="error"></span>
                 </div>
             </div>
-
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="RePassword" class="control-label">تکرار رمز عبور</label>
+                    <input type="password" class="form-control" asp-for="RePassword">
+                    <span asp-validation-for="RePassword" class="error"></span>
+                </div>
+            </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="IMG" class="control-label">تصویر</label>
+                    <input type="file" class="form-control" asp-for="IMG" accept="image/*">
+                    <span asp-validation-for="IMG" class="error"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="IDCardIMG" class="control-label">تصویر پاسپورت</label>
+                    <input type="file" class="form-control" asp-for="IDCardIMG" accept="image/*">
+                    <span asp-validation-for="IDCardIMG" class="error"></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
             <button type="submit" class="btn btn-info waves-effect waves-light">ثبت</button>

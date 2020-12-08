@@ -1,5 +1,4 @@
-﻿//import { inArray } from "jquery";
-
+﻿
 var SinglePage = {};
 
 SinglePage.LoadModal = function () {

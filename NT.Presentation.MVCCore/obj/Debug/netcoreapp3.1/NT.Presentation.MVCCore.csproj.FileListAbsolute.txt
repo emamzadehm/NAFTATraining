@@ -310,3 +310,6 @@ C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\NT.Pr
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\NT.Presentation.MVCCore.pdb
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\NT.Presentation.MVCCore.genruntimeconfig.cache
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\GalleryManagement\Gallery\View.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\Candidates\ChangePassword.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\Instructors\ChangePassword.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\UsersManagement\Users\ChangePassword.cshtml.g.cs

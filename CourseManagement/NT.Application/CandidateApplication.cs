@@ -15,14 +15,16 @@ namespace NT.CM.Application
         private readonly IUsersRepository _iuserrepository;
         private readonly IUnitOfWorkNT _IUnitOfWorkNT;
         private readonly IFileUploader _ifileuploader;
+        private readonly IPasswordHasher _ipasswordhasher;
 
         public CandidateApplication(ICandidateRepository icandidaterepository, IUsersRepository iuserrepository,
-            IUnitOfWorkNT iUnitOfWorkNT, IFileUploader ifileuploader)
+            IUnitOfWorkNT iUnitOfWorkNT, IFileUploader ifileuploader, IPasswordHasher ipasswordhasher)
         {
             _icandidaterepository = icandidaterepository;
             _iuserrepository = iuserrepository;
             _IUnitOfWorkNT = iUnitOfWorkNT;
             _ifileuploader = ifileuploader;
+            _ipasswordhasher = ipasswordhasher;
         }
 
         public OperationResult Create(CandidateViewModel command)
@@ -43,8 +45,10 @@ namespace NT.CM.Application
             var foldername = command.LastName + " " + command.FirstName + " " + command.CompanyName;
             var filenameIMG = _ifileuploader.Upload(command.IMG, path + foldername.Slugify() + $"//IMG");
             var filenameIDCardIMG = _ifileuploader.Upload(command.IDCardIMG, path + foldername.Slugify() + $"//IDCardIMG");
+            var password = _ipasswordhasher.Hash(command.Password);
+
             var NewItem = new Users(command.FirstName, command.LastName, command.Sex, command.Email,
-                filenameIMG, command.Tel, command.Password, filenameIDCardIMG);
+                filenameIMG, command.Tel, password, filenameIDCardIMG);
             _iuserrepository.Create(NewItem);
             _iuserrepository.Save();
             return NewItem.ID;
@@ -55,7 +59,7 @@ namespace NT.CM.Application
             var operationresult = new OperationResult();
             _IUnitOfWorkNT.BeginTran();
             var selecteditem = _icandidaterepository.GetBy(command.ID);
-            EditUser(selecteditem.UserId,command);
+            EditUser(selecteditem.UserId, command);
             selecteditem.Edit(command.CompanyID, command.NID, command.DOB, command.NationalityID, command.CityOfBirth);
             _IUnitOfWorkNT.CommitTran();
             return operationresult.Successful();
@@ -68,8 +72,7 @@ namespace NT.CM.Application
             var foldername = command.LastName + " " + command.FirstName;
             var filenameIMG = _ifileuploader.Upload(command.IMG, path + foldername.Slugify() + $"//IMG");
             var filenameIDCardIMG = _ifileuploader.Upload(command.IDCardIMG, path + foldername.Slugify() + $"//IDCardIMG");
-            SelectedItem.Edit(command.FirstName, command.LastName, command.Sex, command.Tel, filenameIMG, command.Password,
-                filenameIDCardIMG);
+            SelectedItem.Edit(command.FirstName, command.LastName, command.Sex, command.Tel, filenameIMG, filenameIDCardIMG);
             _iuserrepository.Save();
 
         }

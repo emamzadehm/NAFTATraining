@@ -22,7 +22,7 @@ namespace NT.CM.Application.Contracts.ViewModels.Courses
         [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
         public string DailyPlan { get; set; }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
+        [Range(1, long.MaxValue, ErrorMessage = ValidationMessages.IsRequired)]
         public long Cost { get; set; }
 
         public IFormFile CourseCatalog { get; set; }
@@ -34,7 +34,7 @@ namespace NT.CM.Application.Contracts.ViewModels.Courses
         [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
         public int Duration { get; set; }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
+        [Range(1, int.MaxValue, ErrorMessage = ValidationMessages.IsRequired)]
         public long CategoryID { get; set; }
         public string CategoryIDTitle { get; set; }
         public bool Status { get; set; }

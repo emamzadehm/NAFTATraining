@@ -10,8 +10,8 @@ namespace NT.UM.Infrastructure.EFCore.Mappings
         {
             builder.ToTable("Tbl_Role_Permission");
             builder.HasKey(x => x.ID);
-            builder.Property(x => x.RoleID);
-            builder.Property(x => x.PermissionID);
+            builder.Property(x => x.RoleID).IsRequired();
+            builder.Property(x => x.PermissionID).IsRequired();
             builder.Property(x => x.Status);
             builder.HasOne(x => x.Permissions).WithMany(x => x.RolePermissions).HasForeignKey(x => x.PermissionID);
             builder.HasOne(x => x.Roles).WithMany(x => x.RolePermissions).HasForeignKey(x => x.RoleID);

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace _01.Framework.Domain
 {
@@ -7,5 +9,6 @@ namespace _01.Framework.Domain
         void Create(T entity);
         T GetBy(TKey id);
         List<T> GetAll();
+        bool Exists(Expression<Func<T, bool>> expression);
     }
 }

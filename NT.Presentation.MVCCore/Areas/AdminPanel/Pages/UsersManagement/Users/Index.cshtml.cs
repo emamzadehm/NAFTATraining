@@ -31,7 +31,7 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.UsersManagement.Users
         }
         public IActionResult OnGetEdit(long id)
         {
-            var selecteditem = _iuserapplication.GetBy(id);
+            var selecteditem = _iuserapplication.GetDetails(id);
             return Partial("./Edit", selecteditem);
         }
         public JsonResult OnPostEdit(UsersViewModel uservm)
@@ -46,7 +46,7 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.UsersManagement.Users
         }
         public IActionResult OnGetView(long id)
         {
-            var selecteditem = _iuserapplication.GetBy(id);
+            var selecteditem = _iuserapplication.GetDetails(id);
             return Partial("./View", selecteditem);
         }
     }

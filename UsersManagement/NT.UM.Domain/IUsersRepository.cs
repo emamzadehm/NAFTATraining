@@ -9,5 +9,6 @@ namespace NT.UM.Domain
     {
         List<UsersViewModel> Search(UsersViewModel command = null);
         void Save();
+        UsersViewModel GetDetails(long id);
     }
 }

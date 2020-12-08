@@ -1,5 +1,4 @@
 ﻿using _01.Framework.Domain;
-using System;
 using System.Collections.Generic;
 
 namespace NT.UM.Domain.UsersAgg
@@ -18,7 +17,7 @@ namespace NT.UM.Domain.UsersAgg
 
         protected Users()
         {
-            //UsersRoless = new List<UsersRoles>();
+
         }
         public Users(string firstname, string lastname, bool sex, string email, string img, string tel, string password, string idcardimg)
         {
@@ -30,15 +29,13 @@ namespace NT.UM.Domain.UsersAgg
             IMG = img;
             Password = password;
             IDCardIMG = idcardimg;
-            //UsersRoless = new List<UsersRoles> { 
+            //UsersRoless = new List<UsersRoles> {
             //    new UsersRoles(ID, roleid)
             //};
-            //Instructors = new Instructor(educationLevel, resume);
         }
 
 
-        public void Edit(string firstname, string lastname, bool sex, string tel, string img, string password,
-            string idcardimg)
+        public void Edit(string firstname, string lastname, bool sex, string tel, string img, string idcardimg)
         {
             FirstName = firstname;
             LastName = lastname;
@@ -46,8 +43,11 @@ namespace NT.UM.Domain.UsersAgg
             Tel = tel;
             if (!string.IsNullOrWhiteSpace(img))
                 IMG = img;
-            Password = password;
             IDCardIMG = idcardimg;
+        }
+        public void ChangePassword(string password)
+        {
+            Password = password;
         }
     }
 }

@@ -33,6 +33,8 @@ namespace NT.Presentation.MVCCore
             GMBootstrapper.Configure(services, Configuration.GetConnectionString("NTCS"));
             services.AddSingleton(HtmlEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Arabic));
             services.AddTransient<IFileUploader, FileUploader>();
+            services.AddSingleton<IPasswordHasher, PasswordHasher>();
+
             services.AddRazorPages();
         }
 

@@ -12,12 +12,10 @@ namespace NT.CM.Application.Contracts.ViewModels.CourseInstructor
     {
         public long ID { get; set; }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
+        [Range(1, int.MaxValue, ErrorMessage = ValidationMessages.IsRequired)]
         public long CourseID { get; set; }
         public long UserID { get; set; }
-
-
-        [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
+        [Range(1, int.MaxValue, ErrorMessage = ValidationMessages.IsRequired)]
         public long InstructorID { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
@@ -32,7 +30,7 @@ namespace NT.CM.Application.Contracts.ViewModels.CourseInstructor
         [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
         public string Venue { get; set; }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
+        [Range(1,int.MaxValue,ErrorMessage =ValidationMessages.IsRequired)]
         public long Location { get; set; }
         public string CourseName { get; set; }
         public string InstructorName { get; set; }

@@ -15,14 +15,16 @@ namespace NT.CM.Application
         private readonly IUsersRepository _iuserRepository;
         private readonly IUnitOfWorkNT _IUnitOfWorkNT;
         private readonly IFileUploader _ifileuploader;
+        private readonly IPasswordHasher _ipasswordhasher;
 
         public InstructorApplication(IInstructorRepository iinstructorRepository, IUsersRepository iuserRepository,
-            IUnitOfWorkNT iUnitOfWorkNT, IFileUploader ifileuploader)
+            IUnitOfWorkNT iUnitOfWorkNT, IFileUploader ifileuploader, IPasswordHasher ipasswordhasher)
         {
             _iinstructorRepository = iinstructorRepository;
             _iuserRepository = iuserRepository;
             _IUnitOfWorkNT = iUnitOfWorkNT;
             _ifileuploader = ifileuploader;
+            _ipasswordhasher = ipasswordhasher;
         }
 
         public OperationResult Create(InstructorsViewModel command)
@@ -42,7 +44,9 @@ namespace NT.CM.Application
             var foldername = command.LastName + " " + command.FirstName;
             var filenameIMG = _ifileuploader.Upload(command.IMG, path + foldername.Slugify() + $"//IMG");
             var filenameIDCardIMG = _ifileuploader.Upload(command.IDCardIMG, path + foldername.Slugify() + $"//IDCardIMG");
-            var NewItem = new Users(command.FirstName, command.LastName, command.Sex, command.Email, filenameIMG, command.Tel, command.Password, filenameIDCardIMG);
+            var password = _ipasswordhasher.Hash(command.Password);
+            var NewItem = new Users(command.FirstName, command.LastName, command.Sex, command.Email, filenameIMG,
+                command.Tel, password, filenameIDCardIMG);
             _iuserRepository.Create(NewItem);
             _iuserRepository.Save();
             return NewItem.ID;
@@ -66,7 +70,8 @@ namespace NT.CM.Application
             var foldername = command.LastName + " " + command.FirstName;
             var filenameIMG = _ifileuploader.Upload(command.IMG, path + foldername.Slugify() + $"//IMG");
             var filenameIDCardIMG = _ifileuploader.Upload(command.IDCardIMG, path + foldername.Slugify() + $"//IDCardIMG");
-            SelectedUser.Edit(command.FirstName, command.LastName, command.Sex, command.Tel, filenameIMG, command.Password, filenameIDCardIMG);
+            SelectedUser.Edit(command.FirstName, command.LastName, command.Sex, command.Tel, filenameIMG,
+                filenameIDCardIMG);
             _iuserRepository.Save();
         }
 
@@ -82,7 +87,7 @@ namespace NT.CM.Application
             return operationresult.Successful();
         }
 
-        public InstructorsViewModel GetBy(long id)
+        public InstructorsViewModel GetDetails(long id)
         {
             return _iinstructorRepository.GetDetails(id);
         }

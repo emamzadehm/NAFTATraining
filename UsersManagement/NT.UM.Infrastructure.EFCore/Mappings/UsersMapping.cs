@@ -10,13 +10,13 @@ namespace NT.UM.Infrastructure.EFCore.Mappings
         {
             builder.ToTable("Tbl_Users");
             builder.HasKey(x => x.ID);
-            builder.Property(x => x.FirstName);
-            builder.Property(x => x.LastName);
-            builder.Property(x => x.Email);
-            builder.Property(x => x.Tel);
-            builder.Property(x => x.IMG);
-            builder.Property(x => x.Password);
-            builder.Property(x => x.IDCardIMG);
+            builder.Property(x => x.FirstName).HasMaxLength(200).IsRequired();
+            builder.Property(x => x.LastName).HasMaxLength(300).IsRequired();
+            builder.Property(x => x.Email).HasMaxLength(500).IsRequired();
+            builder.Property(x => x.Tel).HasMaxLength(200).IsRequired(false);
+            builder.Property(x => x.IMG).HasMaxLength(2000).IsRequired(false);
+            builder.Property(x => x.Password).IsRequired();
+            builder.Property(x => x.IDCardIMG).HasMaxLength(2000).IsRequired(false);
             builder.Property(x => x.Status);
 
             builder.HasMany(x => x.UsersRoless).WithOne(x => x.Users).HasForeignKey(x => x.UserID);

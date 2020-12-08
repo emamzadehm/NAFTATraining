@@ -78,6 +78,10 @@
                                            href="#showmodal=@Url.Page("./Index", "View", new { id = item.ID})">
                                             <i class="fa fa-info"></i> مشاهده
                                         </a>
+                                        <a class="btn btn-primary pull-right m-rl-5"
+                                           href="#showmodal=@Url.Page("./Index", "ChangePassword", new { id = item.ID})">
+                                            <i class="fa fa-key"></i> تغییر رمز
+                                        </a>
                                         <a class="btn btn-danger pull-right m-rl-5" asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.ID">
                                             <i class="fa fa-edit"></i> حذف
                                         </a>

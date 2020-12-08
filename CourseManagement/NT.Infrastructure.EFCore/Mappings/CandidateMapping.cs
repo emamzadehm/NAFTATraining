@@ -12,11 +12,11 @@ namespace NT.CM.Infrastructure.EFCore.Mappings
             { 
                 builder.ToTable("Tbl_Candidate");
                 builder.HasKey(x => x.ID);
-                builder.Property(x=>x.CompanyID);
-                builder.Property(x => x.NID);
-                builder.Property(x => x.DOB);
-                builder.Property(x => x.NationalityID);
-                builder.Property(x => x.CityOfBirth);
+                builder.Property(x=>x.CompanyID).IsRequired(false);
+                builder.Property(x => x.NID).HasMaxLength(20).IsRequired();
+                builder.Property(x => x.DOB).HasMaxLength(10);
+                builder.Property(x => x.NationalityID).IsRequired();
+                builder.Property(x => x.CityOfBirth).HasMaxLength(100).IsRequired();
                 builder.Property(x => x.Status);
                 builder.Property(x => x.UserId);
 

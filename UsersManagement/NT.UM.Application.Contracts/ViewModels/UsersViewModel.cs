@@ -1,19 +1,33 @@
-﻿using Microsoft.AspNetCore.Http;
-using System;
+﻿using _01.Framework.Application;
+using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
 
 namespace NT.UM.Application.Contracts.ViewModels
 {
     public class UsersViewModel
     {
         public long ID { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
+
         public string FirstName { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
+
         public string LastName { get; set; }
         public string Fullname { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
+        [DataType(DataType.EmailAddress, ErrorMessage = ValidationMessages.Email)]
         public string Email { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
         public bool Sex { get; set; }
         public IFormFile IMG { get; set; }
         public string Tel { get; set; }
+
+        [Compare(nameof(RePassword), ErrorMessage = ValidationMessages.PasswordCompare)]
+        [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
         public string Password { get; set; }
+        [Compare(nameof(RePassword), ErrorMessage = ValidationMessages.PasswordCompare)]
+        [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
+        public string RePassword { get; set; }
         public bool UserStatus { get; set; }
         public IFormFile IDCardIMG { get; set; }
         public string IDCardIMGFileAddress { get; set; }

@@ -10,8 +10,8 @@ namespace NT.CM.Infrastructure.EFCore.Mappings
         {
             builder.ToTable("Tbl_Candidate_Course_Instructor");
             builder.HasKey(x => x.ID);
-            builder.Property(x => x.Course_InstructorID);
-            builder.Property(x => x.CandidateID);
+            builder.Property(x => x.Course_InstructorID).IsRequired(); ;
+            builder.Property(x => x.CandidateID).IsRequired();
             builder.Property(x => x.RegistrationDate);
             builder.Property(x => x.Status);
             builder.HasMany(x => x.CourseCandidateInstructorDetailss).WithOne(x=>x.CandidateCourseInstructor).HasForeignKey(x=>x.CCI_ID);

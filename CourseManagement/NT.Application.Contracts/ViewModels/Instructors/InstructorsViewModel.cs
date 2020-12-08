@@ -17,12 +17,17 @@ namespace NT.CM.Application.Contracts.ViewModels.Instructors
         public bool Sex { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
+        [DataType(DataType.EmailAddress, ErrorMessage = ValidationMessages.Email)]
         public string Email { get; set; }
         public string Tel { get; set; }
         public IFormFile IMG { get; set; }
 
+        [Compare(nameof(RePassword), ErrorMessage = ValidationMessages.PasswordCompare)]
         [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
         public string Password { get; set; }
+        [Compare(nameof(RePassword), ErrorMessage = ValidationMessages.PasswordCompare)]
+        [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
+        public string RePassword { get; set; }
         public IFormFile IDCardIMG { get; set; }
         //Instructor's table =>
         public long ID { get; set; }

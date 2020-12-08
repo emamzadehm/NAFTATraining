@@ -8,8 +8,9 @@ namespace NT.UM.Application.Contracts.Interfaces
     {
         OperationResult Create(UsersViewModel command);
         OperationResult Edit(UsersViewModel command);
+        OperationResult ChangePassword(long uid, string password);
         OperationResult Remove(long id);
-        UsersViewModel GetBy(long id);
+        UsersViewModel GetDetails(long id);
         List<UsersViewModel> Search(UsersViewModel searchmodel = null);
     }
 }

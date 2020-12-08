@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using _01.Framework.Domain;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,6 +18,11 @@ namespace _01.Framework.Infrastructure.EFCore
         public void Create(T entity)
         {
             _context.Add<T>(entity);
+        }
+
+        public bool Exists(Expression<Func<T, bool>> expression)
+        {
+            return _context.Set<T>().Any(expression);
         }
 
         public virtual List<T> GetAll()

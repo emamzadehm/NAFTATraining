@@ -6,12 +6,15 @@ using NT.CM.Application.Contracts.Interfaces;
 using NT.CM.Application.Contracts.ViewModels.BaseInfo;
 using NT.CM.Application.Contracts.ViewModels.Candidates;
 using NT.CM.Application.Contracts.ViewModels.Companies;
+using NT.UM.Application.Contracts.Interfaces;
+using NT.UM.Application.Contracts.ViewModels;
 
 namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Candidates
 {
     public class IndexModel : PageModel
     {
         private readonly ICandidateApplication _icandidateapplication;
+        private readonly IUserApplication _iuserapplication;
         private readonly ICompanyApplication _icompanyapplication;
         private readonly IBaseInfoApplication _ibaseinfoapplication;
         public CompanyViewModel searchmodelcompany;
@@ -20,9 +23,11 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Candid
         public List<CandidateViewModel> candidateVM { get; set; }
         public CandidateViewModel SearchModel { get; set; }
 
-        public IndexModel(ICandidateApplication icandidateapplication, ICompanyApplication icompanyapplication, IBaseInfoApplication ibaseinfoapplication)
+        public IndexModel(ICandidateApplication icandidateapplication, IUserApplication iuserapplication, 
+            ICompanyApplication icompanyapplication, IBaseInfoApplication ibaseinfoapplication)
         {
             _icandidateapplication = icandidateapplication;
+            _iuserapplication = iuserapplication;
             _icompanyapplication = icompanyapplication;
             _ibaseinfoapplication = ibaseinfoapplication;
         }
@@ -76,6 +81,19 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.CourseManagement.Candid
             selecteditem.CompanyList = _icompanyapplication.Search(searchmodelcompany);
             selecteditem.Nationality = _ibaseinfoapplication.Search(searchmodelbaseinfo);
             return Partial("./View", selecteditem);
+        }
+
+        public IActionResult OnGetChangePassword(long id)
+        {
+            var selecteditem = _icandidateapplication.GetDetails(id);
+            var selectedUser = _iuserapplication.GetDetails(selecteditem.UserID);
+            return Partial("./ChangePassword", selectedUser);
+
+        }
+        public JsonResult OnPostChangePassword(UsersViewModel usersvm)
+        {
+            var result = _iuserapplication.ChangePassword(usersvm.ID, usersvm.Password);
+            return new JsonResult(result);
         }
 
     }

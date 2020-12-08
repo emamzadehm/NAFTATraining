@@ -28,7 +28,6 @@
     <Folder Include="Areas\AdminPanel\Pages\SiteManagement\Facility\" />
     <Folder Include="Areas\AdminPanel\Pages\SiteManagement\FAQ\" />
     <Folder Include="Areas\AdminPanel\Pages\SiteManagement\FunFact\" />
-    <Folder Include="Areas\AdminPanel\Pages\UsersManagement\Uploads\" />
     <Folder Include="wwwroot\Uploads\SiteManagement\CertifiedProgram\" />
     <Folder Include="wwwroot\Uploads\SiteManagement\Facility\" />
     <Folder Include="Areas\AdminPanel\Pages\SiteManagement\WhyNafta\" />

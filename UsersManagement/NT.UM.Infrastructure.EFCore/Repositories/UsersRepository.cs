@@ -16,6 +16,23 @@ namespace NT.UM.Infrastructure.EFCore.Repositories
             _ntumcontext = ntumcontext;
         }
 
+        public UsersViewModel GetDetails(long id)
+        {
+            return _ntumcontext.Tbl_Users.Where(x => x.Status == true).Select(x => new UsersViewModel
+            {
+                ID = x.ID,
+                FirstName = x.FirstName,
+                LastName = x.LastName,
+                Email = x.Email,
+                IDCardIMGFileAddress = x.IDCardIMG,
+                IMGFileAddress = x.IMG,
+                Sex = x.Sex,
+                Tel = x.Tel,
+                Fullname = x.Sex.ToSexName() + " " + x.FirstName + " " + x.LastName,
+                UserStatus = x.Status
+            }).FirstOrDefault(x=>x.ID==id);
+        }
+
         public void Save()
         {
             _ntumcontext.SaveChanges();

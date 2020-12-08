@@ -12,12 +12,15 @@ namespace NT.UM.Application
         private readonly IUsersRepository _userRepository;
         private readonly IUnitOfWorkNTUM _iUnitOfWork;
         private readonly IFileUploader _ifileuploader;
+        private readonly IPasswordHasher _ipasswordhasher;
 
-        public UserApplication(IUsersRepository userRepository, IUnitOfWorkNTUM iUnitOfWork, IFileUploader ifileuploader)
+        public UserApplication(IUsersRepository userRepository, IUnitOfWorkNTUM iUnitOfWork,
+            IFileUploader ifileuploader, IPasswordHasher ipasswordhasher)
         {
             _userRepository = userRepository;
             _iUnitOfWork = iUnitOfWork;
             _ifileuploader = ifileuploader;
+            _ipasswordhasher = ipasswordhasher;
         }
 
         public OperationResult Create(UsersViewModel command)
@@ -42,9 +45,7 @@ namespace NT.UM.Application
             var foldername = command.LastName + " " + command.FirstName;
             var filenameIMG = _ifileuploader.Upload(command.IMG, path + foldername.Slugify() + $"//IMG");
             var filenameIDCardIMG = _ifileuploader.Upload(command.IDCardIMG, path + foldername.Slugify() + $"//IDCardIMG");
-
-            SelectedItem.Edit(command.FirstName, command.LastName, command.Sex,command.Tel, filenameIMG, command.Password, filenameIDCardIMG);
-
+            SelectedItem.Edit(command.FirstName, command.LastName, command.Sex,command.Tel, filenameIMG, filenameIDCardIMG);
             _iUnitOfWork.CommitTran();
             return operationresult.Successful();
         }
@@ -59,21 +60,9 @@ namespace NT.UM.Application
             return operationresult.Successful();
         }
 
-        public UsersViewModel GetBy(long id)
+        public UsersViewModel GetDetails(long id)
         {
-            var SelectedUser = _userRepository.GetBy(id);
-            return new UsersViewModel
-            {
-                ID = SelectedUser.ID,
-                FirstName = SelectedUser.FirstName,
-                LastName = SelectedUser.LastName,
-                Sex = SelectedUser.Sex,
-                Email = SelectedUser.Email,
-                IMGFileAddress = SelectedUser.IMG,
-                Tel = SelectedUser.Tel,
-                Password = SelectedUser.Password,
-                IDCardIMGFileAddress = SelectedUser.IDCardIMG           
-            };
+            return _userRepository.GetDetails(id);
         }
 
         public List<UsersViewModel> Search(UsersViewModel searchmodel = null)
@@ -81,5 +70,15 @@ namespace NT.UM.Application
             return _userRepository.Search(searchmodel);
         }
 
+        public OperationResult ChangePassword(long uid, string password)
+        {
+            _iUnitOfWork.BeginTran();
+            var operationresult = new OperationResult();
+            var SelectedItem = _userRepository.GetBy(uid);
+            var Password = _ipasswordhasher.Hash(password);
+            SelectedItem.ChangePassword(Password);
+            _iUnitOfWork.CommitTran();
+            return operationresult.Successful();
+        }
     }
 }

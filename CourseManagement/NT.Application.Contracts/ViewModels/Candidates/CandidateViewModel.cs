@@ -21,15 +21,21 @@ namespace NT.CM.Application.Contracts.ViewModels.Candidates
         public bool Sex { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
+        [DataType(DataType.EmailAddress,ErrorMessage =ValidationMessages.Email)]
         public string Email { get; set; }
         public string Tel { get; set; }
 
         [MaxFileSize(3 * 1024 * 1024, ErrorMessage = ValidationMessages.MaxFileSize)]
        // [FileExtentionLimitation(new string[] {".jpeg", ".png", ".jpg"}, ErrorMessage = ValidationMessages.FileExtention)]
         public IFormFile IMG { get; set; }
-
+        [Compare(nameof(RePassword), ErrorMessage = ValidationMessages.PasswordCompare)]
         [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
         public string Password { get; set; }
+
+        [Compare(nameof(RePassword), ErrorMessage = ValidationMessages.PasswordCompare)]
+        [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
+        public string RePassword { get; set; }
+        [Required(AllowEmptyStrings =true)]
         public IFormFile IDCardIMG { get; set; }
         public string IDCardIMGFileAddress { get; set; }
         public string IMGFileAddress { get; set; }

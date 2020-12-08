@@ -18,7 +18,7 @@
         public OperationResult Failed(string _message)
         {
             isSuccessful = false;
-            message = message;
+            message = _message;
             return this;
         }
     }

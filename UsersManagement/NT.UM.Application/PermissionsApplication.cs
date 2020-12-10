@@ -38,15 +38,9 @@ namespace NT.UM.Application
             return operationresult.Successful();
         }
 
-        public PermissionsViewModel GetBy(long id)
+        public PermissionsViewModel GetDetails(long id)
         {
-            var SelectedItem = _ipermissionsrepository.GetBy(id);
-            return new PermissionsViewModel
-            {
-                ID = SelectedItem.ID,
-                Title=SelectedItem.Title,
-                Status=SelectedItem.Status
-            };
+            return _ipermissionsrepository.GetDetails(id);
         }
 
         public OperationResult Remove(long id)

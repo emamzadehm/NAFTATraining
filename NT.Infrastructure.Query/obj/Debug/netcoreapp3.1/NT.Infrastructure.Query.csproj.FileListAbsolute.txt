@@ -29,12 +29,14 @@ C:\Projects\NAFTA\Training\NT.Infrastructure.Query\bin\Debug\netcoreapp3.1\NT.CM
 C:\Projects\NAFTA\Training\NT.Infrastructure.Query\bin\Debug\netcoreapp3.1\NT.CM.Infrastructure.EFCore.dll
 C:\Projects\NAFTA\Training\NT.Infrastructure.Query\bin\Debug\netcoreapp3.1\NT.UM.Application.Contracts.dll
 C:\Projects\NAFTA\Training\NT.Infrastructure.Query\bin\Debug\netcoreapp3.1\NT.UM.Domain.dll
+C:\Projects\NAFTA\Training\NT.Infrastructure.Query\bin\Debug\netcoreapp3.1\NT.UM.Infrastructure.EFCore.dll
 C:\Projects\NAFTA\Training\NT.Infrastructure.Query\bin\Debug\netcoreapp3.1\NT.CM.Infrastructure.EFCore.pdb
 C:\Projects\NAFTA\Training\NT.Infrastructure.Query\bin\Debug\netcoreapp3.1\01.Framework.pdb
 C:\Projects\NAFTA\Training\NT.Infrastructure.Query\bin\Debug\netcoreapp3.1\NT.CM.Application.Contracts.pdb
 C:\Projects\NAFTA\Training\NT.Infrastructure.Query\bin\Debug\netcoreapp3.1\NT.CM.Domain.pdb
 C:\Projects\NAFTA\Training\NT.Infrastructure.Query\bin\Debug\netcoreapp3.1\NT.UM.Application.Contracts.pdb
 C:\Projects\NAFTA\Training\NT.Infrastructure.Query\bin\Debug\netcoreapp3.1\NT.UM.Domain.pdb
+C:\Projects\NAFTA\Training\NT.Infrastructure.Query\bin\Debug\netcoreapp3.1\NT.UM.Infrastructure.EFCore.pdb
 C:\Projects\NAFTA\Training\NT.Infrastructure.Query\obj\Debug\netcoreapp3.1\NT.Infrastructure.Query.csprojAssemblyReference.cache
 C:\Projects\NAFTA\Training\NT.Infrastructure.Query\obj\Debug\netcoreapp3.1\NT.Infrastructure.Query.AssemblyInfoInputs.cache
 C:\Projects\NAFTA\Training\NT.Infrastructure.Query\obj\Debug\netcoreapp3.1\NT.Infrastructure.Query.AssemblyInfo.cs
@@ -42,5 +44,3 @@ C:\Projects\NAFTA\Training\NT.Infrastructure.Query\obj\Debug\netcoreapp3.1\NT.In
 C:\Projects\NAFTA\Training\NT.Infrastructure.Query\obj\Debug\netcoreapp3.1\NT.Infrastructure.Query.csproj.CopyComplete
 C:\Projects\NAFTA\Training\NT.Infrastructure.Query\obj\Debug\netcoreapp3.1\NT.Infrastructure.Query.dll
 C:\Projects\NAFTA\Training\NT.Infrastructure.Query\obj\Debug\netcoreapp3.1\NT.Infrastructure.Query.pdb
-C:\Projects\NAFTA\Training\NT.Infrastructure.Query\bin\Debug\netcoreapp3.1\NT.UM.Infrastructure.EFCore.dll
-C:\Projects\NAFTA\Training\NT.Infrastructure.Query\bin\Debug\netcoreapp3.1\NT.UM.Infrastructure.EFCore.pdb

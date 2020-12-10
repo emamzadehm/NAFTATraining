@@ -1,0 +1,57 @@
+﻿@model NT.UM.Application.Contracts.ViewModels.UsersRolesViewModel
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 class="modal-title">ثبت نقش کاربران</h4>
+</div>
+
+<form asp-page="./Index" asp-page-handler="Create"
+      method="post"
+      data-ajax="true"
+      data-callback=""
+      data-action="Refresh"
+      enctype="multipart/form-data">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="UserID" class="control-label">کاربر</label>
+                    <select class="form-control" asp-for="UserID"
+                            asp-items='new SelectList(Model.UsersList, "ID", "Fullname")'>
+                        <option value="Null">انتخاب دوره</option>
+                    </select>
+                    <span asp-validation-for="UserID" class="error"></span>
+
+                </div>
+            </div>
+        </div>
+
+        <table id="datatable" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>نقش (ها)</th>
+                    <th>فعالسازی / غیرفعالسازی</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.RolesList)
+                {
+                    <tr>
+                        <td>@item.RoleName</td>
+                        <td>
+                            <a class="btn btn-primary pull-right m-rl-5" asp-page="./Index" asp-page-handler="Activate" asp-route-id="@item.ID">
+                                <i class="fa fa-info"></i> فعالسازی
+                            </a>
+                            <a class="btn btn-danger pull-right m-rl-5" asp-page="./Index" asp-page-handler="DeActivate" asp-route-id="@item.ID">
+                                <i class="fa fa-remove"></i> غیرفعالسازی
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
+    </div>
+</form>

@@ -8,5 +8,6 @@ namespace NT.UM.Domain
     public interface IPermissionsRepository : IRepository<long,Permissions>
     {
         List<PermissionsViewModel> Search(PermissionsViewModel command = null);
+        PermissionsViewModel GetDetails(long id);
     }
 }

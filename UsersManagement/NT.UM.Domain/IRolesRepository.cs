@@ -8,5 +8,6 @@ namespace NT.UM.Domain
     public interface IRolesRepository : IRepository<long, Roles>
     {
         List<RolesViewModel> Search(RolesViewModel command = null);
+        RolesViewModel GetDetails(long id);
     }
 }

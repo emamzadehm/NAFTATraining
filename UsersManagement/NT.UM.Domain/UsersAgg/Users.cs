@@ -19,7 +19,8 @@ namespace NT.UM.Domain.UsersAgg
         {
 
         }
-        public Users(string firstname, string lastname, bool sex, string email, string img, string tel, string password, string idcardimg)
+        public Users(string firstname, string lastname, bool sex, string email, string img, string tel, string password,
+            string idcardimg)
         {
             FirstName = firstname;
             LastName = lastname;

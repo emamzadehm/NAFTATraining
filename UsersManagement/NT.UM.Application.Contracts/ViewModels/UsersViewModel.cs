@@ -1,5 +1,6 @@
 ﻿using _01.Framework.Application;
 using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace NT.UM.Application.Contracts.ViewModels
@@ -33,7 +34,7 @@ namespace NT.UM.Application.Contracts.ViewModels
         public string IDCardIMGFileAddress { get; set; }
         public string IMGFileAddress { get; set; }
 
-        //public List<UsersRoles> UsersRoless { get; set; }
+        public List<UsersRolesViewModel> UsersRoless { get; set; }
         //public InstructorsViewModel Instructor { get; set; }
 
         ////////Candidate Fields:

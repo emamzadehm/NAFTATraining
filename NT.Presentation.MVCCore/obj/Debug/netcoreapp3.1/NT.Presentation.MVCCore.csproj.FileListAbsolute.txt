@@ -250,6 +250,7 @@ C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\CandidateCourseInstructor\Create.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\CandidateCourseInstructor\Edit.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\CandidateCourseInstructor\Index.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\Candidates\ChangePassword.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\Candidates\Create.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\Candidates\Edit.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\Candidates\Index.cshtml.g.cs
@@ -264,6 +265,7 @@ C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\Courses\Create.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\Courses\Edit.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\Courses\Index.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\Instructors\ChangePassword.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\Instructors\Create.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\Instructors\Edit.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\Instructors\Index.cshtml.g.cs
@@ -271,6 +273,7 @@ C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\GalleryManagement\Gallery\Create.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\GalleryManagement\Gallery\Edit.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\GalleryManagement\Gallery\Index.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\GalleryManagement\Gallery\View.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\Index.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\Shared\_AdminLayout.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\SiteManagement\About\Create.cshtml.g.cs
@@ -279,6 +282,15 @@ C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\SiteManagement\Base\Create.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\SiteManagement\Base\Edit.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\SiteManagement\Base\Index.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\UsersManagement\Permissions\Create.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\UsersManagement\Permissions\Edit.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\UsersManagement\Permissions\Index.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\UsersManagement\Roles\Create.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\UsersManagement\Roles\Edit.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\UsersManagement\Roles\Index.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\UsersManagement\UsersRoles\Create.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\UsersManagement\UsersRoles\Index.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\UsersManagement\Users\ChangePassword.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\UsersManagement\Users\Create.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\UsersManagement\Users\Edit.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\UsersManagement\Users\Index.cshtml.g.cs
@@ -309,7 +321,3 @@ C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\stati
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\NT.Presentation.MVCCore.dll
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\NT.Presentation.MVCCore.pdb
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\NT.Presentation.MVCCore.genruntimeconfig.cache
-C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\GalleryManagement\Gallery\View.cshtml.g.cs
-C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\Candidates\ChangePassword.cshtml.g.cs
-C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\CourseManagement\Instructors\ChangePassword.cshtml.g.cs
-C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\UsersManagement\Users\ChangePassword.cshtml.g.cs

@@ -9,7 +9,7 @@ namespace NT.UM.Application.Contracts.Interfaces
         OperationResult Create(PermissionsViewModel command);
         OperationResult Edit(PermissionsViewModel command);
         OperationResult Remove(long id);
-        PermissionsViewModel GetBy(long id);
+        PermissionsViewModel GetDetails(long id);
         List<PermissionsViewModel> Search(PermissionsViewModel searchmodel = null);
     }
 }

@@ -38,16 +38,9 @@ namespace NT.UM.Application
             return operationresult.Successful();
         }
 
-        public RolesViewModel GetBy(long id)
+        public RolesViewModel GetDetails(long id)
         {
-            var SelectedItem = _irolesrepository.GetBy(id);
-            return new RolesViewModel
-            {
-                ID=SelectedItem.ID,
-                RoleName=SelectedItem.RoleName,
-                Status=SelectedItem.Status,
-                Description=SelectedItem.Description
-            };
+            return _irolesrepository.GetDetails(id);
         }
 
         public OperationResult Remove(long id)

@@ -15,6 +15,17 @@ namespace NT.UM.Infrastructure.EFCore.Repositories
             _ntumcontext = ntumcontext;
         }
 
+        public RolesViewModel GetDetails(long id)
+        {
+            return _ntumcontext.Tbl_Roles.Where(x => x.Status == true).Select(x => new RolesViewModel
+            {
+                ID = x.ID,
+                RoleName = x.RoleName,
+                Description = x.Description,
+                Status = x.Status
+            }).FirstOrDefault(x=>x.ID==id);
+        }
+
         public List<RolesViewModel> Search(RolesViewModel command = null)
         {
             var Query = _ntumcontext.Tbl_Roles.Where(x => x.Status == true).Select(x => new RolesViewModel

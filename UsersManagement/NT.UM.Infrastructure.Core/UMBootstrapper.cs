@@ -18,6 +18,18 @@ namespace NT.UM.Infrastructure.Core
             services.AddTransient<IUserApplication, UserApplication>();
             services.AddTransient<IUsersRepository, UsersRepository>();
 
+            services.AddTransient<IRolesApplication, RolesApplication>();
+            services.AddTransient<IRolesRepository, RolesRepository>();
+
+            services.AddTransient<IUsersRolesApplication, UsersRolesApplication>();
+            services.AddTransient<IUsersRolesRepository, UsersRolesRepository>();
+
+            services.AddTransient<IPermissionsApplication, PermissionsApplication>();
+            services.AddTransient<IPermissionsRepository, PermissionsRepository>();
+
+            services.AddTransient<IRolePermissionApplication, RolePermissionApplication>();
+            services.AddTransient<IRolePermissionRepository, RolePermissionRepository>();
+
             //services.AddTransient<ICourseQuery, CourseQuery>();
 
             services.AddDbContext<NTUMContext>(options => options.UseSqlServer(connectionstring));

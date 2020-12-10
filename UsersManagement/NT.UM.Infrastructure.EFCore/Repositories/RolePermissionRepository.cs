@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace NT.UM.Infrastructure.EFCore.Repositories
 {
-    public class RolePermissionRepository : BaseRepository<long, RolePermission> , IRolePermission
+    public class RolePermissionRepository : BaseRepository<long, RolePermission> , IRolePermissionRepository
     {
         private readonly NTUMContext _ntumcontext;
         public RolePermissionRepository(NTUMContext ntumcontext) : base(ntumcontext)

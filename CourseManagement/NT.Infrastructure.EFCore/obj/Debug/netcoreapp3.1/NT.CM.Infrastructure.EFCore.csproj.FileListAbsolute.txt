@@ -48,7 +48,9 @@ C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.EFCore\bin\Debug\n
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.EFCore\bin\Debug\netcoreapp3.1\NT.CM.Domain.dll
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.EFCore\bin\Debug\netcoreapp3.1\NT.UM.Application.Contracts.dll
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.EFCore\bin\Debug\netcoreapp3.1\NT.UM.Domain.dll
+C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.EFCore\bin\Debug\netcoreapp3.1\NT.UM.Infrastructure.EFCore.dll
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.EFCore\bin\Debug\netcoreapp3.1\01.Framework.pdb
+C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.EFCore\bin\Debug\netcoreapp3.1\NT.UM.Infrastructure.EFCore.pdb
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.EFCore\bin\Debug\netcoreapp3.1\NT.CM.Domain.pdb
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.EFCore\bin\Debug\netcoreapp3.1\NT.CM.Application.Contracts.pdb
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.EFCore\bin\Debug\netcoreapp3.1\NT.UM.Application.Contracts.pdb
@@ -61,5 +63,3 @@ C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.EFCore\obj\Debug\n
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.EFCore\obj\Debug\netcoreapp3.1\NT.CM.Infrastructure.EFCore.dll
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.EFCore\obj\Debug\netcoreapp3.1\NT.CM.Infrastructure.EFCore.pdb
 C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.EFCore\obj\Debug\netcoreapp3.1\NT.CM.Infrastructure.EFCore.genruntimeconfig.cache
-C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.EFCore\bin\Debug\netcoreapp3.1\NT.UM.Infrastructure.EFCore.dll
-C:\Projects\NAFTA\Training\CourseManagement\NT.Infrastructure.EFCore\bin\Debug\netcoreapp3.1\NT.UM.Infrastructure.EFCore.pdb

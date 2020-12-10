@@ -15,6 +15,15 @@ namespace NT.UM.Infrastructure.EFCore.Repositories
             _ntumcontext = ntumcontext;
         }
 
+        public PermissionsViewModel GetDetails(long id)
+        {
+            return _ntumcontext.Tbl_Permissions.Where(x => x.Status == true).Select(x => new PermissionsViewModel
+            {
+                ID = x.ID,
+                Title = x.Title,
+                Status = x.Status
+            }).FirstOrDefault(x=>x.ID==id);
+        }
 
         public List<PermissionsViewModel> Search(PermissionsViewModel command = null)
         {

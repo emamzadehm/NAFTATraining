@@ -229,10 +229,19 @@
                             <a asp-page="/CourseManagement/Company/Index" class="waves-effect"><i class="md md-file-download"></i><span> شرکت ها </span></a>
                         </li>
                         <li>
-                            <a asp-page="/UsersManagement/Users/Index" class="waves-effect"><i class="md md-class"></i><span> کاربران </span></a>
-                        </li>
-                        <li>
                             <a asp-page="/GalleryManagement/Gallery/Index" class="waves-effect"><i class="md md-class"></i><span> گالری تصاویر </span></a>
+                        </li>
+
+                        <li class="has_sub">
+                            <a href="#" class="waves-effect"><i class="md md-palette"></i> <span> سامانه مدیریت کاربران </span> <span class="pull-right"><i class="md md-add"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a asp-page="/UsersManagement/Users/Index">کاربران</a></li>
+                                <li><a asp-page="/UsersManagement/Roles/Index">نقش ها</a></li>
+                                <li><a asp-page="/UsersManagement/UsersRoles/Index">نقش های کاربران</a></li>
+                                <li><a asp-page="/UsersManagement/RolePermission/Index">سطوح دسترسی</a></li>
+                                <li><a asp-page="/UsersManagement/Permissions/Index">دسترسی ها</a></li>
+
+                            </ul>
                         </li>
 
                     </ul>

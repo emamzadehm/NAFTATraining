@@ -4,9 +4,9 @@ using NT.UM.Domain.UsersAgg;
 
 namespace NT.UM.Infrastructure.EFCore.Mappings
 {
-    public class PermissionsMapping : IEntityTypeConfiguration<Permissions>
+    public class PermissionsMapping : IEntityTypeConfiguration<Permission>
     {
-        public void Configure(EntityTypeBuilder<Permissions> builder)
+        public void Configure(EntityTypeBuilder<Permission> builder)
         {
             builder.ToTable("Tbl_Permissions");
             builder.HasKey(x => x.ID);

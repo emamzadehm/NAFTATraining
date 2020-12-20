@@ -4,9 +4,9 @@ using NT.UM.Domain.UsersAgg;
 
 namespace NT.UM.Infrastructure.EFCore.Mappings
 {
-    public class UsersMapping : IEntityTypeConfiguration<Users>
+    public class UsersMapping : IEntityTypeConfiguration<User>
     {
-        public void Configure(EntityTypeBuilder<Users> builder)
+        public void Configure(EntityTypeBuilder<User> builder)
         {
             builder.ToTable("Tbl_Users");
             builder.HasKey(x => x.ID);
@@ -19,7 +19,24 @@ namespace NT.UM.Infrastructure.EFCore.Mappings
             builder.Property(x => x.IDCardIMG).HasMaxLength(2000).IsRequired(false);
             builder.Property(x => x.Status);
 
-            builder.HasMany(x => x.UsersRoless).WithOne(x => x.Users).HasForeignKey(x => x.UserID);
+            builder.HasMany(x => x.UserRoles).WithOne(x => x.Users).HasForeignKey(x => x.UserID);
+
+            //builder.OwnsMany(x => x.Roles, navigationBuilder =>
+            //{
+            //    navigationBuilder.HasKey(x => x.ID);
+            //    navigationBuilder.ToTable("Tbl_Users_Roles");
+            //    //navigationBuilder.Ignore(x => x.Name);
+            //    navigationBuilder.WithOwner(x => x.Users);
+            //    navigationBuilder.OwnsMany(x => x.Permissions, navigationBuilder1 =>
+            //     {
+            //         navigationBuilder1.HasKey(x => x.ID);
+            //         navigationBuilder1.ToTable("Tbl_Role_Permission");
+            //         //navigationBuilder.Ignore(x => x.Name);
+            //         navigationBuilder1.WithOwner(x => x.Roles);
+            //     });
+            //});
+
+
             //builder.HasOne<Candidate>(x=>x.Candidates).WithOne(x=>x.Users).HasForeignKey<Candidate>(x=>x.ID);
             //builder.HasOne<Instructor>(x => x.Instructors).WithOne(x => x.Users).HasForeignKey<Instructor>(x => x.ID);
         }

@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace NT.UM.Domain
 {
-    public interface IUsersRepository : IRepository<long, Users>
+    public interface IUsersRepository : IRepository<long, User>
     {
-        List<UsersViewModel> Search(UsersViewModel command = null);
+        Dictionary<long, List<UsersViewModel>> Search(UsersViewModel command = null);
         void Save();
         UsersViewModel GetDetails(long id);
     }

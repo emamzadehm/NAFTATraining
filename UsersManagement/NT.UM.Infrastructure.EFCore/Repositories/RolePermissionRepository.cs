@@ -20,9 +20,9 @@ namespace NT.UM.Infrastructure.EFCore.Repositories
             var Query = _ntumcontext.Tbl_Role_Permission.Where(x => x.Status == true).Select(x => new RolePermissionViewModel
             {
                 ID = x.ID,
-                RoleID=x.RoleID,
-                RoleName=x.Roles.RoleName,
-                PermissionID=x.PermissionID,
+                RoleID = x.RoleID,
+                RoleName = x.Roles.RoleName,
+                PermissionID = x.PermissionID,
                 PermissionName = x.Permissions.Title,
                 Status = x.Status
             });
@@ -31,7 +31,7 @@ namespace NT.UM.Infrastructure.EFCore.Repositories
                 if (!string.IsNullOrWhiteSpace(command.RoleName))
                     Query = Query.Where(x => x.RoleName.Contains(command.RoleName));
             }
-            
+
 
             return Query.ToList();
         }

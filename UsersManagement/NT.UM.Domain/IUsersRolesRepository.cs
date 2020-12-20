@@ -5,9 +5,8 @@ using System.Collections.Generic;
 
 namespace NT.UM.Domain
 {
-    public interface IUsersRolesRepository : IRepository<long, UsersRoles>
+    public interface IUsersRolesRepository : IRepository<long, UserRole>
     {
-        List<UsersRolesViewModel> Search(UsersRolesViewModel command = null);
-        UsersRolesViewModel GetDetails(long id);
+        UserRole GetByUserRole(long userID, long roleID);
     }
 }

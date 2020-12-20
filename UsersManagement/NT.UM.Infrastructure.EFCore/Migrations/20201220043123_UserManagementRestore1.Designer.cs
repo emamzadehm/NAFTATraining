@@ -10,8 +10,8 @@ using NT.UM.Infrastructure.EFCore;
 namespace NT.UM.Infrastructure.EFCore.Migrations
 {
     [DbContext(typeof(NTUMContext))]
-    [Migration("20201205164747_Init990915")]
-    partial class Init990915
+    [Migration("20201220043123_UserManagementRestore1")]
+    partial class UserManagementRestore1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace NT.UM.Infrastructure.EFCore.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.0");
 
-            modelBuilder.Entity("NT.UM.Domain.UsersAgg.Permissions", b =>
+            modelBuilder.Entity("NT.UM.Domain.UsersAgg.Permission", b =>
                 {
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
@@ -35,11 +35,39 @@ namespace NT.UM.Infrastructure.EFCore.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.HasKey("ID");
 
                     b.ToTable("Tbl_Permissions");
+                });
+
+            modelBuilder.Entity("NT.UM.Domain.UsersAgg.Role", b =>
+                {
+                    b.Property<long>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .UseIdentityColumn();
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("RoleName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Tbl_Roles");
                 });
 
             modelBuilder.Entity("NT.UM.Domain.UsersAgg.RolePermission", b =>
@@ -70,31 +98,7 @@ namespace NT.UM.Infrastructure.EFCore.Migrations
                     b.ToTable("Tbl_Role_Permission");
                 });
 
-            modelBuilder.Entity("NT.UM.Domain.UsersAgg.Roles", b =>
-                {
-                    b.Property<long>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .UseIdentityColumn();
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RoleName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Tbl_Roles");
-                });
-
-            modelBuilder.Entity("NT.UM.Domain.UsersAgg.Users", b =>
+            modelBuilder.Entity("NT.UM.Domain.UsersAgg.User", b =>
                 {
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
@@ -105,21 +109,30 @@ namespace NT.UM.Infrastructure.EFCore.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("IDCardIMG")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
 
                     b.Property<string>("IMG")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
 
                     b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
 
                     b.Property<string>("Password")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Sex")
@@ -129,14 +142,15 @@ namespace NT.UM.Infrastructure.EFCore.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Tel")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.HasKey("ID");
 
                     b.ToTable("Tbl_Users");
                 });
 
-            modelBuilder.Entity("NT.UM.Domain.UsersAgg.UsersRoles", b =>
+            modelBuilder.Entity("NT.UM.Domain.UsersAgg.UserRole", b =>
                 {
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
@@ -166,13 +180,13 @@ namespace NT.UM.Infrastructure.EFCore.Migrations
 
             modelBuilder.Entity("NT.UM.Domain.UsersAgg.RolePermission", b =>
                 {
-                    b.HasOne("NT.UM.Domain.UsersAgg.Permissions", "Permissions")
+                    b.HasOne("NT.UM.Domain.UsersAgg.Permission", "Permissions")
                         .WithMany("RolePermissions")
                         .HasForeignKey("PermissionID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NT.UM.Domain.UsersAgg.Roles", "Roles")
+                    b.HasOne("NT.UM.Domain.UsersAgg.Role", "Roles")
                         .WithMany("RolePermissions")
                         .HasForeignKey("RoleID")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -183,16 +197,16 @@ namespace NT.UM.Infrastructure.EFCore.Migrations
                     b.Navigation("Roles");
                 });
 
-            modelBuilder.Entity("NT.UM.Domain.UsersAgg.UsersRoles", b =>
+            modelBuilder.Entity("NT.UM.Domain.UsersAgg.UserRole", b =>
                 {
-                    b.HasOne("NT.UM.Domain.UsersAgg.Roles", "Roles")
-                        .WithMany("UsersRoless")
+                    b.HasOne("NT.UM.Domain.UsersAgg.Role", "Roles")
+                        .WithMany("UserRoles")
                         .HasForeignKey("RoleID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("NT.UM.Domain.UsersAgg.Users", "Users")
-                        .WithMany("UsersRoless")
+                    b.HasOne("NT.UM.Domain.UsersAgg.User", "Users")
+                        .WithMany("UserRoles")
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -202,21 +216,21 @@ namespace NT.UM.Infrastructure.EFCore.Migrations
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("NT.UM.Domain.UsersAgg.Permissions", b =>
+            modelBuilder.Entity("NT.UM.Domain.UsersAgg.Permission", b =>
                 {
                     b.Navigation("RolePermissions");
                 });
 
-            modelBuilder.Entity("NT.UM.Domain.UsersAgg.Roles", b =>
+            modelBuilder.Entity("NT.UM.Domain.UsersAgg.Role", b =>
                 {
                     b.Navigation("RolePermissions");
 
-                    b.Navigation("UsersRoless");
+                    b.Navigation("UserRoles");
                 });
 
-            modelBuilder.Entity("NT.UM.Domain.UsersAgg.Users", b =>
+            modelBuilder.Entity("NT.UM.Domain.UsersAgg.User", b =>
                 {
-                    b.Navigation("UsersRoless");
+                    b.Navigation("UserRoles");
                 });
 #pragma warning restore 612, 618
         }

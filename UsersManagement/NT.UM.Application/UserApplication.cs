@@ -10,14 +10,16 @@ namespace NT.UM.Application
     public class UserApplication : IUserApplication
     {
         private readonly IUsersRepository _userRepository;
+        private readonly IUsersRolesRepository _iusersrolesRepository;
         private readonly IUnitOfWorkNTUM _iUnitOfWork;
         private readonly IFileUploader _ifileuploader;
         private readonly IPasswordHasher _ipasswordhasher;
 
-        public UserApplication(IUsersRepository userRepository, IUnitOfWorkNTUM iUnitOfWork,
-            IFileUploader ifileuploader, IPasswordHasher ipasswordhasher)
+        public UserApplication(IUsersRepository userRepository, IUsersRolesRepository iusersrolesRepository,
+            IUnitOfWorkNTUM iUnitOfWork, IFileUploader ifileuploader, IPasswordHasher ipasswordhasher)
         {
             _userRepository = userRepository;
+            _iusersrolesRepository = iusersrolesRepository;
             _iUnitOfWork = iUnitOfWork;
             _ifileuploader = ifileuploader;
             _ipasswordhasher = ipasswordhasher;
@@ -31,7 +33,7 @@ namespace NT.UM.Application
             var foldername = command.LastName + " " + command.FirstName;
             var filenameIMG = _ifileuploader.Upload(command.IMG, path + foldername.Slugify() + $"//IMG");
             var filenameIDCardIMG = _ifileuploader.Upload(command.IDCardIMG, path + foldername.Slugify() + $"//IDCardIMG");
-            var NewItem = new Users(command.FirstName, command.LastName, command.Sex, command.Email, filenameIMG, command.Tel, command.Password, filenameIDCardIMG);
+            var NewItem = new User(command.FirstName, command.LastName, command.Sex, command.Email, filenameIMG, command.Tel, command.Password, filenameIDCardIMG);
             _userRepository.Create(NewItem);
             _iUnitOfWork.CommitTran();
             return operationresult.Successful();
@@ -65,7 +67,7 @@ namespace NT.UM.Application
             return _userRepository.GetDetails(id);
         }
 
-        public List<UsersViewModel> Search(UsersViewModel searchmodel = null)
+        public Dictionary<long, List<UsersViewModel>> Search(UsersViewModel searchmodel = null)
         {
             return _userRepository.Search(searchmodel);
         }
@@ -77,6 +79,26 @@ namespace NT.UM.Application
             var SelectedItem = _userRepository.GetBy(uid);
             var Password = _ipasswordhasher.Hash(password);
             SelectedItem.ChangePassword(Password);
+            _iUnitOfWork.CommitTran();
+            return operationresult.Successful();
+        }
+
+        public OperationResult CreateRole(long roleId, long userId)
+        {
+            _iUnitOfWork.BeginTran();
+            var operationresult = new OperationResult();
+            var NewUserRole = new UserRole(userId, roleId);
+            _iusersrolesRepository.Create(NewUserRole);
+            _iUnitOfWork.CommitTran();
+            return operationresult.Successful();
+        }
+
+        public OperationResult RemoveRole(long roleId, long userId)
+        {
+            _iUnitOfWork.BeginTran();
+            var operationresult = new OperationResult();
+            var SelectedItem = _iusersrolesRepository.GetByUserRole(userId, roleId);
+            SelectedItem.Remove();
             _iUnitOfWork.CommitTran();
             return operationresult.Successful();
         }

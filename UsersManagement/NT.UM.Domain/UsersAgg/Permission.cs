@@ -3,20 +3,18 @@ using System.Collections.Generic;
 
 namespace NT.UM.Domain.UsersAgg
 {
-    public class Permissions: DomainBase
+    public class Permission: DomainBase
     {
         public string Title { get; private set; }
-        public ICollection<RolePermission> RolePermissions { get; private set; }
+        public List<RolePermission> RolePermissions { get; private set; }
 
-        protected Permissions()
+        protected Permission()
         {
 
         }
-        public Permissions(string title)
+        public Permission(string title)
         {
             Title = title;
-            RolePermissions = new List<RolePermission>();
-
         }
         public void Edit(string title)
         {

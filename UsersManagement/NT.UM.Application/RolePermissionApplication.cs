@@ -44,12 +44,12 @@ namespace NT.UM.Application
             var SelectedItem = _irolepermissionrepository.GetBy(id);
             return new RolePermissionViewModel
             {
-                ID=SelectedItem.ID,
-                PermissionID=SelectedItem.PermissionID,
-                PermissionName =SelectedItem.Permissions.Title,
-                RoleID=SelectedItem.RoleID,
-                RoleName=SelectedItem.Roles.RoleName,
-                Status=SelectedItem.Status
+                ID = SelectedItem.ID,
+                PermissionID = SelectedItem.PermissionID,
+                PermissionName = SelectedItem.Permissions.Title,
+                RoleID = SelectedItem.RoleID,
+                RoleName = SelectedItem.Roles.RoleName,
+                Status = SelectedItem.Status
             };
         }
 

@@ -34,19 +34,10 @@ namespace NT.UM.Application.Contracts.ViewModels
         public string IDCardIMGFileAddress { get; set; }
         public string IMGFileAddress { get; set; }
 
-        public List<UsersRolesViewModel> UsersRoless { get; set; }
-        //public InstructorsViewModel Instructor { get; set; }
+        public List<UsersRolesViewModel> UserRolesList { get; set; }
 
-        ////////Candidate Fields:
-        //////public int? CompanyID { get; set; }
-        //////public string? NID { get; set; }
-        //////public string? DOB { get; set; }
-        //////public int? NationalityID { get; set; }
-        //////public string? CityOfBirth { get; set; }
+        public List<RolesViewModel> RolesList { get; set; }
 
 
-        ////////Instructor's Fields:
-        //////public string? EducationLevel { get; set; }
-        //////public string? Resume { get; set; }
     }
 }

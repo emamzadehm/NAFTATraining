@@ -22,7 +22,7 @@ namespace NT.UM.Application
         {
             _iunitofwork.BeginTran();
             var operationresult = new OperationResult();
-            var NewItem = new Permissions(command.Title);
+            var NewItem = new Permission(command.Title);
             _ipermissionsrepository.Create(NewItem);
             _iunitofwork.CommitTran();
             return operationresult.Successful();

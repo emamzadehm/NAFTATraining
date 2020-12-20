@@ -4,18 +4,18 @@ using System;
 
 namespace NT.UM.Domain.UsersAgg
 {
-    public class UsersRoles: DomainBase
+    public class UserRole: DomainBase
     {
         public long UserID { get; private set; }
-        public Users Users { get; private set; }
+        public User Users { get; private set; }
         public long RoleID { get; private set; }
-        public Roles Roles { get; private set; }
+        public Role Roles { get; private set; }
 
-        protected UsersRoles()
+        protected UserRole()
         {
 
         }
-        public UsersRoles(long userid, long roleid)
+        public UserRole(long userid, long roleid)
         {
             UserID = userid;
             RoleID = roleid;

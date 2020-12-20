@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace NT.UM.Domain
 {
-    public interface IRolesRepository : IRepository<long, Roles>
+    public interface IRolesRepository : IRepository<long, Role>
     {
         List<RolesViewModel> Search(RolesViewModel command = null);
         RolesViewModel GetDetails(long id);

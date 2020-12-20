@@ -5,8 +5,6 @@ using NT.UM.Application.Contracts.Interfaces;
 using NT.UM.Domain;
 using NT.UM.Infrastructure.EFCore.Repositories;
 using NT.UM.Application;
-using _01.Framework.Domain;
-using _01.Framework.Infrastructure.EFCore;
 
 namespace NT.UM.Infrastructure.Core
 {
@@ -21,11 +19,10 @@ namespace NT.UM.Infrastructure.Core
             services.AddTransient<IRolesApplication, RolesApplication>();
             services.AddTransient<IRolesRepository, RolesRepository>();
 
-            services.AddTransient<IUsersRolesApplication, UsersRolesApplication>();
-            services.AddTransient<IUsersRolesRepository, UsersRolesRepository>();
-
             services.AddTransient<IPermissionsApplication, PermissionsApplication>();
             services.AddTransient<IPermissionsRepository, PermissionsRepository>();
+
+            services.AddTransient<IUsersRolesRepository, UsersRolesRepository>();
 
             services.AddTransient<IRolePermissionApplication, RolePermissionApplication>();
             services.AddTransient<IRolePermissionRepository, RolePermissionRepository>();
@@ -34,8 +31,6 @@ namespace NT.UM.Infrastructure.Core
 
             services.AddDbContext<NTUMContext>(options => options.UseSqlServer(connectionstring));
             services.AddTransient<IUnitOfWorkNTUM, UnitOfWorkNTUM>();
-
-            //services.AddTransient<IUnitOfWork, UnitOfWorkUM>();
         }
     }
 }

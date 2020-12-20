@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace NT.UM.Infrastructure.EFCore.Repositories
 {
-    public class RolesRepository : BaseRepository<long, Roles> , IRolesRepository
+    public class RolesRepository : BaseRepository<long, Role> , IRolesRepository
     {
         private readonly NTUMContext _ntumcontext;
         public RolesRepository(NTUMContext ntumcontext) : base(ntumcontext)
@@ -22,6 +22,7 @@ namespace NT.UM.Infrastructure.EFCore.Repositories
                 ID = x.ID,
                 RoleName = x.RoleName,
                 Description = x.Description,
+
                 Status = x.Status
             }).FirstOrDefault(x=>x.ID==id);
         }

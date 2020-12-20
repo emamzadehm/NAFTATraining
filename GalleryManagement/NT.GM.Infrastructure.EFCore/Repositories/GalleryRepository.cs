@@ -42,13 +42,10 @@ namespace NT.GM.Infrastructure.EFCore.Repositories
                 ID = listitem.ID,
                 Title = listitem.Title,
                 TypeID = listitem.TypeID,
-                //TypeName = listitem.BaseInfo.Title,
                 FileAddress = listitem.PhotoAddress,
                 ParentID = listitem.ParentID,
                 ParentName = listitem.gallery.Title,
                 CourseInstructorId = listitem.CourseInstructorId
-                //CourseInstructorName=listitem.courseInstructor.Course.CName + " - " +
-                  //                   listitem.courseInstructor.SDate
             }).FirstOrDefault(x=>x.ID==id);
             return result;
         }

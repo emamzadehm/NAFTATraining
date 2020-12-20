@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace NT.UM.Domain.UsersAgg
 {
-    public class Users : DomainBase
+    public class User : DomainBase
     {
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
@@ -13,13 +13,12 @@ namespace NT.UM.Domain.UsersAgg
         public string IMG { get; private set; }
         public string Password { get; private set; }
         public string IDCardIMG { get; private set; }
-        public ICollection<UsersRoles> UsersRoless { get; private set; }
-
-        protected Users()
+        public List<UserRole> UserRoles { get; private set; }
+        protected User()
         {
 
         }
-        public Users(string firstname, string lastname, bool sex, string email, string img, string tel, string password,
+        public User(string firstname, string lastname, bool sex, string email, string img, string tel, string password,
             string idcardimg)
         {
             FirstName = firstname;
@@ -30,9 +29,6 @@ namespace NT.UM.Domain.UsersAgg
             IMG = img;
             Password = password;
             IDCardIMG = idcardimg;
-            //UsersRoless = new List<UsersRoles> {
-            //    new UsersRoles(ID, roleid)
-            //};
         }
 
 

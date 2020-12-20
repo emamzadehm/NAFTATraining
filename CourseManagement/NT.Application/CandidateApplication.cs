@@ -41,13 +41,13 @@ namespace NT.CM.Application
 
         private long CreateUser(CandidateViewModel command)
         {
-            var path = $"//UsersManagement//Candidates";
-            var foldername = command.LastName + " " + command.FirstName + " " + command.CompanyName;
+            var path = $"//UsersManagement//Candidates//";
+            var foldername = command.LastName + " " + command.FirstName;
             var filenameIMG = _ifileuploader.Upload(command.IMG, path + foldername.Slugify() + $"//IMG");
             var filenameIDCardIMG = _ifileuploader.Upload(command.IDCardIMG, path + foldername.Slugify() + $"//IDCardIMG");
             var password = _ipasswordhasher.Hash(command.Password);
 
-            var NewItem = new Users(command.FirstName, command.LastName, command.Sex, command.Email,
+            var NewItem = new User(command.FirstName, command.LastName, command.Sex, command.Email,
                 filenameIMG, command.Tel, password, filenameIDCardIMG);
             _iuserrepository.Create(NewItem);
             _iuserrepository.Save();
@@ -68,7 +68,7 @@ namespace NT.CM.Application
         private void EditUser(long uId, CandidateViewModel command)
         {
             var SelectedItem = _iuserrepository.GetBy(uId);
-            var path = $"UsersManagement//Candidates";
+            var path = $"UsersManagement//Candidates//";
             var foldername = command.LastName + " " + command.FirstName;
             var filenameIMG = _ifileuploader.Upload(command.IMG, path + foldername.Slugify() + $"//IMG");
             var filenameIDCardIMG = _ifileuploader.Upload(command.IDCardIMG, path + foldername.Slugify() + $"//IDCardIMG");

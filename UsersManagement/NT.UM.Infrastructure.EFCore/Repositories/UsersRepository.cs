@@ -1,36 +1,21 @@
 ﻿using _01.Framework.Application;
 using _01.Framework.Infrastructure.EFCore;
+using Microsoft.EntityFrameworkCore;
 using NT.UM.Application.Contracts.ViewModels;
 using NT.UM.Domain;
 using NT.UM.Domain.UsersAgg;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace NT.UM.Infrastructure.EFCore.Repositories
 {
-    public class UsersRepository : BaseRepository<long,Users> , IUsersRepository
+    public class UsersRepository : BaseRepository<long, User>, IUsersRepository
     {
         private readonly NTUMContext _ntumcontext;
-        public UsersRepository(NTUMContext ntumcontext) :base(ntumcontext)
+        public UsersRepository(NTUMContext ntumcontext) : base(ntumcontext)
         {
             _ntumcontext = ntumcontext;
-        }
-
-        public UsersViewModel GetDetails(long id)
-        {
-            return _ntumcontext.Tbl_Users.Where(x => x.Status == true).Select(x => new UsersViewModel
-            {
-                ID = x.ID,
-                FirstName = x.FirstName,
-                LastName = x.LastName,
-                Email = x.Email,
-                IDCardIMGFileAddress = x.IDCardIMG,
-                IMGFileAddress = x.IMG,
-                Sex = x.Sex,
-                Tel = x.Tel,
-                Fullname = x.Sex.ToSexName() + " " + x.FirstName + " " + x.LastName,
-                UserStatus = x.Status
-            }).FirstOrDefault(x=>x.ID==id);
         }
 
         public void Save()
@@ -38,29 +23,69 @@ namespace NT.UM.Infrastructure.EFCore.Repositories
             _ntumcontext.SaveChanges();
         }
 
-        public List<UsersViewModel> Search(UsersViewModel command = null)
+        public UsersViewModel GetDetails(long id)
         {
-            var Query = _ntumcontext.Tbl_Users.Where(x => x.Status == true).Select(x => new UsersViewModel
+            return _ntumcontext.Tbl_Users
+                .Include(x => x.UserRoles)
+                .ThenInclude(x => x.Roles)
+                .Where(x => x.Status == true)
+                .Select(x => new UsersViewModel
+                {
+                    ID = x.ID,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    Email = x.Email,
+                    IDCardIMGFileAddress = x.IDCardIMG,
+                    IMGFileAddress = x.IMG,
+                    Sex = x.Sex,
+                    Tel = x.Tel,
+                    Fullname = x.Sex.ToSexName() + " " + x.FirstName + " " + x.LastName,
+                    UserStatus = x.Status,
+                    UserRolesList = MapUserToRoles(x.UserRoles, x.ID)
+                }).FirstOrDefault(x => x.ID == id);
+        }
+        public Dictionary<long, List<UsersViewModel>> Search(UsersViewModel command = null)
+        {
+
+            var UserInfo = _ntumcontext
+                .Tbl_Users
+                .Include(x => x.UserRoles)
+                .ThenInclude(x => x.Roles)
+                .Where(x => x.Status == true)
+                .Select(x => new UsersViewModel
+                {
+                    ID = x.ID,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    Email = x.Email,
+                    IDCardIMGFileAddress = x.IDCardIMG,
+                    IMGFileAddress = x.IMG,
+                    Sex = x.Sex,
+                    Tel = x.Tel,
+                    Fullname = x.Sex.ToSexName() + " " + x.FirstName + " " + x.LastName,
+                    UserStatus = x.Status,
+                    UserRolesList = MapUserToRoles(x.UserRoles, x.ID)
+                }).AsEnumerable().GroupBy(x => x.ID).ToList();
+
+            //{
+            //    if (!string.IsNullOrWhiteSpace(command.Fullname))
+            //        UserInfo = UserInfo.Where(x => x.Fullname.Contains(command.Fullname));
+            //}
+
+            return UserInfo.ToDictionary(k => k.Key, v => v.ToList());
+
+        }
+
+        private static List<UsersRolesViewModel> MapUserToRoles(List<UserRole> userRoles, long uId)
+        {
+            return userRoles.Where(x => x.UserID == uId)
+                .Where(x=>x.Status==true)
+                .Select(x => new UsersRolesViewModel
             {
                 ID = x.ID,
-                FirstName=x.FirstName,
-                LastName=x.LastName,
-                Email=x.Email,
-                IDCardIMGFileAddress = x.IDCardIMG,
-                IMGFileAddress = x.IMG,
-                Sex=x.Sex,
-                Tel=x.Tel,
-                Fullname=x.Sex.ToSexName() + " " + x.FirstName + " " + x.LastName,
-                UserStatus = x.Status
-            });
-            if (command != null)
-            {
-                if (!string.IsNullOrWhiteSpace(command.Fullname))
-                    Query = Query.Where(x => x.Fullname.Contains(command.Fullname));
-            }
-           
-
-            return Query.ToList();
+                RoleID = x.RoleID,
+                RoleName = x.Roles.RoleName
+            }).ToList();
         }
     }
 }

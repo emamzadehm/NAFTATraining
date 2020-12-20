@@ -40,12 +40,12 @@ namespace NT.CM.Application
 
         private long CreateUser(InstructorsViewModel command)
         {
-            var path = $"UsersManagement//Instructors";
+            var path = $"UsersManagement//Instructors//";
             var foldername = command.LastName + " " + command.FirstName;
             var filenameIMG = _ifileuploader.Upload(command.IMG, path + foldername.Slugify() + $"//IMG");
             var filenameIDCardIMG = _ifileuploader.Upload(command.IDCardIMG, path + foldername.Slugify() + $"//IDCardIMG");
             var password = _ipasswordhasher.Hash(command.Password);
-            var NewItem = new Users(command.FirstName, command.LastName, command.Sex, command.Email, filenameIMG,
+            var NewItem = new User(command.FirstName, command.LastName, command.Sex, command.Email, filenameIMG,
                 command.Tel, password, filenameIDCardIMG);
             _iuserRepository.Create(NewItem);
             _iuserRepository.Save();
@@ -66,7 +66,7 @@ namespace NT.CM.Application
         private void EditUser(long userId, InstructorsViewModel command)
         {
             var SelectedUser = _iuserRepository.GetBy(userId);
-            var path = $"UsersManagement//Instructors";
+            var path = $"UsersManagement//Instructors//";
             var foldername = command.LastName + " " + command.FirstName;
             var filenameIMG = _ifileuploader.Upload(command.IMG, path + foldername.Slugify() + $"//IMG");
             var filenameIDCardIMG = _ifileuploader.Upload(command.IDCardIMG, path + foldername.Slugify() + $"//IDCardIMG");

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace NT.UM.Domain
 {
-    public interface IPermissionsRepository : IRepository<long,Permissions>
+    public interface IPermissionsRepository : IRepository<long,Permission>
     {
         List<PermissionsViewModel> Search(PermissionsViewModel command = null);
         PermissionsViewModel GetDetails(long id);

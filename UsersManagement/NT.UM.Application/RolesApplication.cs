@@ -22,7 +22,7 @@ namespace NT.UM.Application
         {
             _iunitofwork.BeginTran();
             var operationresult = new OperationResult();
-            var NewItem = new Roles(command.RoleName, command.Description);
+            var NewItem = new Role(command.RoleName, command.Description);
             _irolesrepository.Create(NewItem);
             _iunitofwork.CommitTran();
             return operationresult.Successful();

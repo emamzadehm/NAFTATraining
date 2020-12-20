@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace NT.UM.Infrastructure.EFCore.Repositories
 {
-    public class PermissionsRepository : BaseRepository<long, Permissions> , IPermissionsRepository
+    public class PermissionsRepository : BaseRepository<long, Permission> , IPermissionsRepository
     {
         private readonly NTUMContext _ntumcontext;
         public PermissionsRepository(NTUMContext ntumcontext) : base(ntumcontext)
@@ -22,7 +22,7 @@ namespace NT.UM.Infrastructure.EFCore.Repositories
                 ID = x.ID,
                 Title = x.Title,
                 Status = x.Status
-            }).FirstOrDefault(x=>x.ID==id);
+            }).FirstOrDefault(x => x.ID == id);
         }
 
         public List<PermissionsViewModel> Search(PermissionsViewModel command = null)
@@ -30,7 +30,7 @@ namespace NT.UM.Infrastructure.EFCore.Repositories
             var Query = _ntumcontext.Tbl_Permissions.Where(x => x.Status == true).Select(x => new PermissionsViewModel
             {
                 ID = x.ID,
-                Title=x.Title,
+                Title = x.Title,
                 Status = x.Status
             });
             if (command != null)
@@ -38,7 +38,7 @@ namespace NT.UM.Infrastructure.EFCore.Repositories
                 if (!string.IsNullOrWhiteSpace(command.Title))
                     Query = Query.Where(x => x.Title.Contains(command.Title));
             }
-            
+
 
             return Query.ToList();
         }

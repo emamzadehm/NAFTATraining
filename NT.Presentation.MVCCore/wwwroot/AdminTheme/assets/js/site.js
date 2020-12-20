@@ -165,6 +165,20 @@ function fillField(source, dist) {
     $('#' + dist).val(value);
 }
 
+function getSetIdValue(sourcefield1, sourcevalue1, sourcefield2, sourcevalue2, dist1,dist2, cnt) {
+    var hand1 = "?handler=" + dist1;
+    var hand2 = "?handler=" + dist2;
+
+    var f1 = "&" + sourcefield2 + '=' + $('#' + sourcevalue2).val();
+    var f2 = "&" + sourcefield1 + '=' + $('#' + sourcevalue1).val();
+
+    var sourcevalue2 = $('#' + sourcefield2).val();
+    //output = $('#' + dist).val($('#' + dist).val('href') + output);
+    $('#' + dist1).attr('href', hand1 + f1 + f2);
+    $('#' + dist2).attr('href', hand2 + f1 + f2);
+
+}
+
 $(document).on("click",
     'button[data-ajax="true"]',
     function () {

@@ -11,6 +11,9 @@ namespace NT.UM.Application.Contracts.Interfaces
         OperationResult ChangePassword(long uid, string password);
         OperationResult Remove(long id);
         UsersViewModel GetDetails(long id);
-        List<UsersViewModel> Search(UsersViewModel searchmodel = null);
+        Dictionary<long, List<UsersViewModel>> Search(UsersViewModel searchmodel = null);
+        OperationResult CreateRole(long roleId, long userId);
+        OperationResult RemoveRole(long roleId, long userId);
+
     }
 }

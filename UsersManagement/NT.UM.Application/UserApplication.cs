@@ -126,6 +126,7 @@ namespace NT.UM.Application
             var fullname = account.Sex.ToSexName() + " " + account.FirstName + " " + account.LastName;
             var authviewmodel = new AuthViewModel(account.ID, account.Email, fullname, accountroles);
             _iauthhelper.SignIn(authviewmodel);
+            _iUnitOfWork.CommitTran();
             return operationresult.Successful();
         }
     }

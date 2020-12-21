@@ -320,3 +320,4 @@ C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\UsersManagement\Permissions\Edit.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\UsersManagement\Permissions\Index.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\UsersManagement\Users\ShowRole.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\Login.cshtml.g.cs

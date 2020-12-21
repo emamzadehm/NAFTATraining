@@ -8,5 +8,6 @@ namespace NT.UM.Domain
     public interface IUsersRolesRepository : IRepository<long, UserRole>
     {
         UserRole GetByUserRole(long userID, long roleID);
+        List<UserRole> GetRoleByUser(long userID);
     }
 }

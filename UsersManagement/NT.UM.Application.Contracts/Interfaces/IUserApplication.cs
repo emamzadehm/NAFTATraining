@@ -10,6 +10,7 @@ namespace NT.UM.Application.Contracts.Interfaces
         OperationResult Edit(UsersViewModel command);
         OperationResult ChangePassword(long uid, string password);
         OperationResult Remove(long id);
+        OperationResult Login(LoginViewModel command);
         UsersViewModel GetDetails(long id);
         Dictionary<long, List<UsersViewModel>> Search(UsersViewModel searchmodel = null);
         OperationResult CreateRole(long roleId, long userId);

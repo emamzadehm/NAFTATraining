@@ -10,5 +10,6 @@ namespace NT.UM.Domain
         Dictionary<long, List<UsersViewModel>> Search(UsersViewModel command = null);
         void Save();
         UsersViewModel GetDetails(long id);
+        User GetByUsername(string username);
     }
 }

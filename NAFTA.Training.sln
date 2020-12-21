@@ -47,15 +47,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NT.Infrastructure.Query", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GalleryManagement", "GalleryManagement", "{BA14726F-A9E3-496C-AAF0-F5B535706DE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NT.GM.Application", "GalleryManagement\NT.GM.Application\NT.GM.Application.csproj", "{747EC6CE-E391-424B-A787-6967D836CE30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NT.GM.Application", "GalleryManagement\NT.GM.Application\NT.GM.Application.csproj", "{747EC6CE-E391-424B-A787-6967D836CE30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NT.GM.Application.Contracts", "GalleryManagement\NT.GM.Application.Contracts\NT.GM.Application.Contracts.csproj", "{E3C38054-6FFE-4179-9BE3-2FFF3A5C6378}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NT.GM.Application.Contracts", "GalleryManagement\NT.GM.Application.Contracts\NT.GM.Application.Contracts.csproj", "{E3C38054-6FFE-4179-9BE3-2FFF3A5C6378}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NT.GM.Infrastructure", "GalleryManagement\NT.GM.Infrastructure\NT.GM.Infrastructure.csproj", "{FE88B41D-CCD5-45C5-AD3E-DA8829CCD390}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NT.GM.Infrastructure", "GalleryManagement\NT.GM.Infrastructure\NT.GM.Infrastructure.csproj", "{FE88B41D-CCD5-45C5-AD3E-DA8829CCD390}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NT.GM.Infrastructure.EFCore", "GalleryManagement\NT.GM.Infrastructure.EFCore\NT.GM.Infrastructure.EFCore.csproj", "{D532DFAE-DFD0-469B-87F8-B0291B6C6076}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NT.GM.Infrastructure.EFCore", "GalleryManagement\NT.GM.Infrastructure.EFCore\NT.GM.Infrastructure.EFCore.csproj", "{D532DFAE-DFD0-469B-87F8-B0291B6C6076}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NT.GM.Domain", "GalleryManagement\NT.GM.Domain\NT.GM.Domain.csproj", "{51C0F3A0-8D1A-4BA7-B6B5-265CA50FCCD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NT.GM.Domain", "GalleryManagement\NT.GM.Domain\NT.GM.Domain.csproj", "{51C0F3A0-8D1A-4BA7-B6B5-265CA50FCCD9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

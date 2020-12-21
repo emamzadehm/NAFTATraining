@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace _01.Framework.Application
+﻿namespace _01.Framework.Application
 {
     public class ValidationMessages
     {
@@ -11,6 +7,9 @@ namespace _01.Framework.Application
         public const string FileExtention = "*فرمت فایل وارد شده معتبر نمی باشد.";
         public const string PasswordCompare = "*رمز عبور وارد شده با تکرار آن مطابقت ندارد.";
         public const string Email = "*ایمیل وارد شده صحیح نمی باشد.";
+        public const string InvalidUsernameOrPassword = "*شناسه کاربری یا رمز عبور صحیح نمی باشد.";
+
+        
 
     }
 }

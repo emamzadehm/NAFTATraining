@@ -26,14 +26,18 @@ namespace NT.Presentation.MVCCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
+            services.AddHttpContextAccessor();
             CMBootstrapper.Configure(services, Configuration.GetConnectionString("NTCS"));
             SMBootstrapper.Configure(services, Configuration.GetConnectionString("NTCS"));
             UMBootstrapper.Configure(services, Configuration.GetConnectionString("NTCS"));
             GMBootstrapper.Configure(services, Configuration.GetConnectionString("NTCS"));
+
             services.AddSingleton(HtmlEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Arabic));
-            services.AddTransient<IFileUploader, FileUploader>();
             services.AddSingleton<IPasswordHasher, PasswordHasher>();
+
+            services.AddTransient<IFileUploader, FileUploader>();
+            services.AddTransient<IAuthHelper, AuthHelper>();
+
 
             services.AddRazorPages();
         }

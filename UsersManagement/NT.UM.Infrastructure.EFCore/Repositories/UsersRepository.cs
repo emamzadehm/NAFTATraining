@@ -87,5 +87,14 @@ namespace NT.UM.Infrastructure.EFCore.Repositories
                 RoleName = x.Roles.RoleName
             }).ToList();
         }
+
+        public User GetByUsername(string username)
+        {
+            return _ntumcontext.Tbl_Users
+                           .Include(x => x.UserRoles)
+                           .ThenInclude(x => x.Roles)
+                           .Where(x => x.Status == true)
+                           .FirstOrDefault(x => x.Email == username);
+        }
     }
 }

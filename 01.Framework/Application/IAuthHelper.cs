@@ -4,5 +4,7 @@
     {
         void SignIn(AuthViewModel account);
         void SignOut();
+        bool IsAuthenticated();
+
     }
 }

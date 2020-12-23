@@ -129,5 +129,10 @@ namespace NT.UM.Application
             _iUnitOfWork.CommitTran();
             return operationresult.Successful();
         }
+
+        public void Logout()
+        {
+            _iauthhelper.SignOut();
+        }
     }
 }

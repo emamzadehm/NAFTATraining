@@ -27,5 +27,10 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages
             Message = result.message;
             return RedirectToPage("/Login");
         }
+        public void OnGetLogOut()
+        {
+            _iuserapplication.Logout();
+            return RedirectToPage("/Login");
+        }
     }
 }

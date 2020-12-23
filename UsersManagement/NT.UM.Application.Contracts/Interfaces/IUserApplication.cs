@@ -15,6 +15,7 @@ namespace NT.UM.Application.Contracts.Interfaces
         Dictionary<long, List<UsersViewModel>> Search(UsersViewModel searchmodel = null);
         OperationResult CreateRole(long roleId, long userId);
         OperationResult RemoveRole(long roleId, long userId);
+        void Logout();
 
     }
 }

@@ -99,6 +99,5 @@ namespace _01.Framework.Application
         {
             _contextAccessor.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
         }
-
     }
 }

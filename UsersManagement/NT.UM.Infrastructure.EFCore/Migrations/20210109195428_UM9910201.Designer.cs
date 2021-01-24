@@ -10,8 +10,8 @@ using NT.UM.Infrastructure.EFCore;
 namespace NT.UM.Infrastructure.EFCore.Migrations
 {
     [DbContext(typeof(NTUMContext))]
-    [Migration("20201220043048_UserManagementRestore")]
-    partial class UserManagementRestore
+    [Migration("20210109195428_UM9910201")]
+    partial class UM9910201
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,6 +31,9 @@ namespace NT.UM.Infrastructure.EFCore.Migrations
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<long?>("ParentId")
+                        .HasColumnType("bigint");
+
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
@@ -39,7 +42,12 @@ namespace NT.UM.Infrastructure.EFCore.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<long>("TypeId")
+                        .HasColumnType("bigint");
+
                     b.HasKey("ID");
+
+                    b.HasIndex("ParentId");
 
                     b.ToTable("Tbl_Permissions");
                 });
@@ -178,6 +186,15 @@ namespace NT.UM.Infrastructure.EFCore.Migrations
                     b.ToTable("Tbl_Users_Roles");
                 });
 
+            modelBuilder.Entity("NT.UM.Domain.UsersAgg.Permission", b =>
+                {
+                    b.HasOne("NT.UM.Domain.UsersAgg.Permission", "permission")
+                        .WithMany("Permissions")
+                        .HasForeignKey("ParentId");
+
+                    b.Navigation("permission");
+                });
+
             modelBuilder.Entity("NT.UM.Domain.UsersAgg.RolePermission", b =>
                 {
                     b.HasOne("NT.UM.Domain.UsersAgg.Permission", "Permissions")
@@ -218,6 +235,8 @@ namespace NT.UM.Infrastructure.EFCore.Migrations
 
             modelBuilder.Entity("NT.UM.Domain.UsersAgg.Permission", b =>
                 {
+                    b.Navigation("Permissions");
+
                     b.Navigation("RolePermissions");
                 });
 

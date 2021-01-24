@@ -1,4 +1,5 @@
 ﻿using _01.Framework.Application;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace NT.UM.Application.Contracts.ViewModels
@@ -10,6 +11,12 @@ namespace NT.UM.Application.Contracts.ViewModels
         public string RoleName { get; set; }
         public string Description { get; set; }
         public bool Granted { get; set; }
+        public long ModuleId { get; set; }
+        public string ModuleName { get; set; }
+        public List<RolePermissionViewModel> PermissionsList { get; set; }
+        public List<PermissionsViewModel> ModulesList { get; set; }
+        public List<long> SelectedPermissions { get; set; }
+
         public bool Status { get; set; }
     }
 }

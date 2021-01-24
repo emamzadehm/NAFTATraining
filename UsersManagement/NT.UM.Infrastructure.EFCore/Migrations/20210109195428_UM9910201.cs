@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NT.UM.Infrastructure.EFCore.Migrations
 {
-    public partial class UserManagementRestore : Migration
+    public partial class UM9910201 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,12 +14,20 @@ namespace NT.UM.Infrastructure.EFCore.Migrations
                     ID = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    TypeId = table.Column<long>(type: "bigint", nullable: false),
+                    ParentId = table.Column<long>(type: "bigint", nullable: true),
                     Status = table.Column<bool>(type: "bit", nullable: false),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Tbl_Permissions", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Tbl_Permissions_Tbl_Permissions_ParentId",
+                        column: x => x.ParentId,
+                        principalTable: "Tbl_Permissions",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -115,6 +123,11 @@ namespace NT.UM.Infrastructure.EFCore.Migrations
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Tbl_Permissions_ParentId",
+                table: "Tbl_Permissions",
+                column: "ParentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tbl_Role_Permission_PermissionID",

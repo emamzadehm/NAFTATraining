@@ -51,7 +51,6 @@ namespace NT.CM.Domain.BaseInfoAgg
             CourseCategoriers = new List<Course>();
             Companies = new List<Company>();
             CourseCandidateInstructorDetails = new List<CourseCandidateInstructorDetails>();
-            //Galleries = new List<Gallery>();
             Candidates = new List<Candidate>();
             CourseInstructors = new List<CourseInstructor>();
 

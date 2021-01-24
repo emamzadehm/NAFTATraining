@@ -49,12 +49,13 @@ namespace NT.Presentation.MVCCore
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, o =>
                 {
-                    o.LoginPath = new PathString("/AdminPanel/Login");
-                    o.LogoutPath = new PathString("/AdminPanel/Login");
-                    o.AccessDeniedPath = new PathString("/AdminPanel/AccessDenied");
+                    o.LoginPath = new PathString("/Login");
+                    o.LogoutPath = new PathString("/Login");
+                    o.AccessDeniedPath = new PathString("/AccessDenied");
                 });
-
-            services.AddRazorPages();
+            
+            services.AddRazorPages()
+                .AddMvcOptions(options=>options.Filters.Add<SecurityPageFilter>());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -45,14 +45,14 @@ namespace NT.UM.Application
         }
         public OperationResult Edit(UsersViewModel command)
         {
-            _iUnitOfWork.BeginTran(); 
+            _iUnitOfWork.BeginTran();
             var operationresult = new OperationResult();
             var SelectedItem = _iuserRepository.GetBy(command.ID);
             var path = $"UsersManagement//";
             var foldername = command.LastName + " " + command.FirstName;
             var filenameIMG = _ifileuploader.Upload(command.IMG, path + foldername.Slugify() + $"//IMG");
             var filenameIDCardIMG = _ifileuploader.Upload(command.IDCardIMG, path + foldername.Slugify() + $"//IDCardIMG");
-            SelectedItem.Edit(command.FirstName, command.LastName, command.Sex,command.Tel, filenameIMG, filenameIDCardIMG);
+            SelectedItem.Edit(command.FirstName, command.LastName, command.Sex, command.Tel, filenameIMG, filenameIDCardIMG);
             _iUnitOfWork.CommitTran();
             return operationresult.Successful();
         }
@@ -118,13 +118,20 @@ namespace NT.UM.Application
             (bool Verified, bool NeedsUpgrade) result = _ipasswordhasher.Check(account.Password, command.Password);
             if (result.Verified == false)
                 return operationresult.Failed(ValidationMessages.InvalidUsernameOrPassword);
-            var accountroles = _iusersrolesRepository.GetRoleByUser(account.ID).Select(x => new URolesViewModel { 
-                ID=x.ID,
-                RoleID=x.RoleID,
-                RoleName=x.Roles.RoleName,
-            }).ToList();
+
+            var accountroles = _iusersrolesRepository.GetRolePermissionByUser(account.ID)
+                .RolesList.Select(x => x.RoleID).ToList();
+
+            var accountpermissions = _iusersrolesRepository.GetRolePermissionByUser(account.ID)
+                .PermissionsList.Select(x => x.PermissionID).ToList();
+
+            var accountpermissionsTitle = _iusersrolesRepository.GetRolePermissionByUser(account.ID)
+                .PermissionsList.Select(x => x.PermissionName).ToList();
+
             var fullname = account.Sex.ToSexName() + " " + account.FirstName + " " + account.LastName;
-            var authviewmodel = new AuthViewModel(account.ID, account.Email, fullname, accountroles);
+
+            var authviewmodel = new AuthViewModel(account.ID, account.Email, fullname, accountroles, accountpermissions, accountpermissionsTitle);
+
             _iauthhelper.SignIn(authviewmodel);
             _iUnitOfWork.CommitTran();
             return operationresult.Successful();

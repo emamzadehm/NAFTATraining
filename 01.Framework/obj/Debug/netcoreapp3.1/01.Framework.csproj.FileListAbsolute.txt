@@ -23,5 +23,4 @@ C:\Projects\NAFTA\Training\01.Framework\obj\Debug\netcoreapp3.1\01.Framework.Ass
 C:\Projects\NAFTA\Training\01.Framework\obj\Debug\netcoreapp3.1\01.Framework.AssemblyInfo.cs
 C:\Projects\NAFTA\Training\01.Framework\obj\Debug\netcoreapp3.1\01.Framework.dll
 C:\Projects\NAFTA\Training\01.Framework\obj\Debug\netcoreapp3.1\01.Framework.pdb
-C:\Projects\NAFTA\Training\01.Framework\obj\Debug\netcoreapp3.1\01.Framework.csprojAssemblyReference.cache
 C:\Projects\NAFTA\Training\01.Framework\obj\Debug\netcoreapp3.1\01.Framework.csproj.CoreCompileInputs.cache

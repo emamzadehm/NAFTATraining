@@ -19,13 +19,17 @@ namespace NT.UM.Infrastructure.Core
             services.AddTransient<IRolesApplication, RolesApplication>();
             services.AddTransient<IRolesRepository, RolesRepository>();
 
+            services.AddTransient<IRolePermissionApplication, RolePermissionApplication>();
+            services.AddTransient<IRolePermissionRepository, RolePermissionRepository>();
+
             services.AddTransient<IPermissionsApplication, PermissionsApplication>();
             services.AddTransient<IPermissionsRepository, PermissionsRepository>();
 
             services.AddTransient<IUsersRolesRepository, UsersRolesRepository>();
 
-            services.AddTransient<IRolePermissionApplication, RolePermissionApplication>();
-            services.AddTransient<IRolePermissionRepository, RolePermissionRepository>();
+            services.AddTransient<IPermissionTypes, PermissionTypes>();
+
+
 
             //services.AddTransient<ICourseQuery, CourseQuery>();
 

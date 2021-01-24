@@ -23,7 +23,6 @@ namespace NT.UM.Application.Contracts.ViewModels
         public IFormFile IMG { get; set; }
         public string Tel { get; set; }
 
-        [Compare(nameof(RePassword), ErrorMessage = ValidationMessages.PasswordCompare)]
         [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
         public string Password { get; set; }
         [Compare(nameof(RePassword), ErrorMessage = ValidationMessages.PasswordCompare)]
@@ -35,6 +34,7 @@ namespace NT.UM.Application.Contracts.ViewModels
         public string IMGFileAddress { get; set; }
 
         public List<UsersRolesViewModel> UserRolesList { get; set; }
+        public List<long> UserRolesIdList { get; set; }
 
         public List<RolesViewModel> RolesList { get; set; }
 

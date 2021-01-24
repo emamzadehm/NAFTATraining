@@ -236,9 +236,6 @@ C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\bin\Debug\netcoreapp3.1\NT.UM
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\NT.Presentation.MVCCore.csprojAssemblyReference.cache
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\NT.Presentation.MVCCore.AssemblyInfoInputs.cache
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\NT.Presentation.MVCCore.AssemblyInfo.cs
-C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\NT.Presentation.MVCCore.csproj.CoreCompileInputs.cache
-C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\NT.Presentation.MVCCore.MvcApplicationPartsAssemblyInfo.cs
-C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\NT.Presentation.MVCCore.MvcApplicationPartsAssemblyInfo.cache
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\NT.Presentation.MVCCore.RazorAssemblyInfo.cache
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\NT.Presentation.MVCCore.RazorAssemblyInfo.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\NT.Presentation.MVCCore.TagHelpers.input.cache
@@ -291,7 +288,6 @@ C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\UsersManagement\Users\Index.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\UsersManagement\Users\View.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\_ViewStart.cshtml.g.cs
-C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\_ViewImports.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Pages\Error.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Pages\Index.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Pages\Register.cshtml.g.cs
@@ -320,4 +316,10 @@ C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\UsersManagement\Permissions\Edit.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\UsersManagement\Permissions\Index.cshtml.g.cs
 C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\UsersManagement\Users\ShowRole.cshtml.g.cs
-C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\Login.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Pages\AccessDenied.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Pages\Login.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_LoginLayout.cshtml.g.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\NT.Presentation.MVCCore.csproj.CoreCompileInputs.cache
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\NT.Presentation.MVCCore.MvcApplicationPartsAssemblyInfo.cs
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\NT.Presentation.MVCCore.MvcApplicationPartsAssemblyInfo.cache
+C:\Projects\NAFTA\Training\NT.Presentation.MVCCore\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Pages\_ViewImports.cshtml.g.cs

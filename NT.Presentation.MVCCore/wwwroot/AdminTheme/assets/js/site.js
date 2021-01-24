@@ -118,6 +118,91 @@ function get(url, refereshDiv) {
             $("#" + refereshDiv).html(result);
         });
 }
+
+function FillSerializeDropdown(source, action, dist) {
+    $('#' + dist).empty();
+    var selectedId = $('#' + source).find("option:selected").val();
+    $.getJSON('?handler=' + action + '&Id=' + selectedId, function (data) {
+        $.each(data, function (key, parentlist) {
+            //$('select#' + dist).append('<option value="0">Select One</option>');
+            // loop through the TM Managers and fill the dropdown
+            //$.each(parentlist, function (index, parent) {
+            $('select#' + dist).append(
+                '<option value="' + parentlist.id + '">'
+                + parentlist.title +
+                '</option>');
+            //});
+        });
+    });
+
+    //$.ajax({
+    //    url: '?handler='+action + '/'+selectedId,
+    //    type: 'GET',
+    //    data: JSON.stringify({ Id: selectedId }),
+    //    dataType: 'json',
+    //    contentType: "application/json; charset=utf-8",
+    //    success: function (data) {
+    //        $.each(data, function (key, parentlist) {
+    //            $('select#' + dist).append('<option value="0">Select One</option>');
+    //            // loop through the TM Managers and fill the dropdown
+    //            $.each(parentlist, function (index, parent) {
+    //                $('select#' + dist).append(
+    //                    '<option value="' + parent.Id + '">'
+    //                    + parent.Title +
+    //                    '</option>');
+    //            });
+    //        });
+    //    }
+    //});
+
+
+    //$.getJSON('@Url.Action("handler=?"' + action + '")', { id: selectedId }, function (data) {
+    //$('#' + dist).empty();
+    //$.each(data, function (i) {
+    //    var option = $('<option></option>').attr("value", data[i].Id).text(data[i].Title);
+    //    $("#" + dist + '"').append(option);
+    //});
+    //});
+
+
+    //$.get(action + '/' + selectedId).done(function (parentlist) {
+    //    $.each(parentlist, function (i, parent) {
+    //        $('select#' + dist).append('<option value="0">Select One</option>');
+    //        // loop through the TM Managers and fill the dropdown
+    //        $.each(parentlist, function (index, parent) {
+    //            $('select#' + dist).append(
+    //                '<option value="' + parent.Id + '">'
+    //                + parent.Title +
+    //                '</option>');
+    //        });
+    //    });
+    //});
+}
+
+
+function UpdatePermissionListByModule(source, action, dist) {
+    //$('#' + dist).empty();
+    var selectedId = $('#' + source).find("option:selected").val();
+    //$.get('?handler=' + action + '&Id=' + selectedId);
+
+
+    $.ajax({
+        url: '?handler=' + action + '&Id=' + selectedId,
+        type: "get",
+        //data: formData,
+        success: function () {
+            $('#' + dist).location.reload();
+            //alert("Hello: .\nCurrent Date and Time: " + response.DateTime);
+        },
+        failure: function (response) {
+            alert(response.responseText);
+        },
+        error: function (response) {
+            alert(response.responseText);
+        }
+    });
+}
+
 function SetSlug(source, dist) {
     //$('#' + source).change(function () {
     $('#' + dist).val('');
@@ -125,7 +210,7 @@ function SetSlug(source, dist) {
     $('#' + dist).val($('#' + dist).val() + '-' + convertToSlug(selectedText));
 };
 
-function makeSlug(source1,source2, dist) {
+function makeSlug(source1, source2, dist) {
 
     var selectedText = "";
     var value = "";
@@ -165,7 +250,7 @@ function fillField(source, dist) {
     $('#' + dist).val(value);
 }
 
-function getSetIdValue(sourcefield1, sourcevalue1, sourcefield2, sourcevalue2, dist1,dist2, cnt) {
+function getSetIdValue(sourcefield1, sourcevalue1, sourcefield2, sourcevalue2, dist1, dist2, cnt) {
     var hand1 = "?handler=" + dist1;
     var hand2 = "?handler=" + dist2;
 

@@ -15,8 +15,12 @@ namespace NT.UM.Application.Contracts.ViewModels
         public string Username { get; set; }
         public string RoleName { get; set; }
 
-        public List<UsersViewModel> UsersList { get; set; }
-        public List<RolesViewModel> RolesList { get; set; }
+        public List<UsersRolesViewModel> UsersList { get; set; }
+        public List<UsersRolesViewModel> RolesList { get; set; }
+        public List<RolePermissionViewModel> PermissionsList { get; set; }
+
+        //public List<int> RolesIdList { get; set; }
+
 
         public bool Status { get; set; }
         public string Fullname { get; set; }

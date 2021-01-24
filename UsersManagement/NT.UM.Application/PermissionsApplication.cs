@@ -22,7 +22,7 @@ namespace NT.UM.Application
         {
             _iunitofwork.BeginTran();
             var operationresult = new OperationResult();
-            var NewItem = new Permission(command.Title);
+            var NewItem = new Permission(command.Title,command.TypeId,command.ParentId);
             _ipermissionsrepository.Create(NewItem);
             _iunitofwork.CommitTran();
             return operationresult.Successful();
@@ -33,14 +33,19 @@ namespace NT.UM.Application
             _iunitofwork.BeginTran();
             var operationresult = new OperationResult();
             var SelectedItem = _ipermissionsrepository.GetBy(command.ID);
-            SelectedItem.Edit(command.Title);
+            SelectedItem.Edit(command.Title, command.TypeId, command.ParentId);
             _iunitofwork.CommitTran();
             return operationresult.Successful();
         }
 
-        public PermissionsViewModel GetDetails(long id)
+        public PermissionsViewModel GetDetails(long? id)
         {
             return _ipermissionsrepository.GetDetails(id);
+        }
+
+        public List<PermissionsViewModel> GetAllModules()
+        {
+            return _ipermissionsrepository.GetAllModules();
         }
 
         public OperationResult Remove(long id)
@@ -56,6 +61,21 @@ namespace NT.UM.Application
         public List<PermissionsViewModel> Search(PermissionsViewModel searchmodel = null)
         {
             return _ipermissionsrepository.Search(searchmodel);
+        }
+
+        //public List<PermissionsViewModel> GetPermissionsByModule(long id=0)
+        //{
+        //    return _ipermissionsrepository.GetPermissionsByModule(id);
+        //}
+
+        public Dictionary<long?, List<PermissionsViewModel>> GetPermissionsByModule(long id = 0)
+        {
+            return _ipermissionsrepository.GetPermissionsByModule(id);
+        }
+
+        public List<PermissionsViewModel> GetPermissionOperationByType(long id)
+        {
+            return _ipermissionsrepository.GetPermissionOperationByType(id);
         }
     }
 }

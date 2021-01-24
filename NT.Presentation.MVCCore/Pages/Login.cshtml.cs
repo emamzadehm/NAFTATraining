@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using NT.UM.Application.Contracts.Interfaces;
 using NT.UM.Application.Contracts.ViewModels;
 
-namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages
+namespace NT.Presentation.MVCCore.Pages
 {
     public class LoginModel : PageModel
     {
@@ -27,7 +27,7 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages
             Message = result.message;
             return RedirectToPage("/Login");
         }
-        public void OnGetLogOut()
+        public RedirectToPageResult OnGetLogOut()
         {
             _iuserapplication.Logout();
             return RedirectToPage("/Login");

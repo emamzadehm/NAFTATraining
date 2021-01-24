@@ -28,7 +28,11 @@ namespace _01.Framework.Application
             result.ID = long.Parse(claims.FirstOrDefault(x => x.Type == "UserId").Value);
             result.Username = claims.FirstOrDefault(x => x.Type == ClaimTypes.Email).Value;
             result.Fullname = claims.FirstOrDefault(x => x.Type == ClaimTypes.Name).Value;
-            result.RolesList = JsonConvert.DeserializeObject<List<URolesViewModel>>(claims.FirstOrDefault(x => x.Type == ClaimTypes.Role)?.Value);
+            result.RolesList = JsonConvert.DeserializeObject<List<long>>(claims.FirstOrDefault(x => x.Type == ClaimTypes.Role)?.Value);
+            result.PermissionsList = JsonConvert.DeserializeObject<List<long>>(claims.FirstOrDefault(x => x.Type == "permissions")?.Value);
+
+
+            //result.RolesList = JsonConvert.DeserializeObject<List<URolesViewModel>>(claims.FirstOrDefault(x => x.Type == ClaimTypes.Role)?.Value);
             //result.RoleId = long.Parse(claims.FirstOrDefault(x => x.Type == ClaimTypes.Role).Value);
             //result.Role = Roles.GetRoleBy(result.RoleId);
             //result.RolesList = claims.Select(x => x.Type == ClaimTypes.Role).ToList();
@@ -36,22 +40,22 @@ namespace _01.Framework.Application
             return result;
         }
 
-        public List<int> GetPermissions()
+        public List<long> GetPermissions()
         {
             if (!IsAuthenticated())
-                return new List<int>();
+                return new List<long>();
 
             var permissions = _contextAccessor.HttpContext.User.Claims.FirstOrDefault(x => x.Type == "permissions")
                 ?.Value;
-            return JsonConvert.DeserializeObject<List<int>>(permissions);
+            return JsonConvert.DeserializeObject<List<long>>(permissions);
         }
 
-        public List<URolesViewModel> CurrentAccountRole()
+        public List<long> CurrentAccountRole()
         {
             if (IsAuthenticated())
-                return new List<URolesViewModel>();
+                return new List<long>();
             var roles = _contextAccessor.HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Role)?.Value;
-            return JsonConvert.DeserializeObject<List<URolesViewModel>>(roles);
+            return JsonConvert.DeserializeObject<List<long>>(roles);
 
         }
 
@@ -69,12 +73,20 @@ namespace _01.Framework.Application
         {
             //var permissions = JsonConvert.SerializeObject(account.Permissions);
             var roles = JsonConvert.SerializeObject(account.RolesList);
+            var permissions = JsonConvert.SerializeObject(account.PermissionsList);
+            var permissionsTitle = JsonConvert.SerializeObject(account.PermissionsTitleList);
+
+
             var claims = new List<Claim>
             {
                 new Claim("UsedId", account.ID.ToString()),
                 new Claim(ClaimTypes.Name, account.Fullname),
                 new Claim(ClaimTypes.Email, account.Username), // Or Use ClaimTypes.NameIdentifier
-                new Claim(ClaimTypes.Role, roles)
+                new Claim(ClaimTypes.Role, roles),
+                new Claim("permissions", permissions),
+                new Claim("permissionsTitle", permissionsTitle),
+
+
                 //new Claim(ClaimTypes.Role, account.RolesList.Select(x => x.RoleID).ToList()),
                 //new Claim("permissions", permissions)
             };
@@ -98,6 +110,16 @@ namespace _01.Framework.Application
         public void SignOut()
         {
             _contextAccessor.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        }
+
+        public List<string> GetPermissionsTitle()
+        {
+            if (!IsAuthenticated())
+                return new List<string>();
+
+            var permissions = _contextAccessor.HttpContext.User.Claims.FirstOrDefault(x => x.Type == "permissionsTitle")
+                ?.Value;
+            return JsonConvert.DeserializeObject<List<string>>(permissions);
         }
     }
 }

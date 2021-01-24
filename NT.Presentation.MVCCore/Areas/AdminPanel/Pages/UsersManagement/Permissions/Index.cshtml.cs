@@ -11,10 +11,14 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.UsersManagement.Permiss
         public IPermissionsApplication _ipermissionsApplication;
         public List<PermissionsViewModel> permissionsVM { get; set; }
         public PermissionsViewModel SearchModel { get; set; }
+        public IPermissionTypes _ipermissionTypes;
+        //public List<PermissionTypes> permissiontypes;
 
-        public IndexModel(IPermissionsApplication ipermissionsApplication)
+
+        public IndexModel(IPermissionsApplication ipermissionsApplication, IPermissionTypes ipermissionTypes)
         {
             _ipermissionsApplication = ipermissionsApplication;
+            _ipermissionTypes = ipermissionTypes;
         }
 
         public void OnGet(PermissionsViewModel searchmodel)
@@ -23,7 +27,13 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.UsersManagement.Permiss
         }
         public IActionResult OnGetCreate()
         {
-            return Partial("./Create", new PermissionsViewModel());
+            var command = new PermissionsViewModel
+            {
+                PermissionTypesList = _ipermissionTypes.Expose(),
+                ParentList = _ipermissionsApplication.Search()
+            };
+            return Partial("./Create", command);
+            //return FillPermissionOperation(3);
         }
         public JsonResult OnPostCreate(PermissionsViewModel permissionsvm)
         {
@@ -45,5 +55,12 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.UsersManagement.Permiss
             _ipermissionsApplication.Remove(permissionsvm.ID);
             return RedirectToPage("Index");
         }
+        public JsonResult OnGetFillPermissionOperation(long id)
+        {
+            var parentslist = _ipermissionsApplication.GetPermissionOperationByType(id);
+            var parentlist =  new JsonResult(parentslist);
+            return parentlist;
+        }
+
     }
 }

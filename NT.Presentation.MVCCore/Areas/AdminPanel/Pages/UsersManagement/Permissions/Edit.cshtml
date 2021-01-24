@@ -3,7 +3,6 @@
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h4 class="modal-title">ویرایش دسترسی</h4>
 </div>
-
 <form asp-page="./Index" asp-page-handler="Edit"
       method="post"
       data-ajax="true"
@@ -11,10 +10,21 @@
       data-action="Refresh"
       enctype="multipart/form-data">
     <div class="modal-body">
-
         <input type="hidden" asp-for="ID" value="@Model.ID">
 
         <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="TypeId" class="control-label">نوع</label>
+                    <select class="form-control" asp-for="TypeId" asp-items='new SelectList(Model.PermissionTypesList, "Id", "Title")'>
+                        <option value="Null">انتخاب نوع ...</option>
+                        @*<option value="1">ماژولها</option>
+                        <option value="2">بخش ها</option>
+                        <option value="3">عملیاتها</option>*@
+                    </select>
+                    <span asp-validation-for="TypeId" class="error"></span>
+                </div>
+            </div>
             <div class="col-md-12">
                 <div class="form-group">
                     <label asp-for="Title" class="control-label">عنوان</label>
@@ -22,12 +32,23 @@
                     <span asp-validation-for="Title" class="error"></span>
                 </div>
             </div>
+            <div class="=col-md-12">
+                <div class="form-group">
+                    <label asp-for="ParentId" class="control-label">زیرمجموعه ی</label>
+                    <select class="form-control" asp-for="ParentId"
+                            asp-items='new SelectList(Model.ParentList, "ID", "Title")'>
+                        <option value="Null">زیرمجموعه ی</option>
+                    </select>
+                    <span asp-validation-for="ParentId" class="error"></span>
+                </div>
+            </div>
         </div>
 
 
     </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
-            <button type="submit" class="btn btn-info waves-effect waves-light">ویرایش</button>
-        </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
+        <button type="submit" class="btn btn-info waves-effect waves-light">ویرایش</button>
+    </div>
 </form>
+

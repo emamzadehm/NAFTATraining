@@ -14,15 +14,17 @@ namespace NT.UM.Domain.UsersAgg
         {
 
         }
-        public Role(string rolename, string description)
+        public Role(string rolename, string description, List<RolePermission> rolePermissions)
         {
             RoleName = rolename;
             Description = description;
+            RolePermissions = rolePermissions;
         }
-        public void Edit(string rolename, string description)
+        public void Edit(string rolename, string description, List<RolePermission> rolePermissions)
         {
             RoleName = rolename;
             Description = description;
+            RolePermissions = rolePermissions;
         }
     }
 }

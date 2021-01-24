@@ -1,10 +1,12 @@
-﻿namespace _01.Framework.Application
+﻿using System.Collections.Generic;
+
+namespace _01.Framework.Application
 {
-    public class URolesViewModel
+    public class URolesPermissionsViewModel
     {
-        public long ID { get; set; }
-        public long RoleID { get; set; }
-        public string RoleName { get; set; }
+        //public long ID { get; set; }
         public long UserID { get; set; }
+        public List<long> RoleList { get; set; }
+        public List<long> PermissionList { get; set; }
     }
 }

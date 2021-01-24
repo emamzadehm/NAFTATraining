@@ -14,7 +14,7 @@ namespace NT.GM.Application.Contracts.ViewModels.Galleries
         [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
         public string Title { get; set; }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
+        [Range(1,int.MaxValue, ErrorMessage = ValidationMessages.IsRequired)]
         public long TypeID { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = ValidationMessages.IsRequired)]
@@ -34,7 +34,6 @@ namespace NT.GM.Application.Contracts.ViewModels.Galleries
         public string Keywords { get; set; }
         public string Slug { get; set; }
         public string CanonicalAddress { get; set; }
-
         public List<CourseInstructorViewModel> CourseInstructor { get; set; }
 
 

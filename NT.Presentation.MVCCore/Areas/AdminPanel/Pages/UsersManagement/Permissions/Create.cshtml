@@ -14,10 +14,31 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
+                    <label asp-for="TypeId" class="control-label">نوع</label>
+                    <select class="form-control" asp-for="TypeId" asp-items='new SelectList(Model.PermissionTypesList, "Id", "Title")' onchange="FillSerializeDropdown('TypeId','FillPermissionOperation','ParentId')">
+                        <option value="Null">انتخاب نوع ...</option>
+                        @*<option value="1">ماژولها</option>
+                        <option value="2">بخش ها</option>
+                        <option value="3">عملیاتها</option>*@
+                    </select>
+                    <span asp-validation-for="TypeId" class="error"></span>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
                     <label asp-for="Title" class="control-label">عنوان</label>
                     <input type="text" class="form-control" asp-for="Title">
                     <span asp-validation-for="Title" class="error"></span>
                 </div>
+            </div>
+            <div class="=col-md-12">
+                    <div class="form-group">
+                        <label asp-for="ParentId" class="control-label">زیرمجموعه ی</label>
+                        <select class="form-control" asp-for="ParentId">
+                            <option value="Null">زیرمجموعه ی</option>
+                        </select>
+                        <span asp-validation-for="ParentId" class="error"></span>
+                    </div>
             </div>
         </div>
 

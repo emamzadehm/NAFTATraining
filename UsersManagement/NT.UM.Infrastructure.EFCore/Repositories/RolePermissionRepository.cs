@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace NT.UM.Infrastructure.EFCore.Repositories
 {
-    public class RolePermissionRepository : BaseRepository<long, RolePermission> , IRolePermissionRepository
+    public class RolePermissionRepository : BaseRepository<long, RolePermission>, IRolePermissionRepository
     {
         private readonly NTUMContext _ntumcontext;
         public RolePermissionRepository(NTUMContext ntumcontext) : base(ntumcontext)
@@ -15,25 +15,35 @@ namespace NT.UM.Infrastructure.EFCore.Repositories
             _ntumcontext = ntumcontext;
         }
 
-        public List<RolePermissionViewModel> Search(RolePermissionViewModel command = null)
+
+
+        public Dictionary<long?, List<RolePermissionViewModel>> GetPermissionsByRole(long id = 0)
         {
-            var Query = _ntumcontext.Tbl_Role_Permission.Where(x => x.Status == true).Select(x => new RolePermissionViewModel
-            {
-                ID = x.ID,
-                RoleID = x.RoleID,
-                RoleName = x.Roles.RoleName,
-                PermissionID = x.PermissionID,
-                PermissionName = x.Permissions.Title,
-                Status = x.Status
-            });
-            if (command != null)
-            {
-                if (!string.IsNullOrWhiteSpace(command.RoleName))
-                    Query = Query.Where(x => x.RoleName.Contains(command.RoleName));
-            }
+            var permissionbyrole = _ntumcontext.Tbl_Role_Permission
+                .Where(x => x.Status == true && x.RoleID == id)
+                .Select(x => new RolePermissionViewModel
+                {
+                    ID = x.ID,
+                    RoleID = x.RoleID,
+                    RoleName = x.Roles.RoleName,
+                    RoleDescription = x.Roles.Description,
+                    PermissionID = x.PermissionID,
+                    PermissionName = x.Permissions.Title,
+                    PermissionPerentID = x.Permissions.ParentId,
+                    Status = x.Status,
+                }).AsEnumerable().GroupBy(x => x.PermissionPerentID).ToList();
 
-
-            return Query.ToList();
+            return permissionbyrole.ToDictionary(k => k.Key, v => v.ToList());
+        }
+        public RolePermission GetIdByRoleAndPermission(long PermissionId, long RoleId)
+        {
+            return _ntumcontext.Tbl_Role_Permission
+                            .FirstOrDefault(x => x.Status == true && x.RoleID == RoleId && x.PermissionID == PermissionId);
+        }
+        public List<RolePermission> GetPermissionsByRoleId(long RoleId)
+        {
+            return _ntumcontext.Tbl_Role_Permission
+                            .Where(x => x.Status == true && x.RoleID == RoleId).ToList();
         }
     }
 }

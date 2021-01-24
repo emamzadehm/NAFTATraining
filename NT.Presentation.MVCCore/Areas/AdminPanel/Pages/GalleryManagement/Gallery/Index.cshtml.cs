@@ -7,6 +7,8 @@ using NT.GM.Application.Contracts.Interfaces;
 using NT.CM.Application.Contracts.ViewModels.BaseInfo;
 using NT.GM.Application.Contracts.ViewModels.Galleries;
 using NT.CM.Application.Contracts.Interfaces;
+using _01.Framework.Infrastructure.EFCore;
+using NT.UM.Application.Contracts.Interfaces;
 
 namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.GalleryManagement.Gallery
 {
@@ -15,6 +17,8 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.GalleryManagement.Galle
         private readonly IGalleryApplication _igalleryapplication;
         private readonly IBaseInfoApplication _ibaseinfoapplication;
         private readonly ICourseInstructorApplication _icourseinstructorapplication;
+        private readonly IPermissionsApplication _ipermissionapplication;
+
 
         public GalleryViewModel searchmodelgallery;
         public BaseInfoViewModel searchmodelbaseinfo;
@@ -24,13 +28,15 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.GalleryManagement.Galle
         public GalleryViewModel SearchModel { get; set; }
 
         public IndexModel(IGalleryApplication igalleryapplication, IBaseInfoApplication ibaseinfoapplication,
-            ICourseInstructorApplication icourseinstructorapplication)
+            ICourseInstructorApplication icourseinstructorapplication, IPermissionsApplication ipermissionapplication)
         {
             _igalleryapplication = igalleryapplication;
             _ibaseinfoapplication = ibaseinfoapplication;
             _icourseinstructorapplication = icourseinstructorapplication;
+            _ipermissionapplication = ipermissionapplication;
         }
 
+        [NeedsPermission("Gallery Management", "Album", "OnGet")]
         public void OnGet(GalleryViewModel searchmodel)
         {
             gallerylist = new SelectList(_igalleryapplication.GetAlbums(), "ID", "Title");
@@ -44,6 +50,8 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.GalleryManagement.Galle
                 galleryVM = _igalleryapplication.GetAlbums();
             }
         }
+        [NeedsPermission("Gallery Management", "Album", "Create")]
+
         public IActionResult OnGetCreate()
         {
             var command = new GalleryViewModel
@@ -54,6 +62,7 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.GalleryManagement.Galle
             };
             return Partial("./Create", command);
         }
+        [NeedsPermission("Gallery Management", "Album", "Create")]
         public JsonResult OnPostCreate(GalleryViewModel galleryvm, List<IFormFile> photoAddress)
         {
             var result = _igalleryapplication.Create(galleryvm, photoAddress);
@@ -74,6 +83,7 @@ namespace NT.Presentation.MVCCore.Areas.AdminPanel.Pages.GalleryManagement.Galle
             var result = _igalleryapplication.Edit(galleryvm);
             return new JsonResult(result);
         }
+        [NeedsPermission("Gallery Management", "Album", "Delete")]
         public IActionResult OnGetRemove(long id)
         {
             _igalleryapplication.Remove(id);
